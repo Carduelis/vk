@@ -30,3 +30,9 @@ void Menu::on_ButtonDRLPRL_clicked()
     RSPi=new RSPIndicators;
     RSPi->show();
 }
+
+void Menu::on_ButtonRSP_clicked()
+{
+    RSP=new RSPView;
+    RSP->show();
+}
