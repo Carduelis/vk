@@ -24,3 +24,9 @@ void Menu::on_ButtonIndicatorPRL_clicked()
     PRL=new IndicatorPRL;
     PRL->show();
 }
+
+void Menu::on_ButtonDRLPRL_clicked()
+{
+    RSPi=new RSPIndicators;
+    RSPi->show();
+}

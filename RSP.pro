@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     mainlocator.cpp \
     indicatorprl.cpp \
     toptrianglelocator.cpp \
-    righttrianglelocator.cpp
+    righttrianglelocator.cpp \
+    rspindicators.cpp
 
 HEADERS  += menu.h \
     indicatordrl.h \
@@ -27,11 +28,13 @@ HEADERS  += menu.h \
     helpers.h \
     indicatorprl.h \
     toptrianglelocator.h \
-    righttrianglelocator.h
+    righttrianglelocator.h \
+    rspindicators.h
 
 FORMS    += menu.ui \
     indicatordrl.ui \
-    indicatorprl.ui
+    indicatorprl.ui \
+    rspindicators.ui
 
 target.path = $$[QT_INSTALL_PLUGINS]/designer
 INSTALLS += target
