@@ -4,17 +4,30 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl designer widgets
+CONFIG   += plugin
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QMAKE_CXXFLAGS += -std=c++0x
 TARGET = RSP
-TEMPLATE = app
+TEMPLATE = app lib
 
 
 SOURCES += main.cpp\
-        menu.cpp
+        menu.cpp \
+    indicatordrl.cpp \
+    mainlocator.cpp
 
-HEADERS  += menu.h
+HEADERS  += menu.h \
+    indicatordrl.h \
+    mainlocator.h \
+    helpers.h
 
-FORMS    += menu.ui
+FORMS    += menu.ui \
+    indicatordrl.ui
+
+target.path = $$[QT_INSTALL_PLUGINS]/designer
+INSTALLS += target
+
+RESOURCES += \
+    Common.qrc
