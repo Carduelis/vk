@@ -16,15 +16,22 @@ TEMPLATE = app lib
 SOURCES += main.cpp\
         menu.cpp \
     indicatordrl.cpp \
-    mainlocator.cpp
+    mainlocator.cpp \
+    indicatorprl.cpp \
+    toptrianglelocator.cpp \
+    righttrianglelocator.cpp
 
 HEADERS  += menu.h \
     indicatordrl.h \
     mainlocator.h \
-    helpers.h
+    helpers.h \
+    indicatorprl.h \
+    toptrianglelocator.h \
+    righttrianglelocator.h
 
 FORMS    += menu.ui \
-    indicatordrl.ui
+    indicatordrl.ui \
+    indicatorprl.ui
 
 target.path = $$[QT_INSTALL_PLUGINS]/designer
 INSTALLS += target
