@@ -70,10 +70,64 @@ void MainLocator::paintGL()
     glPopMatrix();
 }
 
+template<typename OptionType>void MainLocator::SetSettings(const QString group,const QString name,const OptionType option)
+{
+    settings[group][name]=QVariant::fromValue(option);
+    if(group!="common")
+        updateGL();
+}
+
+template<typename OptionType>void MainLocator::SetSettings(const QString name,const OptionType option)
+{
+    SetSettings("common",name,option);
+}
+
+MainLocator::Azimuth MainLocator::GetCurrentAzimuthMode(void)const
+{
+    return azimuth;
+}
+
+void MainLocator::SetCurrentAzimuthMode(const MainLocator::Azimuth a)
+{
+    azimuth=a;
+}
+
+MainLocator::Range MainLocator::GetCurrentRangeMode(void)const
+{
+    return range;
+}
+
+void MainLocator::SetCurrentRangeMode(const MainLocator::Range r)
+{
+    range=r;
+}
+
+
+MainLocator::Scale MainLocator::GetCurrentScaleMode(void)const
+{
+    return scale;
+}
+
+void MainLocator::SetCurrentScaleMode(const MainLocator::Scale s)
+{
+    scale=s;
+}
+
+MainLocator::WorkMode MainLocator::GetCurrentWorkMode(void)const
+{
+    return work_mode;
+}
+
+void MainLocator::SetCurrentWorkMode(const MainLocator::WorkMode wm)
+{
+    work_mode=wm;
+}
+
 bool MainLocator::IsActive(void)const
 {
     return timer.isActive();
 }
+
 
 void MainLocator::LocatorArea(void)const
 {
@@ -115,4 +169,19 @@ void MainLocator::DrawStation(void)const
     glTranslatef(-rx,.0f,.0f);
     glRotatef(-30.0f,.0f,.0f,1.0);
     */
+}
+
+QPixmap MainLocator::RotateResourceImage(const QString resource_path,const qint16 degree)
+{
+    QPixmap original=QPixmap(resource_path),
+            pixmap(original.size());
+    pixmap.fill(Qt::transparent);
+
+    QPainter p(&pixmap);
+    p.translate(pixmap.size().width()/2,pixmap.size().height()/2);
+    p.rotate(degree);
+    p.translate(-pixmap.size().width()/2,-pixmap.size().height()/ 2);
+    p.drawPixmap(0u,0u,original);
+    p.end();
+    return original=pixmap;
 }

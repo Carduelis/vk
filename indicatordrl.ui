@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_27">
-    <item row="1" column="0">
+    <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignBottom">
      <widget class="QGroupBox" name="BoxTrashSettings">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -29,7 +29,7 @@
       <layout class="QGridLayout" name="gridLayout_23">
        <item row="0" column="0">
         <layout class="QGridLayout" name="LayoutBoxPassiveTrash">
-         <item row="0" column="0">
+         <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
           <widget class="QLabel" name="LabelChangeTrashIntensity">
            <property name="text">
             <string>Усиление приёмника:</string>
@@ -39,9 +39,35 @@
            </property>
           </widget>
          </item>
+         <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+          <widget class="QLabel" name="LabelScatterTrash">
+           <property name="text">
+            <string>Разброс помех по радиусу:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="RegenerateTrash">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="text">
+            <string>Перегенерировать помехи</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="1">
-          <layout class="QGridLayout" name="LayoutTrashIntensityButton">
-           <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout" columnstretch="0,3">
+           <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
             <widget class="QPushButton" name="ChangeTrashIntensityButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -76,8 +102,14 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
+           <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
             <widget class="QSlider" name="ChangeTrashIntensity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="cursor">
               <cursorShape>OpenHandCursor</cursorShape>
              </property>
@@ -94,19 +126,33 @@
            </item>
           </layout>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="LabelScatterTrash">
-           <property name="text">
-            <string>Разброс помех по радиусу:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
+         <item row="2" column="0">
+          <layout class="QGridLayout" name="LayoutAdvanedPassiveTrash">
+           <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <widget class="QCheckBox" name="CheckShowLocalItems">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>Местные предметы</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <widget class="QCheckBox" name="CheckShowMeteo">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>Метеообразования</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item row="1" column="1">
           <layout class="QGridLayout" name="LayoutTrashRangeButton">
-           <item row="0" column="0">
+           <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelScatterTrashFrom">
              <property name="text">
               <string>от</string>
@@ -126,7 +172,7 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelScatterTrashTo">
              <property name="text">
               <string>до</string>
@@ -151,46 +197,6 @@
            </item>
           </layout>
          </item>
-         <item row="2" column="0">
-          <layout class="QGridLayout" name="LayoutAdvanedPassiveTrash">
-           <item row="0" column="0">
-            <widget class="QCheckBox" name="CheckShowLocalItems">
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="text">
-              <string>Местные предметы</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QCheckBox" name="CheckShowMeteo">
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="text">
-              <string>Метеообразования</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="2" column="1">
-          <widget class="QPushButton" name="RegenerateTrash">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="text">
-            <string>Перегенерировать помехи</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -199,7 +205,7 @@
     <item row="0" column="0">
      <layout class="QGridLayout" name="LayoutMainLocator">
       <item row="0" column="0">
-       <widget class="MainLocator" name="widget" native="true">
+       <widget class="MainLocator" name="RenderMainLocator" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -213,7 +219,7 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="0">
+    <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignBottom">
      <widget class="QGroupBox" name="BoxActiveTrashSettings">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -252,7 +258,7 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
              <widget class="QLabel" name="LabelActiveAnswerDistance">
               <property name="text">
                <string>Дистанция:</string>
@@ -282,7 +288,7 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
              <widget class="QLabel" name="LabelActiveAnswerAzimuth">
               <property name="text">
                <string>Азимут:</string>
@@ -370,7 +376,7 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
         <widget class="QCheckBox" name="CheckActiveInSyncShow">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -384,7 +390,7 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="1" rowspan="3">
+    <item row="0" column="1" rowspan="3" alignment="Qt::AlignRight|Qt::AlignTop">
      <widget class="QGroupBox" name="BoxIndicatorSettings">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -410,7 +416,7 @@
            <item row="1" column="1">
             <widget class="QPushButton" name="ChangeViewStateAll">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -446,7 +452,7 @@
              <item row="1" column="0">
               <widget class="QPushButton" name="ChangeLocatorState">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -472,7 +478,7 @@
              </property>
             </widget>
            </item>
-           <item row="14" column="0">
+           <item row="14" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelWorkVariant">
              <property name="text">
               <string>Режим работы:</string>
@@ -484,7 +490,7 @@
            </item>
            <item row="8" column="1">
             <layout class="QGridLayout" name="LayoutLightningButton">
-             <item row="0" column="0">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
               <widget class="QPushButton" name="ChangeIndicatorLightningButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -519,8 +525,14 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QSlider" name="ChangeIndicatorLightning">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="cursor">
                 <cursorShape>OpenHandCursor</cursorShape>
                </property>
@@ -546,7 +558,7 @@
            </item>
            <item row="12" column="1">
             <layout class="QGridLayout" name="LayoutVaruButton">
-             <item row="0" column="0">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
               <widget class="QPushButton" name="ChangeIndicatorVARUButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -581,8 +593,14 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QSlider" name="ChangeIndicatorVARU">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="cursor">
                 <cursorShape>OpenHandCursor</cursorShape>
                </property>
@@ -599,7 +617,7 @@
              </item>
             </layout>
            </item>
-           <item row="0" column="0">
+           <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelAzimuthMarks">
              <property name="text">
               <string>Отметки азимута:</string>
@@ -609,7 +627,7 @@
              </property>
             </widget>
            </item>
-           <item row="12" column="0">
+           <item row="12" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelVARU">
              <property name="text">
               <string>ВАРУ:</string>
@@ -619,7 +637,7 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
+           <item row="4" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelScale">
              <property name="text">
               <string>Масштаб:</string>
@@ -629,7 +647,7 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
+           <item row="8" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelDisplayLightning">
              <property name="text">
               <string>Подсветка:</string>
@@ -643,7 +661,7 @@
             <layout class="QGridLayout" name="LayoutWorkVariantButton">
              <item row="0" column="0">
               <layout class="QGridLayout" name="LayoutWorkVariantButtonLabels">
-               <item row="0" column="0">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelWorkVariantAKT">
                  <property name="text">
                   <string>АКТ</string>
@@ -653,7 +671,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelWorkVariantPASS">
                  <property name="text">
                   <string>ПАСС</string>
@@ -663,7 +681,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
+               <item row="0" column="2" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelWorkVariantSDC">
                  <property name="text">
                   <string>СДЦ</string>
@@ -672,10 +690,10 @@
                </item>
               </layout>
              </item>
-             <item row="1" column="0">
+             <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QPushButton" name="SelectWorkVariant">
                <property name="cursor">
-                <cursorShape>PointingHandCursor</cursorShape>
+                <cursorShape>OpenHandCursor</cursorShape>
                </property>
                <property name="focusPolicy">
                 <enum>Qt::TabFocus</enum>
@@ -708,7 +726,7 @@
            </item>
            <item row="10" column="1">
             <layout class="QGridLayout" name="LayoutFocusButton">
-             <item row="0" column="0">
+             <item row="0" column="0" alignment="Qt::AlignLeft">
               <widget class="QPushButton" name="ChangeIndicatorFocusButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -743,8 +761,14 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="0" column="1" alignment="Qt::AlignVCenter">
               <widget class="QSlider" name="ChangeIndicatorFocus">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="cursor">
                 <cursorShape>OpenHandCursor</cursorShape>
                </property>
@@ -764,7 +788,7 @@
              </item>
             </layout>
            </item>
-           <item row="6" column="0">
+           <item row="6" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelBrightness">
              <property name="text">
               <string>Яркость дисплея:</string>
@@ -778,7 +802,7 @@
             <layout class="QGridLayout" name="LayoutRangeButton">
              <item row="0" column="0">
               <layout class="QGridLayout" name="LayoutRangeButtonLabels">
-               <item row="0" column="0">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelRangeMarksNo">
                  <property name="text">
                   <string>НЕТ</string>
@@ -788,7 +812,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelRangeMarks10">
                  <property name="text">
                   <string>10 км.</string>
@@ -798,7 +822,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
+               <item row="0" column="2" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelRangeMarks50">
                  <property name="text">
                   <string>50 км.</string>
@@ -807,10 +831,10 @@
                </item>
               </layout>
              </item>
-             <item row="1" column="0">
+             <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QPushButton" name="SelectRangeMarks">
                <property name="cursor">
-                <cursorShape>PointingHandCursor</cursorShape>
+                <cursorShape>OpenHandCursor</cursorShape>
                </property>
                <property name="focusPolicy">
                 <enum>Qt::TabFocus</enum>
@@ -859,10 +883,10 @@
              </item>
              <item row="1" column="0">
               <layout class="QGridLayout" name="LayoutScaleButtonLabels" columnstretch="0,3">
-               <item row="0" column="0">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="SelectScale">
                  <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
+                  <cursorShape>OpenHandCursor</cursorShape>
                  </property>
                  <property name="focusPolicy">
                   <enum>Qt::TabFocus</enum>
@@ -899,7 +923,7 @@
              </item>
             </layout>
            </item>
-           <item row="2" column="0">
+           <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelRangeMarks">
              <property name="text">
               <string>Отметки дальности:</string>
@@ -913,7 +937,7 @@
             <layout class="QGridLayout" name="LayoutAzimuthButton">
              <item row="0" column="0">
               <layout class="QGridLayout" name="LayoutAzimuthButtonLabels">
-               <item row="0" column="0">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelAzimuthMarksNo">
                  <property name="text">
                   <string>НЕТ</string>
@@ -923,7 +947,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelAzimuthMarks10">
                  <property name="text">
                   <string>10°</string>
@@ -933,7 +957,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
+               <item row="0" column="2" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelAzimuthMarks30">
                  <property name="text">
                   <string>30°</string>
@@ -942,10 +966,10 @@
                </item>
               </layout>
              </item>
-             <item row="1" column="0">
+             <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QPushButton" name="SelectAzimuthMarks">
                <property name="cursor">
-                <cursorShape>PointingHandCursor</cursorShape>
+                <cursorShape>OpenHandCursor</cursorShape>
                </property>
                <property name="focusPolicy">
                 <enum>Qt::TabFocus</enum>
@@ -975,7 +999,7 @@
            </item>
            <item row="6" column="1">
             <layout class="QGridLayout" name="LayoutBrightnessButton">
-             <item row="0" column="0">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
               <widget class="QPushButton" name="ChangeIndicatorBrightnessButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1010,8 +1034,14 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QSlider" name="ChangeIndicatorBrightness">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="cursor">
                 <cursorShape>OpenHandCursor</cursorShape>
                </property>
@@ -1028,7 +1058,7 @@
              </item>
             </layout>
            </item>
-           <item row="10" column="0">
+           <item row="10" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
             <widget class="QLabel" name="LabelFocus">
              <property name="text">
               <string>Фокус:</string>
