@@ -31,11 +31,6 @@ class MainLocator : public Daddy
     public slots:
 
     protected:
-        /*
-        void initializeGL();
-        void resizeGL(int width, int height);
-        void paintGL();
-        */
         //void timerEvent(QTimerEvent *event);
         //void mouseDoubleClickEvent(QMouseEvent  *event);
         Azimuth azimuth=Azimuth::A_NO;
