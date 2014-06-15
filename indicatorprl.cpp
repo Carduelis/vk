@@ -93,7 +93,6 @@ void IndicatorPRL::on_ChangeTopTrashIntensity_valueChanged(int value)
 {
     if(value<0)
         return;
-    QIcon ico=ui->ChangeTopTrashIntensityButton->icon();
     ui->ChangeTopTrashIntensityButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopTrashIntensity->maximum())));
 }
 

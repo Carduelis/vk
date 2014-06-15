@@ -91,7 +91,7 @@
               </widget>
              </item>
              <item row="10" column="1">
-              <layout class="QGridLayout" name="gridLayout_7">
+              <layout class="QGridLayout" name="gridLayout_7" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeTopVARUButton">
                  <property name="sizePolicy">
@@ -251,7 +251,7 @@
               </widget>
              </item>
              <item row="6" column="1">
-              <layout class="QGridLayout" name="gridLayout_5">
+              <layout class="QGridLayout" name="gridLayout_5" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeTopLightningButton">
                  <property name="sizePolicy">
@@ -322,7 +322,7 @@
               </widget>
              </item>
              <item row="2" column="1">
-              <layout class="QGridLayout" name="gridLayout_3">
+              <layout class="QGridLayout" name="gridLayout_3" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeTopTrashIntensityButton">
                  <property name="sizePolicy">
@@ -383,7 +383,7 @@
               </layout>
              </item>
              <item row="8" column="1">
-              <layout class="QGridLayout" name="gridLayout_6">
+              <layout class="QGridLayout" name="gridLayout_6" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeTopFocusButton">
                  <property name="sizePolicy">
@@ -467,7 +467,7 @@
               </widget>
              </item>
              <item row="4" column="1">
-              <layout class="QGridLayout" name="gridLayout_4">
+              <layout class="QGridLayout" name="gridLayout_4" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeTopBrightnessButton">
                  <property name="sizePolicy">
@@ -883,7 +883,7 @@
               </widget>
              </item>
              <item row="6" column="1">
-              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorLightning">
+              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorLightning" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeRightLightningButton">
                  <property name="sizePolicy">
@@ -944,7 +944,7 @@
               </layout>
              </item>
              <item row="10" column="1">
-              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorVARU">
+              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorVARU" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeRightVARUButton">
                  <property name="sizePolicy">
@@ -1005,7 +1005,7 @@
               </layout>
              </item>
              <item row="2" column="1">
-              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorTrashIntensity">
+              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorTrashIntensity" columnstretch="0,0,3">
                <item row="0" column="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                 <widget class="QSlider" name="ChangeRightTrashIntensity">
                  <property name="sizePolicy">
@@ -1076,7 +1076,7 @@
               </widget>
              </item>
              <item row="8" column="1">
-              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorFocus">
+              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorFocus" columnstretch="0,3">
                <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                 <widget class="QSlider" name="ChangeRightFocus">
                  <property name="sizePolicy">
@@ -1150,7 +1150,7 @@
               </widget>
              </item>
              <item row="4" column="1">
-              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorBrightness">
+              <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorBrightness" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeRightBrightnessButton">
                  <property name="sizePolicy">
