@@ -21,16 +21,13 @@ class Menu : public QMainWindow
         explicit Menu(QWidget *parent=0);
         ~Menu();
 
-private slots:
-    void on_ButtonIndicatorDRL_clicked();
+    private slots:
+        void on_ButtonIndicatorDRL_clicked();
+        void on_ButtonIndicatorPRL_clicked();
+        void on_ButtonDRLPRL_clicked();
+        void on_ButtonRSP_clicked();
 
-    void on_ButtonIndicatorPRL_clicked();
-
-    void on_ButtonDRLPRL_clicked();
-
-    void on_ButtonRSP_clicked();
-
-private:
+    private:
         Ui::Menu *ui;
         QPointer<IndicatorDRL>DRL;
         QPointer<IndicatorPRL>PRL;

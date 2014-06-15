@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     toptrianglelocator.cpp \
     righttrianglelocator.cpp \
     rspindicators.cpp \
-    rspview.cpp
+    rspview.cpp \
+    daddy.cpp
 
 HEADERS  += menu.h \
     indicatordrl.h \
@@ -31,7 +32,8 @@ HEADERS  += menu.h \
     toptrianglelocator.h \
     righttrianglelocator.h \
     rspindicators.h \
-    rspview.h
+    rspview.h \
+    daddy.h
 
 FORMS    += menu.ui \
     indicatordrl.ui \

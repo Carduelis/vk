@@ -1,9 +1,9 @@
 #ifndef RIGHTTRIANGLELOCATOR_H
 #define RIGHTTRIANGLELOCATOR_H
 
-#include"toptrianglelocator.h"
+#include"daddy.h"
 
-class RightTriangleLocator : public TopTriangleLocator
+class RightTriangleLocator : public Daddy
 {
     Q_OBJECT
     public:

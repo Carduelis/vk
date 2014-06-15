@@ -1,5 +1,5 @@
 #include"righttrianglelocator.h"
 
-RightTriangleLocator::RightTriangleLocator(QWidget *parent) : TopTriangleLocator(parent)
+RightTriangleLocator::RightTriangleLocator(QWidget *parent) : Daddy(parent)
 {
 }

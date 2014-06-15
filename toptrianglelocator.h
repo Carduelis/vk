@@ -1,9 +1,9 @@
 #ifndef TOPTRIANGLELOCATOR_H
 #define TOPTRIANGLELOCATOR_H
 
-#include"mainlocator.h"
+#include"daddy.h"
 
-class TopTriangleLocator : public MainLocator
+class TopTriangleLocator : public Daddy
 {
     Q_OBJECT
     public:

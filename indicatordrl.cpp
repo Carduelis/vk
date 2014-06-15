@@ -57,7 +57,7 @@ void IndicatorDRL::on_SelectAzimuthMarks_released()
         degree=0u;
         ui->RenderMainLocator->SetCurrentAzimuthMode(MainLocator::Azimuth::A_FIRST);
     }
-    ui->SelectAzimuthMarks->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : MainLocator::RotateResourceImage(":/buttons/knob",degree)));
+    ui->SelectAzimuthMarks->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectAzimuthMarks->setCursor(Qt::OpenHandCursor);
 }
 
@@ -95,7 +95,7 @@ void IndicatorDRL::on_SelectRangeMarks_released()
         degree=0u;
         ui->RenderMainLocator->SetCurrentRangeMode(MainLocator::Range::R_FIRST);
     }
-    ui->SelectRangeMarks->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : MainLocator::RotateResourceImage(":/buttons/knob",degree)));
+    ui->SelectRangeMarks->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectRangeMarks->setCursor(Qt::OpenHandCursor);
 }
 
@@ -133,7 +133,7 @@ void IndicatorDRL::on_SelectScale_released()
         degree=90u;
         ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
     }
-    ui->SelectScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : MainLocator::RotateResourceImage(":/buttons/switch_up",degree)));
+    ui->SelectScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : Daddy::RotateResourceImage(":/buttons/switch_up",degree)));
     ui->SelectScale->setCursor(Qt::OpenHandCursor);
 }
 
@@ -161,7 +161,7 @@ void IndicatorDRL::on_ChangeIndicatorBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
-    ui->ChangeIndicatorBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : MainLocator::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorBrightness->maximum())));
+    ui->ChangeIndicatorBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorBrightness->maximum())));
 }
 
 void IndicatorDRL::on_ChangeIndicatorLightningButton_pressed()
@@ -188,7 +188,7 @@ void IndicatorDRL::on_ChangeIndicatorLightning_valueChanged(int value)
 {
     if(value<0)
         return;
-    ui->ChangeIndicatorLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : MainLocator::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorLightning->maximum())));
+    ui->ChangeIndicatorLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorLightning->maximum())));
 }
 
 void IndicatorDRL::on_ChangeIndicatorFocusButton_pressed()
@@ -213,7 +213,7 @@ void IndicatorDRL::on_ChangeIndicatorFocus_sliderReleased()
 
 void IndicatorDRL::on_ChangeIndicatorFocus_valueChanged(int value)
 {
-    ui->ChangeIndicatorFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : MainLocator::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorFocus->maximum())));
+    ui->ChangeIndicatorFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorFocus->maximum())));
 }
 
 void IndicatorDRL::on_ChangeIndicatorVARUButton_pressed()
@@ -238,7 +238,7 @@ void IndicatorDRL::on_ChangeIndicatorVARU_sliderReleased()
 
 void IndicatorDRL::on_ChangeIndicatorVARU_valueChanged(int value)
 {
-    ui->ChangeIndicatorVARUButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : MainLocator::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorVARU->maximum())));
+    ui->ChangeIndicatorVARUButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorVARU->maximum())));
 }
 
 void IndicatorDRL::on_SelectWorkVariant_pressed()
@@ -275,7 +275,7 @@ void IndicatorDRL::on_SelectWorkVariant_released()
         degree=0u;
         ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_PASS);
     }
-    ui->SelectWorkVariant->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : MainLocator::RotateResourceImage(":/buttons/knob",degree)));
+    ui->SelectWorkVariant->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectWorkVariant->setCursor(Qt::OpenHandCursor);
 }
 
@@ -304,7 +304,7 @@ void IndicatorDRL::on_ChangeTrashIntensity_valueChanged(int value)
     if(value<0)
         return;
     QIcon ico=ui->ChangeTrashIntensityButton->icon();
-    ui->ChangeTrashIntensityButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : MainLocator::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTrashIntensity->maximum())));
+    ui->ChangeTrashIntensityButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTrashIntensity->maximum())));
 }
 
 void IndicatorDRL::on_InputScatterTrashFrom_valueChanged(double arg1)
