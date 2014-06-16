@@ -33,6 +33,24 @@ RSPIndicators::RSPIndicators(QWidget *parent) : QMainWindow(parent),ui(new Ui::R
     ui->ChangeMainVARU->hide();
     ui->ChangeTopVARU->hide();
     ui->ChangeRightVARU->hide();
+
+    ui->ChangeMainTrashIntensity->valueChanged(ui->ChangeMainTrashIntensity->value());
+    ui->ChangeMainBrightness->valueChanged(ui->ChangeMainBrightness->value());
+    ui->ChangeMainLightning->valueChanged(ui->ChangeMainLightning->value());
+    ui->ChangeMainFocus->valueChanged(ui->ChangeMainFocus->value());
+    ui->ChangeMainVARU->valueChanged(ui->ChangeMainVARU->value());
+
+    ui->ChangeTopTrashIntensity->valueChanged(ui->ChangeTopTrashIntensity->value());
+    ui->ChangeTopBrightness->valueChanged(ui->ChangeTopBrightness->value());
+    ui->ChangeTopLightning->valueChanged(ui->ChangeTopLightning->value());
+    ui->ChangeTopFocus->valueChanged(ui->ChangeTopFocus->value());
+    ui->ChangeTopVARU->valueChanged(ui->ChangeTopVARU->value());
+
+    ui->ChangeRightTrashIntensity->valueChanged(ui->ChangeRightTrashIntensity->value());
+    ui->ChangeRightBrightness->valueChanged(ui->ChangeRightBrightness->value());
+    ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
+    ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
+    ui->ChangeRightVARU->valueChanged(ui->ChangeRightVARU->value());
 }
 
 RSPIndicators::~RSPIndicators()
