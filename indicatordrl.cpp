@@ -16,6 +16,28 @@ IndicatorDRL::IndicatorDRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->ChangeIndicatorVARU->hide();
 
     ui->ChangeTrashIntensity->hide();
+
+    ui->ChangeIndicatorBrightness->valueChanged(ui->ChangeIndicatorBrightness->value());
+    ui->ChangeIndicatorLightning->valueChanged(ui->ChangeIndicatorLightning->value());
+    ui->ChangeIndicatorFocus->valueChanged(ui->ChangeIndicatorFocus->value());
+    ui->ChangeIndicatorVARU->valueChanged(ui->ChangeIndicatorVARU->value());
+    ui->ChangeTrashIntensity->valueChanged(ui->ChangeTrashIntensity->value());
+    ui->InputScatterTrashFrom->valueChanged(ui->InputScatterTrashFrom->value());
+    ui->InputScatterTrashTo->valueChanged(ui->InputScatterTrashTo->value());
+    ui->CheckShowLocalItems->stateChanged(ui->CheckShowLocalItems->checkState());
+    ui->CheckShowMeteo->stateChanged(ui->CheckShowMeteo->checkState());
+
+    QStringList intensity;
+    intensity<<"Слабая"<<"Средняя"<<"Сильная";
+    ui->SelectActiveNoiseIntensity->addItems(intensity);
+    ui->SelectActiveNoiseIntensity->setCurrentIndex(1);
+    ui->InputActiveNoiseAzimuth->valueChanged(ui->InputActiveNoiseAzimuth->value());
+    ui->CheckActiveNoiseShow->stateChanged(ui->CheckActiveNoiseShow->checkState());
+
+    ui->InputActiveAnswerAzimuth->valueChanged(ui->InputActiveAnswerAzimuth->value());
+    ui->InputActiveAnswerDistance->valueChanged(ui->InputActiveAnswerDistance->value());
+    ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
+    ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
 }
 
 IndicatorDRL::~IndicatorDRL()

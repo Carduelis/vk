@@ -166,7 +166,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="Common.qrc">
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                </property>
                <property name="iconSize">
@@ -230,7 +230,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="Common.qrc">
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                </property>
                <property name="iconSize">
@@ -301,7 +301,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="Common.qrc">
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                </property>
                <property name="iconSize">
@@ -379,7 +379,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="Common.qrc">
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                </property>
                <property name="iconSize">
@@ -475,7 +475,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
                </property>
                <property name="iconSize">
@@ -543,7 +543,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -626,7 +626,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
                </property>
                <property name="iconSize">
@@ -665,7 +665,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="Common.qrc">
+                <iconset resource="../IKO/Common.qrc">
                  <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                </property>
                <property name="iconSize">
@@ -875,7 +875,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -914,7 +914,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -975,7 +975,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1036,7 +1036,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1139,7 +1139,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset>
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
                  </property>
                  <property name="iconSize">
@@ -1210,7 +1210,7 @@
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset resource="Common.qrc">
+                    <iconset resource="../IKO/Common.qrc">
                      <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
                    </property>
                    <property name="iconSize">
@@ -1288,7 +1288,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1439,7 +1439,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1500,7 +1500,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1590,7 +1590,7 @@
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset resource="Common.qrc">
+                    <iconset resource="../IKO/Common.qrc">
                      <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
                    </property>
                    <property name="iconSize">
@@ -1668,7 +1668,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1754,7 +1754,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset>
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
                  </property>
                  <property name="iconSize">
@@ -1793,7 +1793,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -1857,7 +1857,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="Common.qrc">
+                  <iconset resource="../IKO/Common.qrc">
                    <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2031,8 +2031,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="Common.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
