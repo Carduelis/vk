@@ -44,6 +44,42 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightBrightnessAzimuth->hide();
     ui->ChangeRightFocus->hide();
     ui->ChangeRightFocusBrightness->hide();
+
+    ui->ChangeMainScanAmp->valueChanged(ui->ChangeMainScanAmp->value());
+    ui->ChangeMainScanEqua->valueChanged(ui->ChangeMainScanEqua->value());
+    ui->ChangeMainOffsetVertical->valueChanged(ui->ChangeMainOffsetVertical->value());
+    ui->ChangeMainOffsetHorizontal->valueChanged(ui->ChangeMainOffsetHorizontal->value());
+    ui->ChangeMainBrightnessRange->valueChanged(ui->ChangeMainBrightnessRange->value());
+    ui->ChangeMainBrightnessAzimuth->valueChanged(ui->ChangeMainBrightnessAzimuth->value());
+    ui->ChangeMainNullSetVertical->valueChanged(ui->ChangeMainNullSetVertical->value());
+    ui->ChangeMainNullSetHorizontal->valueChanged(ui->ChangeMainNullSetHorizontal->value());
+    ui->ChangeMainFocus->valueChanged(ui->ChangeMainFocus->value());
+    ui->ChangeMainFocusBrightness->valueChanged(ui->ChangeMainFocusBrightness->value());
+    ui->ChangeMainTrashAKT->valueChanged(ui->ChangeMainTrashAKT->value());
+    ui->ChangeMainTrashPASS->valueChanged(ui->ChangeMainTrashPASS->value());
+
+    ui->ChangeTopScanAmpVertical->valueChanged(ui->ChangeTopScanAmpVertical->value());
+    ui->ChangeTopScanAmpHorizontal->valueChanged(ui->ChangeTopScanAmpHorizontal->value());
+    ui->ChangeTopOffsetVertical->valueChanged(ui->ChangeTopOffsetVertical->value());
+    ui->ChangeTopOffsetHorizontal->valueChanged(ui->ChangeTopOffsetHorizontal->value());
+    ui->ChangeTopDirectionTrack->valueChanged(ui->ChangeTopDirectionTrack->value());
+    ui->ChangeTopDirectionGlide->valueChanged(ui->ChangeTopDirectionGlide->value());
+    ui->ChangeTopFocus->valueChanged(ui->ChangeTopFocus->value());
+    ui->ChangeTopBrightness->valueChanged(ui->ChangeTopBrightness->value());
+    ui->ChangeTopTrashSDC->valueChanged(ui->ChangeTopTrashSDC->value());
+    ui->ChangeTopTrashPASS->valueChanged(ui->ChangeTopTrashPASS->value());
+    ui->ChangeTopTrashAKT->valueChanged(ui->ChangeTopTrashAKT->value());
+
+    ui->ChangeRightScanAmpVertical->valueChanged(ui->ChangeRightScanAmpVertical->value());
+    ui->ChangeRightScanAmpHorizontal->valueChanged(ui->ChangeRightScanAmpHorizontal->value());
+    ui->ChangeRightOffsetVertical->valueChanged(ui->ChangeRightOffsetVertical->value());
+    ui->ChangeRightOffsetHorizontal->valueChanged(ui->ChangeRightOffsetHorizontal->value());
+    ui->ChangeRightDirectionTrack->valueChanged(ui->ChangeRightDirectionTrack->value());
+    ui->ChangeRightDirectionGlide->valueChanged(ui->ChangeRightDirectionGlide->value());
+    ui->ChangeRightBrightnessRange->valueChanged(ui->ChangeRightBrightnessRange->value());
+    ui->ChangeRightBrightnessAzimuth->valueChanged(ui->ChangeRightBrightnessAzimuth->value());
+    ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
+    ui->ChangeRightFocusBrightness->valueChanged(ui->ChangeRightFocusBrightness->value());
 }
 
 RSPView::~RSPView()
