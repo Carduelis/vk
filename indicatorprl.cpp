@@ -24,6 +24,18 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
 
     ui->ChangeTopVARU->hide();
     ui->ChangeRightVARU->hide();
+
+    ui->ChangeTopTrashIntensity->valueChanged(ui->ChangeTopTrashIntensity->value());
+    ui->ChangeTopBrightness->valueChanged(ui->ChangeTopBrightness->value());
+    ui->ChangeTopLightning->valueChanged(ui->ChangeTopLightning->value());
+    ui->ChangeTopFocus->valueChanged(ui->ChangeTopFocus->value());
+    ui->ChangeTopVARU->valueChanged(ui->ChangeTopVARU->value());
+
+    ui->ChangeRightTrashIntensity->valueChanged(ui->ChangeRightTrashIntensity->value());
+    ui->ChangeRightBrightness->valueChanged(ui->ChangeRightBrightness->value());
+    ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
+    ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
+    ui->ChangeRightVARU->valueChanged(ui->ChangeRightVARU->value());
 }
 
 IndicatorPRL::~IndicatorPRL()
