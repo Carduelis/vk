@@ -3,7 +3,7 @@
 #include<qmath.h>
 
 #ifndef ROUND_DEGREE
-#define ROUND_DEGREE 360
+#define ROUND_DEGREE 361
 #endif
 
 #ifndef GetRadianValue

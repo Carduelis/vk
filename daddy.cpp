@@ -1,22 +1,35 @@
 #include"daddy.h"
+#include<QTime>
 #include<QDebug>
 
 Daddy::Daddy(QWidget *parent) : QGLWidget(QGLFormat(QGL::SampleBuffers),parent)
 {
+    qsrand(QTime(0u,0u,0u).secsTo(QTime::currentTime()));
     //Переведём все используемые градусы в радианы
-    for(quint16 i=0u;i<ROUND_DEGREE;i++)
-    {
-        radians[i].angle=GetRadianValue(i);
-        radians[i].x=qFastCos(radians[i].angle);
-        radians[i].y=qFastSin(radians[i].angle);
-    }
+    GenerationRadians();
     circle.clear();
-    for(Points*i=radians,*end=radians+ROUND_DEGREE;i<end;circle.append(i),i+=3u); //Получаем координаты для отрисовки фона индикатора
+    Points p;
+    for(Points*i=radians,*end=radians+ROUND_DEGREE;i<end;i+=3u) //Получаем координаты для отрисовки фона индикатора
+    {
+        p.x=i->x;
+        p.y=i->y;
+        p.angle=i->angle;
+        circle.append(p);
+    }
+    GenerationRay();
+    ChangeFPS(.0f);
 }
 
 Daddy::~Daddy()
 {
 
+}
+
+void Daddy::timerEvent(QTimerEvent *event)
+{
+    if(timer.timerId()==event->timerId())
+        ContinueSearch();
+    QWidget::timerEvent(event);
 }
 
 void Daddy::initializeGL()
@@ -60,12 +73,14 @@ void Daddy::paintGL()
     //glTranslatef(-GRID_OFFSET+settings["offset"]["vertical"].toDouble()/100,.0f+settings["offset"]["horizontal"].toDouble()/100,.0f);
     DrawStation();
     //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
+    InitLocatorGrid();
     //glRotatef(90.0f,.0f,.0f,1.0);
     //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
-    //glBegin(GL_LINES);
-       // glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
-        //glVertex2d((*ray_position)->x,(*ray_position)->y);
-    //glEnd();
+    glLineWidth(2.0f);
+    glBegin(GL_LINES);
+        glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
+        glVertex2d((*ray_position)->x,(*ray_position)->y);
+    glEnd();
     glPopMatrix();
 }
 
@@ -74,58 +89,49 @@ bool Daddy::IsActive(void)const
     return timer.isActive();
 }
 
+void Daddy::GenerationRadians(void)
+{
+    for(quint16 i=0u;i<ROUND_DEGREE;i++)
+    {
+        radians[i].angle=GetRadianValue(i);
+        radians[i].x=qFastCos(radians[i].angle);
+        radians[i].y=qFastSin(radians[i].angle);
+    }
+}
+
 void Daddy::LocatorArea(void)const
 {
     qglColor(Qt::black);
     glBegin(GL_TRIANGLE_FAN);
-        for(QVector<Points*>::const_iterator it=circle.begin();it<circle.end();it++)
-            glVertex2d((*it)->x,(*it)->y);
+        for(QVector<Points>::const_iterator it=circle.begin();it<circle.end();it++)
+            glVertex2d(it->x,it->y);
     glEnd();
 }
 
-/**
- * @brief MainLocator::DrawStation
- * Отрисуем прямоугольник
- */
-void Daddy::DrawStation(void)const
+void Daddy::GenerationRay(void)
 {
-    /*
-    glRotatef(30.0f,.0f,.0f,1.0f);
-    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
-    glColor3f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262));
-    qreal
-        distance=CalcScaleValue(1.0f),
-        rx=5u*distance,
-        ry=10u*distance;
-    glTranslatef(rx,.0f,.0f);
-    glBegin(GL_LINES);
-        glVertex2d(-rx,-ry);
-        glVertex2d(-rx,ry);
-
-        glVertex2d(-rx,ry);
-        glVertex2d(rx,ry);
-
-        glVertex2d(-rx,-ry);
-        glVertex2d(rx,-ry);
-
-        glVertex2d(rx,-ry);
-        glVertex2d(rx,ry);
-    glEnd();
-    glTranslatef(-rx,.0f,.0f);
-    glRotatef(-30.0f,.0f,.0f,1.0);
-    */
+    GenerationRay(ROUND_DEGREE);
 }
 
-template<typename OptionType>void Daddy::SetSettings(const QString group,const QString name,const OptionType option)
+void Daddy::GenerationRay(quint16 angle)
 {
-    settings[group][name]=QVariant::fromValue(option);
-    if(group!="common")
-        updateGL();
+    ray.clear();
+    Points*i=radians,*end=radians+angle;
+    //while(i<end)ray.append(clockwise ? end-- : i++);
+    while(i<end)clockwise ? ray.prepend(i++) : ray.append(i++);
+    ray_position=ray.begin(); //Устанавливаем стартовую позицию луча
 }
 
-template<typename OptionType>void Daddy::SetSettings(const QString name,const OptionType option)
+void Daddy::ChangeFPS(qreal fps)
 {
-    SetSettings("common",name,option);
+    if(fps<=.0f && IsActive())
+        timer.stop();
+    if(fps>.0f)
+    {
+        if(IsActive())
+            timer.stop();
+        timer.start(fps,this);
+    }
 }
 
 QPixmap Daddy::RotateResourceImage(const QString resource_path,const qint16 degree)

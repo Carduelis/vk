@@ -1,12 +1,38 @@
 #include"righttrianglelocator.h"
+#include<QDebug>
 
 RightTriangleLocator::RightTriangleLocator(QWidget *parent) : Daddy(parent)
 {
+
 }
 
 RightTriangleLocator::~RightTriangleLocator()
 {
 
+}
+
+void RightTriangleLocator::GenerationRadians(bool)
+{
+    for(quint16 i=0u;i<ROUND_DEGREE;i++)
+    {
+        radians[i].angle=GetRadianValue(i);
+        radians[i].x=qFastCos(radians[i].angle);
+        radians[i].y=qFastSin(radians[i].angle);
+    }
+}
+
+void RightTriangleLocator::DrawStation(void)const{}
+void RightTriangleLocator::InitLocatorGrid(void)const{}
+void RightTriangleLocator::ContinueSearch(void){}
+
+template<typename T>T RightTriangleLocator::CalcScaleValue(const T value,RightTriangleLocator::Scale scale) const
+{
+    return static_cast<T>(value)/scale;
+}
+
+template<typename T>T RightTriangleLocator::CalcScaleValue(const T value)const
+{
+    return CalcScaleValue(value,scale);
 }
 
 RightTriangleLocator::Azimuth RightTriangleLocator::GetCurrentAzimuthMode(void)const

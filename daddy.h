@@ -3,7 +3,10 @@
 
 #include<QGLWidget>
 #include<QBasicTimer>
+#include<QTimerEvent>
+#include<QVariant>
 #include"helpers.h"
+#include<QDebug>
 
 //Макрос стырен из Chromium, т.к. это пока лучшее, что можно придумать для подсчёта элементов массива
 #ifndef ArraySize
@@ -20,24 +23,54 @@ class Daddy : public QGLWidget
         ~Daddy();
         template<typename OptionType>void SetSettings(const QString group,const QString name,const OptionType option);
         template<typename OptionType>void SetSettings(const QString name,const OptionType option);
-        virtual bool IsActive(void)const;
+        bool IsActive(void)const;
+        void ChangeFPS(qreal fps);
         static QPixmap RotateResourceImage(const QString resource_path,const qint16 degree);
+        bool clockwise=true;
 
     signals:
 
     public slots:
 
     protected:
+        void timerEvent(QTimerEvent *event);
         void initializeGL();
         void resizeGL(int width,int height);
         void paintGL();
         void LocatorArea(void)const;
-        void DrawStation(void)const;
+        void GenerationRadians(void);
+        virtual void GenerationRadians(bool)=0;
+        virtual void ContinueSearch(void)=0;
+        virtual void DrawStation(void)const=0;
+        virtual void InitLocatorGrid(void)const=0;
+        void GenerationRay(void);
+        void GenerationRay(quint16 angle);
+        //template<typename T,typename S>T CalcScaleValue(const T value,const S scale)const;
+
         QMap<QString,QMap<QString,QVariant> >settings;
-        QBasicTimer timer;
         Points radians[ROUND_DEGREE];
-        QVector<Points*>circle;
+        QVector<Points>circle;
+        QVector<Points*>ray;
+        QVector<Points*>::const_iterator ray_position;
+        QBasicTimer timer;
         int width,height;
 };
+
+template<typename OptionType>void Daddy::SetSettings(const QString group, const QString name,const OptionType option)
+{
+    settings[group][name]=QVariant::fromValue(option);
+    if(group=="scan")
+    {
+        if(name=="amplitude");
+            GenerationRadians(true);
+    }
+    if(group!="common")
+        updateGL();
+}
+
+template<typename OptionType>void Daddy::SetSettings(const QString name,const OptionType option)
+{
+    SetSettings("common",name,option);
+}
 
 #endif // DADDY_H

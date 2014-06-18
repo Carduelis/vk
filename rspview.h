@@ -156,7 +156,9 @@ class RSPView : public QMainWindow
         void on_ChangeRightFocusBrightness_sliderReleased();
         void on_ChangeRightFocusBrightness_valueChanged(int value);
 
-    private:
+        void on_ChangeMainLocatorState_clicked();
+
+private:
         Ui::RSPView *ui;
 };
 

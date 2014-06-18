@@ -51,6 +51,8 @@ RSPIndicators::RSPIndicators(QWidget *parent) : QMainWindow(parent),ui(new Ui::R
     ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
     ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
     ui->ChangeRightVARU->valueChanged(ui->ChangeRightVARU->value());
+
+    ui->ChangeMainLocatorState->clicked();
 }
 
 RSPIndicators::~RSPIndicators()
@@ -310,7 +312,16 @@ void RSPIndicators::on_ChangeMainViewStateAll_clicked()
 
 void RSPIndicators::on_ChangeMainLocatorState_clicked()
 {
-
+    if(ui->RenderMainLocator->IsActive())
+    {
+        ui->RenderMainLocator->ChangeFPS(0u);
+        ui->ChangeMainLocatorState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderMainLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeMainLocatorState->setText("Стоп");
+    }
 }
 
 void RSPIndicators::on_ChangeTopTrashIntensityButton_pressed()

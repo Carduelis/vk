@@ -1,5 +1,6 @@
 #include"rspview.h"
 #include"ui_rspview.h"
+#include<QDebug>
 
 RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
 {
@@ -21,6 +22,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeMainFocusBrightness->hide();
     ui->ChangeMainTrashAKT->hide();
     ui->ChangeMainTrashPASS->hide();
+    ui->ChangeMainLocatorState->hide();
 
     ui->ChangeTopScanAmpVertical->hide();
     ui->ChangeTopScanAmpHorizontal->hide();
@@ -80,6 +82,8 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightBrightnessAzimuth->valueChanged(ui->ChangeRightBrightnessAzimuth->value());
     ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
     ui->ChangeRightFocusBrightness->valueChanged(ui->ChangeRightFocusBrightness->value());
+
+    ui->ChangeMainLocatorState->clicked();
 }
 
 RSPView::~RSPView()
@@ -109,7 +113,13 @@ void RSPView::on_ChangeMainScanAmp_sliderReleased()
 
 void RSPView::on_ChangeMainScanAmp_valueChanged(int value)
 {
-    ui->ChangeMainScanAmpButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeMainScanAmp->maximum())));
+    quint16 max=ui->ChangeMainScanAmp->maximum(),
+            min=ui->ChangeMainScanAmp->minimum();
+    if(value==min || value==max)
+        return;
+    qreal val=static_cast<qreal>(value)/100;
+    ui->RenderMainLocator->SetSettings("scan","amplitude",val>1 ? (val-static_cast<qreal>(max-min)/100) : val);
+    ui->ChangeMainScanAmpButton->setIcon(QIcon(value%100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeMainScanAmp->maximum())));
 }
 
 void RSPView::on_ChangeMainScanEquaButton_pressed()
@@ -1066,4 +1076,18 @@ void RSPView::on_ChangeRightFocusBrightness_sliderReleased()
 void RSPView::on_ChangeRightFocusBrightness_valueChanged(int value)
 {
     ui->ChangeRightFocusBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightFocusBrightness->maximum())));
+}
+
+void RSPView::on_ChangeMainLocatorState_clicked()
+{
+    if(ui->RenderMainLocator->IsActive())
+    {
+        ui->RenderMainLocator->ChangeFPS(0u);
+        ui->ChangeMainLocatorState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderMainLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeMainLocatorState->setText("Стоп");
+    }
 }

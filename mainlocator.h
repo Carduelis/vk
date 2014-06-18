@@ -37,6 +37,14 @@ class MainLocator : public Daddy
         Range range=Range::R_NO;
         Scale scale=Scale::S_SMALL;
         WorkMode work_mode=WorkMode::WM_PASS;
+        QBasicTimer timer;
+        void GenerationRadians(bool);
+        void DrawStation(void)const;
+        void InitLocatorGrid(void)const;
+        void ContinueSearch(void);
+
+        template<typename T>T CalcScaleValue(const T value,Scale scale)const;
+        template<typename T>T CalcScaleValue(const T value)const;
     private:
 };
 #endif // MAINLOCATOR_H

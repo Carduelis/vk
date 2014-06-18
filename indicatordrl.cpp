@@ -38,6 +38,8 @@ IndicatorDRL::IndicatorDRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->InputActiveAnswerDistance->valueChanged(ui->InputActiveAnswerDistance->value());
     ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
     ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
+
+    ui->ChangeLocatorState->clicked();
 }
 
 IndicatorDRL::~IndicatorDRL()
@@ -395,7 +397,16 @@ void IndicatorDRL::on_ChangeViewStateAll_clicked()
 
 void IndicatorDRL::on_ChangeLocatorState_clicked()
 {
-
+    if(ui->RenderMainLocator->IsActive())
+    {
+        ui->RenderMainLocator->ChangeFPS(0u);
+        ui->ChangeLocatorState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderMainLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeLocatorState->setText("Стоп");
+    }
 }
 
 void IndicatorDRL::on_SetTargetsSettings_clicked()
