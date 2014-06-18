@@ -71,6 +71,7 @@ void Daddy::paintGL()
     LocatorArea();
     glTranslatef(settings["offset"]["horizontal"].toDouble(),settings["offset"]["vertical"].toDouble(),.0f);
     //glTranslatef(-GRID_OFFSET+settings["offset"]["vertical"].toDouble()/100,.0f+settings["offset"]["horizontal"].toDouble()/100,.0f);
+    glScalef(settings["scan"]["amplitude"].toDouble(),settings["scan"]["equality"].toDouble(),1);
     DrawStation();
     //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
     InitLocatorGrid();

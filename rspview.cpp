@@ -117,8 +117,9 @@ void RSPView::on_ChangeMainScanAmp_valueChanged(int value)
             min=ui->ChangeMainScanAmp->minimum();
     if(value==min || value==max)
         return;
-    qreal val=static_cast<qreal>(value)/100;
-    ui->RenderMainLocator->SetSettings("scan","amplitude",val>1 ? (val-static_cast<qreal>(max-min)/100) : val);
+    //qreal val=static_cast<qreal>(value)/100;
+    //ui->RenderMainLocator->SetSettings("scan","amplitude",val>1 ? (val-static_cast<qreal>(max-min)/100) : val);
+    ui->RenderMainLocator->SetSettings("scan","amplitude",static_cast<qreal>(value)/100);
     ui->ChangeMainScanAmpButton->setIcon(QIcon(value%100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeMainScanAmp->maximum())));
 }
 

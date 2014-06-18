@@ -14,27 +14,22 @@ MainLocator::~MainLocator()
 
 void MainLocator::GenerationRadians(bool)
 {
-    qreal amplitude=settings["scan"]["amplitude"].toDouble(),
-          equality=settings["scan"]["equality"].toDouble();
     for(quint16 i=0u;i<ROUND_DEGREE;i++)
     {
         radians[i].angle=GetRadianValue(i);
-        radians[i].x=amplitude>.0f ? qFastCos(radians[i].angle)*amplitude*equality*circle.at(circle_counter).x : qFastCos(radians[i].angle)*equality*circle.at(circle_counter).x;
-        radians[i].y=amplitude<.0f ? qFastSin(radians[i].angle)*(-amplitude)*equality*circle.at(circle_counter).y : qFastSin(radians[i].angle)*equality*circle.at(circle_counter).y;
+        radians[i].x=qFastCos(radians[i].angle)*circle.at(circle_counter).x;
+        radians[i].y=qFastSin(radians[i].angle)*circle.at(circle_counter).y;
     }
 }
 
 void MainLocator::DrawStation(void)const
 {
-    qreal equality=settings["scan"]["equality"].toDouble();
-    if(equality<=.0f)
-        equality=1.0f;
     glRotatef(LOCATOR_ROTATE_ANGLE,.0f,.0f,1.0f);
     //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
     glColor3f(static_cast<GLfloat>(.925f),static_cast<GLfloat>(.714f),static_cast<GLfloat>(.262f));
     qreal
-        rx=CalcScaleValue(5.0f)*equality,
-        ry=2u*rx*equality;
+        rx=CalcScaleValue(5.0f),
+        ry=2u*rx;
     glTranslatef(rx,.0f,.0f);
     glBegin(GL_LINES);
         glVertex2d(-rx,-ry);
