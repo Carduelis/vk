@@ -19,15 +19,17 @@ void MainLocator::GenerationRadians(bool)
     for(quint16 i=0u;i<ROUND_DEGREE;i++)
     {
         radians[i].angle=GetRadianValue(i);
-        radians[i].x=amplitude>.0f ? qFastCos(radians[i].angle)*amplitude*equality : qFastCos(radians[i].angle)*equality;
-        radians[i].y=amplitude<.0f ? qFastSin(radians[i].angle)*(-amplitude)*equality : qFastSin(radians[i].angle)*equality;
+        radians[i].x=amplitude>.0f ? qFastCos(radians[i].angle)*amplitude*equality*circle.at(circle_counter).x : qFastCos(radians[i].angle)*equality*circle.at(circle_counter).x;
+        radians[i].y=amplitude<.0f ? qFastSin(radians[i].angle)*(-amplitude)*equality*circle.at(circle_counter).y : qFastSin(radians[i].angle)*equality*circle.at(circle_counter).y;
     }
 }
 
 void MainLocator::DrawStation(void)const
 {
     qreal equality=settings["scan"]["equality"].toDouble();
-    glRotatef(30.0f,.0f,.0f,1.0f);
+    if(equality<=.0f)
+        equality=1.0f;
+    glRotatef(LOCATOR_ROTATE_ANGLE,.0f,.0f,1.0f);
     //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
     glColor3f(static_cast<GLfloat>(.925f),static_cast<GLfloat>(.714f),static_cast<GLfloat>(.262f));
     qreal
@@ -48,7 +50,7 @@ void MainLocator::DrawStation(void)const
         glVertex2d(rx,ry);
     glEnd();
     glTranslatef(-rx,.0f,.0f);
-    glRotatef(-30.0f,.0f,.0f,1.0f);
+    glRotatef(-LOCATOR_ROTATE_ANGLE,.0f,.0f,1.0f);
 }
 
 void MainLocator::InitLocatorGrid(void)const
@@ -64,6 +66,8 @@ void MainLocator::ContinueSearch(void)
         ray_position=ray.begin();
     }
     ray_position++;
+    counter++;
+    circle_counter+=CIRCLE_CLEARANCE;
 }
 
 template<typename T>T MainLocator::CalcScaleValue(const T value,MainLocator::Scale scale) const

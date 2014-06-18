@@ -43,6 +43,7 @@ class Daddy : public QGLWidget
         void paintGL();
         void LocatorArea(void)const;
         void GenerationRadians(void);
+        void PostDraw(void)const;
         virtual void GenerationRadians(bool)=0;
         virtual void ContinueSearch(void)=0;
         virtual void DrawStation(void)const=0;
@@ -57,7 +58,9 @@ class Daddy : public QGLWidget
         QVector<Points*>ray;
         QVector<Points*>::const_iterator ray_position;
         QBasicTimer timer;
-        int width,height;
+        int width=0u,height=0u;
+        quint16 counter=0u,
+                circle_counter=0u;
 };
 
 template<typename OptionType>void Daddy::SetSettings(const QString group, const QString name,const OptionType option)

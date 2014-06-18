@@ -6,6 +6,10 @@
 #include<QTimerEvent>
 #include"daddy.h"
 
+#ifndef LOCATOR_ROTATE_ANGLE
+#define LOCATOR_ROTATE_ANGLE 30.0f
+#endif
+
 class MainLocator : public Daddy
 {
     Q_OBJECT

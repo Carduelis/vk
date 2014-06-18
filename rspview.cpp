@@ -172,6 +172,7 @@ void RSPView::on_ChangeMainOffsetVertical_sliderReleased()
 
 void RSPView::on_ChangeMainOffsetVertical_valueChanged(int value)
 {
+    ui->RenderMainLocator->SetSettings("offset","vertical",static_cast<qreal>(value)/100);
     ui->ChangeMainOffsetVerticalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeMainOffsetVertical->maximum())));
 }
 
@@ -197,6 +198,7 @@ void RSPView::on_ChangeMainOffsetHorizontal_sliderReleased()
 
 void RSPView::on_ChangeMainOffsetHorizontal_valueChanged(int value)
 {
+    ui->RenderMainLocator->SetSettings("offset","horizontal",static_cast<qreal>(value)/100);
     ui->ChangeMainOffsetHorizontalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeMainOffsetHorizontal->maximum())));
 }
 

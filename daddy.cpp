@@ -9,7 +9,7 @@ Daddy::Daddy(QWidget *parent) : QGLWidget(QGLFormat(QGL::SampleBuffers),parent)
     GenerationRadians();
     circle.clear();
     Points p;
-    for(Points*i=radians,*end=radians+ROUND_DEGREE;i<end;i+=3u) //Получаем координаты для отрисовки фона индикатора
+    for(Points*i=radians,*end=radians+ROUND_DEGREE;i<end;i+=CIRCLE_CLEARANCE) //Получаем координаты для отрисовки фона индикатора
     {
         p.x=i->x;
         p.y=i->y;
@@ -69,7 +69,7 @@ void Daddy::paintGL()
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
     LocatorArea();
-    //glTranslatef(settings["offset"]["horizontal"].toDouble(),settings["offset"]["vertical"].toDouble(),.0f);
+    glTranslatef(settings["offset"]["horizontal"].toDouble(),settings["offset"]["vertical"].toDouble(),.0f);
     //glTranslatef(-GRID_OFFSET+settings["offset"]["vertical"].toDouble()/100,.0f+settings["offset"]["horizontal"].toDouble()/100,.0f);
     DrawStation();
     //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
@@ -82,6 +82,7 @@ void Daddy::paintGL()
         glVertex2d((*ray_position)->x,(*ray_position)->y);
     glEnd();
     glPopMatrix();
+    PostDraw();
 }
 
 bool Daddy::IsActive(void)const
@@ -105,6 +106,31 @@ void Daddy::LocatorArea(void)const
     glBegin(GL_TRIANGLE_FAN);
         for(QVector<Points>::const_iterator it=circle.begin();it<circle.end();it++)
             glVertex2d(it->x,it->y);
+    glEnd();
+}
+
+void Daddy::PostDraw(void)const
+{
+    qglColor(palette().background().color());
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2d(-1,1u);
+    for(QVector<Points>::const_iterator it=circle.begin()+30;it<circle.begin()+60;it++)
+        glVertex2d(it->x,it->y);
+    glEnd();
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2d(1u,1u);
+    for(QVector<Points>::const_iterator it=circle.begin();it<circle.begin()+30;it++)
+        glVertex2d(it->x,it->y);
+    glEnd();
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2d(-1,-1);
+    for(QVector<Points>::const_iterator it=circle.begin()+60;it<circle.begin()+90;it++)
+        glVertex2d(it->x,it->y);
+    glEnd();
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2d(1u,-1);
+    for(QVector<Points>::const_iterator it=circle.begin()+90;it<circle.end();it++)
+        glVertex2d(it->x,it->y);
     glEnd();
 }
 
