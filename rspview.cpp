@@ -144,6 +144,9 @@ void RSPView::on_ChangeMainScanEqua_sliderReleased()
 
 void RSPView::on_ChangeMainScanEqua_valueChanged(int value)
 {
+    if(value==0)
+        return;
+    ui->RenderMainLocator->SetSettings("scan","equality",static_cast<qreal>(value)/100);
     ui->ChangeMainScanEquaButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeMainScanEqua->maximum())));
 }
 

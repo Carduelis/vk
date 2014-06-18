@@ -8,6 +8,10 @@
 #include"helpers.h"
 #include<QDebug>
 
+#ifndef GL_MULTISAMPLE
+#define GL_MULTISAMPLE  0x809D
+#endif
+
 //Макрос стырен из Chromium, т.к. это пока лучшее, что можно придумать для подсчёта элементов массива
 #ifndef ArraySize
 template<typename T,size_t N>
@@ -59,11 +63,6 @@ class Daddy : public QGLWidget
 template<typename OptionType>void Daddy::SetSettings(const QString group, const QString name,const OptionType option)
 {
     settings[group][name]=QVariant::fromValue(option);
-    if(group=="scan")
-    {
-        if(name=="amplitude");
-            GenerationRadians(true);
-    }
     if(group!="common")
         updateGL();
 }
