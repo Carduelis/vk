@@ -545,7 +545,16 @@ void RSPIndicators::on_ChangeTopVARU_valueChanged(int value)
 
 void RSPIndicators::on_ChangeTopViewStateAll_clicked()
 {
-
+    if(ui->RenderTopTriangleLocator->IsAllVisible())
+    {
+        ui->ChangeTopViewStateAll->setText("Отобразить все скрытые метки");
+        ui->RenderTopTriangleLocator->SetAllVisible(false);
+    }
+    else
+    {
+        ui->ChangeTopViewStateAll->setText("Вернуть состояние скрытых меток");
+        ui->RenderTopTriangleLocator->SetAllVisible(true);
+    }
 }
 
 void RSPIndicators::on_ChangeTopState_clicked()
@@ -776,7 +785,16 @@ void RSPIndicators::on_ChangeRightVARU_valueChanged(int value)
 
 void RSPIndicators::on_ChangeRightViewStateAll_clicked()
 {
-
+    if(ui->RenderRightTriangleLocator->IsAllVisible())
+    {
+        ui->ChangeRightViewStateAll->setText("Отобразить все скрытые метки");
+        ui->RenderRightTriangleLocator->SetAllVisible(false);
+    }
+    else
+    {
+        ui->ChangeRightViewStateAll->setText("Вернуть состояние скрытых меток");
+        ui->RenderRightTriangleLocator->SetAllVisible(true);
+    }
 }
 
 void RSPIndicators::on_ChangeRightState_clicked()

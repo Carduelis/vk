@@ -261,7 +261,16 @@ void IndicatorPRL::on_SelectTopScale_released()
 
 void IndicatorPRL::on_ChangeTopViewStateAll_clicked()
 {
-
+    if(ui->RenderTopTriangleLocator->IsAllVisible())
+    {
+        ui->ChangeTopViewStateAll->setText("Отобразить все\nскрытые метки");
+        ui->RenderTopTriangleLocator->SetAllVisible(false);
+    }
+    else
+    {
+        ui->ChangeTopViewStateAll->setText("Вернуть состояние\nскрытых меток");
+        ui->RenderTopTriangleLocator->SetAllVisible(true);
+    }
 }
 
 void IndicatorPRL::on_ChangeTopState_clicked()
@@ -492,7 +501,16 @@ void IndicatorPRL::on_SelectRightScale_released()
 
 void IndicatorPRL::on_ChangeRightViewStateAll_clicked()
 {
-
+    if(ui->RenderRightTriangleLocator->IsAllVisible())
+    {
+        ui->ChangeRightViewStateAll->setText("Отобразить все\nскрытые метки");
+        ui->RenderRightTriangleLocator->SetAllVisible(false);
+    }
+    else
+    {
+        ui->ChangeRightViewStateAll->setText("Вернуть состояние\nскрытых меток");
+        ui->RenderRightTriangleLocator->SetAllVisible(true);
+    }
 }
 
 void IndicatorPRL::on_ChangeRightState_clicked()
