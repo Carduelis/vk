@@ -77,3 +77,15 @@ void TopTriangleLocator::SetCurrentWorkMode(const TopTriangleLocator::WorkMode w
 {
     work_mode=wm;
 }
+
+void TopTriangleLocator::GenerationRange(void)
+{
+    for(qreal r=.0f;r<=1u;r+=1)
+    {
+
+    }
+}
+
+void TopTriangleLocator::DrawRange(void)const
+{
+}

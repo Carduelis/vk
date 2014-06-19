@@ -35,6 +35,15 @@ class MainLocator : public Daddy
     public slots:
 
     protected:
+        struct Storage
+        {
+            QHash<Scale,QVector<RoundLine> >range;
+        }Cache,Next;
+
+        struct Pointer
+        {
+            QHash<Scale,QVector<RoundLine> >*range;
+        }Current;
         //void timerEvent(QTimerEvent *event);
         //void mouseDoubleClickEvent(QMouseEvent  *event);
         Azimuth azimuth=Azimuth::A_NO;
@@ -46,6 +55,8 @@ class MainLocator : public Daddy
         void DrawStation(void)const;
         void InitLocatorGrid(void)const;
         void ContinueSearch(void);
+        void GenerationRange(void);
+        void DrawRange(void)const;
 
         template<typename T>T CalcScaleValue(const T value,Scale scale)const;
         template<typename T>T CalcScaleValue(const T value)const;

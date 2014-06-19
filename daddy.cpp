@@ -69,12 +69,17 @@ void Daddy::paintGL()
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
     LocatorArea();
-    glTranslatef(settings["offset"]["horizontal"].toDouble(),settings["offset"]["vertical"].toDouble(),.0f);
-    //glTranslatef(-GRID_OFFSET+settings["offset"]["vertical"].toDouble()/100,.0f+settings["offset"]["horizontal"].toDouble()/100,.0f);
-    glScalef(settings["scan"]["amplitude"].toDouble(),settings["scan"]["equality"].toDouble(),1);
+    qreal h=settings["offset"]["horizontal"].isNull() ? .0f : settings["offset"]["horizontal"].toDouble(),
+          v=settings["offset"]["vertical"].isNull() ? .0f : settings["offset"]["vertical"].toDouble(),
+          a=settings["scan"]["amplitude"].isNull() ? 1.0f : settings["scan"]["amplitude"].toDouble(),
+          e=settings["scan"]["equality"].isNull() ? 1.0f : settings["scan"]["equality"].toDouble();
+    glTranslatef(h,v,.0f);
     DrawStation();
+    glScalef(a,e,1.0f);
     //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
     InitLocatorGrid();
+    //if(!Current.range->isEmpty())
+        DrawRange();
     //glRotatef(90.0f,.0f,.0f,1.0);
     //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
     glLineWidth(2.0f);
@@ -170,7 +175,7 @@ QPixmap Daddy::RotateResourceImage(const QString resource_path,const qint16 degr
     QPainter p(&pixmap);
     p.translate(pixmap.size().width()/2,pixmap.size().height()/2);
     p.rotate(degree);
-    p.translate(-pixmap.size().width()/2,-pixmap.size().height()/ 2);
+    p.translate(-pixmap.size().width()/2,-pixmap.size().height()/2);
     p.drawPixmap(0u,0u,original);
     p.end();
     return original=pixmap;

@@ -37,6 +37,16 @@ class Daddy : public QGLWidget
     public slots:
 
     protected:
+        struct Points
+        {
+            qreal x,y,angle;
+        }radians[ROUND_DEGREE];
+        struct RoundLine
+        {
+            qreal width;
+            Points *Coordinates=nullptr;
+        };
+
         void timerEvent(QTimerEvent *event);
         void initializeGL();
         void resizeGL(int width,int height);
@@ -45,6 +55,8 @@ class Daddy : public QGLWidget
         void GenerationRadians(void);
         void PostDraw(void)const;
         virtual void GenerationRadians(bool)=0;
+        virtual void GenerationRange(void)=0;
+        virtual void DrawRange(void)const=0;
         virtual void ContinueSearch(void)=0;
         virtual void DrawStation(void)const=0;
         virtual void InitLocatorGrid(void)const=0;
@@ -53,7 +65,6 @@ class Daddy : public QGLWidget
         //template<typename T,typename S>T CalcScaleValue(const T value,const S scale)const;
 
         QMap<QString,QMap<QString,QVariant> >settings;
-        Points radians[ROUND_DEGREE];
         QVector<Points>circle;
         QVector<Points*>ray;
         QVector<Points*>::const_iterator ray_position;
@@ -66,6 +77,7 @@ class Daddy : public QGLWidget
 template<typename OptionType>void Daddy::SetSettings(const QString group, const QString name,const OptionType option)
 {
     settings[group][name]=QVariant::fromValue(option);
+    GenerationRange();
     if(group!="common")
         updateGL();
 }

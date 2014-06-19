@@ -75,3 +75,15 @@ void RightTriangleLocator::SetCurrentWorkMode(const RightTriangleLocator::WorkMo
 {
     work_mode=wm;
 }
+
+void RightTriangleLocator::GenerationRange(void)
+{
+    for(qreal r=.0f;r<=1u;r+=1)
+    {
+
+    }
+}
+
+void RightTriangleLocator::DrawRange(void)const
+{
+}

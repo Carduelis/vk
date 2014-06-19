@@ -6,6 +6,8 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
 {
     ui->setupUi(this);
 
+    ui->RenderMainLocator->SetCurrentRangeMode(MainLocator::R_FIRST);
+
     ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);
     ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
@@ -113,10 +115,10 @@ void RSPView::on_ChangeMainScanAmp_sliderReleased()
 
 void RSPView::on_ChangeMainScanAmp_valueChanged(int value)
 {
-    quint16 max=ui->ChangeMainScanAmp->maximum(),
-            min=ui->ChangeMainScanAmp->minimum();
-    if(value==min || value==max)
-        return;
+    //quint16 max=ui->ChangeMainScanAmp->maximum(),
+    //        min=ui->ChangeMainScanAmp->minimum();
+    //if(value==min || value==max)
+    //    return;
     //qreal val=static_cast<qreal>(value)/100;
     //ui->RenderMainLocator->SetSettings("scan","amplitude",val>1 ? (val-static_cast<qreal>(max-min)/100) : val);
     ui->RenderMainLocator->SetSettings("scan","amplitude",static_cast<qreal>(value)/100);

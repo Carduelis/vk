@@ -93,6 +93,7 @@ MainLocator::Range MainLocator::GetCurrentRangeMode(void)const
 void MainLocator::SetCurrentRangeMode(const MainLocator::Range r)
 {
     range=r;
+    GenerationRange();
 }
 
 
@@ -104,6 +105,7 @@ MainLocator::Scale MainLocator::GetCurrentScaleMode(void)const
 void MainLocator::SetCurrentScaleMode(const MainLocator::Scale s)
 {
     scale=s;
+    GenerationRange();
 }
 
 MainLocator::WorkMode MainLocator::GetCurrentWorkMode(void)const
@@ -114,4 +116,63 @@ MainLocator::WorkMode MainLocator::GetCurrentWorkMode(void)const
 void MainLocator::SetCurrentWorkMode(const MainLocator::WorkMode wm)
 {
     work_mode=wm;
+}
+
+void MainLocator::GenerationRange(void)
+{
+    //QHash<Scale,RoundLine>range;
+    Cache.range.clear();
+    quint8 j=0u,d=0u;
+    qreal delta=CalcScaleValue(static_cast<qreal>(range));
+
+    switch(range)
+    {
+        case Range::R_NO:
+            return;
+        case Range::R_FIRST:
+            j=5u;
+            break;
+        case Range::R_SECOND:
+        default:
+            j=1u;
+    }
+
+    RoundLine cache;
+    quint16 c=0u;
+    for(qreal r=.0f;r<=1.0f;r+=delta,d++)
+    {
+        cache.width=d%j==0u ? 3.5f : 1.0f;
+        cache.Coordinates=new Points[ROUND_DEGREE];
+        c=0u;
+        for(Points *i=radians,*e=radians+ROUND_DEGREE;i<e;i++,c++)
+        {
+            cache.Coordinates[c].angle=i->angle;
+            cache.Coordinates[c].x=r*i->x;
+            cache.Coordinates[c].y=r*i->y;
+        }
+        Cache.range[scale].append(cache);
+    }
+    Current.range=&Cache.range;
+}
+
+void MainLocator::DrawRange(void)const
+{
+    for(QVector<RoundLine>::const_iterator it=(*Current.range)[scale].begin(),end=(*Current.range)[scale].end();it<end;it++)
+    {
+        glLineWidth(it->width);
+        glBegin(GL_LINE_STRIP);
+            for(Points *i=it->Coordinates,*e=it->Coordinates+ROUND_DEGREE;i<e;i++)
+                glVertex2f(i->x,i->y);
+        glEnd();
+    }
+    /*
+    for(QVector<RoundLine>::const_iterator it=Cache.range[scale].begin(),end=Cache.range[scale].end();it<end;it++)
+    {
+        glLineWidth(it->width);
+        glBegin(GL_LINE_STRIP);
+            for(Points *i=it->Coordinates,*e=it->Coordinates+ROUND_DEGREE;i<e;i++)
+                glVertex2f(i->x,i->y);
+        glEnd();
+    }
+    */
 }

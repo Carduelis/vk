@@ -14,9 +14,4 @@
 #define GetRadianValue(degree) (M_PI*degree)/180
 #endif
 
-struct Points
-{
-    qreal x,y,angle;
-};
-
 #endif // HELPERS_H
