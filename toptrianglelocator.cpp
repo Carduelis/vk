@@ -3,7 +3,8 @@
 
 TopTriangleLocator::TopTriangleLocator(QWidget *parent) : Daddy(parent)
 {
-
+    GenerationRadians();
+    GenerationRay(2u*TRIANGLE_ANGLE+1);
 }
 
 TopTriangleLocator::~TopTriangleLocator()
@@ -11,12 +12,16 @@ TopTriangleLocator::~TopTriangleLocator()
 
 }
 
-void TopTriangleLocator::GenerationRadians(bool)
+void TopTriangleLocator::GenerationRadians(void)
 {
-    for(quint16 i=0u;i<ROUND_DEGREE;i++)
+    delete radians;
+    radians=new Points[2u*TRIANGLE_ANGLE+1];
+    qint16 a=0u;
+    for(quint16 i=0u;i<=2u*TRIANGLE_ANGLE;i++)
     {
-        radians[i].angle=GetRadianValue(i);
-        radians[i].x=qFastCos(radians[i].angle);
+        a=i-TRIANGLE_ANGLE;
+        radians[i].angle=GetRadianValue(a);
+        radians[i].x=qFastCos(GetRadianValue(TRIANGLE_ANGLE));
         radians[i].y=qFastSin(radians[i].angle);
     }
 }
@@ -55,7 +60,17 @@ void TopTriangleLocator::DrawStation(void)const
 
 void TopTriangleLocator::InitLocatorGrid(void)const{}
 
-void TopTriangleLocator::ContinueSearch(void){}
+void TopTriangleLocator::ContinueSearch(void)
+{
+    updateGL();
+    if(ray_position==ray.end()-1u)
+    {
+        clockwise=!clockwise; //Для обращения в другую сторону!
+        GenerationRay(2u*TRIANGLE_ANGLE+1);
+        ray_position=ray.begin();
+    }
+    ray_position++;
+}
 
 template<typename T>T TopTriangleLocator::CalcScaleValue(const T value,TopTriangleLocator::Scale scale) const
 {

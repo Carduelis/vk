@@ -43,7 +43,7 @@ class Daddy : public QGLWidget
         struct Points
         {
             qreal x,y,angle;
-        }radians[ROUND_DEGREE];
+        }*radians;
         struct RoundLine
         {
             qreal width;
@@ -61,9 +61,8 @@ class Daddy : public QGLWidget
         void paintGL();
         qreal CalcAlpha(qreal angle)const;
         void LocatorArea(void)const;
-        void GenerationRadians(void);
         void PostDraw(void)const;
-        virtual void GenerationRadians(bool)=0;
+        void GenerationRadians(void);
         virtual void GenerationRange(void)=0;
         virtual void DrawRange(void)const=0;
         virtual void GenerationAzimuth(void)=0;

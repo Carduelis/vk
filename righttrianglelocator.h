@@ -35,7 +35,7 @@ class RightTriangleLocator : public Daddy
         Range range=Range::R_NO;
         Scale scale=Scale::S_SMALL;
         WorkMode work_mode=WorkMode::WM_PASS;
-        void GenerationRadians(bool);
+        void GenerationRadians(void);
         void DrawStation(void)const;
         void InitLocatorGrid(void)const;
         void ContinueSearch(void);

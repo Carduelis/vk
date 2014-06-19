@@ -36,6 +36,8 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
     ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
     ui->ChangeRightVARU->valueChanged(ui->ChangeRightVARU->value());
+
+    ui->ChangeTopState->clicked();
 }
 
 IndicatorPRL::~IndicatorPRL()
@@ -257,7 +259,16 @@ void IndicatorPRL::on_ChangeTopViewStateAll_clicked()
 
 void IndicatorPRL::on_ChangeTopState_clicked()
 {
-
+    if(ui->RenderTopTriangleLocator->IsActive())
+    {
+        ui->RenderTopTriangleLocator->ChangeFPS(0u);
+        ui->ChangeTopState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeTopState->setText("Стоп");
+    }
 }
 
 void IndicatorPRL::on_SelectRightRangeMarks_pressed()

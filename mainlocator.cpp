@@ -3,16 +3,26 @@
 
 MainLocator::MainLocator(QWidget *parent) : Daddy(parent)
 {
-    GenerationRay();
     S.range.clear();
     S.azimuth.clear();
+    GenerationRay();
 }
 
 MainLocator::~MainLocator()
 {
-    if(IsActive())
-        killTimer(timer.timerId());
+
 }
+
+void MainLocator::GenerationRadians(void)
+{
+    for(quint16 i=0u;i<ROUND_DEGREE;i++)
+    {
+        radians[i].angle=GetRadianValue(i);
+        radians[i].x=qFastCos(radians[i].angle);
+        radians[i].y=qFastSin(radians[i].angle);
+    }
+}
+
 
 void MainLocator::GenerationRadians(bool)
 {
@@ -59,14 +69,13 @@ void MainLocator::InitLocatorGrid(void)const
 
 void MainLocator::ContinueSearch(void)
 {
+    qDebug()<<-1;
     updateGL();
     if(ray_position==ray.end()-1u)
     {
         ray_position=ray.begin();
     }
     ray_position++;
-    counter++;
-    circle_counter+=CIRCLE_CLEARANCE;
 }
 
 template<typename T>T MainLocator::CalcScaleValue(const T value,MainLocator::Scale scale) const
@@ -125,7 +134,7 @@ void MainLocator::SetCurrentWorkMode(const MainLocator::WorkMode wm)
 
 void MainLocator::GenerationRange(void)
 {
-    //QHash<Scale,RoundLine>range;
+    S.range[scale].clear();
     quint8 j=0u,d=0u;
     qreal delta=CalcScaleValue(static_cast<qreal>(range));
 
@@ -199,6 +208,7 @@ void MainLocator::DrawRange(void)const
 
 void MainLocator::GenerationAzimuth(void)
 {
+    S.azimuth.clear();
     if(azimuth==Azimuth::A_NO)
         return;
 

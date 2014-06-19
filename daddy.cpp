@@ -17,13 +17,13 @@ Daddy::Daddy(QWidget *parent) : QGLWidget(QGLFormat(QGL::SampleBuffers),parent)
         p.angle=i->angle;
         circle.append(p);
     }
-    GenerationRay();
     ChangeFPS(.0f);
 }
 
 Daddy::~Daddy()
 {
-
+    if(IsActive())
+        killTimer(timer.timerId());
 }
 
 void Daddy::timerEvent(QTimerEvent *event)
@@ -91,6 +91,7 @@ bool Daddy::IsActive(void)const
 
 void Daddy::GenerationRadians(void)
 {
+    radians=new Points[ROUND_DEGREE];
     for(quint16 i=0u;i<ROUND_DEGREE;i++)
     {
         radians[i].angle=GetRadianValue(i);
@@ -151,9 +152,9 @@ void Daddy::GenerationRay(quint16 angle)
 void Daddy::DrawRay(void)const
 {
     QColor color=Color;
-    color.setAlphaF(settings["system"]["brightness"].toDouble());
+    //color.setAlphaF(settings["system"]["brightness"].toDouble());
     qglColor(color);
-    glLineWidth(3.0f*settings["system"]["focus"].toDouble());
+    //glLineWidth(3.0f*settings["system"]["focus"].toDouble());
     glBegin(GL_LINES);
         glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
         glVertex2d((*ray_position)->x,(*ray_position)->y);

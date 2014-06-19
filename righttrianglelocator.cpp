@@ -3,7 +3,7 @@
 
 RightTriangleLocator::RightTriangleLocator(QWidget *parent) : Daddy(parent)
 {
-
+    GenerationRay(TRIANGLE_ANGLE);
 }
 
 RightTriangleLocator::~RightTriangleLocator()
@@ -11,7 +11,7 @@ RightTriangleLocator::~RightTriangleLocator()
 
 }
 
-void RightTriangleLocator::GenerationRadians(bool)
+void RightTriangleLocator::GenerationRadians(void)
 {
     for(quint16 i=0u;i<ROUND_DEGREE;i++)
     {
