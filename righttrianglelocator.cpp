@@ -111,6 +111,7 @@ void RightTriangleLocator::GenerationRange(void)
 
 void RightTriangleLocator::DrawRange(void)const
 {
+
 }
 
 void RightTriangleLocator::GenerationAzimuth(void)

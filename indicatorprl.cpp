@@ -5,6 +5,7 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
 {
     ui->setupUi(this);
     ui->RenderTopTriangleLocator->SetCurrentRangeMode(TopTriangleLocator::Range::R_FIRST);
+    ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_SMALL);
 
     ui->RenderRightTriangleLocator->SetCurrentRangeMode(RightTriangleLocator::Range::R_FIRST);
@@ -162,6 +163,7 @@ void IndicatorPRL::on_ChangeTopLightning_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
     ui->ChangeTopLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopLightning->maximum())));
 }
 
@@ -490,4 +492,80 @@ void IndicatorPRL::on_ChangeRightViewStateAll_clicked()
 void IndicatorPRL::on_ChangeRightState_clicked()
 {
 
+}
+
+void IndicatorPRL::on_SelectTopAzimuthMarks_pressed()
+{
+    ui->SelectTopAzimuthMarks->setCursor(Qt::ClosedHandCursor);
+}
+
+void IndicatorPRL::on_SelectTopAzimuthMarks_released()
+{
+    static bool way=false;
+    qint8 degree=0u;
+    TopTriangleLocator::Azimuth a=ui->RenderTopTriangleLocator->GetCurrentAzimuthMode();
+    if(a==TopTriangleLocator::Azimuth::A_NO)
+    {
+        degree=0u;
+        ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
+    }
+    else if(a==TopTriangleLocator::Azimuth::A_FIRST)
+    {
+        if(way)
+        {
+            degree=-60;
+            ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_NO);
+        }
+        else
+        {
+            degree=60u;
+            ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_SECOND);
+        }
+        way=!way;
+    }
+    else if(a==TopTriangleLocator::Azimuth::A_SECOND)
+    {
+        degree=0u;
+        ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
+    }
+    ui->SelectTopAzimuthMarks->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
+    ui->SelectTopAzimuthMarks->setCursor(Qt::OpenHandCursor);
+}
+
+void IndicatorPRL::on_SelectRightAzimuthMarks_pressed()
+{
+    ui->SelectRightAzimuthMarks->setCursor(Qt::ClosedHandCursor);
+}
+
+void IndicatorPRL::on_SelectRightAzimuthMarks_released()
+{
+    static bool way=false;
+    qint8 degree=0u;
+    RightTriangleLocator::Azimuth a=ui->RenderRightTriangleLocator->GetCurrentAzimuthMode();
+    if(a==RightTriangleLocator::Azimuth::A_NO)
+    {
+        degree=0u;
+        ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
+    }
+    else if(a==RightTriangleLocator::Azimuth::A_FIRST)
+    {
+        if(way)
+        {
+            degree=-60;
+            ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_NO);
+        }
+        else
+        {
+            degree=60u;
+            ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_SECOND);
+        }
+        way=!way;
+    }
+    else if(a==RightTriangleLocator::Azimuth::A_SECOND)
+    {
+        degree=0u;
+        ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
+    }
+    ui->SelectRightAzimuthMarks->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
+    ui->SelectRightAzimuthMarks->setCursor(Qt::OpenHandCursor);
 }

@@ -70,7 +70,15 @@ class IndicatorPRL : public QMainWindow
         void on_ChangeRightViewStateAll_clicked();
         void on_ChangeRightState_clicked();
 
-    private:
+        void on_SelectTopAzimuthMarks_pressed();
+
+        void on_SelectTopAzimuthMarks_released();
+
+        void on_SelectRightAzimuthMarks_pressed();
+
+        void on_SelectRightAzimuthMarks_released();
+
+private:
             Ui::IndicatorPRL *ui;
 };
 

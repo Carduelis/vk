@@ -17,7 +17,7 @@ class TopTriangleLocator : public Daddy
     public:
         explicit TopTriangleLocator(QWidget *parent=0);
         ~TopTriangleLocator();
-        enum Azimuth{A_NO=0u,A_FIRST=10u,A_SECOND=30u};
+        enum Azimuth{A_NO=0u,A_FIRST=2u,A_SECOND=4u};
         enum Range{R_NO=0u,R_FIRST=5u,R_SECOND=10u};
         enum Scale{S_SMALL=20u,S_MIDDLE=30u,S_LARGE=60u};
         enum WorkMode{WM_AKT=0u,WM_PASS,WM_SDC,WM_COMMON};

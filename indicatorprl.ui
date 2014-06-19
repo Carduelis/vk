@@ -616,7 +616,7 @@
              </item>
              <item row="0" column="0">
               <layout class="QGridLayout" name="gridLayout_11">
-               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+               <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
                 <widget class="QLabel" name="LabelTopScale">
                  <property name="text">
                   <string>Масштаб:</string>
@@ -626,7 +626,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="1" column="1">
                 <layout class="QGridLayout" name="gridLayout_10">
                  <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
                   <widget class="QLabel" name="LabelTopScale20">
@@ -687,6 +687,99 @@
                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                    </property>
                   </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="LabelTopAzimuthMarks">
+                 <property name="text">
+                  <string>Отметки
+азимута:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <layout class="QGridLayout" name="gridLayout_18">
+                 <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QPushButton" name="SelectTopAzimuthMarks">
+                   <property name="cursor">
+                    <cursorShape>OpenHandCursor</cursorShape>
+                   </property>
+                   <property name="focusPolicy">
+                    <enum>Qt::TabFocus</enum>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="flat">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <layout class="QGridLayout" name="gridLayout_19">
+                   <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelTopAzimuthMarksNo">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>НЕТ</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelTopRangeMarks2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>2°</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelTopAzimuthMarks4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>4°</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                 </layout>
                </item>
@@ -1223,7 +1316,17 @@
             <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorAdvanced">
              <item row="0" column="0">
               <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorScaleUnion">
-               <item row="0" column="1">
+               <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelRightScale">
+                 <property name="text">
+                  <string>Масштаб:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
                 <layout class="QGridLayout" name="LayoutSettingsRightTriangleLocatorScale">
                  <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
                   <widget class="QLabel" name="LabelRightScale20">
@@ -1287,15 +1390,98 @@
                  </item>
                 </layout>
                </item>
-               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-                <widget class="QLabel" name="LabelRightScale">
+               <item row="0" column="0">
+                <widget class="QLabel" name="LabelRightAzimuthMarks">
                  <property name="text">
-                  <string>Масштаб:</string>
+                  <string>Отметки
+азимута:</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
+               </item>
+               <item row="0" column="1">
+                <layout class="QGridLayout" name="gridLayout_25">
+                 <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QPushButton" name="SelectRightAzimuthMarks">
+                   <property name="cursor">
+                    <cursorShape>OpenHandCursor</cursorShape>
+                   </property>
+                   <property name="focusPolicy">
+                    <enum>Qt::TabFocus</enum>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="flat">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <layout class="QGridLayout" name="gridLayout_26">
+                   <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelRightAzimuthMarksNo_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>НЕТ</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelRightAzimuthMarks2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>2°</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelRightAzimuthMarks4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>4°</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
                </item>
               </layout>
              </item>

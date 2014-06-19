@@ -54,6 +54,17 @@ class Daddy : public QGLWidget
             qreal width;
             Points Coordinates;
         };
+        struct Storage
+        {
+            QHash<quint16,QVector<RoundLine> >range;
+            QVector<CenterStraightLine>azimuth;
+        }S;
+
+        struct Pointer
+        {
+            QVector<RoundLine>*range=nullptr;
+            QVector<CenterStraightLine>*azimuth=nullptr;
+        }Cache,Current;
 
         void timerEvent(QTimerEvent *event);
         void initializeGL();

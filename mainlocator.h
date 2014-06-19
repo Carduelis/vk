@@ -35,17 +35,7 @@ class MainLocator : public Daddy
     public slots:
 
     protected:
-        struct Storage
-        {
-            QHash<Scale,QVector<RoundLine> >range;
-            QVector<CenterStraightLine>azimuth;
-        }S;
 
-        struct Pointer
-        {
-            QVector<RoundLine>*range=nullptr;
-            QVector<CenterStraightLine>*azimuth=nullptr;
-        }Cache,Current;
         //void timerEvent(QTimerEvent *event);
         //void mouseDoubleClickEvent(QMouseEvent  *event);
         Azimuth azimuth=Azimuth::A_NO;

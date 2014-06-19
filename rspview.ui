@@ -2733,6 +2733,19 @@ background-repeat: no-repeat;</string>
             </property>
            </spacer>
           </item>
+          <item row="0" column="4">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item row="0" column="2">
            <layout class="QGridLayout" name="gridLayout_46">
             <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
@@ -2805,17 +2818,75 @@ background-repeat: no-repeat;</string>
            </layout>
           </item>
           <item row="0" column="3">
-           <spacer name="horizontalSpacer_6">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+           <layout class="QGridLayout" name="gridLayout_83">
+            <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+             <widget class="QPushButton" name="ChangeTopLightningButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="cursor">
+               <cursorShape>OpenHandCursor</cursorShape>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::TabFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="Common.qrc">
+                <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" alignment="Qt::AlignHCenter|Qt::AlignTop">
+             <widget class="QLabel" name="LabelTopLightning">
+              <property name="text">
+               <string>ПОДСВЕТКА</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QSlider" name="ChangeTopLightning">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="cursor">
+               <cursorShape>OpenHandCursor</cursorShape>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>60</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>

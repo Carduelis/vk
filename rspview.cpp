@@ -6,12 +6,14 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
 {
     ui->setupUi(this);
 
-    ui->RenderMainLocator->SetCurrentRangeMode(MainLocator::R_FIRST);
-    ui->RenderMainLocator->SetCurrentAzimuthMode(MainLocator::A_FIRST);
-
+    ui->RenderMainLocator->SetCurrentRangeMode(MainLocator::Range::R_FIRST);
+    ui->RenderMainLocator->SetCurrentAzimuthMode(MainLocator::Azimuth::A_FIRST);
     ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
+
+    ui->RenderTopTriangleLocator->SetCurrentRangeMode(TopTriangleLocator::Range::R_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);
     ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
+    ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
 
     ui->ChangeMainScanAmp->hide();
     ui->ChangeMainScanEqua->hide();
@@ -43,6 +45,10 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeTopTrashPASS->hide();
     ui->ChangeTopTrashAKT->hide();
     ui->ChangeTopState->hide();
+    //-----------------------------
+    ui->ChangeTopLightning->hide();
+    ui->ChangeTopLightningButton->hide();
+    ui->LabelTopLightning->hide();
 
     ui->ChangeRightScanAmpVertical->hide();
     ui->ChangeRightScanAmpHorizontal->hide();
@@ -92,6 +98,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightFocusBrightness->valueChanged(ui->ChangeRightFocusBrightness->value());
 
     ui->ChangeMainLightning->valueChanged(ui->ChangeMainLightning->value());
+    ui->ChangeTopLightning->valueChanged(ui->ChangeTopLightning->value());
 
     ui->ChangeMainLocatorState->clicked();
     ui->ChangeTopState->clicked();
@@ -1153,4 +1160,24 @@ void RSPView::on_ChangeTopState_clicked()
         ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
         ui->ChangeTopState->setText("Стоп");
     }
+}
+
+void RSPView::on_ChangeTopLightningButton_pressed()
+{
+
+}
+
+void RSPView::on_ChangeTopLightning_sliderPressed()
+{
+
+}
+
+void RSPView::on_ChangeTopLightning_sliderReleased()
+{
+
+}
+
+void RSPView::on_ChangeTopLightning_valueChanged(int value)
+{
+    ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
 }

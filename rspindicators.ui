@@ -827,271 +827,7 @@
            </item>
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_28">
-             <item row="10" column="1">
-              <layout class="QGridLayout" name="gridLayout_26" columnstretch="0,3">
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeTopFocus">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="minimum">
-                  <number>-400</number>
-                 </property>
-                 <property name="maximum">
-                  <number>400</number>
-                 </property>
-                 <property name="value">
-                  <number>0</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeTopFocusButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="12" column="1">
-              <layout class="QGridLayout" name="gridLayout_27" columnstretch="0,3">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeTopVARUButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeTopVARU">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="maximum">
-                  <number>200</number>
-                 </property>
-                 <property name="value">
-                  <number>0</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="8" column="1">
-              <layout class="QGridLayout" name="gridLayout_25" columnstretch="0,3">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeTopLightningButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeTopLightning">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="maximum">
-                  <number>100</number>
-                 </property>
-                 <property name="value">
-                  <number>15</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="6" column="1">
-              <layout class="QGridLayout" name="gridLayout_24" columnstretch="0,3">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeTopBrightnessButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeTopBrightness">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="maximum">
-                  <number>100</number>
-                 </property>
-                 <property name="value">
-                  <number>100</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="8" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelTopDisplayLightning">
-               <property name="text">
-                <string>Подсветка:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="Line" name="line_8">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
+             <item row="3" column="1">
               <layout class="QGridLayout" name="gridLayout_21">
                <item row="0" column="0">
                 <layout class="QGridLayout" name="gridLayout_20">
@@ -1155,7 +891,7 @@
                </item>
               </layout>
              </item>
-             <item row="10" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+             <item row="11" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
               <widget class="QLabel" name="LabelTopFocus">
                <property name="text">
                 <string>Фокус:</string>
@@ -1165,7 +901,7 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+             <item row="3" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
               <widget class="QLabel" name="LabelTopRangeMarks">
                <property name="text">
                 <string>Отметки дальности:</string>
@@ -1175,83 +911,95 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
-              <layout class="QGridLayout" name="gridLayout_23">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
-                <widget class="QLabel" name="LabelTopScale20">
-                 <property name="text">
-                  <string>20 км.</string>
+             <item row="11" column="1">
+              <layout class="QGridLayout" name="gridLayout_26" columnstretch="0,3">
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeTopFocus">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="minimum">
+                  <number>-400</number>
+                 </property>
+                 <property name="maximum">
+                  <number>400</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <layout class="QGridLayout" name="gridLayout_22" columnstretch="0,3">
-                 <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                  <widget class="QPushButton" name="SelectTopScale">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>OpenHandCursor</cursorShape>
-                   </property>
-                   <property name="focusPolicy">
-                    <enum>Qt::TabFocus</enum>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="Common.qrc">
-                     <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>20</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                   <property name="flat">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                  <widget class="QLabel" name="LabelTopScale30">
-                   <property name="text">
-                    <string>30 км.</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="2" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
-                <widget class="QLabel" name="LabelTopScale60">
-                 <property name="text">
-                  <string>60 км.</string>
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeTopFocusButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
               </layout>
              </item>
-             <item row="12" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelTopVARU">
-               <property name="text">
-                <string>ВАРУ:</string>
+             <item row="6" column="1">
+              <widget class="Line" name="line_10">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </widget>
+             </item>
+             <item row="12" column="1">
+              <widget class="Line" name="line_13">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="Line" name="line_11">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="1">
+              <widget class="Line" name="line_12">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1326,7 +1074,68 @@
                </item>
               </layout>
              </item>
-             <item row="4" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+             <item row="7" column="1">
+              <layout class="QGridLayout" name="gridLayout_24" columnstretch="0,3">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeTopBrightnessButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeTopBrightness">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>100</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="5" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
               <widget class="QLabel" name="LabelTopScale">
                <property name="text">
                 <string>Масштаб:</string>
@@ -1336,14 +1145,14 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
+             <item row="4" column="1">
               <widget class="Line" name="line_9">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
               </widget>
              </item>
-             <item row="6" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+             <item row="7" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
               <widget class="QLabel" name="LabelTopBrightness">
                <property name="text">
                 <string>Яркость дисплея:</string>
@@ -1353,33 +1162,298 @@
                </property>
               </widget>
              </item>
-             <item row="5" column="1">
-              <widget class="Line" name="line_10">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+             <item row="13" column="1">
+              <layout class="QGridLayout" name="gridLayout_27" columnstretch="0,3">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeTopVARUButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeTopVARU">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="maximum">
+                  <number>200</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="9" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelTopDisplayLightning">
+               <property name="text">
+                <string>Подсветка:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
-             <item row="11" column="1">
-              <widget class="Line" name="line_13">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="Line" name="line_11">
+             <item row="1" column="1">
+              <widget class="Line" name="line_8">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
               </widget>
              </item>
              <item row="9" column="1">
-              <widget class="Line" name="line_12">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+              <layout class="QGridLayout" name="gridLayout_25" columnstretch="0,3">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeTopLightningButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeTopLightning">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>15</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="5" column="1">
+              <layout class="QGridLayout" name="gridLayout_23">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
+                <widget class="QLabel" name="LabelTopScale20">
+                 <property name="text">
+                  <string>20 км.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <layout class="QGridLayout" name="gridLayout_22" columnstretch="0,3">
+                 <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                  <widget class="QPushButton" name="SelectTopScale">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>OpenHandCursor</cursorShape>
+                   </property>
+                   <property name="focusPolicy">
+                    <enum>Qt::TabFocus</enum>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="Common.qrc">
+                     <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="flat">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelTopScale30">
+                   <property name="text">
+                    <string>30 км.</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
+                <widget class="QLabel" name="LabelTopScale60">
+                 <property name="text">
+                  <string>60 км.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="13" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelTopVARU">
+               <property name="text">
+                <string>ВАРУ:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="LabelTopAzimuthMarks">
+               <property name="text">
+                <string>Отметки азимута:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <layout class="QGridLayout" name="gridLayout_16">
+               <item row="0" column="0">
+                <layout class="QGridLayout" name="gridLayout_17">
+                 <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelTopAzimuthMarksNo">
+                   <property name="text">
+                    <string>НЕТ</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelTopAzimuthMarks2">
+                   <property name="text">
+                    <string>2°</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="2" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelTopAzimuthMarks4">
+                   <property name="text">
+                    <string>4°</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                <widget class="QPushButton" name="SelectTopAzimuthMarks">
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>
@@ -1389,24 +1463,102 @@
           <layout class="QGridLayout" name="gridLayout_42">
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_40">
-             <item row="1" column="1">
-              <widget class="Line" name="line_21">
+             <item row="6" column="1">
+              <widget class="Line" name="line_20">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
               </widget>
              </item>
-             <item row="4" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelRightScale">
+             <item row="13" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelRightVARU">
                <property name="text">
-                <string>Масштаб:</string>
+                <string>ВАРУ:</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
-             <item row="10" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+             <item row="8" column="1">
+              <widget class="Line" name="line_23">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelRightRangeMarks">
+               <property name="text">
+                <string>Отметки дальности:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <layout class="QGridLayout" name="gridLayout_37" columnstretch="0,3">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeRightLightningButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeRightLightning">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>15</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="11" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
               <widget class="QLabel" name="LabelRightFocus">
                <property name="text">
                 <string>Фокус:</string>
@@ -1416,7 +1568,334 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="1">
+             <item row="10" column="1">
+              <widget class="Line" name="line_22">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="1">
+              <widget class="Line" name="line_25">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="Line" name="line_21">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelRightScale">
+               <property name="text">
+                <string>Масштаб:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <layout class="QGridLayout" name="gridLayout_35">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
+                <widget class="QLabel" name="LabelRightScale20">
+                 <property name="text">
+                  <string>20 км.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <layout class="QGridLayout" name="gridLayout_34" columnstretch="0,3">
+                 <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                  <widget class="QPushButton" name="SelectRightScale">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>OpenHandCursor</cursorShape>
+                   </property>
+                   <property name="focusPolicy">
+                    <enum>Qt::TabFocus</enum>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="Common.qrc">
+                     <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="flat">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelRightScale30">
+                   <property name="text">
+                    <string>30 км.</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
+                <widget class="QLabel" name="LabelRightScale60">
+                 <property name="text">
+                  <string>60 км.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="7" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelRightBrightness">
+               <property name="text">
+                <string>Яркость дисплея:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelRightChangeTrashIntensity">
+               <property name="text">
+                <string>Усиление приёмника:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <layout class="QGridLayout" name="gridLayout_33">
+               <item row="0" column="0">
+                <layout class="QGridLayout" name="gridLayout_32">
+                 <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelRightRangeMarksNo">
+                   <property name="text">
+                    <string>НЕТ</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelRightRangeMarks10">
+                   <property name="text">
+                    <string>10 км.</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="2" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                  <widget class="QLabel" name="LabelRightRangeMarks50">
+                   <property name="text">
+                    <string>50 км.</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                <widget class="QPushButton" name="SelectRightRangeMarks">
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>:/buttons/knob</normaloff>:/buttons/knob</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="4" column="1">
+              <widget class="Line" name="line_24">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelRightDisplayLightning">
+               <property name="text">
+                <string>Подсветка:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="1">
+              <layout class="QGridLayout" name="gridLayout_38" columnstretch="0,3">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeRightFocusButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeRightFocus">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="minimum">
+                  <number>-400</number>
+                 </property>
+                 <property name="maximum">
+                  <number>400</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="13" column="1">
+              <layout class="QGridLayout" name="gridLayout_39" columnstretch="0,3">
+               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QPushButton" name="ChangeRightVARUButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="focusPolicy">
+                  <enum>Qt::TabFocus</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="Common.qrc">
+                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSlider" name="ChangeRightVARU">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="maximum">
+                  <number>200</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="7" column="1">
               <layout class="QGridLayout" name="gridLayout_36" columnstretch="0,3">
                <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QPushButton" name="ChangeRightBrightnessButton">
@@ -1538,180 +2017,22 @@
                </item>
               </layout>
              </item>
-             <item row="3" column="1">
-              <widget class="Line" name="line_24">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="8" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelRightDisplayLightning">
+             <item row="2" column="0">
+              <widget class="QLabel" name="LabelRightAzimuthMarks">
                <property name="text">
-                <string>Подсветка:</string>
+                <string>Отметки азимута:</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
-             </item>
-             <item row="4" column="1">
-              <layout class="QGridLayout" name="gridLayout_35">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignBottom">
-                <widget class="QLabel" name="LabelRightScale20">
-                 <property name="text">
-                  <string>20 км.</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <layout class="QGridLayout" name="gridLayout_34" columnstretch="0,3">
-                 <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                  <widget class="QPushButton" name="SelectRightScale">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>OpenHandCursor</cursorShape>
-                   </property>
-                   <property name="focusPolicy">
-                    <enum>Qt::TabFocus</enum>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="Common.qrc">
-                     <normaloff>:/buttons/switch_up.png</normaloff>:/buttons/switch_up.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>20</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                   <property name="flat">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                  <widget class="QLabel" name="LabelRightScale30">
-                   <property name="text">
-                    <string>30 км.</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="2" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
-                <widget class="QLabel" name="LabelRightScale60">
-                 <property name="text">
-                  <string>60 км.</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="6" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelRightBrightness">
-               <property name="text">
-                <string>Яркость дисплея:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelRightChangeTrashIntensity">
-               <property name="text">
-                <string>Усиление приёмника:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="8" column="1">
-              <layout class="QGridLayout" name="gridLayout_37" columnstretch="0,3">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeRightLightningButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeRightLightning">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="maximum">
-                  <number>100</number>
-                 </property>
-                 <property name="value">
-                  <number>15</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
              </item>
              <item row="2" column="1">
-              <layout class="QGridLayout" name="gridLayout_33">
+              <layout class="QGridLayout" name="gridLayout_18">
                <item row="0" column="0">
-                <layout class="QGridLayout" name="gridLayout_32">
+                <layout class="QGridLayout" name="gridLayout_46">
                  <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-                  <widget class="QLabel" name="LabelRightRangeMarksNo">
+                  <widget class="QLabel" name="LabelRightAzimuthMarksNo">
                    <property name="text">
                     <string>НЕТ</string>
                    </property>
@@ -1721,9 +2042,9 @@
                   </widget>
                  </item>
                  <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="LabelRightRangeMarks10">
+                  <widget class="QLabel" name="LabelRightAzimuthMarks2">
                    <property name="text">
-                    <string>10 км.</string>
+                    <string>2°</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1731,16 +2052,16 @@
                   </widget>
                  </item>
                  <item row="0" column="2" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                  <widget class="QLabel" name="LabelRightRangeMarks50">
+                  <widget class="QLabel" name="LabelRightAzimuthMarks4">
                    <property name="text">
-                    <string>50 км.</string>
+                    <string>4°</string>
                    </property>
                   </widget>
                  </item>
                 </layout>
                </item>
                <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                <widget class="QPushButton" name="SelectRightRangeMarks">
+                <widget class="QPushButton" name="SelectRightAzimuthMarks">
                  <property name="cursor">
                   <cursorShape>OpenHandCursor</cursorShape>
                  </property>
@@ -1769,179 +2090,6 @@
                 </widget>
                </item>
               </layout>
-             </item>
-             <item row="10" column="1">
-              <layout class="QGridLayout" name="gridLayout_38" columnstretch="0,3">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeRightFocusButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeRightFocus">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="minimum">
-                  <number>-400</number>
-                 </property>
-                 <property name="maximum">
-                  <number>400</number>
-                 </property>
-                 <property name="value">
-                  <number>0</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="12" column="1">
-              <layout class="QGridLayout" name="gridLayout_39" columnstretch="0,3">
-               <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QPushButton" name="ChangeRightVARUButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::TabFocus</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="Common.qrc">
-                   <normaloff>:/buttons/reo_knob.png</normaloff>:/buttons/reo_knob.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                <widget class="QSlider" name="ChangeRightVARU">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>OpenHandCursor</cursorShape>
-                 </property>
-                 <property name="maximum">
-                  <number>200</number>
-                 </property>
-                 <property name="value">
-                  <number>0</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="5" column="1">
-              <widget class="Line" name="line_20">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="12" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelRightVARU">
-               <property name="text">
-                <string>ВАРУ:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="Line" name="line_23">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-              <widget class="QLabel" name="LabelRightRangeMarks">
-               <property name="text">
-                <string>Отметки дальности:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="9" column="1">
-              <widget class="Line" name="line_22">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="11" column="1">
-              <widget class="Line" name="line_25">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
              </item>
             </layout>
            </item>
