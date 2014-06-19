@@ -42,6 +42,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeTopTrashSDC->hide();
     ui->ChangeTopTrashPASS->hide();
     ui->ChangeTopTrashAKT->hide();
+    ui->ChangeTopState->hide();
 
     ui->ChangeRightScanAmpVertical->hide();
     ui->ChangeRightScanAmpHorizontal->hide();
@@ -93,6 +94,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeMainLightning->valueChanged(ui->ChangeMainLightning->value());
 
     ui->ChangeMainLocatorState->clicked();
+    ui->ChangeTopState->clicked();
 }
 
 RSPView::~RSPView()
@@ -493,6 +495,7 @@ void RSPView::on_ChangeTopScanAmpVertical_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("amplitude","vertical",static_cast<qreal>(value)/100);
     ui->ChangeTopScanAmpVerticalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeTopScanAmpVertical->maximum())));
 }
 
@@ -520,6 +523,7 @@ void RSPView::on_ChangeTopScanAmpHorizontal_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("amplitude","horizontal",static_cast<qreal>(value)/100);
     ui->ChangeTopScanAmpHorizontalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeTopScanAmpHorizontal->maximum())));
 }
 
@@ -545,6 +549,7 @@ void RSPView::on_ChangeTopOffsetVertical_sliderReleased()
 
 void RSPView::on_ChangeTopOffsetVertical_valueChanged(int value)
 {
+    ui->RenderTopTriangleLocator->SetSettings("offset","vertical",static_cast<qreal>(value)/100);
     ui->ChangeTopOffsetVerticalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeTopOffsetVertical->maximum())));
 }
 
@@ -570,6 +575,7 @@ void RSPView::on_ChangeTopOffsetHorizontal_sliderReleased()
 
 void RSPView::on_ChangeTopOffsetHorizontal_valueChanged(int value)
 {
+    ui->RenderTopTriangleLocator->SetSettings("offset","horizontal",static_cast<qreal>(value)/100);
     ui->ChangeTopOffsetHorizontalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeTopOffsetHorizontal->maximum())));
 }
 
@@ -650,6 +656,8 @@ void RSPView::on_ChangeTopFocus_sliderReleased()
 void RSPView::on_ChangeTopFocus_valueChanged(int value)
 {
     ui->ChangeTopFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderTopTriangleLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void RSPView::on_ChangeTopBrightnessButton_pressed()
@@ -676,6 +684,7 @@ void RSPView::on_ChangeTopBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeTopBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopBrightness->maximum())));
 }
 
@@ -1130,4 +1139,18 @@ void RSPView::on_ChangeMainLightning_sliderReleased()
 void RSPView::on_ChangeMainLightning_valueChanged(int value)
 {
     ui->RenderMainLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+}
+
+void RSPView::on_ChangeTopState_clicked()
+{
+    if(ui->RenderTopTriangleLocator->IsActive())
+    {
+        ui->RenderTopTriangleLocator->ChangeFPS(0u);
+        ui->ChangeTopState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeTopState->setText("Стоп");
+    }
 }

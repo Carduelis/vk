@@ -71,10 +71,13 @@ void Daddy::paintGL()
     qreal h=settings["offset"]["horizontal"].isNull() ? .0f : settings["offset"]["horizontal"].toDouble(),
           v=settings["offset"]["vertical"].isNull() ? .0f : settings["offset"]["vertical"].toDouble(),
           a=settings["scan"]["amplitude"].isNull() ? 1.0f : settings["scan"]["amplitude"].toDouble(),
-          e=settings["scan"]["equality"].isNull() ? 1.0f : settings["scan"]["equality"].toDouble();
+          e=settings["scan"]["equality"].isNull() ? 1.0f : settings["scan"]["equality"].toDouble(),
+          hamp=settings["amplitude"]["horizontal"].isNull() ? 1.0f : settings["amplitude"]["horizontal"].toDouble(),
+          vamp=settings["amplitude"]["vertical"].isNull() ? 1.0f : settings["amplitude"]["vertical"].toDouble();
     glTranslatef(h,v,.0f);
     glScalef(a,a,1.0f);
     glScalef(1.0f,e,1.0f);
+    glScalef(hamp,vamp,1.0f);
     DrawStation();
     InitLocatorGrid();
     DrawRange();
@@ -152,9 +155,9 @@ void Daddy::GenerationRay(quint16 angle)
 void Daddy::DrawRay(void)const
 {
     QColor color=Color;
-    //color.setAlphaF(settings["system"]["brightness"].toDouble());
+    color.setAlphaF(settings["system"]["brightness"].toDouble());
     qglColor(color);
-    //glLineWidth(3.0f*settings["system"]["focus"].toDouble());
+    glLineWidth(3.0f*settings["system"]["focus"].toDouble());
     glBegin(GL_LINES);
         glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
         glVertex2d((*ray_position)->x,(*ray_position)->y);

@@ -38,10 +38,9 @@ void TopTriangleLocator::DrawStation(void)const
     glTranslatef(GRID_OFFSET,.0f,.0f);
     glScalef(1.7f,3.15f,1.0f);
     //glScalef(1.7f,3.7f,1.0f);
-    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
-    glLineWidth(2.0f);
+    glLineWidth(2.0f*settings["system"]["focus"].toDouble());
     QColor color=Color;
-    //color.setAlphaF(settings["system"]["brightness"].toDouble());
+    color.setAlphaF(settings["system"]["brightness"].toDouble());
     qglColor(color);
     glBegin(GL_LINES);
         glVertex2f(.0f,.0f);

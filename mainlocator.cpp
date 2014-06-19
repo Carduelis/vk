@@ -69,7 +69,6 @@ void MainLocator::InitLocatorGrid(void)const
 
 void MainLocator::ContinueSearch(void)
 {
-    qDebug()<<-1;
     updateGL();
     if(ray_position==ray.end()-1u)
     {

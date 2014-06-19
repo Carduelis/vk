@@ -53,6 +53,7 @@ RSPIndicators::RSPIndicators(QWidget *parent) : QMainWindow(parent),ui(new Ui::R
     ui->ChangeRightVARU->valueChanged(ui->ChangeRightVARU->value());
 
     ui->ChangeMainLocatorState->clicked();
+    ui->ChangeTopState->clicked();
 }
 
 RSPIndicators::~RSPIndicators()
@@ -455,6 +456,7 @@ void RSPIndicators::on_ChangeTopBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeTopBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopBrightness->maximum())));
 }
 
@@ -508,6 +510,8 @@ void RSPIndicators::on_ChangeTopFocus_sliderReleased()
 void RSPIndicators::on_ChangeTopFocus_valueChanged(int value)
 {
     ui->ChangeTopFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderTopTriangleLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void RSPIndicators::on_ChangeTopVARUButton_pressed()
@@ -542,7 +546,16 @@ void RSPIndicators::on_ChangeTopViewStateAll_clicked()
 
 void RSPIndicators::on_ChangeTopState_clicked()
 {
-
+    if(ui->RenderTopTriangleLocator->IsActive())
+    {
+        ui->RenderTopTriangleLocator->ChangeFPS(0u);
+        ui->ChangeTopState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeTopState->setText("Стоп");
+    }
 }
 
 void RSPIndicators::on_ChangeRightTrashIntensityButton_pressed()

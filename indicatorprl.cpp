@@ -134,6 +134,7 @@ void IndicatorPRL::on_ChangeTopBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeTopBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopBrightness->maximum())));
 }
 
@@ -187,6 +188,8 @@ void IndicatorPRL::on_ChangeTopFocus_sliderReleased()
 void IndicatorPRL::on_ChangeTopFocus_valueChanged(int value)
 {
     ui->ChangeTopFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderTopTriangleLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void IndicatorPRL::on_ChangeTopVARUButton_pressed()
