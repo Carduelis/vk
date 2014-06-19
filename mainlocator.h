@@ -39,13 +39,13 @@ class MainLocator : public Daddy
         {
             QHash<Scale,QVector<RoundLine> >range;
             QVector<CenterStraightLine>azimuth;
-        }Cache,Next;
+        }S;
 
         struct Pointer
         {
-            QHash<Scale,QVector<RoundLine> >*range=nullptr;
+            QVector<RoundLine>*range=nullptr;
             QVector<CenterStraightLine>*azimuth=nullptr;
-        }Current;
+        }Cache,Current;
         //void timerEvent(QTimerEvent *event);
         //void mouseDoubleClickEvent(QMouseEvent  *event);
         Azimuth azimuth=Azimuth::A_NO;

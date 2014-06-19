@@ -3,6 +3,14 @@
 
 #include"daddy.h"
 
+#ifndef TRIANGLE_ANGLE
+#define TRIANGLE_ANGLE  14
+#endif
+
+#ifndef GRID_OFFSET
+#define GRID_OFFSET -1.0f
+#endif
+
 class TopTriangleLocator : public Daddy
 {
     Q_OBJECT

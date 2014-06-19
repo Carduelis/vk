@@ -3,6 +3,10 @@
 
 #include"daddy.h"
 
+#ifndef TRIANGLE_ANGLE
+#define TRIANGLE_ANGLE  8
+#endif
+
 class RightTriangleLocator : public Daddy
 {
     Q_OBJECT

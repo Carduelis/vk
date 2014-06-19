@@ -21,7 +21,32 @@ void RightTriangleLocator::GenerationRadians(bool)
     }
 }
 
-void RightTriangleLocator::DrawStation(void)const{}
+void RightTriangleLocator::DrawStation(void)const
+{
+    glScalef(1.0f,4.5f,1.0f);
+    glTranslatef(-qFastCos(GetRadianValue(-TRIANGLE_ANGLE)),qFastSin(GetRadianValue(-TRIANGLE_ANGLE)),.0f);
+    glTranslatef(0.18,.0f,.0f);
+    glScalef(1.6f,2.0f,1.0f);
+    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
+    glLineWidth(2.0);
+    QColor color=Color;
+    //color.setAlphaF(settings["system"]["brightness"].toDouble());
+    qglColor(color);
+    glBegin(GL_LINES);
+        glVertex2f(.0f,.0f);
+        glVertex2f(qFastCos(GetRadianValue(-TRIANGLE_ANGLE)),qFastSin(GetRadianValue(0)));
+
+        glVertex2f(.0f,.0f);
+        glVertex2f(qFastCos(GetRadianValue(TRIANGLE_ANGLE)),qFastSin(GetRadianValue(TRIANGLE_ANGLE)));
+
+        glVertex2f(.15f,.0f);
+        glVertex2f(qFastCos(GetRadianValue(TRIANGLE_ANGLE)),qFastSin(GetRadianValue(2.7)));
+
+        glVertex2f(qFastCos(GetRadianValue(-TRIANGLE_ANGLE)),qFastSin(GetRadianValue(0)));
+        glVertex2f(qFastCos(GetRadianValue(TRIANGLE_ANGLE)),qFastSin(GetRadianValue(TRIANGLE_ANGLE)));
+    glEnd();
+}
+
 void RightTriangleLocator::InitLocatorGrid(void)const{}
 void RightTriangleLocator::ContinueSearch(void){}
 

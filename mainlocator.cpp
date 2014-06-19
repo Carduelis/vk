@@ -4,6 +4,8 @@
 MainLocator::MainLocator(QWidget *parent) : Daddy(parent)
 {
     GenerationRay();
+    S.range.clear();
+    S.azimuth.clear();
 }
 
 MainLocator::~MainLocator()
@@ -124,7 +126,6 @@ void MainLocator::SetCurrentWorkMode(const MainLocator::WorkMode wm)
 void MainLocator::GenerationRange(void)
 {
     //QHash<Scale,RoundLine>range;
-    Cache.range.clear();
     quint8 j=0u,d=0u;
     qreal delta=CalcScaleValue(static_cast<qreal>(range));
 
@@ -153,9 +154,9 @@ void MainLocator::GenerationRange(void)
             cache.Coordinates[c].x=r*i->x;
             cache.Coordinates[c].y=r*i->y;
         }
-        Cache.range[scale].append(cache);
+        S.range[scale].append(cache);
     }
-    Current.range=&Cache.range;
+    Current.range=&S.range[scale];
 }
 
 void MainLocator::DrawRange(void)const
@@ -167,7 +168,7 @@ void MainLocator::DrawRange(void)const
           brightness=settings["brightness"]["range"].isValid() ? settings["brightness"]["range"].toDouble() : 1.0f;
     brightness*=settings["system"]["brightness"].toDouble();
     QColor color=Color;
-    for(QVector<RoundLine>::const_iterator it=(*Current.range)[scale].begin(),end=(*Current.range)[scale].end();it<end;it++)
+    for(QVector<RoundLine>::const_iterator it=(*Current.range).begin(),end=(*Current.range).end();it<end;it++)
     {
         glLineWidth(it->width*focus);
         glBegin(GL_LINE_STRIP);
@@ -198,7 +199,6 @@ void MainLocator::DrawRange(void)const
 
 void MainLocator::GenerationAzimuth(void)
 {
-    Cache.azimuth.clear();
     if(azimuth==Azimuth::A_NO)
         return;
 
@@ -209,9 +209,9 @@ void MainLocator::GenerationAzimuth(void)
         cache.Coordinates.angle=i->angle;
         cache.Coordinates.x=i->x;
         cache.Coordinates.y=i->y;
-        Cache.azimuth.append(cache);
+        S.azimuth.append(cache);
     }
-    Current.azimuth=&Cache.azimuth;
+    Current.azimuth=&S.azimuth;
 }
 
 void MainLocator::DrawAzimuth(void)const

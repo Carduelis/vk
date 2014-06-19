@@ -21,7 +21,37 @@ void TopTriangleLocator::GenerationRadians(bool)
     }
 }
 
-void TopTriangleLocator::DrawStation(void)const{}
+void TopTriangleLocator::DrawStation(void)const
+{
+    qreal rad=GetRadianValue(TRIANGLE_ANGLE),
+          rad1=GetRadianValue(-TRIANGLE_ANGLE),
+          sin=qFastSin(rad),
+          cos=qFastCos(rad),
+          sin1=qFastSin(rad1),
+          cos1=qFastCos(rad1);
+    glRotatef(270.0f,.0f,.0f,1.0f);
+    glTranslatef(GRID_OFFSET,.0f,.0f);
+    glScalef(1.7f,3.15f,1.0f);
+    //glScalef(1.7f,3.7f,1.0f);
+    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
+    glLineWidth(2.0f);
+    QColor color=Color;
+    //color.setAlphaF(settings["system"]["brightness"].toDouble());
+    qglColor(color);
+    glBegin(GL_LINES);
+        glVertex2f(.0f,.0f);
+        glVertex2f(cos1,sin1);
+
+        glVertex2f(.0f,.0f);
+        glVertex2f(cos,sin);
+
+        glVertex2f(.0f,.0f);
+        glVertex2f(cos,qFastSin(GetRadianValue(10)));
+
+        glVertex2f(cos1,sin1);
+        glVertex2f(cos,sin);
+    glEnd();
+}
 
 void TopTriangleLocator::InitLocatorGrid(void)const{}
 
