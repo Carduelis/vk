@@ -26,6 +26,10 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeMainTrashAKT->hide();
     ui->ChangeMainTrashPASS->hide();
     ui->ChangeMainLocatorState->hide();
+    //-----------------------------
+    ui->ChangeMainLightning->hide();
+    ui->ChangeMainLightningButton->hide();
+    ui->LabelMainLightning->hide();
 
     ui->ChangeTopScanAmpVertical->hide();
     ui->ChangeTopScanAmpHorizontal->hide();
@@ -85,6 +89,8 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightBrightnessAzimuth->valueChanged(ui->ChangeRightBrightnessAzimuth->value());
     ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
     ui->ChangeRightFocusBrightness->valueChanged(ui->ChangeRightFocusBrightness->value());
+
+    ui->ChangeMainLightning->valueChanged(ui->ChangeMainLightning->value());
 
     ui->ChangeMainLocatorState->clicked();
 }
@@ -1104,4 +1110,24 @@ void RSPView::on_ChangeMainLocatorState_clicked()
         ui->RenderMainLocator->ChangeFPS(static_cast<qreal>(1000)/24);
         ui->ChangeMainLocatorState->setText("Стоп");
     }
+}
+
+void RSPView::on_ChangeMainLightningButton_pressed()
+{
+
+}
+
+void RSPView::on_ChangeMainLightning_sliderPressed()
+{
+
+}
+
+void RSPView::on_ChangeMainLightning_sliderReleased()
+{
+
+}
+
+void RSPView::on_ChangeMainLightning_valueChanged(int value)
+{
+    ui->RenderMainLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
 }

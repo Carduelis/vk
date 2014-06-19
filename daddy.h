@@ -28,6 +28,8 @@ class Daddy : public QGLWidget
         template<typename OptionType>void SetSettings(const QString group,const QString name,const OptionType option);
         template<typename OptionType>void SetSettings(const QString name,const OptionType option);
         bool IsActive(void)const;
+        bool IsAllVisible(void)const;
+        void SetAllVisible(bool);
         void ChangeFPS(qreal fps);
         static QPixmap RotateResourceImage(const QString resource_path,const qint16 degree);
         bool clockwise=true;
@@ -57,6 +59,7 @@ class Daddy : public QGLWidget
         void initializeGL();
         void resizeGL(int width,int height);
         void paintGL();
+        qreal CalcAlpha(qreal angle)const;
         void LocatorArea(void)const;
         void GenerationRadians(void);
         void PostDraw(void)const;
@@ -73,6 +76,7 @@ class Daddy : public QGLWidget
         void DrawRay(void)const;
         //template<typename T,typename S>T CalcScaleValue(const T value,const S scale)const;
 
+        bool show=false;
         QMap<QString,QMap<QString,QVariant> >settings;
         QVector<Points>circle;
         QVector<Points*>ray;

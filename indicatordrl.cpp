@@ -213,6 +213,7 @@ void IndicatorDRL::on_ChangeIndicatorLightning_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderMainLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
     ui->ChangeIndicatorLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorLightning->maximum())));
 }
 
@@ -395,7 +396,16 @@ void IndicatorDRL::on_CheckActiveInSyncShow_stateChanged(int arg1)
 
 void IndicatorDRL::on_ChangeViewStateAll_clicked()
 {
-
+    if(ui->RenderMainLocator->IsAllVisible())
+    {
+        ui->ChangeViewStateAll->setText("Отобразить все\nскрытые метки");
+        ui->RenderMainLocator->SetAllVisible(false);
+    }
+    else
+    {
+        ui->ChangeViewStateAll->setText("Вернуть состояние\nскрытых меток");
+        ui->RenderMainLocator->SetAllVisible(true);
+    }
 }
 
 void IndicatorDRL::on_ChangeLocatorState_clicked()

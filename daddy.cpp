@@ -186,3 +186,29 @@ QPixmap Daddy::RotateResourceImage(const QString resource_path,const qint16 degr
     p.end();
     return original=pixmap;
 }
+
+qreal Daddy::CalcAlpha(qreal angle)const
+{
+    qreal alpha;
+    if(IsAllVisible())
+        alpha=1.0f;
+    else
+    {
+        alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle)-.01;
+        if(alpha<.0f)
+            alpha+=2u*M_PI;
+        //if(not_clean && alpha<.0f)
+            //alpha+=2u*M_PI;
+    }
+    return alpha;
+}
+
+bool Daddy::IsAllVisible(void)const
+{
+    return show;
+}
+
+void Daddy::SetAllVisible(bool state)
+{
+    show=state;
+}

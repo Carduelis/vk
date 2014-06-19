@@ -253,6 +253,7 @@ void RSPIndicators::on_ChangeMainLightning_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderMainLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
     ui->ChangeMainLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeMainLightning->maximum())));
 }
 

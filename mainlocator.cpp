@@ -162,17 +162,26 @@ void MainLocator::DrawRange(void)const
 {
     if(Current.range->isEmpty())
         return;
-    qreal focus=settings["system"]["focus"].toDouble(),
+    qreal alpha,
+          focus=settings["system"]["focus"].toDouble(),
           brightness=settings["brightness"]["range"].isValid() ? settings["brightness"]["range"].toDouble() : 1.0f;
+    brightness*=settings["system"]["brightness"].toDouble();
     QColor color=Color;
-    color.setAlphaF(brightness*settings["system"]["brightness"].toDouble());
-    qglColor(color);
     for(QVector<RoundLine>::const_iterator it=(*Current.range)[scale].begin(),end=(*Current.range)[scale].end();it<end;it++)
     {
         glLineWidth(it->width*focus);
         glBegin(GL_LINE_STRIP);
             for(Points *i=it->Coordinates,*e=it->Coordinates+ROUND_DEGREE;i<e;i++)
-                glVertex2f(i->x,i->y);
+            {
+                alpha=CalcAlpha(i->angle);
+                if(alpha>.0f)
+                {
+                    alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                    color.setAlphaF(alpha*brightness);
+                    qglColor(color);
+                    glVertex2f(i->x,i->y);
+                }
+            }
         glEnd();
     }
     /*
@@ -209,18 +218,25 @@ void MainLocator::DrawAzimuth(void)const
 {
     if(Current.azimuth->isEmpty())
         return;
-    qreal focus=settings["system"]["focus"].toDouble(),
+    qreal alpha,
+          focus=settings["system"]["focus"].toDouble(),
           brightness=settings["brightness"]["azimuth"].isValid() ? settings["brightness"]["azimuth"].toDouble() : 1.0f;
+    brightness*=settings["system"]["brightness"].toDouble();
     QColor color=Color;
-    color.setAlphaF(brightness*settings["system"]["brightness"].toDouble());
-    qglColor(color);
     for(QVector<CenterStraightLine>::const_iterator it=Current.azimuth->begin(),end=Current.azimuth->end();it<end;it++)
     {
-        glLineWidth(it->width*focus);
-        glBegin(GL_LINES);
-            glVertex2f(.0f,.0f);
-            glVertex2f(it->Coordinates.x,it->Coordinates.y);
-        glEnd();
+        alpha=CalcAlpha(it->Coordinates.angle);
+        if(alpha>.0f)
+        {
+            alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+            glLineWidth(it->width*focus);
+            glBegin(GL_LINES);
+                color.setAlphaF(brightness*alpha);
+                qglColor(color);
+                glVertex2f(.0f,.0f);
+                glVertex2f(it->Coordinates.x,it->Coordinates.y);
+            glEnd();
+        }
     }
     /*
     for(QVector<CenterStraightLine>::const_iterator it=Cache.azimuth.begin(),end=Cache.azimuth.end();it<end;it++)
