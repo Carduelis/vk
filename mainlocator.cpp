@@ -160,9 +160,10 @@ void MainLocator::DrawRange(void)const
 {
     if(Current.range->isEmpty())
         return;
+    qreal focus=settings["system"]["focus"].toDouble();
     for(QVector<RoundLine>::const_iterator it=(*Current.range)[scale].begin(),end=(*Current.range)[scale].end();it<end;it++)
     {
-        glLineWidth(it->width);
+        glLineWidth(it->width*focus);
         glBegin(GL_LINE_STRIP);
             for(Points *i=it->Coordinates,*e=it->Coordinates+ROUND_DEGREE;i<e;i++)
                 glVertex2f(i->x,i->y);
@@ -202,9 +203,10 @@ void MainLocator::DrawAzimuth(void)const
 {
     if(Current.azimuth->isEmpty())
         return;
+    qreal focus=settings["system"]["focus"].toDouble();
     for(QVector<CenterStraightLine>::const_iterator it=Current.azimuth->begin(),end=Current.azimuth->end();it<end;it++)
     {
-        glLineWidth(it->width);
+        glLineWidth(it->width*focus);
         glBegin(GL_LINES);
             glVertex2f(.0f,.0f);
             glVertex2f(it->Coordinates.x,it->Coordinates.y);

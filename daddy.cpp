@@ -64,8 +64,8 @@ void Daddy::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // чистим буфер изображения и буфер глубины
     glLoadIdentity(); // загружаем матрицу
     glPushMatrix();
-    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
-    glLineWidth(2.0f);
+    qreal focus=settings["system"]["focus"].toDouble();
+    glLineWidth(2.0f*focus);
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
     LocatorArea();
@@ -82,8 +82,7 @@ void Daddy::paintGL()
     DrawRange();
     DrawAzimuth();
     //glRotatef(90.0f,.0f,.0f,1.0);
-    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
-    glLineWidth(2.0f);
+    glLineWidth(2.0f*focus);
     glBegin(GL_LINES);
         glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
         glVertex2d((*ray_position)->x,(*ray_position)->y);

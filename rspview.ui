@@ -63,10 +63,10 @@
            <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="minimum">
-           <number>-300</number>
+           <number>-400</number>
           </property>
           <property name="maximum">
-           <number>300</number>
+           <number>400</number>
           </property>
           <property name="value">
            <number>0</number>
@@ -2181,10 +2181,10 @@ background-repeat: no-repeat;</string>
              <cursorShape>OpenHandCursor</cursorShape>
             </property>
             <property name="minimum">
-             <number>-300</number>
+             <number>-400</number>
             </property>
             <property name="maximum">
-             <number>300</number>
+             <number>400</number>
             </property>
             <property name="value">
              <number>0</number>
@@ -2624,10 +2624,10 @@ background-repeat: no-repeat;</string>
                <cursorShape>OpenHandCursor</cursorShape>
               </property>
               <property name="minimum">
-               <number>-300</number>
+               <number>-400</number>
               </property>
               <property name="maximum">
-               <number>300</number>
+               <number>400</number>
               </property>
               <property name="value">
                <number>0</number>

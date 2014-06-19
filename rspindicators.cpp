@@ -278,6 +278,8 @@ void RSPIndicators::on_ChangeMainFocus_sliderReleased()
 void RSPIndicators::on_ChangeMainFocus_valueChanged(int value)
 {
     ui->ChangeMainFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeMainFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderMainLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void RSPIndicators::on_ChangeMainVARUButton_pressed()
