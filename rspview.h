@@ -176,6 +176,16 @@ class RSPView : public QMainWindow
 
         void on_ChangeTopLightning_valueChanged(int value);
 
+        void on_ChangeRightState_clicked();
+
+        void on_ChangeRightLightningButton_pressed();
+
+        void on_ChangeRightLightning_sliderPressed();
+
+        void on_ChangeRightLightning_sliderReleased();
+
+        void on_ChangeRightLightning_valueChanged(int value);
+
 private:
         Ui::RSPView *ui;
 };

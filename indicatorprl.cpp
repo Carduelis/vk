@@ -9,6 +9,7 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_SMALL);
 
     ui->RenderRightTriangleLocator->SetCurrentRangeMode(RightTriangleLocator::Range::R_FIRST);
+    ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
     ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_SMALL);
 
     ui->ChangeTopTrashIntensity->hide();
@@ -39,6 +40,7 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->ChangeRightVARU->valueChanged(ui->ChangeRightVARU->value());
 
     ui->ChangeTopState->clicked();
+    ui->ChangeRightState->clicked();
 }
 
 IndicatorPRL::~IndicatorPRL()
@@ -366,6 +368,7 @@ void IndicatorPRL::on_ChangeRightBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderRightTriangleLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeRightBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightBrightness->maximum())));
 }
 
@@ -393,6 +396,7 @@ void IndicatorPRL::on_ChangeRightLightning_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
     ui->ChangeRightLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightLightning->maximum())));
 }
 
@@ -419,6 +423,8 @@ void IndicatorPRL::on_ChangeRightFocus_sliderReleased()
 void IndicatorPRL::on_ChangeRightFocus_valueChanged(int value)
 {
     ui->ChangeRightFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderRightTriangleLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void IndicatorPRL::on_ChangeRightVARUButton_pressed()
@@ -491,7 +497,16 @@ void IndicatorPRL::on_ChangeRightViewStateAll_clicked()
 
 void IndicatorPRL::on_ChangeRightState_clicked()
 {
-
+    if(ui->RenderRightTriangleLocator->IsActive())
+    {
+        ui->RenderRightTriangleLocator->ChangeFPS(0u);
+        ui->ChangeRightState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeRightState->setText("Стоп");
+    }
 }
 
 void IndicatorPRL::on_SelectTopAzimuthMarks_pressed()

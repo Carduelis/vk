@@ -15,6 +15,11 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
     ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
 
+    ui->RenderRightTriangleLocator->SetCurrentRangeMode(RightTriangleLocator::Range::R_FIRST);
+    ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_LARGE);
+    ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
+    ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
+
     ui->ChangeMainScanAmp->hide();
     ui->ChangeMainScanEqua->hide();
     ui->ChangeMainOffsetVertical->hide();
@@ -60,6 +65,11 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightBrightnessAzimuth->hide();
     ui->ChangeRightFocus->hide();
     ui->ChangeRightFocusBrightness->hide();
+    ui->ChangeRightState->hide();
+    //-----------------------------
+    ui->ChangeRightLightning->hide();
+    ui->ChangeRightLightningButton->hide();
+    ui->LabelRightLightning->hide();
 
     ui->ChangeMainScanAmp->valueChanged(ui->ChangeMainScanAmp->value());
     ui->ChangeMainScanEqua->valueChanged(ui->ChangeMainScanEqua->value());
@@ -99,9 +109,11 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
 
     ui->ChangeMainLightning->valueChanged(ui->ChangeMainLightning->value());
     ui->ChangeTopLightning->valueChanged(ui->ChangeTopLightning->value());
+    ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
 
     ui->ChangeMainLocatorState->clicked();
     ui->ChangeTopState->clicked();
+    ui->ChangeRightState->clicked();
 }
 
 RSPView::~RSPView()
@@ -786,29 +798,34 @@ void RSPView::on_SelectTopScale_released()
     static bool way=false;
     qint16 degree=0u;
     TopTriangleLocator::Scale s=ui->RenderTopTriangleLocator->GetCurrentScaleMode();
-    if(s==TopTriangleLocator::Scale::S_LARGE)
+    RightTriangleLocator::Scale sr=ui->RenderRightTriangleLocator->GetCurrentScaleMode();
+    if(s==TopTriangleLocator::Scale::S_LARGE && sr==RightTriangleLocator::Scale::S_LARGE)
     {
         degree=90u;
         ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_SMALL);
+        ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_SMALL);
     }
-    else if(s==TopTriangleLocator::Scale::S_SMALL)
+    else if(s==TopTriangleLocator::Scale::S_SMALL && sr==RightTriangleLocator::Scale::S_SMALL)
     {
         if(way)
         {
             degree=0u;
             ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);
+            ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_LARGE);
         }
         else
         {
             degree=180u;
             ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_MIDDLE);
+            ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_MIDDLE);
         }
         way=!way;
     }
-    else if(s==TopTriangleLocator::Scale::S_MIDDLE)
+    else if(s==TopTriangleLocator::Scale::S_MIDDLE && sr==RightTriangleLocator::Scale::S_MIDDLE)
     {
         degree=90u;
         ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_SMALL);
+        ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_SMALL);
     }
     ui->SelectTopScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : Daddy::RotateResourceImage(":/buttons/switch_up",degree)));
     ui->SelectTopScale->setCursor(Qt::OpenHandCursor);
@@ -824,29 +841,35 @@ void RSPView::on_SelectTopMode_released()
     static bool way=false;
     qint8 degree=0u;
     TopTriangleLocator::WorkMode wm=ui->RenderTopTriangleLocator->GetCurrentWorkMode();
-    if(wm==TopTriangleLocator::WorkMode::WM_PASS)
+    RightTriangleLocator::WorkMode wmr=ui->RenderRightTriangleLocator->GetCurrentWorkMode();
+
+    if(wm==TopTriangleLocator::WorkMode::WM_PASS && wmr==RightTriangleLocator::WorkMode::WM_PASS)
     {
         degree=0u;
         ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
+        ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
     }
-    else if(wm==TopTriangleLocator::WorkMode::WM_COMMON)
+    else if(wm==TopTriangleLocator::WorkMode::WM_COMMON && wmr==RightTriangleLocator::WorkMode::WM_COMMON)
     {
         if(way)
         {
             degree=-60;
             ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_PASS);
+            ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_PASS);
         }
         else
         {
             degree=60u;
             ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_AKT);
+            ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_AKT);
         }
         way=!way;
     }
-    else if(wm==TopTriangleLocator::WorkMode::WM_AKT)
+    else if(wm==TopTriangleLocator::WorkMode::WM_AKT && wmr==RightTriangleLocator::WorkMode::WM_AKT)
     {
         degree=0u;
         ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
+        ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
     }
     ui->SelectTopMode->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectTopMode->setCursor(Qt::OpenHandCursor);
@@ -876,6 +899,7 @@ void RSPView::on_ChangeRightScanAmpVertical_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderRightTriangleLocator->SetSettings("amplitude","vertical",static_cast<qreal>(value)/100);
     ui->ChangeRightScanAmpVerticalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeRightScanAmpVertical->maximum())));
 }
 
@@ -903,6 +927,7 @@ void RSPView::on_ChangeRightScanAmpHorizontal_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderRightTriangleLocator->SetSettings("amplitude","horizontal",static_cast<qreal>(value)/100);
     ui->ChangeRightScanAmpHorizontalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeRightScanAmpHorizontal->maximum())));
 }
 
@@ -928,6 +953,7 @@ void RSPView::on_ChangeRightOffsetVertical_sliderReleased()
 
 void RSPView::on_ChangeRightOffsetVertical_valueChanged(int value)
 {
+    ui->RenderRightTriangleLocator->SetSettings("offset","vertical",static_cast<qreal>(value)/100);
     ui->ChangeRightOffsetVerticalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeRightOffsetVertical->maximum())));
 }
 
@@ -953,6 +979,7 @@ void RSPView::on_ChangeRightOffsetHorizontal_sliderReleased()
 
 void RSPView::on_ChangeRightOffsetHorizontal_valueChanged(int value)
 {
+    ui->RenderRightTriangleLocator->SetSettings("offset","horizontal",static_cast<qreal>(value)/100);
     ui->ChangeRightOffsetHorizontalButton->setIcon(QIcon(value==100u || value==0u ? QPixmap(":/buttons/p_rotator.png") : MainLocator::RotateResourceImage(":/buttons/p_rotator.png",value*360/ui->ChangeRightOffsetHorizontal->maximum())));
 }
 
@@ -1034,6 +1061,8 @@ void RSPView::on_ChangeRightBrightnessRange_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("brightness","range",static_cast<qreal>(value)/100);
+    ui->RenderRightTriangleLocator->SetSettings("brightness","range",static_cast<qreal>(value)/100);
     ui->ChangeRightBrightnessRangeButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightBrightnessRange->maximum())));
 }
 
@@ -1061,6 +1090,8 @@ void RSPView::on_ChangeRightBrightnessAzimuth_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderTopTriangleLocator->SetSettings("brightness","azimuth",static_cast<qreal>(value)/100);
+    ui->RenderRightTriangleLocator->SetSettings("brightness","azimuth",static_cast<qreal>(value)/100);
     ui->ChangeRightBrightnessAzimuthButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightBrightnessAzimuth->maximum())));
 }
 
@@ -1087,6 +1118,8 @@ void RSPView::on_ChangeRightFocus_sliderReleased()
 void RSPView::on_ChangeRightFocus_valueChanged(int value)
 {
     ui->ChangeRightFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderRightTriangleLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void RSPView::on_ChangeRightFocusBrightnessButton_pressed()
@@ -1111,6 +1144,9 @@ void RSPView::on_ChangeRightFocusBrightness_sliderReleased()
 
 void RSPView::on_ChangeRightFocusBrightness_valueChanged(int value)
 {
+    if(value<0)
+        return;
+    ui->RenderRightTriangleLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeRightFocusBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightFocusBrightness->maximum())));
 }
 
@@ -1180,4 +1216,38 @@ void RSPView::on_ChangeTopLightning_sliderReleased()
 void RSPView::on_ChangeTopLightning_valueChanged(int value)
 {
     ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+}
+
+void RSPView::on_ChangeRightState_clicked()
+{
+    if(ui->RenderRightTriangleLocator->IsActive())
+    {
+        ui->RenderRightTriangleLocator->ChangeFPS(0u);
+        ui->ChangeRightState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeRightState->setText("Стоп");
+    }
+}
+
+void RSPView::on_ChangeRightLightningButton_pressed()
+{
+
+}
+
+void RSPView::on_ChangeRightLightning_sliderPressed()
+{
+
+}
+
+void RSPView::on_ChangeRightLightning_sliderReleased()
+{
+
+}
+
+void RSPView::on_ChangeRightLightning_valueChanged(int value)
+{
+    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
 }

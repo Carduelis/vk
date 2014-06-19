@@ -56,6 +56,7 @@ RSPIndicators::RSPIndicators(QWidget *parent) : QMainWindow(parent),ui(new Ui::R
 
     ui->ChangeMainLocatorState->clicked();
     ui->ChangeTopState->clicked();
+    ui->ChangeRightState->clicked();
 }
 
 RSPIndicators::~RSPIndicators()
@@ -689,6 +690,7 @@ void RSPIndicators::on_ChangeRightBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderRightTriangleLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeRightBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightBrightness->maximum())));
 }
 
@@ -716,6 +718,7 @@ void RSPIndicators::on_ChangeRightLightning_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
     ui->ChangeRightLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightLightning->maximum())));
 }
 
@@ -742,6 +745,8 @@ void RSPIndicators::on_ChangeRightFocus_sliderReleased()
 void RSPIndicators::on_ChangeRightFocus_valueChanged(int value)
 {
     ui->ChangeRightFocusButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightFocus->maximum())));
+    value=value>=0 ? value+100 : 100-value;
+    ui->RenderRightTriangleLocator->SetSettings("system","focus",static_cast<qreal>(value)/100);
 }
 
 void RSPIndicators::on_ChangeRightVARUButton_pressed()
@@ -776,7 +781,16 @@ void RSPIndicators::on_ChangeRightViewStateAll_clicked()
 
 void RSPIndicators::on_ChangeRightState_clicked()
 {
-
+    if(ui->RenderRightTriangleLocator->IsActive())
+    {
+        ui->RenderRightTriangleLocator->ChangeFPS(0u);
+        ui->ChangeRightState->setText("Продолжить");
+    }
+    else
+    {
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->ChangeRightState->setText("Стоп");
+    }
 }
 
 void RSPIndicators::on_SelectTopAzimuthMarks_pressed()

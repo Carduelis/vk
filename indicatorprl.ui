@@ -1451,6 +1451,22 @@
                     </widget>
                    </item>
                    <item row="0" column="1" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                    <widget class="QLabel" name="LabelRightAzimuthMarks1">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>1°</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" alignment="Qt::AlignRight|Qt::AlignVCenter">
                     <widget class="QLabel" name="LabelRightAzimuthMarks2">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1460,22 +1476,6 @@
                      </property>
                      <property name="text">
                       <string>2°</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2" alignment="Qt::AlignRight|Qt::AlignVCenter">
-                    <widget class="QLabel" name="LabelRightAzimuthMarks4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>4°</string>
                      </property>
                     </widget>
                    </item>
