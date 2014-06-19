@@ -74,7 +74,8 @@ void Daddy::paintGL()
           a=settings["scan"]["amplitude"].isNull() ? 1.0f : settings["scan"]["amplitude"].toDouble(),
           e=settings["scan"]["equality"].isNull() ? 1.0f : settings["scan"]["equality"].toDouble();
     glTranslatef(h,v,.0f);
-    glScalef(a,e,1.0f);
+    glScalef(a,a,1.0f);
+    glScalef(1.0f,e,1.0f);
     DrawStation();
     //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
     InitLocatorGrid();
