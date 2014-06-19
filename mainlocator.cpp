@@ -25,8 +25,10 @@ void MainLocator::GenerationRadians(bool)
 void MainLocator::DrawStation(void)const
 {
     glRotatef(LOCATOR_ROTATE_ANGLE,.0f,.0f,1.0f);
-    //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
-    glColor3f(static_cast<GLfloat>(.925f),static_cast<GLfloat>(.714f),static_cast<GLfloat>(.262f));
+    glLineWidth(2.0f*settings["system"]["focus"].toDouble());
+    QColor color=Color;
+    color.setAlphaF(settings["system"]["brightness"].toDouble());
+    qglColor(color);
     qreal
         rx=CalcScaleValue(5.0f),
         ry=2u*rx;
@@ -160,7 +162,11 @@ void MainLocator::DrawRange(void)const
 {
     if(Current.range->isEmpty())
         return;
-    qreal focus=settings["system"]["focus"].toDouble();
+    qreal focus=settings["system"]["focus"].toDouble(),
+          brightness=settings["brightness"]["range"].isValid() ? settings["brightness"]["range"].toDouble() : 1.0f;
+    QColor color=Color;
+    color.setAlphaF(brightness*settings["system"]["brightness"].toDouble());
+    qglColor(color);
     for(QVector<RoundLine>::const_iterator it=(*Current.range)[scale].begin(),end=(*Current.range)[scale].end();it<end;it++)
     {
         glLineWidth(it->width*focus);
@@ -203,7 +209,11 @@ void MainLocator::DrawAzimuth(void)const
 {
     if(Current.azimuth->isEmpty())
         return;
-    qreal focus=settings["system"]["focus"].toDouble();
+    qreal focus=settings["system"]["focus"].toDouble(),
+          brightness=settings["brightness"]["azimuth"].isValid() ? settings["brightness"]["azimuth"].toDouble() : 1.0f;
+    QColor color=Color;
+    color.setAlphaF(brightness*settings["system"]["brightness"].toDouble());
+    qglColor(color);
     for(QVector<CenterStraightLine>::const_iterator it=Current.azimuth->begin(),end=Current.azimuth->end();it<end;it++)
     {
         glLineWidth(it->width*focus);

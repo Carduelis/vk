@@ -5,6 +5,7 @@
 Daddy::Daddy(QWidget *parent) : QGLWidget(QGLFormat(QGL::SampleBuffers),parent)
 {
     qsrand(QTime(0u,0u,0u).secsTo(QTime::currentTime()));
+    Color=QColor(236u,182u,67u);
     //Переведём все используемые градусы в радианы
     GenerationRadians();
     circle.clear();
@@ -64,8 +65,6 @@ void Daddy::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // чистим буфер изображения и буфер глубины
     glLoadIdentity(); // загружаем матрицу
     glPushMatrix();
-    qreal focus=settings["system"]["focus"].toDouble();
-    glLineWidth(2.0f*focus);
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
     LocatorArea();
@@ -77,16 +76,10 @@ void Daddy::paintGL()
     glScalef(a,a,1.0f);
     glScalef(1.0f,e,1.0f);
     DrawStation();
-    //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
     InitLocatorGrid();
     DrawRange();
     DrawAzimuth();
-    //glRotatef(90.0f,.0f,.0f,1.0);
-    glLineWidth(2.0f*focus);
-    glBegin(GL_LINES);
-        glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
-        glVertex2d((*ray_position)->x,(*ray_position)->y);
-    glEnd();
+    DrawRay();
     glPopMatrix();
     PostDraw();
 }
@@ -109,6 +102,7 @@ void Daddy::GenerationRadians(void)
 void Daddy::LocatorArea(void)const
 {
     qglColor(Qt::black);
+    glLineWidth(2.0f);
     glBegin(GL_TRIANGLE_FAN);
         for(QVector<Points>::const_iterator it=circle.begin();it<circle.end();it++)
             glVertex2d(it->x,it->y);
@@ -152,6 +146,18 @@ void Daddy::GenerationRay(quint16 angle)
     //while(i<end)ray.append(clockwise ? end-- : i++);
     while(i<end)clockwise ? ray.prepend(i++) : ray.append(i++);
     ray_position=ray.begin(); //Устанавливаем стартовую позицию луча
+}
+
+void Daddy::DrawRay(void)const
+{
+    QColor color=Color;
+    color.setAlphaF(settings["system"]["brightness"].toDouble());
+    qglColor(color);
+    glLineWidth(3.0f*settings["system"]["focus"].toDouble());
+    glBegin(GL_LINES);
+        glVertex2d(static_cast<GLdouble>(.0f),static_cast<GLdouble>(.0f));
+        glVertex2d((*ray_position)->x,(*ray_position)->y);
+    glEnd();
 }
 
 void Daddy::ChangeFPS(qreal fps)

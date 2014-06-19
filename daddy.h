@@ -31,6 +31,7 @@ class Daddy : public QGLWidget
         void ChangeFPS(qreal fps);
         static QPixmap RotateResourceImage(const QString resource_path,const qint16 degree);
         bool clockwise=true;
+        QColor Color;
 
     signals:
 
@@ -69,6 +70,7 @@ class Daddy : public QGLWidget
         virtual void InitLocatorGrid(void)const=0;
         void GenerationRay(void);
         void GenerationRay(quint16 angle);
+        void DrawRay(void)const;
         //template<typename T,typename S>T CalcScaleValue(const T value,const S scale)const;
 
         QMap<QString,QMap<QString,QVariant> >settings;

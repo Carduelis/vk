@@ -230,6 +230,7 @@ void RSPView::on_ChangeMainBrightnessRange_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderMainLocator->SetSettings("brightness","range",static_cast<qreal>(value)/100);
     ui->ChangeMainBrightnessRangeButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeMainBrightnessRange->maximum())));
 }
 
@@ -257,6 +258,7 @@ void RSPView::on_ChangeMainBrightnessAzimuth_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderMainLocator->SetSettings("brightness","azimuth",static_cast<qreal>(value)/100);
     ui->ChangeMainBrightnessAzimuthButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeMainBrightnessAzimuth->maximum())));
 }
 
@@ -365,6 +367,7 @@ void RSPView::on_ChangeMainFocusBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderMainLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeMainFocusBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeMainFocusBrightness->maximum())));
 }
 

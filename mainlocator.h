@@ -43,8 +43,8 @@ class MainLocator : public Daddy
 
         struct Pointer
         {
-            QHash<Scale,QVector<RoundLine> >*range;
-            QVector<CenterStraightLine>*azimuth;
+            QHash<Scale,QVector<RoundLine> >*range=nullptr;
+            QVector<CenterStraightLine>*azimuth=nullptr;
         }Current;
         //void timerEvent(QTimerEvent *event);
         //void mouseDoubleClickEvent(QMouseEvent  *event);

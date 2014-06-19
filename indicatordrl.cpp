@@ -185,6 +185,7 @@ void IndicatorDRL::on_ChangeIndicatorBrightness_valueChanged(int value)
 {
     if(value<0)
         return;
+    ui->RenderMainLocator->SetSettings("system","brightness",static_cast<qreal>(value)/100);
     ui->ChangeIndicatorBrightnessButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorBrightness->maximum())));
 }
 
