@@ -83,6 +83,7 @@ void Daddy::paintGL()
     DrawRange();
     DrawAzimuth();
     DrawRay();
+    DrawTrash();
     glPopMatrix();
     PostDraw();
 }
@@ -215,4 +216,23 @@ bool Daddy::IsAllVisible(void)const
 void Daddy::SetAllVisible(bool state)
 {
     show=state;
+}
+
+qreal Daddy::GetRandomCoord(quint8 accuracy,const bool rsign)const
+{
+    //Фикс странного бага, наблюдающегося под виндой
+    if(accuracy>4u)
+        accuracy=4u;
+
+    qreal a=(qrand()%quint32(qPow(10u,accuracy)+1u))/qPow(10u,accuracy);
+    if(rsign)
+        return a*GetRandomSign();
+    return a;
+}
+
+qint8 Daddy::GetRandomSign(void)const
+{
+    if(rand()%2u)
+        return 1u;
+    return-1;
 }

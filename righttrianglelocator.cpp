@@ -231,3 +231,13 @@ void RightTriangleLocator::DrawAzimuth(void)const
         }
     }
 }
+
+void RightTriangleLocator::GenerationTrash(void)
+{
+
+}
+
+void RightTriangleLocator::DrawTrash(void)const
+{
+
+}

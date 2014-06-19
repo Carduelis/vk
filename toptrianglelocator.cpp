@@ -233,3 +233,13 @@ void TopTriangleLocator::DrawAzimuth(void)const
         }
     }
 }
+
+void TopTriangleLocator::GenerationTrash(void)
+{
+
+}
+
+void TopTriangleLocator::DrawTrash(void)const
+{
+
+}

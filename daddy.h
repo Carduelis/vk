@@ -5,8 +5,22 @@
 #include<QBasicTimer>
 #include<QTimerEvent>
 #include<QVariant>
+#include<qmath.h>
 #include"helpers.h"
 #include<QDebug>
+
+
+#ifndef ROUND_DEGREE
+#define ROUND_DEGREE 361u
+#endif
+
+#ifndef CIRCLE_CLEARANCE
+#define CIRCLE_CLEARANCE 3u
+#endif
+
+#ifndef GetRadianValue
+#define GetRadianValue(degree) (M_PI*degree)/180
+#endif
 
 #ifndef GL_MULTISAMPLE
 #define GL_MULTISAMPLE  0x809D
@@ -44,6 +58,11 @@ class Daddy : public QGLWidget
         {
             qreal x,y,angle;
         }*radians;
+
+        struct PointsR : public Points
+        {
+            qreal r;
+        };
         struct RoundLine
         {
             qreal width;
@@ -56,6 +75,7 @@ class Daddy : public QGLWidget
         };
         struct Storage
         {
+            QHash<quint16,QVector<PointsR> >trash;
             QHash<quint16,QVector<RoundLine> >range;
             QVector<CenterStraightLine>azimuth;
         }S;
@@ -84,8 +104,12 @@ class Daddy : public QGLWidget
         void GenerationRay(void);
         void GenerationRay(quint16 angle);
         void DrawRay(void)const;
-        //template<typename T,typename S>T CalcScaleValue(const T value,const S scale)const;
 
+        virtual void GenerationTrash(void)=0;
+        virtual void DrawTrash(void)const=0;
+
+        qint8 GetRandomSign(void)const;
+        qreal GetRandomCoord(quint8 accuracy,const bool rsign=false)const;
         bool show=false;
         QMap<QString,QMap<QString,QVariant> >settings;
         QVector<Points>circle;
@@ -100,6 +124,8 @@ class Daddy : public QGLWidget
 template<typename OptionType>void Daddy::SetSettings(const QString group, const QString name,const OptionType option)
 {
     settings[group][name]=QVariant::fromValue(option);
+    if(group=="trash")
+        GenerationTrash();
 
     if(group!="common")
         updateGL();

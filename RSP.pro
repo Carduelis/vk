@@ -27,7 +27,6 @@ SOURCES += main.cpp\
 HEADERS  += menu.h \
     indicatordrl.h \
     mainlocator.h \
-    helpers.h \
     indicatorprl.h \
     toptrianglelocator.h \
     righttrianglelocator.h \

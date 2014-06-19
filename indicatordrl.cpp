@@ -22,10 +22,15 @@ IndicatorDRL::IndicatorDRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->ChangeIndicatorFocus->valueChanged(ui->ChangeIndicatorFocus->value());
     ui->ChangeIndicatorVARU->valueChanged(ui->ChangeIndicatorVARU->value());
     ui->ChangeTrashIntensity->valueChanged(ui->ChangeTrashIntensity->value());
+    ui->ChangeTrashIntensity->sliderReleased();
     ui->InputScatterTrashFrom->valueChanged(ui->InputScatterTrashFrom->value());
     ui->InputScatterTrashTo->valueChanged(ui->InputScatterTrashTo->value());
     ui->CheckShowLocalItems->stateChanged(ui->CheckShowLocalItems->checkState());
     ui->CheckShowMeteo->stateChanged(ui->CheckShowMeteo->checkState());
+    //Статика
+    ui->RenderMainLocator->SetSettings("offset","horizontal",.0f);
+    ui->RenderMainLocator->SetSettings("offset","vertical",.0f);
+
 
     QStringList intensity;
     intensity<<"Слабая"<<"Средняя"<<"Сильная";
@@ -159,6 +164,12 @@ void IndicatorDRL::on_SelectScale_released()
     }
     ui->SelectScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : Daddy::RotateResourceImage(":/buttons/switch_up",degree)));
     ui->SelectScale->setCursor(Qt::OpenHandCursor);
+    if(ui->InputScatterTrashFrom->value()>ui->RenderMainLocator->GetCurrentScaleMode())
+        ui->InputScatterTrashFrom->setValue(ui->RenderMainLocator->GetCurrentScaleMode());
+    if(ui->InputScatterTrashTo->value()>ui->RenderMainLocator->GetCurrentScaleMode())
+        ui->InputScatterTrashTo->setValue(ui->RenderMainLocator->GetCurrentScaleMode());
+    ui->InputScatterTrashFrom->setMaximum(ui->RenderMainLocator->GetCurrentScaleMode());
+    ui->InputScatterTrashTo->setMaximum(ui->RenderMainLocator->GetCurrentScaleMode());
 }
 
 void IndicatorDRL::on_ChangeIndicatorBrightnessButton_pressed()
@@ -266,6 +277,7 @@ void IndicatorDRL::on_ChangeIndicatorVARU_sliderReleased()
 
 void IndicatorDRL::on_ChangeIndicatorVARU_valueChanged(int value)
 {
+    ui->RenderMainLocator->SetSettings("system","varu",static_cast<qreal>(value)/100);
     ui->ChangeIndicatorVARUButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeIndicatorVARU->maximum())));
 }
 
@@ -325,6 +337,8 @@ void IndicatorDRL::on_ChangeTrashIntensity_sliderReleased()
     ui->ChangeTrashIntensity->setDisabled(true);
     ui->ChangeTrashIntensity->setCursor(Qt::OpenHandCursor);
     ui->ChangeTrashIntensityButton->setCursor(Qt::OpenHandCursor);
+    //---------------------------
+    ui->RenderMainLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTrashIntensity->value()));
 }
 
 void IndicatorDRL::on_ChangeTrashIntensity_valueChanged(int value)
@@ -336,12 +350,22 @@ void IndicatorDRL::on_ChangeTrashIntensity_valueChanged(int value)
 
 void IndicatorDRL::on_InputScatterTrashFrom_valueChanged(double arg1)
 {
-
+    qreal from=static_cast<qreal>(arg1),
+          to=static_cast<qreal>(ui->InputScatterTrashTo->value());
+    if(from>=to)
+        ui->InputScatterTrashFrom->setMaximum(to);
+    ui->InputScatterTrashTo->setMinimum(from);
+    ui->RenderMainLocator->SetSettings("trash","begin",from);
 }
 
 void IndicatorDRL::on_InputScatterTrashTo_valueChanged(double arg1)
 {
-
+    qreal from=static_cast<qreal>(ui->InputScatterTrashFrom->value()),
+          to=static_cast<qreal>(arg1);
+    if(to<=from)
+        ui->InputScatterTrashTo->setMinimum(from);
+    ui->InputScatterTrashFrom->setMaximum(to);
+    ui->RenderMainLocator->SetSettings("trash","end",to);
 }
 
 void IndicatorDRL::on_CheckShowLocalItems_stateChanged(int arg1)
