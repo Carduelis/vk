@@ -75,7 +75,7 @@ class Daddy : public QGLWidget
         };
         struct Storage
         {
-            QHash<quint16,QVector<PointsR> >trash;
+            QHash<quint16,QVector<PointsR> >trash,local_items;
             QHash<quint16,QVector<RoundLine> >range;
             QVector<CenterStraightLine>azimuth;
         }S;
@@ -107,6 +107,10 @@ class Daddy : public QGLWidget
 
         virtual void GenerationTrash(void)=0;
         virtual void DrawTrash(void)const=0;
+        virtual void GenerationLocalItems(void)=0;
+        virtual void DrawLocalItems(void)const=0;
+        virtual void GenerationMeteo(void)=0;
+        virtual void DrawMeteo(void)const=0;
 
         qint8 GetRandomSign(void)const;
         qreal GetRandomCoord(quint8 accuracy,const bool rsign=false)const;
@@ -126,6 +130,9 @@ template<typename OptionType>void Daddy::SetSettings(const QString group, const 
     settings[group][name]=QVariant::fromValue(option);
     if(group=="trash")
         GenerationTrash();
+    if(group=="local_items")
+        GenerationLocalItems();
+    if(group=="meteo");
 
     if(group!="common")
         updateGL();

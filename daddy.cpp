@@ -84,6 +84,7 @@ void Daddy::paintGL()
     DrawAzimuth();
     DrawRay();
     DrawTrash();
+    DrawLocalItems();
     glPopMatrix();
     PostDraw();
 }

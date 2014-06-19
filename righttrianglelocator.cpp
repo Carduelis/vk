@@ -241,3 +241,24 @@ void RightTriangleLocator::DrawTrash(void)const
 {
 
 }
+
+
+void RightTriangleLocator::GenerationLocalItems(void)
+{
+
+}
+
+void RightTriangleLocator::DrawLocalItems(void)const
+{
+
+}
+
+void RightTriangleLocator::GenerationMeteo(void)
+{
+
+}
+
+void RightTriangleLocator::DrawMeteo(void)const
+{
+
+}

@@ -370,12 +370,12 @@ void IndicatorDRL::on_InputScatterTrashTo_valueChanged(double arg1)
 
 void IndicatorDRL::on_CheckShowLocalItems_stateChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("local_items","show",arg1==2);
 }
 
 void IndicatorDRL::on_CheckShowMeteo_stateChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("meteo","show",arg1==2);
 }
 
 void IndicatorDRL::on_RegenerateTrash_clicked()

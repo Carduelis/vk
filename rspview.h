@@ -155,35 +155,20 @@ class RSPView : public QMainWindow
         void on_ChangeRightFocusBrightness_sliderPressed();
         void on_ChangeRightFocusBrightness_sliderReleased();
         void on_ChangeRightFocusBrightness_valueChanged(int value);
-
         void on_ChangeMainLocatorState_clicked();
-
         void on_ChangeMainLightningButton_pressed();
-
         void on_ChangeMainLightning_sliderPressed();
-
         void on_ChangeMainLightning_sliderReleased();
-
         void on_ChangeMainLightning_valueChanged(int value);
-
         void on_ChangeTopState_clicked();
-
         void on_ChangeTopLightningButton_pressed();
-
         void on_ChangeTopLightning_sliderPressed();
-
         void on_ChangeTopLightning_sliderReleased();
-
         void on_ChangeTopLightning_valueChanged(int value);
-
         void on_ChangeRightState_clicked();
-
         void on_ChangeRightLightningButton_pressed();
-
         void on_ChangeRightLightning_sliderPressed();
-
         void on_ChangeRightLightning_sliderReleased();
-
         void on_ChangeRightLightning_valueChanged(int value);
 
 private:

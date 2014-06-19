@@ -96,13 +96,9 @@ public:
         void on_ChangeRightVARU_valueChanged(int value);
         void on_ChangeRightViewStateAll_clicked();
         void on_ChangeRightState_clicked();
-
         void on_SelectTopAzimuthMarks_pressed();
-
         void on_SelectTopAzimuthMarks_released();
-
         void on_SelectRightAzimuthMarks_pressed();
-
         void on_SelectRightAzimuthMarks_released();
 
 private:

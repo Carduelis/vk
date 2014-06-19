@@ -243,3 +243,23 @@ void TopTriangleLocator::DrawTrash(void)const
 {
 
 }
+
+void TopTriangleLocator::GenerationLocalItems(void)
+{
+
+}
+
+void TopTriangleLocator::DrawLocalItems(void)const
+{
+
+}
+
+void TopTriangleLocator::GenerationMeteo(void)
+{
+
+}
+
+void TopTriangleLocator::DrawMeteo(void)const
+{
+
+}
