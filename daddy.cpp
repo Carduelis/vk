@@ -74,12 +74,12 @@ void Daddy::paintGL()
           a=settings["scan"]["amplitude"].isNull() ? 1.0f : settings["scan"]["amplitude"].toDouble(),
           e=settings["scan"]["equality"].isNull() ? 1.0f : settings["scan"]["equality"].toDouble();
     glTranslatef(h,v,.0f);
-    DrawStation();
     glScalef(a,e,1.0f);
+    DrawStation();
     //glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),settings["system"]["brightness"].toFloat());//перерисовка линии
     InitLocatorGrid();
-    //if(!Current.range->isEmpty())
-        DrawRange();
+    DrawRange();
+    DrawAzimuth();
     //glRotatef(90.0f,.0f,.0f,1.0);
     //glLineWidth(2.0f*settings["system"]["focus"].toDouble());
     glLineWidth(2.0f);

@@ -89,3 +89,13 @@ void TopTriangleLocator::GenerationRange(void)
 void TopTriangleLocator::DrawRange(void)const
 {
 }
+
+void TopTriangleLocator::GenerationAzimuth(void)
+{
+
+}
+
+void TopTriangleLocator::DrawAzimuth(void)const
+{
+
+}

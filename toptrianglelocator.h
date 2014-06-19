@@ -37,6 +37,8 @@ class TopTriangleLocator : public Daddy
         void ContinueSearch(void);
         void GenerationRange(void);
         void DrawRange(void)const;
+        void GenerationAzimuth(void);
+        void DrawAzimuth(void)const;
 
         template<typename T>T CalcScaleValue(const T value,Scale scale)const;
         template<typename T>T CalcScaleValue(const T value)const;

@@ -7,6 +7,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->setupUi(this);
 
     ui->RenderMainLocator->SetCurrentRangeMode(MainLocator::R_FIRST);
+    ui->RenderMainLocator->SetCurrentAzimuthMode(MainLocator::A_FIRST);
 
     ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);

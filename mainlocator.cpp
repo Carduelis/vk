@@ -83,6 +83,7 @@ MainLocator::Azimuth MainLocator::GetCurrentAzimuthMode(void)const
 void MainLocator::SetCurrentAzimuthMode(const MainLocator::Azimuth a)
 {
     azimuth=a;
+    GenerationAzimuth();
 }
 
 MainLocator::Range MainLocator::GetCurrentRangeMode(void)const
@@ -157,6 +158,8 @@ void MainLocator::GenerationRange(void)
 
 void MainLocator::DrawRange(void)const
 {
+    if(Current.range->isEmpty())
+        return;
     for(QVector<RoundLine>::const_iterator it=(*Current.range)[scale].begin(),end=(*Current.range)[scale].end();it<end;it++)
     {
         glLineWidth(it->width);
@@ -175,4 +178,45 @@ void MainLocator::DrawRange(void)const
         glEnd();
     }
     */
+}
+
+void MainLocator::GenerationAzimuth(void)
+{
+    Cache.azimuth.clear();
+    if(azimuth==Azimuth::A_NO)
+        return;
+
+    CenterStraightLine cache;
+    for(Points *i=radians,*e=radians+ROUND_DEGREE;i<e;i+=azimuth)
+    {
+        cache.width=(i-radians)%A_SECOND>0u ? 1.0f : 3.5f;
+        cache.Coordinates.angle=i->angle;
+        cache.Coordinates.x=i->x;
+        cache.Coordinates.y=i->y;
+        Cache.azimuth.append(cache);
+    }
+    Current.azimuth=&Cache.azimuth;
+}
+
+void MainLocator::DrawAzimuth(void)const
+{
+    if(Current.azimuth->isEmpty())
+        return;
+    for(QVector<CenterStraightLine>::const_iterator it=Current.azimuth->begin(),end=Current.azimuth->end();it<end;it++)
+    {
+        glLineWidth(it->width);
+        glBegin(GL_LINES);
+            glVertex2f(.0f,.0f);
+            glVertex2f(it->Coordinates.x,it->Coordinates.y);
+        glEnd();
+    }
+    /*
+    for(QVector<CenterStraightLine>::const_iterator it=Cache.azimuth.begin(),end=Cache.azimuth.end();it<end;it++)
+    {
+        glLineWidth(it->width);
+        glBegin(GL_LINES);
+            glVertex2f(.0f,.0f);
+            glVertex2f(it->Coordinates.x,it->Coordinates.y);
+        glEnd();
+    }*/
 }

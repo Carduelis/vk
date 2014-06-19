@@ -46,6 +46,11 @@ class Daddy : public QGLWidget
             qreal width;
             Points *Coordinates=nullptr;
         };
+        struct CenterStraightLine
+        {
+            qreal width;
+            Points Coordinates;
+        };
 
         void timerEvent(QTimerEvent *event);
         void initializeGL();
@@ -57,6 +62,8 @@ class Daddy : public QGLWidget
         virtual void GenerationRadians(bool)=0;
         virtual void GenerationRange(void)=0;
         virtual void DrawRange(void)const=0;
+        virtual void GenerationAzimuth(void)=0;
+        virtual void DrawAzimuth(void)const=0;
         virtual void ContinueSearch(void)=0;
         virtual void DrawStation(void)const=0;
         virtual void InitLocatorGrid(void)const=0;
@@ -77,7 +84,7 @@ class Daddy : public QGLWidget
 template<typename OptionType>void Daddy::SetSettings(const QString group, const QString name,const OptionType option)
 {
     settings[group][name]=QVariant::fromValue(option);
-    GenerationRange();
+
     if(group!="common")
         updateGL();
 }
