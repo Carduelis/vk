@@ -16,18 +16,26 @@ void RightTriangleLocator::GenerationRadians(void)
 {
     delete radians;
     radians=new Points[TRIANGLE_ANGLE+1];
+    qreal cos=qFastCos(GetRadianValue(TRIANGLE_ANGLE));
     for(quint16 i=0u;i<=TRIANGLE_ANGLE;i++)
     {
         radians[i].angle=GetRadianValue(i);
-        radians[i].x=qFastCos(radians[i].angle);
+        radians[i].x=cos;
         radians[i].y=qFastSin(radians[i].angle);
     }
 }
 
 void RightTriangleLocator::DrawStation(void)const
 {
+    qreal rad=GetRadianValue(TRIANGLE_ANGLE),
+          rad1=GetRadianValue(-TRIANGLE_ANGLE),
+          sin=qFastSin(rad),
+          cos=qFastCos(rad),
+          sin1=qFastSin(rad1),
+          cos1=qFastCos(rad1),
+          sin0=qFastSin(GetRadianValue(0u));
     glScalef(1.0f,4.5f,1.0f);
-    glTranslatef(-qFastCos(GetRadianValue(-TRIANGLE_ANGLE)),qFastSin(GetRadianValue(-TRIANGLE_ANGLE)),.0f);
+    glTranslatef(-cos1,sin1,.0f);
     glTranslatef(0.18,.0f,.0f);
     glScalef(1.6f,2.0f,1.0f);
     glLineWidth(2.0f*settings["system"]["focus"].toDouble());
@@ -36,16 +44,16 @@ void RightTriangleLocator::DrawStation(void)const
     qglColor(color);
     glBegin(GL_LINES);
         glVertex2f(.0f,.0f);
-        glVertex2f(qFastCos(GetRadianValue(-TRIANGLE_ANGLE)),qFastSin(GetRadianValue(0)));
+        glVertex2f(cos1,sin0);
 
         glVertex2f(.0f,.0f);
-        glVertex2f(qFastCos(GetRadianValue(TRIANGLE_ANGLE)),qFastSin(GetRadianValue(TRIANGLE_ANGLE)));
+        glVertex2f(cos,sin);
 
         glVertex2f(.15f,.0f);
-        glVertex2f(qFastCos(GetRadianValue(TRIANGLE_ANGLE)),qFastSin(GetRadianValue(2.7)));
+        glVertex2f(cos,qFastSin(GetRadianValue(2.7)));
 
-        glVertex2f(qFastCos(GetRadianValue(-TRIANGLE_ANGLE)),qFastSin(GetRadianValue(0)));
-        glVertex2f(qFastCos(GetRadianValue(TRIANGLE_ANGLE)),qFastSin(GetRadianValue(TRIANGLE_ANGLE)));
+        glVertex2f(cos1,sin0);
+        glVertex2f(cos,sin);
     glEnd();
 }
 

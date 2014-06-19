@@ -17,11 +17,12 @@ void TopTriangleLocator::GenerationRadians(void)
     delete radians;
     radians=new Points[2u*TRIANGLE_ANGLE+1];
     qint16 a=0u;
+    qreal cos=qFastCos(GetRadianValue(TRIANGLE_ANGLE));
     for(quint16 i=0u;i<=2u*TRIANGLE_ANGLE;i++)
     {
         a=i-TRIANGLE_ANGLE;
         radians[i].angle=GetRadianValue(a);
-        radians[i].x=qFastCos(GetRadianValue(TRIANGLE_ANGLE));
+        radians[i].x=cos;
         radians[i].y=qFastSin(radians[i].angle);
     }
 }
