@@ -10,15 +10,26 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->RenderMainLocator->SetCurrentAzimuthMode(MainLocator::Azimuth::A_FIRST);
     ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
 
+    ui->RenderMainLocator->SetSettings("trash","begin",.0f);
+    ui->RenderMainLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderMainLocator->GetCurrentScaleMode()));
+    ui->RenderMainLocator->SetSettings("local_items","show",true);
+
+
     ui->RenderTopTriangleLocator->SetCurrentRangeMode(TopTriangleLocator::Range::R_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);
     ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
     ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
 
+    ui->RenderTopTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderTopTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderTopTriangleLocator->GetCurrentScaleMode()));
+
     ui->RenderRightTriangleLocator->SetCurrentRangeMode(RightTriangleLocator::Range::R_FIRST);
     ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_LARGE);
     ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
     ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
+
+    ui->RenderRightTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderRightTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderRightTriangleLocator->GetCurrentScaleMode()));
 
     ui->ChangeMainScanAmp->hide();
     ui->ChangeMainScanEqua->hide();
@@ -79,10 +90,18 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeMainBrightnessAzimuth->valueChanged(ui->ChangeMainBrightnessAzimuth->value());
     ui->ChangeMainNullSetVertical->valueChanged(ui->ChangeMainNullSetVertical->value());
     ui->ChangeMainNullSetHorizontal->valueChanged(ui->ChangeMainNullSetHorizontal->value());
+    ui->LabelMainNullSet->hide();
+    ui->LabelMainNullSetHorizontal->hide();
+    ui->LabelMainNullSetVertical->hide();
+    ui->ChangeMainNullSetVerticalButton->hide();
+    ui->ChangeMainNullSetHorizontalButton->hide();
+
     ui->ChangeMainFocus->valueChanged(ui->ChangeMainFocus->value());
     ui->ChangeMainFocusBrightness->valueChanged(ui->ChangeMainFocusBrightness->value());
     ui->ChangeMainTrashAKT->valueChanged(ui->ChangeMainTrashAKT->value());
+    ui->ChangeMainTrashAKT->sliderReleased();
     ui->ChangeMainTrashPASS->valueChanged(ui->ChangeMainTrashPASS->value());
+    ui->ChangeMainTrashPASS->sliderReleased();
 
     ui->ChangeTopScanAmpVertical->valueChanged(ui->ChangeTopScanAmpVertical->value());
     ui->ChangeTopScanAmpHorizontal->valueChanged(ui->ChangeTopScanAmpHorizontal->value());
@@ -90,11 +109,19 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeTopOffsetHorizontal->valueChanged(ui->ChangeTopOffsetHorizontal->value());
     ui->ChangeTopDirectionTrack->valueChanged(ui->ChangeTopDirectionTrack->value());
     ui->ChangeTopDirectionGlide->valueChanged(ui->ChangeTopDirectionGlide->value());
+    ui->LabelTopDirection->hide();
+    ui->LabelTopDirectionGlide->hide();
+    ui->LabelTopDirectionTrack->hide();
+    ui->ChangeTopDirectionTrackButton->hide();
+    ui->ChangeTopDirectionGlideButton->hide();
     ui->ChangeTopFocus->valueChanged(ui->ChangeTopFocus->value());
     ui->ChangeTopBrightness->valueChanged(ui->ChangeTopBrightness->value());
     ui->ChangeTopTrashSDC->valueChanged(ui->ChangeTopTrashSDC->value());
+    ui->ChangeTopTrashSDC->sliderReleased();
     ui->ChangeTopTrashPASS->valueChanged(ui->ChangeTopTrashPASS->value());
+    ui->ChangeTopTrashPASS->sliderReleased();
     ui->ChangeTopTrashAKT->valueChanged(ui->ChangeTopTrashAKT->value());
+    ui->ChangeTopTrashAKT->sliderReleased();
 
     ui->ChangeRightScanAmpVertical->valueChanged(ui->ChangeRightScanAmpVertical->value());
     ui->ChangeRightScanAmpHorizontal->valueChanged(ui->ChangeRightScanAmpHorizontal->value());
@@ -102,6 +129,11 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightOffsetHorizontal->valueChanged(ui->ChangeRightOffsetHorizontal->value());
     ui->ChangeRightDirectionTrack->valueChanged(ui->ChangeRightDirectionTrack->value());
     ui->ChangeRightDirectionGlide->valueChanged(ui->ChangeRightDirectionGlide->value());
+    ui->LabelRightDirection->hide();
+    ui->LabelRightDirectionTrack->hide();
+    ui->LabelRightDirectionGlide->hide();
+    ui->ChangeRightDirectionTrackButton->hide();
+    ui->ChangeRightDirectionGlideButton->hide();
     ui->ChangeRightBrightnessRange->valueChanged(ui->ChangeRightBrightnessRange->value());
     ui->ChangeRightBrightnessAzimuth->valueChanged(ui->ChangeRightBrightnessAzimuth->value());
     ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
@@ -457,6 +489,7 @@ void RSPView::on_ChangeMainTrashAKT_sliderReleased()
     ui->ChangeMainTrashAKT->setDisabled(true);
     ui->ChangeMainTrashAKT->setCursor(Qt::OpenHandCursor);
     ui->ChangeMainTrashAKTButton->setCursor(Qt::OpenHandCursor);
+    ui->RenderMainLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeMainTrashAKT->value()));
 }
 
 void RSPView::on_ChangeMainTrashAKT_valueChanged(int value)
@@ -484,6 +517,7 @@ void RSPView::on_ChangeMainTrashPASS_sliderReleased()
     ui->ChangeMainTrashPASS->setDisabled(true);
     ui->ChangeMainTrashPASS->setCursor(Qt::OpenHandCursor);
     ui->ChangeMainTrashPASSButton->setCursor(Qt::OpenHandCursor);
+    ui->RenderMainLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeMainTrashPASS->value()));
 }
 
 void RSPView::on_ChangeMainTrashPASS_valueChanged(int value)
@@ -527,6 +561,10 @@ void RSPView::on_SelectMainScale_released()
         degree=0u;
         ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
     }
+
+    ui->RenderMainLocator->SetSettings("trash","begin",.0f);
+    ui->RenderMainLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderMainLocator->GetCurrentScaleMode()));
+
     ui->SelectMainScale->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectMainScale->setCursor(Qt::OpenHandCursor);
 }
@@ -766,6 +804,9 @@ void RSPView::on_ChangeTopTrashSDC_sliderReleased()
     ui->ChangeTopTrashSDC->setDisabled(true);
     ui->ChangeTopTrashSDC->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashSDCButton->setCursor(Qt::OpenHandCursor);
+
+    ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashSDC->value()));
+    ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashSDC->value()));
 }
 
 void RSPView::on_ChangeTopTrashSDC_valueChanged(int value)
@@ -793,6 +834,8 @@ void RSPView::on_ChangeTopTrashPASS_sliderReleased()
     ui->ChangeTopTrashPASS->setDisabled(true);
     ui->ChangeTopTrashPASS->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashPASSButton->setCursor(Qt::OpenHandCursor);
+    ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashPASS->value()));
+    ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashPASS->value()));
 }
 
 void RSPView::on_ChangeTopTrashPASS_valueChanged(int value)
@@ -820,6 +863,8 @@ void RSPView::on_ChangeTopTrashAKT_sliderReleased()
     ui->ChangeTopTrashAKT->setDisabled(true);
     ui->ChangeTopTrashAKT->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashAKTButton->setCursor(Qt::OpenHandCursor);
+    ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashAKT->value()));
+    ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashAKT->value()));
 }
 
 void RSPView::on_ChangeTopTrashAKT_valueChanged(int value)
@@ -868,6 +913,13 @@ void RSPView::on_SelectTopScale_released()
         ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_SMALL);
         ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_SMALL);
     }
+
+    ui->RenderTopTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderTopTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderTopTriangleLocator->GetCurrentScaleMode()));
+
+    ui->RenderRightTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderRightTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderRightTriangleLocator->GetCurrentScaleMode()));
+
     ui->SelectTopScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : Daddy::RotateResourceImage(":/buttons/switch_up",degree)));
     ui->SelectTopScale->setCursor(Qt::OpenHandCursor);
 }
@@ -912,6 +964,7 @@ void RSPView::on_SelectTopMode_released()
         ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
         ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
     }
+
     ui->SelectTopMode->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectTopMode->setCursor(Qt::OpenHandCursor);
 }
@@ -1234,7 +1287,7 @@ void RSPView::on_ChangeTopState_clicked()
     }
     else
     {
-        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/15);
         ui->ChangeTopState->setText("Стоп");
     }
 }
@@ -1268,7 +1321,7 @@ void RSPView::on_ChangeRightState_clicked()
     }
     else
     {
-        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/5);
         ui->ChangeRightState->setText("Стоп");
     }
 }

@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     righttrianglelocator.cpp \
     rspindicators.cpp \
     rspview.cpp \
-    daddy.cpp
+    daddy.cpp \
+    targetssettings.cpp
 
 HEADERS  += menu.h \
     indicatordrl.h \
@@ -32,13 +33,15 @@ HEADERS  += menu.h \
     righttrianglelocator.h \
     rspindicators.h \
     rspview.h \
-    daddy.h
+    daddy.h \
+    targetssettings.h
 
 FORMS    += menu.ui \
     indicatordrl.ui \
     indicatorprl.ui \
     rspindicators.ui \
-    rspview.ui
+    rspview.ui \
+    targetssettings.ui
 
 target.path = $$[QT_INSTALL_PLUGINS]/designer
 INSTALLS += target

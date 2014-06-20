@@ -275,7 +275,7 @@ void MainLocator::GenerationLocalItems(void)
 
 void MainLocator::DrawLocalItems(void)const
 {
-    DrawEllipseTrashArea(S.local_items[scale],18u);
+    DrawEllipseTrashArea(S.local_items[scale],20u);
 }
 
 void MainLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity,bool ellipse,bool clear)
@@ -333,8 +333,7 @@ void MainLocator::DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size)const
             color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
             glBegin(GL_POINTS);
                 qglColor(color);
-            glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),alpha*settings["system"]["brightness"].toDouble());
-            glVertex2f(it->x,it->y);
+                glVertex2f(it->x,it->y);
             glEnd();
         }
     }
@@ -428,6 +427,7 @@ void MainLocator::GenerationActiveNoiseTrash(void)
 void MainLocator::DrawActiveNoiseTrash(void)const
 {
     qreal alpha;
+    QColor color=Color;
     for(QVector<RoundLine>::const_iterator it=S.active_noise_trash.begin();it<S.active_noise_trash.end();it++)
     {
         alpha=CalcAlpha(it->Coordinates->angle);
@@ -436,7 +436,8 @@ void MainLocator::DrawActiveNoiseTrash(void)const
             glLineWidth(it->width*settings["system"]["focus"].toDouble());
             alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
             glBegin(GL_LINES);
-            glColor4f(static_cast<GLfloat>(.925f),static_cast<GLfloat>(.714f),static_cast<GLfloat>(.262f),alpha);
+            color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+            qglColor(color);
             glVertex2d(.0f,.0f);
             glVertex2f(it->Coordinates->x,it->Coordinates->y);
             glEnd();
@@ -492,6 +493,7 @@ void MainLocator::DrawActiveAnswerTrash(void)const
 {
     qreal alpha,brightness;
     brightness=1.0f;
+    QColor color=Color;
     for(QVector<RoundLineR>::const_iterator it=S.active_answer_trash[scale].begin();it<S.active_answer_trash[scale].end();it++)
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
@@ -502,13 +504,16 @@ void MainLocator::DrawActiveAnswerTrash(void)const
             if(alpha>.0f)
             {
                 alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
-                glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),alpha*(settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble()));
+                alpha*=(settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble());
+                color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+                qglColor(color);
                 glVertex2d(i->x,i->y);
             }
         }
         glEnd();
     }
 }
+
 void MainLocator::GenerationActiveInSyncTrash(void)
 {
     //if(!settings["active_insync_trash"]["distance"].isValid() || settings["active_insync_trash"]["distance"]<=.0f)
@@ -552,10 +557,12 @@ void MainLocator::GenerationActiveInSyncTrash(void)
         a++;
     }
 }
+
 void MainLocator::DrawActiveInSyncTrash(void)const
 {
     qreal alpha,brightness;
     brightness=1.0f;
+    QColor color=Color;
     //for(QVector<LineEntityR>::const_iterator it=Cache.active_insync_trash.begin();it<Cache.active_insync_trash.end();it++)
     QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale].begin();
     {
@@ -567,7 +574,9 @@ void MainLocator::DrawActiveInSyncTrash(void)const
             if(alpha>.0f)
             {
                 alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
-                glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),alpha*(settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble()));
+                alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
+                color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+                qglColor(color);
                 glVertex2d(i->x,i->y);
             }
         }

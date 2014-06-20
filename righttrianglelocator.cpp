@@ -232,14 +232,75 @@ void RightTriangleLocator::DrawAzimuth(void)const
     }
 }
 
+void RightTriangleLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity,bool ellipse,bool clear)
+{
+    qreal rand;
+    begin=CalcScaleValue(begin),
+    end=CalcScaleValue(end);
+    if(clear)
+        storage.clear();
+    PointsR cache;
+    for(Points*i=radians,*k=radians+TRIANGLE_ANGLE+1;i<k;i++)
+    {
+        for(quint16 l=0u,t=fmod(qrand(),intensity);l<t;l++)
+        {
+            if(ellipse)
+            {
+                rand=begin+fmod(GetRandomCoord(4u),end-begin);
+                cache.x=i->x*rand+CalcScaleValue(offset_x)+GetRandomSign();//*CalcScaleValue(offset_x*rand);
+                rand=begin+fmod(GetRandomCoord(4u),end-begin);
+                cache.y=i->y*rand+CalcScaleValue(offset_y)+GetRandomSign();//*CalcScaleValue(offset_y*rand);
+            }
+            else
+            {
+                rand=begin+fmod(GetRandomCoord(4u),end-begin);
+                cache.x=i->x*rand+CalcScaleValue(offset_x);
+                cache.y=i->y*rand+CalcScaleValue(offset_y);
+            }
+            cache.r=qSqrt(qPow(cache.x,2u)+qPow(cache.y,2u));
+            if(offset_x>.0f || offset_y>.0f)
+                if(cache.x==0)
+                    cache.angle=M_PI/2;
+                else
+                    cache.angle=qAtan2(cache.y,cache.x);
+            else
+                cache.angle=i->angle;
+            storage.append(cache);
+        }
+    }
+}
+
+void RightTriangleLocator::DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size)const
+{
+    glPointSize(size*settings["system"]["focus"].toDouble());
+    glEnable(GL_ALPHA_TEST);
+    qreal alpha;
+    QColor color=Color;
+    for(QVector<PointsR>::const_iterator it=storage.begin();it<storage.end();it++)
+    {
+        alpha=CalcAlpha(it->angle);
+        if(alpha>.0f)
+        {
+            alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+            alpha*=settings["system"]["brightness"].toDouble()+it->r-settings["system"]["varu"].toDouble();
+            alpha*=settings["system"]["brightness"].toDouble();
+            color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+            glBegin(GL_POINTS);
+                qglColor(color);
+            glVertex2f(it->x,it->y);
+            glEnd();
+        }
+    }
+}
+
 void RightTriangleLocator::GenerationTrash(void)
 {
-
+    CreateEllipseTrashArea(S.trash[scale],settings["trash"]["begin"].toDouble(),settings["trash"]["end"].toDouble(),.0f,.0f,settings["trash"]["intensity"].toDouble());
 }
 
 void RightTriangleLocator::DrawTrash(void)const
 {
-
+    DrawEllipseTrashArea(S.trash[scale],2u);
 }
 
 

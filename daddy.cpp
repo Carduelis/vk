@@ -94,6 +94,9 @@ void Daddy::paintGL()
     DrawRange();
     DrawAzimuth();
     DrawRay();
+    glEnable(GL_POINT_SMOOTH);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     DrawTrash();
     if(settings["local_items"]["show"].toBool())
         DrawLocalItems();

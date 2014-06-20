@@ -477,5 +477,6 @@ void IndicatorDRL::on_ChangeLocatorState_clicked()
 
 void IndicatorDRL::on_SetTargetsSettings_clicked()
 {
-
+    TS=new TargetsSettings;
+    TS->show();
 }

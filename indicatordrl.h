@@ -2,6 +2,8 @@
 #define INDICATORDRL_H
 
 #include<QMainWindow>
+#include<QPointer>
+#include"targetssettings.h"
 
 namespace Ui
 {
@@ -66,6 +68,7 @@ class IndicatorDRL : public QMainWindow
         void resizeEvent(QResizeEvent *E);
 
     private:
+        QPointer<TargetsSettings>TS;
         Ui::IndicatorDRL *ui;
 };
 

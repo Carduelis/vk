@@ -7,10 +7,15 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->RenderTopTriangleLocator->SetCurrentRangeMode(TopTriangleLocator::Range::R_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_SMALL);
+    ui->RenderTopTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderTopTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderTopTriangleLocator->GetCurrentScaleMode()));
+
 
     ui->RenderRightTriangleLocator->SetCurrentRangeMode(RightTriangleLocator::Range::R_FIRST);
     ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
     ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_SMALL);
+    ui->RenderRightTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderRightTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderRightTriangleLocator->GetCurrentScaleMode()));
 
     ui->ChangeTopTrashIntensity->hide();
     ui->ChangeRightTrashIntensity->hide();
@@ -28,12 +33,14 @@ IndicatorPRL::IndicatorPRL(QWidget *parent) : QMainWindow(parent),ui(new Ui::Ind
     ui->ChangeRightVARU->hide();
 
     ui->ChangeTopTrashIntensity->valueChanged(ui->ChangeTopTrashIntensity->value());
+    ui->ChangeTopTrashIntensity->sliderReleased();
     ui->ChangeTopBrightness->valueChanged(ui->ChangeTopBrightness->value());
     ui->ChangeTopLightning->valueChanged(ui->ChangeTopLightning->value());
     ui->ChangeTopFocus->valueChanged(ui->ChangeTopFocus->value());
     ui->ChangeTopVARU->valueChanged(ui->ChangeTopVARU->value());
 
     ui->ChangeRightTrashIntensity->valueChanged(ui->ChangeRightTrashIntensity->value());
+    ui->ChangeRightTrashIntensity->sliderReleased();
     ui->ChangeRightBrightness->valueChanged(ui->ChangeRightBrightness->value());
     ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
     ui->ChangeRightFocus->valueChanged(ui->ChangeRightFocus->value());
@@ -137,6 +144,7 @@ void IndicatorPRL::on_ChangeTopTrashIntensity_sliderReleased()
     ui->ChangeTopTrashIntensity->setDisabled(true);
     ui->ChangeTopTrashIntensity->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashIntensityButton->setCursor(Qt::OpenHandCursor);
+    ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashIntensity->value()));
 }
 
 void IndicatorPRL::on_ChangeTopTrashIntensity_valueChanged(int value)
@@ -251,6 +259,7 @@ void IndicatorPRL::on_ChangeTopVARU_sliderReleased()
 
 void IndicatorPRL::on_ChangeTopVARU_valueChanged(int value)
 {
+    ui->RenderTopTriangleLocator->SetSettings("system","varu",static_cast<qreal>(value)/100);
     ui->ChangeTopVARUButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopVARU->maximum())));
 }
 
@@ -288,6 +297,10 @@ void IndicatorPRL::on_SelectTopScale_released()
         degree=90u;
         ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_MIDDLE);
     }
+
+    ui->RenderTopTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderTopTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderTopTriangleLocator->GetCurrentScaleMode()));
+
     ui->SelectTopScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : Daddy::RotateResourceImage(":/buttons/switch_up",degree)));
     ui->SelectTopScale->setCursor(Qt::OpenHandCursor);
 }
@@ -315,7 +328,7 @@ void IndicatorPRL::on_ChangeTopState_clicked()
     }
     else
     {
-        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/15);
         ui->ChangeTopState->setText("Стоп");
     }
 }
@@ -376,6 +389,7 @@ void IndicatorPRL::on_ChangeRightTrashIntensity_sliderReleased()
     ui->ChangeRightTrashIntensity->setDisabled(true);
     ui->ChangeRightTrashIntensity->setCursor(Qt::OpenHandCursor);
     ui->ChangeRightTrashIntensityButton->setCursor(Qt::OpenHandCursor);
+    ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeRightTrashIntensity->value()));
 }
 
 void IndicatorPRL::on_ChangeRightTrashIntensity_valueChanged(int value)
@@ -491,6 +505,7 @@ void IndicatorPRL::on_ChangeRightVARU_sliderReleased()
 
 void IndicatorPRL::on_ChangeRightVARU_valueChanged(int value)
 {
+    ui->RenderRightTriangleLocator->SetSettings("system","varu",static_cast<qreal>(value)/100);
     ui->ChangeRightVARUButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightVARU->maximum())));
 }
 
@@ -528,6 +543,10 @@ void IndicatorPRL::on_SelectRightScale_released()
         degree=90u;
         ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_MIDDLE);
     }
+
+    ui->RenderRightTriangleLocator->SetSettings("trash","begin",.0f);
+    ui->RenderRightTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderRightTriangleLocator->GetCurrentScaleMode()));
+
     ui->SelectRightScale->setIcon(QIcon(degree==90u ? QPixmap(":/buttons/switch_base") : Daddy::RotateResourceImage(":/buttons/switch_up",degree)));
     ui->SelectRightScale->setCursor(Qt::OpenHandCursor);
 }
@@ -555,7 +574,7 @@ void IndicatorPRL::on_ChangeRightState_clicked()
     }
     else
     {
-        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/5);
         ui->ChangeRightState->setText("Стоп");
     }
 }
