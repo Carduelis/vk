@@ -23,6 +23,10 @@
 #define GetRadianValue(degree) (M_PI*degree)/180
 #endif
 
+#ifndef TARGET_LENGTH
+#define TARGET_LENGTH 30
+#endif
+
 #ifndef GL_MULTISAMPLE
 #define GL_MULTISAMPLE  0x809D
 #endif
@@ -69,6 +73,13 @@ class Daddy : public QGLWidget
             qreal width;
             Points *Coordinates=nullptr;
         };
+
+        struct RoundLineR
+        {
+            qreal width;
+            PointsR *Coordinates=nullptr;
+        };
+
         struct CenterStraightLine
         {
             qreal width;
@@ -78,6 +89,7 @@ class Daddy : public QGLWidget
         {
             QHash<quint16,QVector<PointsR> >trash,local_items,meteo;
             QHash<quint16,QVector<RoundLine> >range;
+            QHash<quint16,QVector<RoundLineR> >active_answer_trash,active_insync_trash;
             QVector<CenterStraightLine>azimuth;
             QVector<RoundLine>active_noise_trash;
         }S;
@@ -116,6 +128,10 @@ class Daddy : public QGLWidget
         virtual void DrawMeteo(void)const=0;
         virtual void GenerationActiveNoiseTrash(void)=0;
         virtual void DrawActiveNoiseTrash(void)const=0;
+        virtual void GenerationActiveAnswerTrash(void)=0;
+        virtual void DrawActiveAnswerTrash(void)const=0;
+        virtual void GenerationActiveInSyncTrash(void)=0;
+        virtual void DrawActiveInSyncTrash(void)const=0;
 
         qint8 GetRandomSign(void)const;
         qreal GetRandomCoord(quint8 accuracy,const bool rsign=false)const;
@@ -140,6 +156,10 @@ template<typename OptionType>void Daddy::SetSettings(const QString group, const 
     if(group=="meteo");
     if(group=="active_noise_trash")
         GenerationActiveNoiseTrash();
+    if(group=="active_answer_trash")
+        GenerationActiveAnswerTrash();
+    if(group=="active_insync_trash")
+        GenerationActiveInSyncTrash();
 
     if(group!="common")
         updateGL();

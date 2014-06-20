@@ -51,6 +51,10 @@ class RightTriangleLocator : public Daddy
         void DrawMeteo(void)const;
         void GenerationActiveNoiseTrash(void);
         void DrawActiveNoiseTrash(void)const;
+        void GenerationActiveAnswerTrash(void);
+        void DrawActiveAnswerTrash(void)const;
+        void GenerationActiveInSyncTrash(void);
+        void DrawActiveInSyncTrash(void) const;
 
     template<typename T>T CalcScaleValue(const T value,Scale scale)const;
     template<typename T>T CalcScaleValue(const T value)const;

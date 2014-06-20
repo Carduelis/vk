@@ -429,22 +429,22 @@ void IndicatorDRL::on_CheckActiveNoiseShow_stateChanged(int arg1)
 
 void IndicatorDRL::on_InputActiveAnswerAzimuth_valueChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("active_answer_trash","azimuth",static_cast<quint16>(arg1));
 }
 
 void IndicatorDRL::on_InputActiveAnswerDistance_valueChanged(double arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("active_answer_trash","distance",static_cast<qreal>(arg1));
 }
 
 void IndicatorDRL::on_CheckActiveAnswerShow_stateChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("active_answer_trash","show",arg1==2);
 }
 
 void IndicatorDRL::on_CheckActiveInSyncShow_stateChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("active_insync_trash","show",arg1==2);
 }
 
 void IndicatorDRL::on_ChangeViewStateAll_clicked()

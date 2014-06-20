@@ -273,3 +273,8 @@ void TopTriangleLocator::DrawActiveNoiseTrash()const
 {
 
 }
+
+void TopTriangleLocator::GenerationActiveAnswerTrash(void){}
+void TopTriangleLocator::DrawActiveAnswerTrash(void)const{}
+void TopTriangleLocator::GenerationActiveInSyncTrash(void){}
+void TopTriangleLocator::DrawActiveInSyncTrash(void)const{}

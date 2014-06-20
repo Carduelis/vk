@@ -443,3 +443,134 @@ void MainLocator::DrawActiveNoiseTrash(void)const
         }
     }
 }
+
+void MainLocator::GenerationActiveAnswerTrash(void)
+{
+    //Crash fixes
+    if(!settings["active_answer_trash"]["distance"].isValid() || settings["active_answer_trash"]["distance"]<=.0f)
+        return;
+
+    qreal r=.0f,delta;
+    S.active_answer_trash[scale].clear();
+
+    delta=CalcScaleValue(settings["active_answer_trash"]["distance"].toDouble());
+    /*
+    switch(settings["system"]["range"].toUInt())
+    {
+        case 1:
+            delta=distance*10u;
+            break;
+        case 0:
+            return;
+        default:
+            delta=distance*50u;
+    }
+    */
+
+    RoundLineR cache;
+    quint16 c,
+            angle=settings["active_answer_trash"]["azimuth"].toUInt();
+    while(r<=1.0f)
+    {
+        cache.width=6.5f;
+        cache.Coordinates=new PointsR[TARGET_LENGTH];
+        c=0u;
+
+        for(Points *i=radians+ROUND_DEGREE-angle,*end=radians+ROUND_DEGREE-angle+TARGET_LENGTH;i<end;i++,c++)
+        {
+            cache.Coordinates[c].angle=i->angle;
+            cache.Coordinates[c].r=r;
+            cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+            cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+        }
+        S.active_answer_trash[scale].append(cache);
+        r+=delta;
+    }
+}
+
+void MainLocator::DrawActiveAnswerTrash(void)const
+{
+    qreal alpha,brightness;
+    brightness=1.0f;
+    for(QVector<RoundLineR>::const_iterator it=S.active_answer_trash[scale].begin();it<S.active_answer_trash[scale].end();it++)
+    {
+        glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
+        glBegin(GL_LINE_STRIP);
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        {
+            alpha=CalcAlpha(i->angle);
+            if(alpha>.0f)
+            {
+                alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),alpha*(settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble()));
+                glVertex2d(i->x,i->y);
+            }
+        }
+        glEnd();
+    }
+}
+void MainLocator::GenerationActiveInSyncTrash(void)
+{
+    //if(!settings["active_insync_trash"]["distance"].isValid() || settings["active_insync_trash"]["distance"]<=.0f)
+        //return;
+
+    qreal r=.0f,delta;
+    S.active_insync_trash[scale].clear();
+
+    delta=CalcScaleValue(3.0f);//CalcScaleValue(settings["active_insync_trash"]["distance"].toDouble());
+    /*
+    switch(settings["system"]["range"].toUInt())
+    {
+        case 1:
+            delta=distance*10u;
+            break;
+        case 0:
+            return;
+        default:
+            delta=distance*50u;
+    }
+    */
+
+    RoundLineR cache;
+    quint16 c,a=0u,
+            angle=50u;//settings["active_insync_trash"]["azimuth"].toUInt();
+    while(r<=1.0f)
+    {
+        cache.width=6.5f;
+        cache.Coordinates=new PointsR[TARGET_LENGTH];
+        c=0u;
+
+        for(Points *i=radians+ROUND_DEGREE-angle-a,*end=radians+ROUND_DEGREE-angle+TARGET_LENGTH-a;i<end;i++,c++)
+        {
+            cache.Coordinates[c].angle=i->angle;
+            cache.Coordinates[c].r=r;
+            cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+            cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+        }
+        S.active_insync_trash[scale].append(cache);
+        r+=delta;
+        a++;
+    }
+}
+void MainLocator::DrawActiveInSyncTrash(void)const
+{
+    qreal alpha,brightness;
+    brightness=1.0f;
+    //for(QVector<LineEntityR>::const_iterator it=Cache.active_insync_trash.begin();it<Cache.active_insync_trash.end();it++)
+    QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale].begin();
+    {
+        glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
+        glBegin(GL_LINE_STRIP);
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        {
+            alpha=CalcAlpha(i->angle);
+            if(alpha>.0f)
+            {
+                alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                glColor4f(static_cast<GLfloat>(.925),static_cast<GLfloat>(.714),static_cast<GLfloat>(.262),alpha*(settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble()));
+                glVertex2d(i->x,i->y);
+            }
+        }
+        glEnd();
+    }
+}

@@ -272,3 +272,8 @@ void RightTriangleLocator::DrawActiveNoiseTrash()const
 {
 
 }
+
+void RightTriangleLocator::GenerationActiveAnswerTrash(void){}
+void RightTriangleLocator::DrawActiveAnswerTrash(void)const{}
+void RightTriangleLocator::GenerationActiveInSyncTrash(void){}
+void RightTriangleLocator::DrawActiveInSyncTrash(void)const{}
