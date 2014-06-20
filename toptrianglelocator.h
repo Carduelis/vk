@@ -53,7 +53,8 @@ class TopTriangleLocator : public Daddy
         void DrawLocalItems(void)const;
         void GenerationMeteo(void);
         void DrawMeteo(void)const;
-
+        void GenerationActiveNoiseTrash(void);
+        void DrawActiveNoiseTrash(void)const;
 
         template<typename T>T CalcScaleValue(const T value,Scale scale)const;
         template<typename T>T CalcScaleValue(const T value)const;

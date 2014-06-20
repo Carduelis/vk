@@ -97,6 +97,7 @@ void Daddy::paintGL()
     DrawTrash();
     if(settings["local_items"]["show"].toBool())
         DrawLocalItems();
+    DrawActiveNoiseTrash();
     glPopMatrix();
     PostDraw();
 }

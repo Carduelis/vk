@@ -29,6 +29,10 @@ class MainLocator : public Daddy
         void SetCurrentScaleMode(const Scale);
         WorkMode GetCurrentWorkMode(void)const;
         void SetCurrentWorkMode(const WorkMode);
+        void GenerationTrash(void);
+        void GenerationLocalItems(void);
+        void GenerationMeteo(void);
+
 
     signals:
 
@@ -52,12 +56,11 @@ class MainLocator : public Daddy
         void DrawRange(void)const;
         void GenerationAzimuth(void);
         void DrawAzimuth(void)const;
-        void GenerationTrash(void);
         void DrawTrash(void)const;
-        void GenerationLocalItems(void);
         void DrawLocalItems(void)const;
-        void GenerationMeteo(void);
         void DrawMeteo(void)const;
+        void GenerationActiveNoiseTrash(void);
+        void DrawActiveNoiseTrash(void)const;
         void CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity=3.0f,bool ellipse=false,bool clear=true);
         void DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size=8u)const;
         template<typename T>T CalcScaleValue(const T value,Scale scale)const;

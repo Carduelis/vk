@@ -79,6 +79,7 @@ class Daddy : public QGLWidget
             QHash<quint16,QVector<PointsR> >trash,local_items,meteo;
             QHash<quint16,QVector<RoundLine> >range;
             QVector<CenterStraightLine>azimuth;
+            QVector<RoundLine>active_noise_trash;
         }S;
 
         struct Pointer
@@ -113,6 +114,8 @@ class Daddy : public QGLWidget
         virtual void DrawLocalItems(void)const=0;
         virtual void GenerationMeteo(void)=0;
         virtual void DrawMeteo(void)const=0;
+        virtual void GenerationActiveNoiseTrash(void)=0;
+        virtual void DrawActiveNoiseTrash(void)const=0;
 
         qint8 GetRandomSign(void)const;
         qreal GetRandomCoord(quint8 accuracy,const bool rsign=false)const;
@@ -135,6 +138,8 @@ template<typename OptionType>void Daddy::SetSettings(const QString group, const 
     if(group=="local_items" && name=="show")
         GenerationLocalItems();
     if(group=="meteo");
+    if(group=="active_noise_trash")
+        GenerationActiveNoiseTrash();
 
     if(group!="common")
         updateGL();

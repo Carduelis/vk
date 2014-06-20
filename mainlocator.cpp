@@ -352,3 +352,94 @@ void MainLocator::DrawMeteo(void)const
 {
     DrawEllipseTrashArea(S.meteo[scale],5);
 }
+
+void MainLocator::GenerationActiveNoiseTrash(void)
+{
+    quint8 density=17;
+    qint16 angle;
+    S.active_noise_trash.clear();
+
+    RoundLine cache;
+    switch(settings["active_noise_trash"]["intensity"].toUInt())
+    {
+        case 0:
+            angle=settings["active_noise_trash"]["azimuth"].toUInt();
+            for(Points*i=radians+ROUND_DEGREE-angle,*k=radians+ROUND_DEGREE-angle+20;i<k;i++)
+            {
+                cache.Coordinates=new Points[1];
+                cache.Coordinates->angle=i->angle;
+                cache.Coordinates->x=i->x;
+                cache.Coordinates->y=i->y;
+                cache.width=GetRandomCoord(4)*density;
+                S.active_noise_trash.append(cache);
+            }
+            if(angle<20)
+                for(Points*i=radians,*k=radians+20-angle;i<k;i++)
+                {
+                    cache.Coordinates=new Points[1];
+                    cache.Coordinates->angle=i->angle;
+                    cache.Coordinates->x=i->x;
+                    cache.Coordinates->y=i->y;
+                    cache.width=GetRandomCoord(4)*density;
+                    S.active_noise_trash.append(cache);
+                }
+                break;
+        case 1:
+        /*
+            Этот кусок кода я написал в семь утра, сидя в электричке после бессонной ночи, плохо понимая, что я вообще делаю.
+            Я не имею ни малейшего представления как и почему оно работает, но вроде работает =)
+        */
+            angle=settings["active_noise_trash"]["azimuth"].toUInt();
+            for(quint16 a=0,j=0;a<360;a+=100,j++)
+                for(Points*i=radians+ROUND_DEGREE-angle+a,*k=radians+ROUND_DEGREE-angle+a+20;i<k;i++)
+                {
+                    cache.Coordinates=new Points[1];
+                    cache.Coordinates->angle=i->angle;
+                    cache.Coordinates->x=i->x;
+                    cache.Coordinates->y=i->y;
+                    cache.width=GetRandomCoord(4)*density;
+                    if(j%3==0)
+                        cache.width/=5;
+                    S.active_noise_trash.append(cache);
+                }
+                break;
+            case 2:
+            /*
+             Этот кусок кода я написал в семь утра, сидя в электричке после бессонной ночи, плохо понимая, что я вообще делаю.
+             Я не имею ни малейшего представления как и почему оно работает, но вроде работает =)
+            */
+                angle=settings["active_noise_trash"]["azimuth"].toUInt();
+                for(quint16 a=0,j=0;a<360;a+=40,j++)
+                    for(Points*i=radians+ROUND_DEGREE-angle+a,*k=radians+ROUND_DEGREE-angle+a+20;i<k;i++)
+                    {
+                        cache.Coordinates=new Points[1];
+                        cache.Coordinates->angle=i->angle;
+                        cache.Coordinates->x=i->x;
+                        cache.Coordinates->y=i->y;
+                        cache.width=GetRandomCoord(4)*density;
+                        if(j%3==0)
+                            cache.width/=5;
+                        S.active_noise_trash.append(cache);
+                    }
+            break;
+        }
+}
+
+void MainLocator::DrawActiveNoiseTrash(void)const
+{
+    qreal alpha;
+    for(QVector<RoundLine>::const_iterator it=S.active_noise_trash.begin();it<S.active_noise_trash.end();it++)
+    {
+        alpha=CalcAlpha(it->Coordinates->angle);
+        if(alpha>0)
+        {
+            glLineWidth(it->width*settings["system"]["focus"].toDouble());
+            alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+            glBegin(GL_LINES);
+            glColor4f(static_cast<GLfloat>(.925f),static_cast<GLfloat>(.714f),static_cast<GLfloat>(.262f),alpha);
+            glVertex2d(.0f,.0f);
+            glVertex2f(it->Coordinates->x,it->Coordinates->y);
+            glEnd();
+        }
+    }
+}

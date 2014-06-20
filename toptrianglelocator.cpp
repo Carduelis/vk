@@ -263,3 +263,13 @@ void TopTriangleLocator::DrawMeteo(void)const
 {
 
 }
+
+void TopTriangleLocator::GenerationActiveNoiseTrash()
+{
+
+}
+
+void TopTriangleLocator::DrawActiveNoiseTrash()const
+{
+
+}

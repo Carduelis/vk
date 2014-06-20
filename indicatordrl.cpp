@@ -408,22 +408,23 @@ void IndicatorDRL::on_CheckShowMeteo_stateChanged(int arg1)
 
 void IndicatorDRL::on_RegenerateTrash_clicked()
 {
-
+    ui->RenderMainLocator->GenerationTrash();
+    ui->RenderMainLocator->GenerationMeteo();
 }
 
 void IndicatorDRL::on_InputActiveNoiseAzimuth_valueChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("active_noise_trash","azimuth",static_cast<quint16>(arg1));
 }
 
 void IndicatorDRL::on_SelectActiveNoiseIntensity_currentIndexChanged(int index)
 {
-
+    ui->RenderMainLocator->SetSettings("active_noise_trash","intensity",static_cast<quint16>(index));
 }
 
 void IndicatorDRL::on_CheckActiveNoiseShow_stateChanged(int arg1)
 {
-
+    ui->RenderMainLocator->SetSettings("active_noise_trash","show",arg1==2);
 }
 
 void IndicatorDRL::on_InputActiveAnswerAzimuth_valueChanged(int arg1)
