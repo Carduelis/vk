@@ -171,7 +171,9 @@ class RSPView : public QMainWindow
         void on_ChangeRightLightning_sliderReleased();
         void on_ChangeRightLightning_valueChanged(int value);
 
-private:
+    protected:
+        bool eventFilter(QObject *O,QEvent *E);
+    private:
         Ui::RSPView *ui;
 };
 

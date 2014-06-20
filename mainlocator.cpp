@@ -275,7 +275,7 @@ void MainLocator::GenerationLocalItems(void)
 
 void MainLocator::DrawLocalItems(void)const
 {
-    DrawEllipseTrashArea(S.local_items[scale]);
+    DrawEllipseTrashArea(S.local_items[scale],18u);
 }
 
 void MainLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity,bool ellipse,bool clear)
@@ -305,9 +305,7 @@ void MainLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qr
             }
             cache.r=qSqrt(qPow(cache.x,2u)+qPow(cache.y,2u));
             if(offset_x>.0f || offset_y>.0f)
-                if(cache.x>0)
-                    cache.angle=qAtan2(cache.y,cache.x);
-                else if(cache.x==0)
+                if(cache.x==0)
                     cache.angle=M_PI/2;
                 else
                     cache.angle=qAtan2(cache.y,cache.x);
@@ -344,10 +342,13 @@ void MainLocator::DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size)const
 
 void MainLocator::GenerationMeteo(void)
 {
-
+    CreateEllipseTrashArea(S.meteo[scale],20.0f,20.0f,3u,true);
+    CreateEllipseTrashArea(S.meteo[scale],-20.0f,20.0f,3u,true,false);
+    CreateEllipseTrashArea(S.meteo[scale],-30.0f,-30.0f,3u,true,false);
+    CreateEllipseTrashArea(S.meteo[scale],-50.0f,-10.0f,3u,true,false);
 }
 
 void MainLocator::DrawMeteo(void)const
 {
-
+    DrawEllipseTrashArea(S.meteo[scale],5);
 }

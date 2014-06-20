@@ -101,8 +101,10 @@ public:
         void on_SelectRightAzimuthMarks_pressed();
         void on_SelectRightAzimuthMarks_released();
 
-private:
-    Ui::RSPIndicators *ui;
+    protected:
+        bool eventFilter(QObject *O,QEvent *E);
+    private:
+        Ui::RSPIndicators *ui;
 };
 
 #endif // RSPINDICATORS_H

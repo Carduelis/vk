@@ -48,6 +48,39 @@ IndicatorPRL::~IndicatorPRL()
     delete ui;
 }
 
+/**
+ * Этот метод является чистой воды диким шаманством
+ */
+bool IndicatorPRL::eventFilter(QObject *O, QEvent *E)
+{
+    if(O->inherits("Daddy") && E->type()==QEvent::MouseButtonDblClick)
+    {
+        if(isFullScreen())
+        {
+            ui->LayoutTopTriangleLocator->addWidget(ui->RenderTopTriangleLocator,0,0,1,1);
+            ui->LayoutRightTriangleLocator->addWidget(ui->RenderRightTriangleLocator,0,3,1,1);
+            ui->centralwidget->raise();
+            showNormal();
+        }
+        else
+        {
+            if(O->objectName()=="RenderTopTriangleLocator" && O->inherits("TopTriangleLocator"))
+            {
+                ui->gridLayout_17->addWidget(ui->RenderTopTriangleLocator,0,0,0,0);
+                ui->RenderTopTriangleLocator->raise();
+            }
+            else if(O->objectName()=="RenderRightTriangleLocator" && O->inherits("RightTriangleLocator"))
+            {
+                ui->gridLayout_17->addWidget(ui->RenderRightTriangleLocator,0,0,0,0);
+                ui->RenderRightTriangleLocator->raise();
+            }
+            showFullScreen();
+        }
+        activateWindow();
+    }
+    return QMainWindow::eventFilter(O,E);
+}
+
 void IndicatorPRL::on_SelectTopRangeMarks_pressed()
 {
     ui->SelectTopRangeMarks->setCursor(Qt::ClosedHandCursor);

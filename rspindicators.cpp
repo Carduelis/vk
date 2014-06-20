@@ -64,6 +64,46 @@ RSPIndicators::~RSPIndicators()
     delete ui;
 }
 
+/**
+ * Этот метод является чистой воды диким шаманством
+ */
+bool RSPIndicators::eventFilter(QObject *O, QEvent *E)
+{
+    //LayoutRenderMainLocator->addWidget(RenderMainLocator, 0, 0, 1, 1);
+    if(O->inherits("Daddy") && E->type()==QEvent::MouseButtonDblClick)
+    {
+        if(isFullScreen())
+        {
+            ui->LayoutRenderMainLocator->addWidget(ui->RenderMainLocator,0,0,1,1);
+            ui->LayoutRenderTopTriangleLocator->addWidget(ui->RenderTopTriangleLocator,0,1,1,1);
+            ui->LayoutRenderTopTriangleLocator->addWidget(ui->RenderRightTriangleLocator,0,2,1,1);
+            ui->centralwidget->raise();
+            showNormal();
+        }
+        else
+        {
+            if(O->objectName()=="RenderTopTriangleLocator" && O->inherits("TopTriangleLocator"))
+            {
+                ui->gridLayout_45->addWidget(ui->RenderTopTriangleLocator,0,0,0,0);
+                ui->RenderTopTriangleLocator->raise();
+            }
+            else if(O->objectName()=="RenderRightTriangleLocator" && O->inherits("RightTriangleLocator"))
+            {
+                ui->gridLayout_45->addWidget(ui->RenderRightTriangleLocator,0,0,0,0);
+                ui->RenderRightTriangleLocator->raise();
+            }
+            else
+            {
+                ui->gridLayout_45->addWidget(ui->RenderMainLocator,0,0,0,0);
+                ui->RenderMainLocator->raise();
+            }
+            showFullScreen();
+        }
+        activateWindow();
+    }
+    return QMainWindow::eventFilter(O,E);
+}
+
 void RSPIndicators::on_ChangeMainTrashIntensityButton_pressed()
 {
     ui->ChangeMainTrashIntensity->show();

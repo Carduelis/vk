@@ -5,6 +5,7 @@
 #include<QBasicTimer>
 #include<QTimerEvent>
 #include<QVariant>
+#include<QMouseEvent>
 #include<qmath.h>
 #include"helpers.h"
 #include<QDebug>
@@ -75,7 +76,7 @@ class Daddy : public QGLWidget
         };
         struct Storage
         {
-            QHash<quint16,QVector<PointsR> >trash,local_items;
+            QHash<quint16,QVector<PointsR> >trash,local_items,meteo;
             QHash<quint16,QVector<RoundLine> >range;
             QVector<CenterStraightLine>azimuth;
         }S;
@@ -86,6 +87,7 @@ class Daddy : public QGLWidget
             QVector<CenterStraightLine>*azimuth=nullptr;
         }Cache,Current;
 
+        void mouseDoubleClickEvent(QMouseEvent  *event);
         void timerEvent(QTimerEvent *event);
         void initializeGL();
         void resizeGL(int width,int height);
@@ -130,7 +132,7 @@ template<typename OptionType>void Daddy::SetSettings(const QString group, const 
     settings[group][name]=QVariant::fromValue(option);
     if(group=="trash")
         GenerationTrash();
-    if(group=="local_items")
+    if(group=="local_items" && name=="show")
         GenerationLocalItems();
     if(group=="meteo");
 

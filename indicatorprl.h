@@ -74,7 +74,9 @@ class IndicatorPRL : public QMainWindow
         void on_SelectRightAzimuthMarks_pressed();
         void on_SelectRightAzimuthMarks_released();
 
-private:
+    protected:
+        bool eventFilter(QObject *O,QEvent *E);
+    private:
             Ui::IndicatorPRL *ui;
 };
 

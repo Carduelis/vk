@@ -61,6 +61,10 @@ class IndicatorDRL : public QMainWindow
         void on_ChangeLocatorState_clicked();
         void on_SetTargetsSettings_clicked();
 
+    protected:
+        bool eventFilter(QObject *O,QEvent *E);
+        void resizeEvent(QResizeEvent *E);
+
     private:
         Ui::IndicatorDRL *ui;
 };

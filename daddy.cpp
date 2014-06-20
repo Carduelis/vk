@@ -26,6 +26,17 @@ Daddy::~Daddy()
         killTimer(timer.timerId());
 }
 
+/**
+ * Увеличение индикатора
+ */
+void Daddy::mouseDoubleClickEvent(QMouseEvent  *event)
+{
+    if(parentWidget()->isFullScreen())
+        parentWidget()->eventFilter(this,event);
+    else if(parent()->isWidgetType() && parentWidget()->parent()->inherits("QMainWindow"))
+        parentWidget()->parent()->eventFilter(this,event);
+}
+
 void Daddy::timerEvent(QTimerEvent *event)
 {
     if(timer.timerId()==event->timerId())
@@ -84,7 +95,8 @@ void Daddy::paintGL()
     DrawAzimuth();
     DrawRay();
     DrawTrash();
-    DrawLocalItems();
+    if(settings["local_items"]["show"].toBool())
+        DrawLocalItems();
     glPopMatrix();
     PostDraw();
 }

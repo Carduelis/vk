@@ -52,6 +52,34 @@ IndicatorDRL::~IndicatorDRL()
     delete ui;
 }
 
+/**
+ * Этот метод является чистой воды диким шаманством
+ */
+bool IndicatorDRL::eventFilter(QObject *O, QEvent *E)
+{
+    if(O->inherits("Daddy") && E->type()==QEvent::MouseButtonDblClick)
+    {
+        if(isFullScreen())
+        {
+            ui->LayoutMainLocator->addWidget(ui->RenderMainLocator,0,0,1,1);
+            ui->centralwidget->raise();
+            showNormal();
+        }
+        else
+        {
+            ui->gridLayout_27->addWidget(ui->RenderMainLocator,0,0,0,0);
+            ui->RenderMainLocator->raise();
+            showFullScreen();
+        }
+        activateWindow();
+    }
+    return QMainWindow::eventFilter(O,E);
+}
+
+void IndicatorDRL::resizeEvent(QResizeEvent *E)
+{
+}
+
 void IndicatorDRL::on_SelectAzimuthMarks_pressed()
 {
     ui->SelectAzimuthMarks->setCursor(Qt::ClosedHandCursor);

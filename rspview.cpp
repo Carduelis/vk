@@ -121,6 +121,47 @@ RSPView::~RSPView()
     delete ui;
 }
 
+/**
+ * Этот метод является чистой воды диким шаманством
+ */
+bool RSPView::eventFilter(QObject *O, QEvent *E)
+{
+    if(O->inherits("Daddy") && E->type()==QEvent::MouseButtonDblClick)
+    {
+        if(isFullScreen())
+        {
+            ui->gridLayout->addWidget(ui->RenderMainLocator,0,0,1,1);
+            ui->gridLayout_2->addWidget(ui->RenderTopTriangleLocator,0,0,1,1);
+            ui->gridLayout_3->addWidget(ui->RenderRightTriangleLocator,0,0,1,1);
+
+            ui->centralwidget->raise();
+            showNormal();
+        }
+        else
+        {
+            if(O->objectName()=="RenderTopTriangleLocator" && O->inherits("TopTriangleLocator"))
+            {
+                ui->gridLayout_80->addWidget(ui->RenderTopTriangleLocator,0,0,0,0);
+                ui->RenderTopTriangleLocator->raise();
+            }
+            else if(O->objectName()=="RenderRightTriangleLocator" && O->inherits("RightTriangleLocator"))
+            {
+                ui->gridLayout_80->addWidget(ui->RenderRightTriangleLocator,0,0,0,0);
+                ui->RenderRightTriangleLocator->raise();
+            }
+            else
+            {
+                ui->gridLayout_80->addWidget(ui->RenderMainLocator,0,0,0,0);
+                ui->RenderMainLocator->raise();
+                showFullScreen();
+            }
+            showFullScreen();
+        }
+        activateWindow();
+    }
+    return QMainWindow::eventFilter(O,E);
+}
+
 void RSPView::on_ChangeMainScanAmpButton_pressed()
 {
     ui->ChangeMainScanAmp->show();
