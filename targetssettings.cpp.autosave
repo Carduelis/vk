@@ -4,7 +4,7 @@
 TargetsSettings::TargetsSettings(QWidget *parent) : QMainWindow(parent),ui(new Ui::TargetsSettings)
 {
     ui->setupUi(this);
-    //ui->Targets
+    //vui->Targets
 }
 
 TargetsSettings::~TargetsSettings()

@@ -73,6 +73,9 @@ void MainLocator::ContinueSearch(void)
     if(ray_position==ray.end()-1u)
     {
         ray_position=ray.begin();
+        //Impulse (Temporary: It's time to hitrozhop hacks)
+        if(!S.active_insync_trash[scale].isEmpty())
+            S.active_insync_trash[scale].pop_front();
     }
     ray_position++;
 }

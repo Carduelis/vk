@@ -7,6 +7,14 @@
 #define TRIANGLE_ANGLE  14
 #endif
 
+#ifndef TRIANGLE_ANGLEx2
+#define TRIANGLE_ANGLEx2  2u*TRIANGLE_ANGLE
+#endif
+
+#ifndef TRIANGLE_ANGLEx2_1
+#define TRIANGLE_ANGLEx2_1  TRIANGLE_ANGLEx2+1u
+#endif
+
 #ifndef GRID_OFFSET
 #define GRID_OFFSET -1.0f
 #endif

@@ -4,7 +4,7 @@
 TopTriangleLocator::TopTriangleLocator(QWidget *parent) : Daddy(parent)
 {
     GenerationRadians();
-    GenerationRay(2u*TRIANGLE_ANGLE+1);
+    GenerationRay(TRIANGLE_ANGLEx2_1);
 }
 
 TopTriangleLocator::~TopTriangleLocator()
@@ -15,10 +15,10 @@ TopTriangleLocator::~TopTriangleLocator()
 void TopTriangleLocator::GenerationRadians(void)
 {
     delete radians;
-    radians=new Points[2u*TRIANGLE_ANGLE+1];
+    radians=new Points[TRIANGLE_ANGLEx2_1];
     qint16 a=0u;
     qreal cos=qFastCos(GetRadianValue(TRIANGLE_ANGLE));
-    for(quint16 i=0u;i<=2u*TRIANGLE_ANGLE;i++)
+    for(quint16 i=0u;i<=TRIANGLE_ANGLEx2;i++)
     {
         a=i-TRIANGLE_ANGLE;
         radians[i].angle=GetRadianValue(a);
@@ -51,7 +51,7 @@ void TopTriangleLocator::DrawStation(void)const
         glVertex2f(cos,sin);
 
         glVertex2f(.0f,.0f);
-        glVertex2f(cos,qFastSin(GetRadianValue(10)));
+        glVertex2f(cos,qFastSin(GetRadianValue(10u)));
 
         glVertex2f(cos1,sin1);
         glVertex2f(cos,sin);
@@ -66,7 +66,7 @@ void TopTriangleLocator::ContinueSearch(void)
     if(ray_position==ray.end()-1u)
     {
         clockwise=!clockwise; //Для обращения в другую сторону!
-        GenerationRay(2u*TRIANGLE_ANGLE+1);
+        GenerationRay(TRIANGLE_ANGLEx2_1);
         ray_position=ray.begin();
     }
     ray_position++;
@@ -149,9 +149,9 @@ void TopTriangleLocator::GenerationRange(void)
     for(qreal r=.0f;r<=1.0f;r+=delta,d++)
     {
         cache.width=d%j==0u ? 3.5f : 1.0f;
-        cache.Coordinates=new Points[2u*TRIANGLE_ANGLE+1];
+        cache.Coordinates=new Points[TRIANGLE_ANGLEx2_1];
         c=0u;
-        for(Points *i=radians,*e=radians+2u*TRIANGLE_ANGLE+1;i<e;i++,c++)
+        for(Points *i=radians,*e=radians+TRIANGLE_ANGLEx2_1;i<e;i++,c++)
         {
             cache.Coordinates[c].angle=i->angle;
             cache.Coordinates[c].x=r*i->x;
@@ -175,7 +175,7 @@ void TopTriangleLocator::DrawRange(void)const
     {
         glLineWidth(it->width*focus);
         glBegin(GL_LINE_STRIP);
-            for(Points *i=it->Coordinates,*e=it->Coordinates+2u*TRIANGLE_ANGLE+1;i<e;i++)
+            for(Points *i=it->Coordinates,*e=it->Coordinates+TRIANGLE_ANGLEx2_1;i<e;i++)
             {
                 alpha=CalcAlpha(i->angle);
                 if(alpha>.0f)
@@ -197,7 +197,7 @@ void TopTriangleLocator::GenerationAzimuth(void)
         return;
 
     CenterStraightLine cache;
-    for(Points *i=radians,*e=radians+2u*TRIANGLE_ANGLE+1;i<e;i+=azimuth)
+    for(Points *i=radians,*e=radians+TRIANGLE_ANGLEx2_1;i<e;i+=azimuth)
     {
         cache.width=(i-radians)%A_SECOND>0u ? 1.0f : 3.5f;
         cache.Coordinates.angle=i->angle;
@@ -242,7 +242,7 @@ void TopTriangleLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal b
     if(clear)
         storage.clear();
     PointsR cache;
-    for(Points*i=radians,*k=radians+2u*TRIANGLE_ANGLE+1;i<k;i++)
+    for(Points*i=radians,*k=radians+TRIANGLE_ANGLEx2_1;i<k;i++)
     {
         for(quint16 l=0u,t=fmod(qrand(),intensity);l<t;l++)
         {
@@ -368,7 +368,7 @@ void TopTriangleLocator::GenerationActiveAnswerTrash(void)
         cache.Coordinates=new PointsR[TARGET_LENGTH];
         c=0u;
 
-        for(Points *i=radians+2*TRIANGLE_ANGLE+1-angle,*end=radians+2*TRIANGLE_ANGLE+1-angle+2*TRIANGLE_ANGLE+1;i<end;i++,c++)
+        for(Points *i=radians+TRIANGLE_ANGLEx2_1-angle,*end=radians+TRIANGLE_ANGLEx2_1-angle+TRIANGLE_ANGLEx2_1;i<end;i++,c++)
         {
             cache.Coordinates[c].angle=i->angle;
             cache.Coordinates[c].r=r;

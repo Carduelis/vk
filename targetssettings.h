@@ -15,6 +15,11 @@ public:
     explicit TargetsSettings(QWidget *parent = 0);
     ~TargetsSettings();
 
+private slots:
+    void on_ApplyTargets_clicked();
+
+    void on_TargetGoHome1_clicked();
+
 private:
     Ui::TargetsSettings *ui;
 };
