@@ -1287,7 +1287,7 @@ void RSPView::on_ChangeTopState_clicked()
     }
     else
     {
-        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/15);
+        ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
         ui->ChangeTopState->setText("Стоп");
     }
 }

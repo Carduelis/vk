@@ -221,7 +221,7 @@ qreal Daddy::CalcAlpha(qreal angle)const
         alpha=1.0f;
     else
     {
-        alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle)-.01;
+        alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle);
         if(alpha<.0f)
             alpha+=2u*M_PI;
         //if(not_clean && alpha<.0f)

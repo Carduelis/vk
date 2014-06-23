@@ -15,6 +15,10 @@
 #define TRIANGLE_ANGLEx2_1  TRIANGLE_ANGLEx2+1u
 #endif
 
+#ifndef TRIANGLE_ANGLE_SPEED_FIX
+#define TRIANGLE_ANGLE_SPEED_FIX  4u
+#endif
+
 #ifndef GRID_OFFSET
 #define GRID_OFFSET -1.0f
 #endif
