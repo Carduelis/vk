@@ -7,6 +7,14 @@
 #define TRIANGLE_ANGLE  8
 #endif
 
+#ifndef TRIANGLE_ANGLE_SPEED_FIX
+#define TRIANGLE_ANGLE_SPEED_FIX  16u
+#endif
+
+#ifndef TRIANGLE_ANGLE_RANGE
+#define TRIANGLE_ANGLE_RANGE TRIANGLE_ANGLE_SPEED_FIX*TRIANGLE_ANGLE+1u
+#endif
+
 class RightTriangleLocator : public Daddy
 {
     Q_OBJECT

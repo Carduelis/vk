@@ -10,6 +10,10 @@
 #define LOCATOR_ROTATE_ANGLE 30.0f
 #endif
 
+#ifndef TRIANGLE_ANGLE_SPEED_FIX
+#define TRIANGLE_ANGLE_SPEED_FIX  2u
+#endif
+
 class MainLocator : public Daddy
 {
     Q_OBJECT

@@ -574,7 +574,7 @@ void IndicatorPRL::on_ChangeRightState_clicked()
     }
     else
     {
-        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/5);
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
         ui->ChangeRightState->setText("Стоп");
     }
 }

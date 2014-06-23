@@ -18,7 +18,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->RenderTopTriangleLocator->SetCurrentRangeMode(TopTriangleLocator::Range::R_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);
     ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
-    ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_FIRST);
+    ui->RenderTopTriangleLocator->SetCurrentAzimuthMode(TopTriangleLocator::Azimuth::A_SECOND);
 
     ui->RenderTopTriangleLocator->SetSettings("trash","begin",.0f);
     ui->RenderTopTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderTopTriangleLocator->GetCurrentScaleMode()));
@@ -26,7 +26,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->RenderRightTriangleLocator->SetCurrentRangeMode(RightTriangleLocator::Range::R_FIRST);
     ui->RenderRightTriangleLocator->SetCurrentScaleMode(RightTriangleLocator::Scale::S_LARGE);
     ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
-    ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_FIRST);
+    ui->RenderRightTriangleLocator->SetCurrentAzimuthMode(RightTriangleLocator::Azimuth::A_SECOND);
 
     ui->RenderRightTriangleLocator->SetSettings("trash","begin",.0f);
     ui->RenderRightTriangleLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderRightTriangleLocator->GetCurrentScaleMode()));
@@ -1321,7 +1321,7 @@ void RSPView::on_ChangeRightState_clicked()
     }
     else
     {
-        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/5);
+        ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
         ui->ChangeRightState->setText("Стоп");
     }
 }
