@@ -105,7 +105,7 @@ class Daddy : public QGLWidget
         void initializeGL();
         void resizeGL(int width,int height);
         void paintGL();
-        qreal CalcAlpha(qreal angle)const;
+        virtual qreal CalcAlpha(qreal angle)const=0;
         void LocatorArea(void)const;
         void PostDraw(void)const;
         void GenerationRadians(void);
@@ -153,7 +153,8 @@ template<typename OptionType>void Daddy::SetSettings(const QString group, const 
         GenerationTrash();
     if(group=="local_items" && name=="show")
         GenerationLocalItems();
-    if(group=="meteo");
+    if(group=="meteo" && name=="show")
+        GenerationMeteo();
     if(group=="active_noise_trash")
         GenerationActiveNoiseTrash();
     if(group=="active_answer_trash")

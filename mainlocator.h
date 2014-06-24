@@ -51,6 +51,7 @@ class MainLocator : public Daddy
         Scale scale=Scale::S_SMALL;
         WorkMode work_mode=WorkMode::WM_PASS;
         QBasicTimer timer;
+        qreal CalcAlpha(qreal angle)const;
         void GenerationRadians(void);
         void GenerationRadians(bool);
         void DrawStation(void)const;

@@ -30,11 +30,11 @@ void TopTriangleLocator::GenerationRadians(void)
 void TopTriangleLocator::DrawStation(void)const
 {
     qreal rad=GetRadianValue(TRIANGLE_ANGLE),
-          rad1=GetRadianValue(-TRIANGLE_ANGLE),
+          rad_1=GetRadianValue(-TRIANGLE_ANGLE),
           sin=qFastSin(rad),
           cos=qFastCos(rad),
-          sin1=qFastSin(rad1),
-          cos1=qFastCos(rad1);
+          sin1=qFastSin(rad_1),
+          cos1=qFastCos(rad_1);
     glRotatef(270.0f,.0f,.0f,1.0f);
     glTranslatef(GRID_OFFSET,.0f,.0f);
     glScalef(1.7f,3.15f,1.0f);
@@ -407,3 +407,28 @@ void TopTriangleLocator::DrawActiveAnswerTrash(void)const
 
 void TopTriangleLocator::GenerationActiveInSyncTrash(void){}
 void TopTriangleLocator::DrawActiveInSyncTrash(void)const{}
+
+qreal TopTriangleLocator::CalcAlpha(qreal angle)const
+{
+    qreal alpha;
+    if(IsAllVisible())
+        alpha=1.0f;
+    else
+    {
+        alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle);
+        if(alpha<.0f)
+            alpha+=2u*M_PI;
+        /*
+        if(clockwise && (*ray_position)->angle-angle>0)
+        {
+            alpha+=GetRadianValue(TRIANGLE_ANGLE);
+            alpha=1-alpha;
+        }
+        if(!clockwise && angle-(*ray_position)->angle>0)
+        {
+            alpha+=GetRadianValue(TRIANGLE_ANGLE);
+            alpha=1-alpha;
+        }*/
+    }
+    return alpha;
+}

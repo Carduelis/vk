@@ -98,6 +98,8 @@ void Daddy::paintGL()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     DrawTrash();
+    if(settings["meteo"]["show"].toBool())
+        DrawMeteo();
     if(settings["local_items"]["show"].toBool())
         DrawLocalItems();
     if(settings["active_noise_trash"]["show"].toBool())
@@ -212,22 +214,6 @@ QPixmap Daddy::RotateResourceImage(const QString resource_path,const qint16 degr
     p.drawPixmap(0u,0u,original);
     p.end();
     return original=pixmap;
-}
-
-qreal Daddy::CalcAlpha(qreal angle)const
-{
-    qreal alpha;
-    if(IsAllVisible())
-        alpha=1.0f;
-    else
-    {
-        alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle);
-        if(alpha<.0f)
-            alpha+=2u*M_PI;
-        //if(not_clean && alpha<.0f)
-            //alpha+=2u*M_PI;
-    }
-    return alpha;
 }
 
 bool Daddy::IsAllVisible(void)const

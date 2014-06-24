@@ -43,6 +43,7 @@ class RightTriangleLocator : public Daddy
         Range range=Range::R_NO;
         Scale scale=Scale::S_SMALL;
         WorkMode work_mode=WorkMode::WM_PASS;
+        qreal CalcAlpha(qreal angle)const;
         void GenerationRadians(void);
         void DrawStation(void)const;
         void InitLocatorGrid(void)const;

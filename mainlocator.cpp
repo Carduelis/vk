@@ -123,6 +123,7 @@ void MainLocator::SetCurrentScaleMode(const MainLocator::Scale s)
     scale=s;
     GenerationRange();
     GenerationLocalItems();
+    GenerationMeteo();
 }
 
 MainLocator::WorkMode MainLocator::GetCurrentWorkMode(void)const
@@ -279,7 +280,7 @@ void MainLocator::GenerationLocalItems(void)
 
 void MainLocator::DrawLocalItems(void)const
 {
-    DrawEllipseTrashArea(S.local_items[scale],20u);
+    DrawEllipseTrashArea(S.local_items[scale],8u);
 }
 
 void MainLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity,bool ellipse,bool clear)
@@ -587,4 +588,18 @@ void MainLocator::DrawActiveInSyncTrash(void)const
         }
         glEnd();
     }
+}
+
+qreal MainLocator::CalcAlpha(qreal angle)const
+{
+    qreal alpha;
+    if(IsAllVisible())
+        alpha=1.0f;
+    else
+    {
+        alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle);
+        if(alpha<.0f)
+            alpha+=2u*M_PI;
+    }
+    return alpha;
 }
