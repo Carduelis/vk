@@ -3654,9 +3654,6 @@ background-repeat: no-repeat;</string>
          <property name="text">
           <string>Местные предметы</string>
          </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
         </widget>
         <widget class="QCheckBox" name="CheckShowMeteo">
          <property name="geometry">

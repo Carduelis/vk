@@ -1355,7 +1355,7 @@ void RSPView::on_ChangeTopLightning_sliderReleased()
 
 void RSPView::on_ChangeTopLightning_valueChanged(int value)
 {
-    ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+    ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/(100*8));
 }
 
 void RSPView::on_ChangeRightState_clicked()
@@ -1389,7 +1389,7 @@ void RSPView::on_ChangeRightLightning_sliderReleased()
 
 void RSPView::on_ChangeRightLightning_valueChanged(int value)
 {
-    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/(100*16));
 }
 
 void RSPView::on_InputActiveNoiseAzimuth_valueChanged(int arg1)

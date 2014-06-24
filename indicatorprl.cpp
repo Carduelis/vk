@@ -206,7 +206,7 @@ void IndicatorPRL::on_ChangeTopLightning_valueChanged(int value)
 {
     if(value<0)
         return;
-    ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+    ui->RenderTopTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/(100*8));
     ui->ChangeTopLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeTopLightning->maximum())));
 }
 
@@ -452,7 +452,7 @@ void IndicatorPRL::on_ChangeRightLightning_valueChanged(int value)
 {
     if(value<0)
         return;
-    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+    ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/(100*16));
     ui->ChangeRightLightningButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeRightLightning->maximum())));
 }
 

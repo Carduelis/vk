@@ -1292,7 +1292,7 @@
                   <number>100</number>
                  </property>
                  <property name="value">
-                  <number>15</number>
+                  <number>60</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -1549,7 +1549,7 @@
                   <number>100</number>
                  </property>
                  <property name="value">
-                  <number>15</number>
+                  <number>60</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -2161,12 +2161,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MainLocator</class>
-   <extends>QWidget</extends>
-   <header>mainlocator.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>TopTriangleLocator</class>
    <extends>QWidget</extends>
    <header>toptrianglelocator.h</header>
@@ -2176,6 +2170,12 @@
    <class>RightTriangleLocator</class>
    <extends>QWidget</extends>
    <header>righttrianglelocator.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MainLocator</class>
+   <extends>QWidget</extends>
+   <header>mainlocator.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
