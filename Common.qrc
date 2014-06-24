@@ -7,4 +7,7 @@
         <file>knob_sixty.png</file>
         <file>switch_base.png</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>rsp.ico</file>
+    </qresource>
 </RCC>

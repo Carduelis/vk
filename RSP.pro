@@ -48,3 +48,7 @@ INSTALLS += target
 
 RESOURCES += \
     Common.qrc
+
+OTHER_FILES += \
+    rsp.rc
+RC_FILE = rsp.rc
