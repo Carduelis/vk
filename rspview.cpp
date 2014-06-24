@@ -6,6 +6,39 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
 {
     ui->setupUi(this);
 
+    Settings.main_scan_amp=ui->ChangeMainScanAmp->value();
+    Settings.main_scan_equa=ui->ChangeMainScanEqua->value();
+    Settings.main_offset_vertical=ui->ChangeMainOffsetVertical->value();
+    Settings.main_offset_horizontal=ui->ChangeMainOffsetHorizontal->value();
+    Settings.main_brightness_range=ui->ChangeMainBrightnessRange->value();
+    Settings.main_brightness_azimuth=ui->ChangeMainBrightnessAzimuth->value();
+    Settings.main_focus=ui->ChangeMainFocus->value();
+    Settings.main_focus_brightness=ui->ChangeMainFocusBrightness->value();
+    Settings.main_lightning=ui->ChangeMainLightning->value();
+    Settings.main_trash_akt=ui->ChangeMainTrashAKT->value();
+    Settings.main_trash_pass=ui->ChangeMainTrashPASS->value();
+
+    Settings.top_focus=ui->ChangeTopFocus->value();
+    Settings.top_brightness=ui->ChangeTopBrightness->value();
+    Settings.top_lightning=ui->ChangeTopLightning->value();
+    Settings.top_trash_sdc=ui->ChangeTopTrashSDC->value();
+    Settings.top_trash_pass=ui->ChangeTopTrashPASS->value();
+    Settings.top_trash_akt=ui->ChangeTopTrashAKT->value();
+    Settings.top_scan_amp_vertical=ui->ChangeTopScanAmpVertical->value();
+    Settings.top_scan_amp_horizontal=ui->ChangeTopScanAmpHorizontal->value();
+    Settings.top_offset_vertical=ui->ChangeTopOffsetVertical->value();
+    Settings.top_offset_horizontal=ui->ChangeTopOffsetHorizontal->value();
+
+    Settings.right_focus=ui->ChangeRightFocus->value();
+    Settings.right_focus_brightness=ui->ChangeRightFocusBrightness->value();
+    Settings.right_lightning=ui->ChangeRightLightning->value();
+    Settings.right_scan_amp_vertical=ui->ChangeRightScanAmpVertical->value();
+    Settings.right_scan_amp_horizontal=ui->ChangeRightScanAmpHorizontal->value();
+    Settings.right_offset_vertical=ui->ChangeRightOffsetVertical->value();
+    Settings.right_offset_horizontal=ui->ChangeRightOffsetHorizontal->value();
+    Settings.right_brightness_range=ui->ChangeRightBrightnessRange->value();
+    Settings.right_brightness_azimuth=ui->ChangeRightBrightnessAzimuth->value();
+
     ui->RenderMainLocator->SetCurrentRangeMode(MainLocator::Range::R_FIRST);
     ui->RenderMainLocator->SetCurrentAzimuthMode(MainLocator::Azimuth::A_FIRST);
     ui->RenderMainLocator->SetCurrentScaleMode(MainLocator::Scale::S_MIDDLE);
@@ -43,7 +76,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeMainFocusBrightness->hide();
     ui->ChangeMainTrashAKT->hide();
     ui->ChangeMainTrashPASS->hide();
-    ui->ChangeMainLocatorState->hide();
+    //ui->ChangeMainLocatorState->hide();
     //-----------------------------
     ui->ChangeMainLightning->hide();
     ui->ChangeMainLightningButton->hide();
@@ -60,7 +93,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeTopTrashSDC->hide();
     ui->ChangeTopTrashPASS->hide();
     ui->ChangeTopTrashAKT->hide();
-    ui->ChangeTopState->hide();
+    //ui->ChangeTopState->hide();
     //-----------------------------
     ui->ChangeTopLightning->hide();
     ui->ChangeTopLightningButton->hide();
@@ -76,7 +109,7 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeRightBrightnessAzimuth->hide();
     ui->ChangeRightFocus->hide();
     ui->ChangeRightFocusBrightness->hide();
-    ui->ChangeRightState->hide();
+    //ui->ChangeRightState->hide();
     //-----------------------------
     ui->ChangeRightLightning->hide();
     ui->ChangeRightLightningButton->hide();
@@ -142,6 +175,19 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
     ui->ChangeMainLightning->valueChanged(ui->ChangeMainLightning->value());
     ui->ChangeTopLightning->valueChanged(ui->ChangeTopLightning->value());
     ui->ChangeRightLightning->valueChanged(ui->ChangeRightLightning->value());
+
+    QStringList intensity;
+    intensity<<"Слабая"<<"Средняя"<<"Сильная";
+    ui->SelectActiveNoiseIntensity->addItems(intensity);
+    ui->SelectActiveNoiseIntensity->setCurrentIndex(1);
+
+    ui->InputActiveNoiseAzimuth->valueChanged(ui->InputActiveNoiseAzimuth->value());
+    ui->CheckActiveNoiseShow->stateChanged(ui->CheckActiveNoiseShow->checkState());
+
+    ui->InputActiveAnswerAzimuth->valueChanged(ui->InputActiveAnswerAzimuth->value());
+    ui->InputActiveAnswerDistance->valueChanged(ui->InputActiveAnswerDistance->value());
+    ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
+    ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
 
     ui->ChangeMainLocatorState->clicked();
     ui->ChangeTopState->clicked();
@@ -1249,12 +1295,12 @@ void RSPView::on_ChangeMainLocatorState_clicked()
     if(ui->RenderMainLocator->IsActive())
     {
         ui->RenderMainLocator->ChangeFPS(0u);
-        ui->ChangeMainLocatorState->setText("Продолжить");
+        ui->ChangeMainLocatorState->setText("Возобновить ИКО");
     }
     else
     {
         ui->RenderMainLocator->ChangeFPS(static_cast<qreal>(1000)/24);
-        ui->ChangeMainLocatorState->setText("Стоп");
+        ui->ChangeMainLocatorState->setText("Остановить ИКО");
     }
 }
 
@@ -1283,12 +1329,12 @@ void RSPView::on_ChangeTopState_clicked()
     if(ui->RenderTopTriangleLocator->IsActive())
     {
         ui->RenderTopTriangleLocator->ChangeFPS(0u);
-        ui->ChangeTopState->setText("Продолжить");
+        ui->ChangeTopState->setText("Возобновить\nкурсовой индикатор");
     }
     else
     {
         ui->RenderTopTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
-        ui->ChangeTopState->setText("Стоп");
+        ui->ChangeTopState->setText("Остановить\nкурсовой индикатор");
     }
 }
 
@@ -1317,12 +1363,12 @@ void RSPView::on_ChangeRightState_clicked()
     if(ui->RenderRightTriangleLocator->IsActive())
     {
         ui->RenderRightTriangleLocator->ChangeFPS(0u);
-        ui->ChangeRightState->setText("Продолжить");
+        ui->ChangeRightState->setText("Возобновить\nглиссадный индикатор");
     }
     else
     {
         ui->RenderRightTriangleLocator->ChangeFPS(static_cast<qreal>(1000)/24);
-        ui->ChangeRightState->setText("Стоп");
+        ui->ChangeRightState->setText("Остановить\nглиссадный индикатор");
     }
 }
 
@@ -1344,4 +1390,81 @@ void RSPView::on_ChangeRightLightning_sliderReleased()
 void RSPView::on_ChangeRightLightning_valueChanged(int value)
 {
     ui->RenderRightTriangleLocator->SetSettings("system","lightning",static_cast<qreal>(value)/100);
+}
+
+void RSPView::on_InputActiveNoiseAzimuth_valueChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("active_noise_trash","azimuth",static_cast<quint16>(arg1));
+}
+
+void RSPView::on_SelectActiveNoiseIntensity_currentIndexChanged(int index)
+{
+    ui->RenderMainLocator->SetSettings("active_noise_trash","intensity",static_cast<quint16>(index));
+}
+
+void RSPView::on_CheckActiveNoiseShow_stateChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("active_noise_trash","show",arg1==2);
+}
+
+void RSPView::on_InputActiveAnswerAzimuth_valueChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("active_answer_trash","azimuth",static_cast<quint16>(arg1));
+}
+
+void RSPView::on_InputActiveAnswerDistance_valueChanged(double arg1)
+{
+    ui->RenderMainLocator->SetSettings("active_answer_trash","distance",static_cast<qreal>(arg1));
+}
+
+void RSPView::on_CheckActiveAnswerShow_stateChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("active_answer_trash","show",arg1==2);
+}
+
+void RSPView::on_CheckActiveInSyncShow_stateChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("active_insync_trash","show",arg1==2);
+}
+
+void RSPView::on_ButtonResetLevers_clicked()
+{
+    ui->ChangeMainScanAmp->valueChanged(Settings.main_scan_amp);
+    ui->ChangeMainScanEqua->valueChanged(Settings.main_scan_equa);
+    ui->ChangeMainOffsetVertical->valueChanged(Settings.main_offset_vertical);
+    ui->ChangeMainOffsetHorizontal->valueChanged(Settings.main_offset_horizontal);
+    ui->ChangeMainBrightnessRange->valueChanged(Settings.main_brightness_range);
+    ui->ChangeMainBrightnessAzimuth->valueChanged(Settings.main_brightness_azimuth);
+    ui->ChangeMainFocus->valueChanged(Settings.main_focus);
+    ui->ChangeMainFocusBrightness->valueChanged(Settings.main_focus_brightness);
+    ui->ChangeMainLightning->valueChanged(Settings.main_lightning);
+    ui->ChangeMainTrashAKT->valueChanged(Settings.main_trash_akt);
+    ui->ChangeMainTrashPASS->valueChanged(Settings.main_trash_pass);
+
+    ui->ChangeTopFocus->valueChanged(Settings.top_focus);
+    ui->ChangeTopBrightness->valueChanged(Settings.top_brightness);
+    ui->ChangeTopLightning->valueChanged(Settings.top_lightning);
+    ui->ChangeTopTrashSDC->valueChanged(Settings.top_trash_sdc);
+    ui->ChangeTopTrashPASS->valueChanged(Settings.top_trash_pass);
+    ui->ChangeTopTrashAKT->valueChanged(Settings.top_trash_akt);
+    ui->ChangeTopScanAmpVertical->valueChanged(Settings.top_scan_amp_vertical);
+    ui->ChangeTopScanAmpHorizontal->valueChanged(Settings.top_scan_amp_horizontal);
+    ui->ChangeTopOffsetVertical->valueChanged(Settings.top_offset_vertical);
+    ui->ChangeTopOffsetHorizontal->valueChanged(Settings.top_offset_horizontal);
+
+    ui->ChangeRightFocus->valueChanged(Settings.right_focus);
+    ui->ChangeRightFocusBrightness->valueChanged(Settings.right_focus_brightness);
+    ui->ChangeRightLightning->valueChanged(Settings.right_lightning);
+    ui->ChangeRightScanAmpVertical->valueChanged(Settings.right_scan_amp_vertical);
+    ui->ChangeRightScanAmpHorizontal->valueChanged(Settings.right_scan_amp_horizontal);
+    ui->ChangeRightOffsetVertical->valueChanged(Settings.right_offset_vertical);
+    ui->ChangeRightOffsetHorizontal->valueChanged(Settings.right_offset_horizontal);
+    ui->ChangeRightBrightnessRange->valueChanged(Settings.right_brightness_range);
+    ui->ChangeRightBrightnessAzimuth->valueChanged(Settings.right_brightness_azimuth);
+}
+
+void RSPView::on_SetTargetsSettings_clicked()
+{
+    TS=new TargetsSettings;
+    TS->show();
 }

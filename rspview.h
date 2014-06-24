@@ -2,6 +2,8 @@
 #define RSPVIEW_H
 
 #include<QMainWindow>
+#include<QPointer>
+#include"targetssettings.h"
 
 namespace Ui
 {
@@ -170,10 +172,57 @@ class RSPView : public QMainWindow
         void on_ChangeRightLightning_sliderPressed();
         void on_ChangeRightLightning_sliderReleased();
         void on_ChangeRightLightning_valueChanged(int value);
+        void on_InputActiveNoiseAzimuth_valueChanged(int arg1);
+        void on_SelectActiveNoiseIntensity_currentIndexChanged(int index);
+        void on_CheckActiveNoiseShow_stateChanged(int arg1);
+        void on_InputActiveAnswerAzimuth_valueChanged(int arg1);
+        void on_InputActiveAnswerDistance_valueChanged(double arg1);
+        void on_CheckActiveAnswerShow_stateChanged(int arg1);
+        void on_CheckActiveInSyncShow_stateChanged(int arg1);
+        void on_ButtonResetLevers_clicked();
 
-    protected:
+        void on_SetTargetsSettings_clicked();
+
+protected:
         bool eventFilter(QObject *O,QEvent *E);
     private:
+        struct Defaults
+        {
+            quint8
+                main_brightness_range,
+                main_brightness_azimuth,
+                main_focus_brightness,
+                main_lightning,
+                main_trash_akt,
+                main_trash_pass,
+                top_brightness,
+                top_lightning,
+                top_trash_sdc,
+                top_trash_pass,
+                top_trash_akt,
+                right_focus_brightness,
+                right_lightning,
+                right_brightness_range,
+                right_brightness_azimuth;
+            quint16
+                main_scan_amp,
+                main_scan_equa,
+                top_scan_amp_vertical,
+                top_scan_amp_horizontal,
+                right_scan_amp_vertical,
+                right_scan_amp_horizontal;
+            qint16
+                main_offset_vertical,
+                main_offset_horizontal,
+                main_focus,
+                top_focus,
+                top_offset_vertical,
+                top_offset_horizontal,
+                right_focus,
+                right_offset_vertical,
+                right_offset_horizontal;
+        }Settings;
+        QPointer<TargetsSettings>TS;
         Ui::RSPView *ui;
 };
 

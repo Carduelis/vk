@@ -24,7 +24,7 @@
 #endif
 
 #ifndef TARGET_LENGTH
-#define TARGET_LENGTH 30
+#define TARGET_LENGTH 10
 #endif
 
 #ifndef GL_MULTISAMPLE
