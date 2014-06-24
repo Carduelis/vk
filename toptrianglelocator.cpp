@@ -199,7 +199,7 @@ void TopTriangleLocator::GenerationAzimuth(void)
     CenterStraightLine cache;
     for(Points *i=radians,*e=radians+TRIANGLE_ANGLE_RANGE;i<e;i+=TRIANGLE_ANGLE_SPEED_FIX*azimuth)
     {
-        cache.width=(i-radians)%A_SECOND>0u ? 1.0f : 3.5f;
+        cache.width=(i-radians)%(TRIANGLE_ANGLE_SPEED_FIX*A_SECOND)>0u ? 1.0f : 3.5f;
         cache.Coordinates.angle=i->angle;
         cache.Coordinates.x=i->x;
         cache.Coordinates.y=i->y;
