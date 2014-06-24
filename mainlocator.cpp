@@ -122,6 +122,7 @@ void MainLocator::SetCurrentScaleMode(const MainLocator::Scale s)
 {
     scale=s;
     GenerationRange();
+    GenerationLocalItems();
 }
 
 MainLocator::WorkMode MainLocator::GetCurrentWorkMode(void)const
