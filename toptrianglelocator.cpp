@@ -416,19 +416,18 @@ qreal TopTriangleLocator::CalcAlpha(qreal angle)const
     else
     {
         alpha=(clockwise ? -1 : 1)*((*ray_position)->angle-angle);
-        if(alpha<.0f)
-            alpha+=2u*M_PI;
-        /*
+
         if(clockwise && (*ray_position)->angle-angle>0)
         {
-            alpha+=GetRadianValue(TRIANGLE_ANGLE);
-            alpha=1-alpha;
+            alpha+=GetRadianValue(TRIANGLE_ANGLEx2);
+            alpha=0.6-alpha;
         }
+
         if(!clockwise && angle-(*ray_position)->angle>0)
         {
-            alpha+=GetRadianValue(TRIANGLE_ANGLE);
-            alpha=1-alpha;
-        }*/
+            alpha+=GetRadianValue(TRIANGLE_ANGLEx2);
+            alpha=0.6-alpha;
+        }
     }
     return alpha;
 }
