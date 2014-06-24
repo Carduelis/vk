@@ -559,6 +559,7 @@ void MainLocator::GenerationActiveInSyncTrash(void)
         r+=delta;
         a++;
     }
+    S.active_insync_trash[scale].pop_front();
 }
 
 void MainLocator::DrawActiveInSyncTrash(void)const

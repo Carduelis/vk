@@ -45,8 +45,8 @@ RSPView::RSPView(QWidget *parent) : QMainWindow(parent),ui(new Ui::RSPView)
 
     ui->RenderMainLocator->SetSettings("trash","begin",.0f);
     ui->RenderMainLocator->SetSettings("trash","end",static_cast<qreal>(ui->RenderMainLocator->GetCurrentScaleMode()));
-    ui->RenderMainLocator->SetSettings("local_items","show",true);
-
+    ui->CheckShowLocalItems->stateChanged(ui->CheckShowLocalItems->checkState());
+    ui->CheckShowMeteo->stateChanged(ui->CheckShowMeteo->checkState());
 
     ui->RenderTopTriangleLocator->SetCurrentRangeMode(TopTriangleLocator::Range::R_FIRST);
     ui->RenderTopTriangleLocator->SetCurrentScaleMode(TopTriangleLocator::Scale::S_LARGE);
@@ -1467,4 +1467,14 @@ void RSPView::on_SetTargetsSettings_clicked()
 {
     TS=new TargetsSettings;
     TS->show();
+}
+
+void RSPView::on_CheckShowLocalItems_stateChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("local_items","show",arg1==2);
+}
+
+void RSPView::on_CheckShowMeteo_stateChanged(int arg1)
+{
+    ui->RenderMainLocator->SetSettings("meteo","show",arg1==2);
 }

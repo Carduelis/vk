@@ -180,8 +180,9 @@ class RSPView : public QMainWindow
         void on_CheckActiveAnswerShow_stateChanged(int arg1);
         void on_CheckActiveInSyncShow_stateChanged(int arg1);
         void on_ButtonResetLevers_clicked();
-
         void on_SetTargetsSettings_clicked();
+        void on_CheckShowLocalItems_stateChanged(int arg1);
+        void on_CheckShowMeteo_stateChanged(int arg1);
 
 protected:
         bool eventFilter(QObject *O,QEvent *E);
