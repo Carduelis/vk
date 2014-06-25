@@ -17,9 +17,6 @@
   </head>
 <body id="top_page">
 <header>
-    <div id='hidePopUp' class="btn">
-      <a href='javascript:void(0);'>Назад</a>
-    </div>
   
   <ul class='header top-line'>
     <li id="prmg-trigger">
@@ -187,6 +184,9 @@
 <div id="blocks" class="mayAddElement container">
 
     <ul>
+      <div id='hidePopUp' class="btn">
+        <a href='javascript:void(0);'>Назад</a>
+      </div>
       <li id="stack0">
       <div class="block-holder">
           <section class="size215" id="stack0_block1"><div alt="Перейти к боковой стороне блока" side="left" id="stack0_block1_left"></div><div side="front" id="stack0_block1_front"></div><div alt="Перейти к боковой стороне блока" side="right" id="stack0_block1_right"></div></section>

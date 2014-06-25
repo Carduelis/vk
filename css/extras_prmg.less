@@ -11,7 +11,7 @@ body {
 	height: auto;
 }
 #hidePopUp {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	right: 0;
 	top: 0;
@@ -22,11 +22,12 @@ body {
 	line-height: @pad*5;
 	.bborder;
 	cursor: pointer;
-	z-index: 999999999999;
+	z-index: 0;
 	a {
 		color: @color-back;
 		position: absolute;
 		width: 940px;
+		.normal;
 		left: 50%;
 		margin-left: -470px;
 		text-align: right;
@@ -36,6 +37,9 @@ body {
 			.icon-close;
 			.small;
 			margin: 0 @pad;
+		}
+		&:hover {
+			
 		}
 	}
 	&.active a {
@@ -234,6 +238,7 @@ body {
 		.block-holder {
 			text-align: center;
 			display: none;
+			background-color: transparent;
 			max-width: 100%;
 			&.show {
 				position: fixed;
@@ -278,7 +283,7 @@ body {
 	width: 100%;
 	margin: 0;
 	left: 0;
-	z-index: 9999999999;
+	z-index: 99999;
 	//background: @clouds;
 	bottom: 0;
 	background: transparent;
@@ -292,6 +297,16 @@ body {
 		}
 		&#stack1 {
 			max-width: 1180px;
+		}
+		.block-holder {
+			> section {
+				background: @silver;
+				.border-light;
+				box-shadow: 0 0 @pad*20;
+				>div::after {
+					display: none;
+				}
+			}
 		}
 	}
 	/*
