@@ -135,7 +135,7 @@
     <ul>
       <li id="min_stack0">
         <div>
-          <header>ПРМГ</header>
+          <header>ПРМГ ГРМ</header>
           <section class="size215" id="min_stack0_block1"><div side="front" id="min_stack0_block1_front"></div></section>
           <section class="ear left" id="min_stack0_block2"><div side="front" id="min_stack0_block2_front"></div></section>
           <section class="ear right" id="min_stack0_block3"><div side="front" id="min_stack0_block3_front"></div></section>

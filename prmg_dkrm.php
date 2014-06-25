@@ -16,9 +16,6 @@
   </head>
 <body id="top_page">
 <header>
-    <div id='hidePopUp' class="btn">
-      <a href='javascript:void(0);'>Назад</a>
-    </div>
   
   <ul class='header top-line'>
     <li id="prmg-trigger">
@@ -185,7 +182,8 @@
           <div>
           <header>Блок питания</header>
           <section class="size300" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>    
-          </div>
+          <section class="size30" id="min_stack1_block2"><div side="front" id="min_stack1_block2_front"></div></section>      
+        </div>
       </li>
     </ul>
   </div>
@@ -196,6 +194,9 @@
 <div id="blocks" class="mayAddElement container">
 
     <ul>
+    <div id='hidePopUp' class="btn">
+      <a href='javascript:void(0);'>Назад</a>
+    </div>
       <li id="stack0">
       <div class="block-holder">
           <section class="size215" id="stack0_block1"><div alt="Перейти к боковой стороне блока" side="left" id="stack0_block1_left"></div><div side="front" id="stack0_block1_front"></div><div alt="Перейти к боковой стороне блока" side="right" id="stack0_block1_right"></div></section>
@@ -241,6 +242,7 @@
       <li id="stack1">
         <div class="block-holder">
           <section class="size300" id="stack1_block1"><div side="front" id="stack1_block1_front"></div></section>    
+          <section class="size30" id="stack1_block2"><div side="front" id="stack1_block2_front"></div></section>    
         </div>
       </li>
     </ul>
