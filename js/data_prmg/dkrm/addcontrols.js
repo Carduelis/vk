@@ -1,0 +1,5 @@
+
+$(document).ready(function(){
+
+$('#stack0_block1_front').append('<div class="element ui-draggable" type="button" num="4" style="left: 43.627250409165306%; top: 24.209612573099417%;">  <div class="overlay"></div><div class="body"></div>  <div class="control"><a href="javascript:;" class="click"></a></div></div><div class="element ui-draggable" type="rotator" num="5" range="10" step="1" defaultposition="5" view2="yes" style="left: 20.20509410801964%; top: 27.978801169590643%;">  <div class="overlay"></div><div class="body"></div>  <div class="control"><a href="javascript:;" class="click"></a></div></div><div class="element ui-draggable" type="scale" num="6" typescale="scale33" zeroposition="left" size="min" style="left: 70.83162847790507%; top: 16.378837719298247%;">  <div class="overlay"></div><div class="body"></div>  <div class="control"><a href="javascript:;" class="click"></a></div></div>');
+});

@@ -1,0 +1,271 @@
+//fitText if needed
+//jQuery(".phones b").fitText();
+
+$(document).ready(function(){
+
+var myEx = {
+	'nameOfExercise' : 'Упражнение по бла-бла',
+	/*
+	'el0': {
+		'click': "1",
+		'current': {
+			inStack: 'stack0', 
+			inBlock: 'stack0_block2', 
+			onSide: 'stack0_block2_front', 
+			type: 'toggler',
+			'positions': {
+				position_0: '1',
+				description_0: 'Поставьте в позицию 1'
+			}
+		},
+		'action0': {
+			inStack: 'stack1', 
+			inBlock: 'stack1_block1', 
+			onSide: 'stack1_block1_front',
+			type:  'toggler',
+			num: '1',
+			status: '0'
+		},
+		'action1': {
+			inStack: 'stack1', 
+			inBlock: 'stack1_block1', 
+			onSide: 'stack1_block1_front',
+			type:  'toggler',
+			num: '1',
+			status: '0'
+		}
+	}*/
+}
+var objName = "";
+function ObjOutput(obj,step) {
+	//alert(obj.toString());
+	var log = $('#exlog');
+	
+    log.append(step+objName+" : {<br>");
+    for(var i in obj) {
+    	objName = i;
+	    if(typeof obj[i] == "object") {
+	        var nobj = obj[i];
+	        ObjOutput(nobj,(step+". . . "));
+		} else {
+	        log.append(step+i+" : '"+obj[i]+"',<br>");
+	    }
+	}
+	log.append(step+"}<br>");
+}
+	$('#exlog').on('click',function(){
+		$(this).text(' ');
+	});
+var current = {};
+var positions = {};
+var descriptions = {};
+function getId() {
+	myEx['el'+countAction] = current;
+	myEx['el'+countAction] = positions;
+	myEx['el'+countAction].current = {};
+	myEx['el'+countAction].positions = {};
+
+	myEx['el'+countAction].current.inStack = thisEl.parents('li').attr('id');
+	myEx['el'+countAction].current.inBlock = thisEl.parents('section').attr('id');
+	myEx['el'+countAction].current.onSide = thisEl.parents('div[side]').attr('id');
+	myEx['el'+countAction].current.type = thisEl.attr('type');
+	createBody.append(isAddCountClick);
+	ObjOutput(myEx,"");
+}
+
+function getPos(posCount) {
+	myEx['el'+countAction] = positions;
+	//myEx['el'+countAction].positions = {};
+	myEx['el'+countAction].positions['position_'+posCount] = thisEl.attr('status');
+	ObjOutput(myEx,"");	
+}
+
+function setDesc(posCount) {
+	myEx['el'+countAction].positions['description_'+posCount] = $(this).val();
+	ObjOutput(myEx,"");	
+}
+
+var thisEl;
+$('#log').on('click',function(){
+	ObjOutput(myEx,'')
+});
+var countClick = 0;
+var countAction = 0;
+var positionsCount = 0;
+$('#nameOfExercise').on('change', function(){
+	myEx.nameOfExercise = $(this).val();
+});
+var createBody = $('#createBody ul');
+$('#createExercise').on('click', function(){
+	var type, num, side, block, stack, elementId;
+	createBody.children().remove();
+	createBody.append(addFirstAction);
+});
+
+// Добавить первое действие
+	var addFirstAction = $("<div/>", {
+		text: "Для начала записи данных нужно ДВОЙНЫМ кликом выбрать элемент"
+	});
+	var buttonAddFirstAction = $("<button/>", {
+		text: "Все понятно!",
+		id: "chooseNextElement",
+		click: function () {
+		    countAction++;
+			$(this).parent().remove();
+			$('.element').addClass('hover');
+			$('.element').one('click', function() {
+				$('.element').removeClass('hover');
+				thisEl = $(this);
+				thisEl.one('click', getId).addClass('hover');
+			});
+		}
+	}).appendTo(addFirstAction);
+
+// Прибавлять ли клик?
+	var isAddCountClick = $("<div/>", {
+	  	text: "Это действие имеет строгий порядок выполнения?",
+	  	class: "isAddCountClick"
+	});
+	var buttonClickAdd = $("<button/>", {
+	  	text: "Да",
+	  	class: "yes",
+	  	click: function () {
+	  		$(this).parent().addClass('done');
+	  		countClick++; 
+
+		    myEx['el'+countAction].click = countClick;
+			ObjOutput(myEx,"");
+
+	  		//$(this).after(buttonClickCancel);
+	  		//$(this).remove();
+
+	  		nextParameter(isAddCountClick,setPosition);
+	  	}
+	}).appendTo(isAddCountClick);
+	var buttonClickAddNo = $("<button/>", {
+	  	text: "Нет",
+	  	class: "no",
+	  	click: function () {
+	  		$(this).parent().addClass('done');
+
+		    myEx['el'+countAction].click = countClick;
+			ObjOutput(myEx,"");
+
+	  		nextParameter(isAddCountClick,setPosition);
+	  	}
+	}).appendTo(isAddCountClick);
+
+	var buttonClickCancel = $("<button/>", {
+	  	text: "Отменить",
+	  	click: function () {
+	  		$(this).parent().removeClass('done');
+	  		countClick--; 
+
+		    myEx['el'+countAction].click = countClick;
+			ObjOutput(myEx,"");
+
+	  		$(this).after(buttonClickAdd);
+	  		$(this).remove();
+	  	}
+	});
+
+	nextParameter = function(thisParameter,whatIsNext) {
+		var buttonNext = $("<button/>", {
+			text: "Далее",
+			class: "nextParameter",
+			click: function() {
+				$('div.done').removeClass('done').remove();
+				$(this).after(whatIsNext);
+				$(this).remove();
+			}
+		}).appendTo(thisParameter.parent());
+	}
+
+		var morePosition = $("<button/>", {
+			text: "Еще позиция",
+			class: "onemore",
+			click: function() {
+				$('div.done').removeClass('done');
+				positionsCount++;
+				$(this).remove(); 
+				$('.nextParameter').remove(); // удалили кнопку "Далее"
+			}
+		});
+	
+// Выбор позиции элемента
+
+	var setPosition = $("<div/>", {
+		text: "Выберите нужную позицию элемента и нажмите"
+	});
+
+	var buttonSetPosition = $("<button/>", {
+	  	text: "Ок",
+	  	click: function () {
+			thisEl.on('click', getPos(positionsCount));
+			$(this).parent().addClass('done');
+			$(this).parent().after(elementDescription);
+	  	}
+	}).appendTo(setPosition);
+
+// Выбор описания
+
+	var elementDescription = $("<div/>", {
+		text: ""
+	});
+
+	var setDescription = $("<input/>", {
+		type: "text",
+		name: "text",
+	  	placeholder: "Введите пояснительный текст"
+	}).appendTo(elementDescription).on('change', function(){
+		setDesc(positionsCount);
+	})
+
+	var setDescription = $("<button/>", {
+	  	text: "Ок",
+	  	for: "text"
+	}).appendTo(elementDescription).on('click',function () {
+  		//setDesc(positionsCount); // Записали в объект
+  		$(this).after(morePosition); // Добавление кнопки дополнительной позиции
+  		nextParameter(setPosition,nextElement);
+  		$(this).parent().addClass('done');
+  	});
+
+// Выбор следующего элемента
+
+	var nextElement = $("<div/>", {
+		text: "Для выбора следующего элемента нажмите"
+	});
+
+	var buttonNextElement = $("<button/>", {
+		text: "Сюда",
+		click: function () {
+		    countAction++;
+		    alert(countAction)
+		    //$('#exlog').text(' ');
+		    
+			$(this).parent().remove();
+			$('.element').addClass('hover');
+			$('.element').one('click', function() {
+				$('.element').removeClass('hover');
+				thisEl = $(this);
+				thisEl.one('click', getId).addClass('hover');
+			});
+			
+		}
+	}).appendTo(nextElement);
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
