@@ -3,7 +3,7 @@
 <html id="dkrm">
   <head>
   <meta charset="utf-8">
-  <title>Simulator</title>
+  <title>ПРМГ ДКРМ</title>
   
   
   <!--realtime less compiler-->

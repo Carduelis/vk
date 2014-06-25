@@ -164,6 +164,7 @@ $('#go').one('click',function(){
 					} else {
 						alert('Упражнение выполнено!');
 						hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+						
 					}
 				}
 			}

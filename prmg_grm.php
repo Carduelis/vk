@@ -3,7 +3,7 @@
 <html id="grm">
   <head>
   <meta charset="utf-8">
-  <title>Simulator</title>
+  <title>ПРМГ ГРМ</title>
   
   
   <!--realtime less compiler
@@ -24,8 +24,8 @@
   <ul class='header top-line'>
     <li id="prmg-trigger">
       <div class="link-wrapper">
-        <a class="current" href="prmg_dkrm.php#!watch">ДКРМ</a>
-        <a href="prmg_grm.php#!watch">ГРМ</a>
+        <a href="prmg_dkrm.php#!watch">ДКРМ</a>
+        <a class="current" href="prmg_grm.php#!watch">ГРМ</a>
       </div>
     <li id='add' class="btn dev">
       <a href='javascript:void(0);' alt="Добавление элемента"></a>
