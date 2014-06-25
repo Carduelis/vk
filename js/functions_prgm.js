@@ -41,18 +41,16 @@ $('section').each(function(){
 
 $('#hidePopUp').on('click', function(){
   $('#hidePopUp').fadeOut();
-  $('.insidePopUp').removeClass('insidePopUp').insertAfter($('#popup'));
-  $('#popup').remove();
+  $('#blocks').removeClass('fixed').find('.block-holder, .card-holder').hide();
 });
 
 
 $('#container section').on('click', function(){
   $('#hidePopUp').fadeIn();
-  $('.insidePopUp').removeClass('insidePopUp').insertAfter($('#popup'));
-  $('.popup').remove();
   var sectionId = $(this).attr('id').substr(4);
   console.info(sectionId);
-  $('#'+sectionId).parent().addClass('insidePopUp').wrap('<div id="popup">');
+  $('#'+sectionId).parent().show();
+  $('#blocks').addClass('fixed');
 }); 
 
 $('div[side]:not([side="front"])').each(function(){

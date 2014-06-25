@@ -7,11 +7,14 @@
 	.rborder(@color-border);
 	.bborder(@color-border);
 }
+body {
+	height: auto;
+}
 #hidePopUp {
 	position: fixed;
 	width: 100%;
 	right: 0;
-	top: @pad*6;
+	top: 0;
 	bottom: 0;
 	display: none;
 	background: darken(fadeout(@concrete,50%),20%);
@@ -27,7 +30,7 @@
 		left: 50%;
 		margin-left: -470px;
 		text-align: right;
-		top: @pad*8;
+		top: 0;
 		text-decoration: none;
 		&::after {
 			.icon-close;
@@ -267,9 +270,10 @@
 		}
 	}
 }
-#blocks #popup {
+#blocks.fixed {
+	overflow-x: auto;
 	position: fixed !important;
-	top: @pad*20;
+	top: @pad*6;
 	max-width: 100%;
 	width: 100%;
 	margin: 0;
@@ -278,6 +282,16 @@
 	//background: @clouds;
 	bottom: 0;
 	background: transparent;
+	ul li {
+		width: 100%;
+		max-width: 940px;
+		margin: 0 auto;
+		display: block;
+		> div {
+			margin: 0;
+		}
+	}
+	/*
 	.block-holder {
 		background: @silver;
 	}
@@ -286,7 +300,7 @@
 		display: block;
 		max-width: 940px;
 		margin: auto;
-		box-shadow: 0 0 @pad*20;
+		box-shadow: 0 0 @pad*10;
 		.border-light;
 
 		.card > div:hover::after {
@@ -298,4 +312,18 @@
 			}
 		}
 	}
+	*/
+}
+#min_stack1 {
+	> div {
+		position: relative;
+		> section {
+			margin: 0;
+		}
+	}
+}
+#min_stack1_block2 {
+	bottom: @pad*3;
+	position: absolute;
+	right: @pad*3;
 }
