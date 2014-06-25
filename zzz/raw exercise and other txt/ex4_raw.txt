@@ -1,0 +1,403 @@
+description : {
+nameOfExercise : 'Проверка приемного устройства ПРЛ',
+			el1 : {
+			click : '1',
+						current : {
+						inStack : 'stack3',
+						inBlock : 'stack3_block3',
+						onSide : 'stack3_block3_front',
+						num : '1',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Переключите тумблер СМЕНА ВОЛН на магнетронном генераторе в выбранное положение',
+									},
+						},
+			},
+			el2 : {
+			click : '2',
+						current : {
+						inStack : 'stack1',
+						inBlock : 'stack1_block1',
+						onSide : 'stack1_block1_front',
+						num : '1',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'На блоке П-Д установить тумблер величины токов смесителей в положение КР.1',
+												action_1 : {
+												inStack : 'stack1',
+												inBlock : 'stack1_block1',
+												onSide : 'stack1_block1_front',
+												type : 'scale',
+												num : '15',
+												status : 'undefined',
+												},
+									},
+									position_2 : {
+									state : '2',
+									description : 'На блоке П-Д установить тумблер величины токов смесителей в положение КР.2',
+												action_1 : {
+												inStack : 'stack1',
+												inBlock : 'stack1_block1',
+												onSide : 'stack1_block1_front',
+												type : 'scale',
+												num : '15',
+												status : 'undefined',
+												},
+									},
+									position_3 : {
+									state : '3',
+									description : 'На блоке П-Д установить тумблер величины токов смесителей в положение КР.3',
+												action_1 : {
+												inStack : 'stack1',
+												inBlock : 'stack1_block1',
+												onSide : 'stack1_block1_front',
+												type : 'scale',
+												num : '15',
+												status : 'undefined',
+												},
+									},
+									position_4 : {
+									state : '5',
+									description : 'На блоке П-Д установить тумблер величины токов смесителей в положение КР.4',
+												action_1 : {
+												inStack : 'stack1',
+												inBlock : 'stack1_block1',
+												onSide : 'stack1_block1_front',
+												type : 'scale',
+												num : '15',
+												status : 'undefined',
+												},
+									},
+						},
+			},
+			el3 : {
+			click : '3',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block2',
+						onSide : 'stack2_block2_front',
+						num : '2',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Проверьте наличие выхода по прибору блока СГ-П, для чего установите переключатель в положение КОНТРОЛЬ ВЫХОДА',
+												action_1 : {
+												inStack : 'stack2',
+												inBlock : 'stack2_block2',
+												onSide : 'stack2_block2_front',
+												type : 'scale',
+												num : '7',
+												status : 'undefined',
+												},
+									},
+						},
+			},
+			el4 : {
+			click : '4',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block1',
+						onSide : 'stack2_block1_front',
+						num : '2',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Установите переключатель РОД РАБОТЫ на блоке П-П в положение ПАСС',
+									},
+						},
+			},
+			el5 : {
+			click : '5',
+						current : {
+						inStack : 'stack6',
+						inBlock : 'stack6_block3',
+						onSide : 'stack6_block3_front',
+						num : '6',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Установите переключатель ВЫБОР ВИДЕО в блоке ИК-П в положение ПАСС.',
+									},
+						},
+			},
+			el6 : {
+			click : '6',
+						current : {
+						inStack : 'stack1',
+						inBlock : 'stack1_block1',
+						onSide : 'stack1_block1_front',
+						num : '2',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите тумблер РРУ на блоке П-Д в положение МЕСТНОЕ',
+									},
+						},
+			},
+			el7 : {
+			click : '7',
+						current : {
+						inStack : 'stack1',
+						inBlock : 'stack1_block1',
+						onSide : 'stack1_block1_front',
+						num : '3',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите тумблер ВАРУ на блоке П-Д в положение ВЫКЛ',
+									},
+						},
+			},
+			el8 : {
+			click : '8',
+						current : {
+						inStack : 'stack6',
+						inBlock : 'stack6_block3',
+						onSide : 'stack6_block3_front',
+						num : '15',
+						type : 'rotator',
+						},
+						positions : {
+									position_1 : {
+									state : '50,
+									description : 'Установите яркость индикатора ИК-П на 50%',
+									},
+						},
+			},
+			el9 : {
+			click : '9',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block1',
+						onSide : 'stack2_block1_front',
+						num : '2',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите переключатель РОД РАБОТЫ на блоке П-П в положение АКТ.',
+									},
+						},
+			},
+			el10 : {
+			click : '10',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block3',
+						onSide : 'stack2_block3_front',
+						num : '5',
+						type : 'rotator',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Установите минимальную величину усиления потенциометром РРУ, расположенным на передней панели фазового блока, для чего поверните ручку потенциометра против часовой стрелки до упора',
+									},
+						},
+			},
+			el11 : {
+			click : '11',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block4',
+						onSide : 'stack2_block4_front',
+						num : '2',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Установите тумблер КОМПЕНСАЦИЯ-ВЫКЛ на передней панели блока компенсатора в положение ВЫКЛ',
+									},
+						},
+			},
+			el12 : {
+			click : '12',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block4',
+						onSide : 'stack2_block4_front',
+						num : '1',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Установите тумблер АРУ-ВЫКЛ на передней панели блока компенсатора в положение ВЫКЛ',
+									},
+						},
+			},
+			el13 : {
+			click : '13',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block4',
+						onSide : 'stack2_block4_front',
+						num : '1',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите переключатель ЧАСТОТА ПОСЫЛОК на передней панели блока компенсатора в положение I',
+									},
+						},
+			},
+			el14 : {
+			click : '14',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block4',
+						onSide : 'stack2_block4_front',
+						num : '3',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите переключатель КОНТР.СИГН.-ВЫКЛ на передней панели блока компенсатора в положение КОНТР.СИГН.',
+									},
+						},
+			},
+			el15 : {
+			click : '15',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block4',
+						onSide : 'stack2_block4_front',
+						num : '2',
+						type : 'toggler',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите переключатель КОМПЕНСАЦИЯ-ВЫКЛ на передней панели блока компенсатора в положение КОМПЕНСАЦИЯ',
+									},
+						},
+			},
+			el16 : {
+			click : '16',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block4',
+						onSide : 'stack2_block4_front',
+						num : '1',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '2',
+									description : 'Установите переключатель ЧАСТОТА ПОСЫЛОК на передней панели блока компенсатора в положение 2',
+									},
+									position_2 : {
+									state : '1',
+									description : 'Установите переключатель ЧАСТОТА ПОСЫЛОК на передней панели блока компенсатора в положение АВТОМАТ',
+									},
+						},
+			},
+			el17 : {
+			click : '17',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block3',
+						onSide : 'stack2_block3_front',
+						num : '2',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите переключатель ФАЗИРОВАНИЕ блока ФП в положение ВЫКЛ',
+									},
+									position_2 : {
+									state : '2',
+									description : 'Установите переключатель ФАЗИРОВАНИЕ блока ФП в положение ВНУТР',
+									},
+						},
+			},
+			el18 : {
+			click : '17',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block3',
+						onSide : 'stack2_block3_front',
+						num : '2',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '1',
+									description : 'Установите переключатель ФАЗИРОВАНИЕ блока ФП в положение ВНЕШН',
+									},
+						},
+			},
+			el19 : {
+			click : '18',
+						current : {
+						inStack : 'stack2',
+						inBlock : 'stack2_block1',
+						onSide : 'stack2_block1_front',
+						num : '2',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Установите переключатель РОД РАБОТЫ блока П-П в положение ПАСС',
+									},
+									position_2 : {
+									state : '0',
+									description : 'Установите переключатель РОД РАБОТЫ блока П-П в положение АКТ',
+									},
+						},
+			},
+			el20 : {
+			click : '19',
+						current : {
+						inStack : 'stack6',
+						inBlock : 'stack6_block3',
+						onSide : 'stack6_block3_front',
+						num : '6',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '2',
+									description : 'Установите переключатель ВЫБОР ВИДЕО блока ИК-П в положение АКТ',
+									},
+						},
+			},
+			el21 : {
+			click : '20',
+						current : {
+						inStack : 'stack7',
+						inBlock : 'stack7_block1',
+						onSide : 'stack7_block1_front',
+						num : '28',
+						type : 'knob',
+						},
+						positions : {
+									position_1 : {
+									state : '0',
+									description : 'Переключателем ЧАСТОТА на распределительном щите выберите рабочую частоту в соответствии с переключателем блока НКО-П',
+									},
+						},
+			},
+},

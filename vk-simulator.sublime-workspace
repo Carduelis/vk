@@ -1,0 +1,1074 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"content"
+			],
+			[
+				"fid",
+				"fider2"
+			],
+			[
+				"data",
+				"data-codeName"
+			],
+			[
+				"ch",
+				"chooseExerciseBody"
+			],
+			[
+				"sec",
+				"section"
+			],
+			[
+				"par",
+				"parent"
+			],
+			[
+				"parent",
+				"parents"
+			],
+			[
+				"box-",
+				"box-heading"
+			],
+			[
+				"box",
+				"box-heading"
+			],
+			[
+				"table",
+				"tableToBlocks"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"color-b",
+				"color-border-light-grey"
+			],
+			[
+				"trans",
+				"transitions"
+			],
+			[
+				"ta",
+				"tableToBlocks"
+			],
+			[
+				"icon-",
+				"icon-star"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"color-bor",
+				"color-border-grey"
+			],
+			[
+				"color-l",
+				"color-border-light-grey"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"overflow",
+				"overflow-x"
+			],
+			[
+				"over",
+				"overflow-x"
+			],
+			[
+				"o",
+				"outline"
+			],
+			[
+				"p-b",
+				"p-btn-style-3d"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"bc",
+				"border-color"
+			],
+			[
+				"rad",
+				"radius"
+			],
+			[
+				"p-",
+				"p-btn-flat"
+			],
+			[
+				"first",
+				"firstLevelName"
+			],
+			[
+				"border-g",
+				"color-border-light-grey"
+			],
+			[
+				"last-",
+				"last-of-type"
+			],
+			[
+				"tabl",
+				"table-cell"
+			],
+			[
+				"rborder",
+				"no-rborder"
+			],
+			[
+				"p",
+				"padding-right"
+			],
+			[
+				"color-gr",
+				"color-border-light-grey"
+			],
+			[
+				"cogrey",
+				"color-border-light-grey"
+			],
+			[
+				"j",
+				"just-link"
+			],
+			[
+				"show",
+				"show-important"
+			],
+			[
+				"color-bo",
+				"color-border-light-grey"
+			],
+			[
+				"fi",
+				"firstLevelName"
+			],
+			[
+				"yel",
+				"yellow-button"
+			],
+			[
+				"icon-ch",
+				"icon-checkbox-checked"
+			],
+			[
+				"no",
+				"noborder"
+			],
+			[
+				"fade",
+				" fadeout(color, 10%)"
+			],
+			[
+				"bg",
+				"bggray"
+			],
+			[
+				"reg",
+				"regform"
+			],
+			[
+				"tab",
+				"tab-current"
+			],
+			[
+				"tog",
+				"toggleClass"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"fa",
+				"fancybox-wrap"
+			],
+			[
+				"tru",
+				"trueFalse"
+			],
+			[
+				"tr",
+				"trueFalse"
+			],
+			[
+				"sc",
+				"scaleRelationGroupId"
+			],
+			[
+				"rela",
+				"relation"
+			],
+			[
+				"sca",
+				"scaleAlive"
+			],
+			[
+				"relat",
+				"relation"
+			],
+			[
+				"contr",
+				"controller"
+			],
+			[
+				"addc",
+				"addcount"
+			],
+			[
+				"add",
+				"addFromElem"
+			],
+			[
+				"ove",
+				"overflow"
+			],
+			[
+				"padi",
+				"padding-top"
+			],
+			[
+				"sh",
+				"show-personalBody"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"color-lin",
+				"color-link"
+			],
+			[
+				"color-xt",
+				"color-txt2"
+			],
+			[
+				"icon-ar",
+				"icon-arrow-left"
+			],
+			[
+				"import",
+				"important"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
+				"color-ba",
+				"color-back"
+			],
+			[
+				"rem",
+				"removeClass"
+			],
+			[
+				"re",
+				"repeat"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"old",
+				"old-browsers"
+			],
+			[
+				"scr",
+				"scrollTop"
+			],
+			[
+				"sn",
+				"snap-content"
+			],
+			[
+				"snap",
+				"snapjs-left"
+			],
+			[
+				"color-ac",
+				"color-accent"
+			],
+			[
+				"btn",
+				"btn-skmrph"
+			],
+			[
+				"color-a",
+				"color-accent"
+			],
+			[
+				"ligth",
+				"lighten"
+			],
+			[
+				"colort-t",
+				"color-txt3"
+			],
+			[
+				"sho",
+				"showBottomMenu"
+			],
+			[
+				"fo",
+				"focusin"
+			],
+			[
+				"hi",
+				"hideBottomMenu"
+			],
+			[
+				"snap-",
+				"snap-drawer"
+			],
+			[
+				"overf",
+				"overflow-y"
+			],
+			[
+				"l-per",
+				"l-personalBody"
+			],
+			[
+				"bordec",
+				"border-color"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"block",
+				"blockTitle"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"color-tx",
+				"color-txt3"
+			],
+			[
+				"icon-an",
+				"icon-angle-right"
+			],
+			[
+				"icon-caret",
+				"icon-caret-up"
+			],
+			[
+				"paren",
+				"parentLink"
+			],
+			[
+				"header",
+				"header-height"
+			],
+			[
+				"color-bac",
+				"color-back3"
+			],
+			[
+				"conten",
+				"content-text"
+			],
+			[
+				"backc",
+				"background-color"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"r",
+				"right"
+			],
+			[
+				"color-bord",
+				"color-border-w"
+			],
+			[
+				"nob",
+				"no-bborder"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"clear",
+				"clearfix"
+			],
+			[
+				"ls",
+				"list-style-type"
+			],
+			[
+				"tran",
+				"transitions"
+			],
+			[
+				"co",
+				"countAction"
+			],
+			[
+				"de",
+				"defaultPosition"
+			],
+			[
+				"po",
+				"position_"
+			],
+			[
+				"en",
+				"eNdouble"
+			],
+			[
+				"e",
+				"eNdouble"
+			],
+			[
+				"eN",
+				"eNdouble"
+			],
+			[
+				"goT",
+				"goToStack"
+			],
+			[
+				"a",
+				"attr"
+			],
+			[
+				"deg",
+				"degree"
+			],
+			[
+				"this",
+				"thisEl"
+			],
+			[
+				"lis",
+				"list-style-type"
+			],
+			[
+				"pos",
+				"posCount"
+			],
+			[
+				"color-tt",
+				"color-txt2"
+			],
+			[
+				"rgb",
+				"rgba(r,g,b,a)"
+			],
+			[
+				"boo",
+				"bookName"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"sft",
+				"SFTP: Browse Server…"
+			],
+			[
+				"s",
+				"SFTP: Browse Server…"
+			],
+			[
+				"ss",
+				"SFTP: Setup Server…"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/index.php",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/showExercises.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/css/project.less",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/data/algorithms.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/css/elements.less",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/setElements.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/css/prmg.less",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/functions-prgm.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/prmg.php",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/css/rsp.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397412385/mebel/http/catalog/language/russian/module/cart.php",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/setDevice.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397411479/mebel/http/catalog/view/theme/default/template/module/cart.tpl",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397409923/mebel/http/catalog/view/theme/default/template/common/header.tpl",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397410258/mebel/http/catalog/language/russian/common/header.php",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397414321/web-goldfinch/http/headline/css/mixins.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397415416/mebel/http/catalog/view/theme/default/stylesheet/stylesheet.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397409825/mebel/http/catalog/view/theme/default/stylesheet/stylesheet.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397412343/mebel/http/catalog/language/russian/common/maintenance.php",
+		"/C/Users/Павел/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/mebel",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223589/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/style.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397227496/cloud_eski_mobi/home/nginx/mobify/finam.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223568/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/custom.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223992/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/webfont.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223489/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397224826/web-goldfinch/http/headline/css/mixins-buttons.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223557/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/analysis.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223517/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/analysis.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397223034/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397210268/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/tmpl/footer.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397210426/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397128554/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/style-base.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397118546/cloud_eski_mobi/home/nginx/mobify/homecredit/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397129579/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397117817/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397131287/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/tmpl/home.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397131239/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/tmpl/home.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397064742/web-goldfinch/http/headline/includes/header.php",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397057289/web-goldfinch/http/headline/css/mixins-buttons.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397057758/web-goldfinch/http/headline/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397062208/web-goldfinch/http/headline/index.php",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397057736/web-goldfinch/http/headline/css/style.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397058292/web-goldfinch/http/headline/css/mixins.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397058311/web-goldfinch/http/headline/css/mixins-attributes.less",
+		"/C/Users/Павел/Downloads/Adobe Flash Professional CS6 12.0.0.481 MULTi  Русский/Активация/Keygen/читать.txt",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396963672/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/style-base.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396983185/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/mixins.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397048892/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/webfont.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397053524/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/tmpl/home.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397052670/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397048668/cloud_eski_mobi/home/nginx/mobify/finam.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396950405/cloud_eski_mobi_ROOT/home/nginx/mobify/finam.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396951391/cloud_eski_mobi_ROOT/home/nginx/mobify/finam.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397044658/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/normalize.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397046295/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396974468/cloud_eski_mobi/home/nginx/mobify/finam.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1397040744/cloud_eski_mobi/home/nginx/mobify/finam.ru/tmpl/footer.html",
+		"/C/Users/Павел/Downloads/OneDrive-2014-04-08/Encoding Errors.txt",
+		"/C/Users/Павел/Downloads/woothemes-FlexSlider-version-2.2.2-1-g7ecc526/woothemes-FlexSlider-7ecc526/README.mdown",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396950285/cloud_eski_mobi_ROOT/home/nginx/mobify/finam.ru/tmpl/footer.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396950949/cloud_eski_mobi_ROOT/home/nginx/mobify/finam.ru/tmpl/home.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396902445/web-goldfinch/http/headline/work0/style.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396901450/web-goldfinch/http/headline/includes/header.php",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396902513/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/project.less",
+		"/C/Users/Павел/AppData/Local/Temp/fz3temp-1/style.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396902358/web-goldfinch/http/headline/includes/footer.php",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396613302/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/tmpl/home.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396614629/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/tmpl/footer.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396613333/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396613364/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396613379/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396561464/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396524044/cloud_eski_mobi/home/nginx/mobify/foroffice/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396524027/cloud_eski_mobi/home/nginx/mobify/foroffice/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396518697/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396444837/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/mixins.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396418388/cloud_eski_mobi/home/nginx/mobify/unizoo/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396437271/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396436565/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396365888/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396367760/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/webfont.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396418432/cloud_eski_mobi/home/nginx/mobify/unizoo/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396368087/cloud_eski_mobi/home/nginx/mobify/finam.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396368563/cloud_eski_mobi/home/nginx/mobify/finam.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396417694/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396416676/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396366356/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396359626/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/webfont.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396357122/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396357091/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/style.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396358938/cloud_eski_mobi/home/nginx/mobify/finam.ru/css/turn.off.bx-slider.less",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/data/scales.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/exercise.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/exercises/scales.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/addcontrols.js",
+		"/C/Dropbox/WebServers/home/192.168.1.2/www/vk/js/exercise.pavel.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396009908/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/fancybox.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396014130/cloud_eski_mobi/home/nginx/mobify/fabika/css/webfont.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396009653/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1396013738/cloud_eski_mobi/home/nginx/mobify/fabika/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395954684/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395865730/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395865755/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395865662/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395864275/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/tmpl/header_cart.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395864253/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395864036/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395844397/cloud_eski_mobi/home/nginx/mobify/divnie.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395787977/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395787948/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/tmpl/footer.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395787931/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395787913/cloud_eski_mobi/home/nginx/mobify/kabbalah.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395787481/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395779053/cloud_eski_mobi/home/nginx/mobify/autoscaners/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395773348/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395740037/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395766603/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395766630/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/tmpl/header_cart.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395775572/cloud_eski_mobi/home/nginx/mobify/divnie.ru/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395742102/cloud_eski_mobi/home/nginx/mobify/worldclass/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395742060/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395741997/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395742042/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/tmpl/header_cart.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395695153/cloud_eski_mobi/home/nginx/mobify/autoscaners/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395694858/cloud_eski_mobi/home/nginx/mobify/avto-city/tmpl/header.html",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395693063/cloud_eski_mobi/home/nginx/mobify/peredelkino-park/css/project.less",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395681137/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/js/functions.js",
+		"/C/users/7636~1/appdata/local/temp/sublime-sftp-browse-1395679148/cloud_eski_mobi/home/nginx/mobify/alpinabook.ru/css/project.less"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ui-slider",
+			"hidePrevElementHint",
+			"str_whatever",
+			"showhint",
+			"fider_1",
+			"fider",
+			"alt",
+			"checkbox",
+			"80%",
+			"listing",
+			"bx-pager",
+			"215",
+			"#cart",
+			"quantity",
+			".checkout \n",
+			"overflow",
+			"mini-cart-info",
+			"no-list",
+			"table",
+			"#header",
+			"text_items",
+			"2px",
+			"#menu ",
+			"2px",
+			"issuer-about-opener",
+			"finam-ui-quote-selector-market",
+			"favorite-button",
+			"issuer-profile-outer",
+			"e6e6e6",
+			"no-list",
+			"news-list",
+			".h1",
+			"h1",
+			"auth",
+			"\n.social-likes {\n	.no-list;	\n}",
+			"гд",
+			"no-l",
+			"social-likes",
+			"bgrich",
+			"calc",
+			"cc_radio",
+			"credit_calc",
+			"width=\"",
+			"h4 ",
+			"unsel",
+			"ibutton",
+			"menu-back-wrapper",
+			"portf",
+			"table.h1",
+			".h1",
+			"select",
+			"social",
+			"pre-footer",
+			"ul",
+			"i-user_logged_yes .i-user-logged-no",
+			"user-subscriptions",
+			"handmade",
+			"fui-header-submenu-buble-borders",
+			"fui-header-submenu-buble-menu-shadow",
+			"do-u-have-any-q",
+			"curr",
+			"grey-border-bottom",
+			"arrow-down-black",
+			"menuBody",
+			".first",
+			" 100px;",
+			"flex-control-nav",
+			"h1",
+			"author",
+			"handmade",
+			"#smi",
+			"fancybox",
+			"  ",
+			"on=\"true\"",
+			"exId",
+			"currentEx",
+			"newScaleExerciseElement",
+			"newScaleExercise",
+			"saveScaleExercise",
+			"#menu",
+			"#eski-root ",
+			"#eski-root~",
+			"swipe-wrap",
+			"numSlides",
+			"transl",
+			"#page",
+			"subCatsList",
+			";\n}",
+			"\n	",
+			":before {",
+			":before {\n	",
+			"icon",
+			"mb10",
+			".zebra td.split",
+			"bggra",
+			"bggre",
+			"@color-back-light-grey",
+			"color-back-l",
+			"color-bac",
+			"bggr",
+			"#f5f5f5",
+			"f5f5f5",
+			"bggray ",
+			".social ",
+			".social",
+			"controls.png",
+			"names_of_god",
+			"btn_group",
+			"fancybox-wrap",
+			"fancybox-content",
+			"@{fontPath}",
+			"url(\"..",
+			"@finamPath",
+			".pane",
+			"pane ",
+			"1.077rem",
+			"h2",
+			"0.@pad*4",
+			"0.4rem",
+			"0.@pad*2",
+			"1.@pad*4",
+			"1.@pad*2",
+			"l.@pad",
+			"l.@pad*2",
+			"@pad2",
+			"0.8rem",
+			"1.5rem",
+			"2rem"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"fider_2",
+			"fider",
+			"	",
+			"on=\"false\"",
+			";}",
+			"",
+			"() { .icon-icomoon;",
+			"@bggrey",
+			"@color-back-light-grey",
+			"fonts",
+			"url(\"@{finamPath}",
+			"@{finamPath}",
+			"@pad2*0.5",
+			"@pad2*2",
+			"@bpad",
+			"@xl",
+			"@l",
+			"@pad2*2",
+			"@pad2",
+			"@pad*3",
+			"@pad*4",
+			"@pad*2",
+			"@pad",
+			"rem",
+			"@color-border-light-grey",
+			"@color-border-grey",
+			"@color-border-light-grey",
+			"@color-border-grey",
+			"color: @color-txt",
+			"color: @color-link",
+			" url('@finamPath/",
+			" url('..@finamPath/",
+			".radius(0 0 5px 0);",
+			"",
+			"// {",
+			"} // {",
+			"",
+			"url('../",
+			"gif')",
+			"finamPath",
+			".png')",
+			"url('@",
+			"url(@{fontPath}/img",
+			"",
+			"@color-side",
+			"	",
+			"",
+			".font-sizes()",
+			".isIE();",
+			".icon-e-mail;",
+			".icon-email;",
+			".icon-email",
+			"	",
+			" */",
+			".",
+			"block ==",
+			"blockTitle = \"",
+			"== \"min_s",
+			"table",
+			"	",
+			"		type :",
+			"		num :",
+			"		onSide",
+			"		inBlock",
+			"		inStack",
+			"					description",
+			"					state :",
+			"			click ",
+			"			inStack",
+			"	",
+			"// .bborder",
+			"// .tborder",
+			"",
+			"state : '1', // Было undefined",
+			"	",
+			"aN",
+			"pN",
+			"eN",
+			"		",
+			"	",
+			"view_special",
+			"введите особый тип отображения</label><input data=\"view-special\"",
+			"javascript:void(0);",
+			"<option value=\"false\">Выбрать</option>",
+			"'<div class=\"box\"><label>",
+			"javascipt:;",
+			"thisEl",
+			"href='javascript:;'",
+			"50%",
+			"numOfExercise",
+			"nameOfExercise",
+			"",
+			"href=\"javascript:;\"",
+			"url(http://econika.ru/aof/img",
+			"positions",
+			"defaultposition",
+			"src=\"http://www.realty4sale.ru/upload",
+			"http://www.realty4sale.ru//images/ico_home.jpg",
+			"",
+			"oc_url_alias",
+			"src=\"//www.realty4sale.ru/resize",
+			"src=\"//www.realty4sale.ru/images",
+			"src=\"//www.realty4sale.ru/upload",
+			"src=\"//www.realty4sale.ru/images",
+			"src=\"//www.realty4sale.ru/resize",
+			"src=\"//www.realty4sale.ru/images",
+			"src=\"//www.realty4sale.ru/upload",
+			"src=\"//www.realty4sale.ru/images",
+			"src=\"//www.realty4sale.ru/resize",
+			"cial-sprite.png",
+			"http://naked-science.ru/sites/all/themes/ns_theme_new/images/social-sprite.pn",
+			"side=\"right\"",
+			"side=\"front\"",
+			"side=\"left\"",
+			"\\020\\0",
+			"url('http://www.worldclass.ru/h",
+			"(@pad)",
+			"url('http://www.worldclass.ru/h",
+			"rl('http://www.worldclass.ru/h/img/",
+			"rl('http://www.worldclass.ru/h/",
+			"http://www.worldclass.ru/h/img",
+			"http://www.worldclass.ru/img"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 141.0
+	},
+	"project": "vk-simulator.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 134.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

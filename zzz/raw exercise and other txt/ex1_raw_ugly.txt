@@ -1,0 +1,675 @@
+description : {
+nameOfExercise : 'Включение аппаратуры ПРЛ',
+	el1 : {
+	click : '1',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '21',
+		type : 'button',
+		},
+		positions : {
+			position_1 : {
+			state : 'on',
+			description : 'Нажмите кнопку СИГНАЛ В СИЛОВУЮ на распределительном щите',
+			},
+		},
+	},
+	el2 : {
+	click : '2',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '3',
+		type : 'socket',
+		},
+		positions : {
+			position_1 : {
+			state : '0',
+			description : 'Подключите гарнитуру к гнездам ЛАРИНГОФОН-ТЕЛЕФОН и подайте команду электормеханику "Выдать электропитание на ПРЛ"',
+			},
+		},
+	},
+	el3 : {
+	click : '3',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '4',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'Установите на распределительном щите в аппаратной машине тумблер включения подсвета вольтметра в положение ПОДСВЕТ',
+			},
+		},
+	},
+	el4 : {
+	click : '4',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '11',
+		type : 'knob',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'Установите переключатель фазоиндикатора в положение ФИДЕР I',
+			},
+		},
+	},
+	el5 : {
+	click : '5',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '5',
+		type : 'knob',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение А-В',
+			},
+			position_2 : {
+			state : '1', // Было undefined
+			description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение А-С',
+			},
+			position_3 : {
+			state : '1', // Было undefined
+			description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение В-С',
+				action_1 : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_front',
+				type : 'lamp',
+				num : '15',
+				status : 'on',
+				},
+			},
+		},
+	},
+	el6 : {
+	click : '6',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '13',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
+			},
+		},
+	},
+	el7 : {
+	click : '7',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '23',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ПОСАДОЧНЫЙ в положение выбранного фидера',
+			},
+		},
+	},
+	el8 : {
+	click : '8',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '34',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '0',
+			description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
+			},
+		},
+	},
+	el9 : {
+	click : '9',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '46',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ИНДИКАТОРЫ',
+			},
+		},
+	},
+	el10 : {
+	click : '10',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '59',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ПРЛ',
+			},
+		},
+	},
+	el11 : {
+	click : '11',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block1',
+		onSide : 'stack7_block1_front',
+		num : '88',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '0',
+			description : 'Включите автомат ПОСАДОЧНЫЙ на распределительном щите',
+			},
+		},
+	},
+	el12 : {
+	click : '12',
+		current : {
+		inStack : 'stack6',
+		inBlock : 'stack6_block4',
+		onSide : 'stack6_block4_front',
+		num : '18',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель включения питания индикаторов на передней панели блока ВИ-П в положение СЕТЬ',
+			},
+		},
+	},
+	el13 : {
+	click : '13',
+		current : {
+		inStack : 'stack2',
+		inBlock : 'stack2_block5',
+		onSide : 'stack2_block5_front',
+		num : '2',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель на передней панели блока ВП-П в положение КОМПЕНСАТОР И ФАЗОВЫЙ БЛОК',
+			},
+		},
+	},
+	el14 : {
+	click : '14',
+		current : {
+		inStack : 'stack2',
+		inBlock : 'stack2_block5',
+		onSide : 'stack2_block5_front',
+		num : '3',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель на передней панели блока ВП-П в положение ПРИЕМНИК',
+			},
+		},
+	},
+	el15 : {
+	click : '15',
+		current : {
+		inStack : 'stack2',
+		inBlock : 'stack2_block5',
+		onSide : 'stack2_block5_front',
+		num : '4',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель на передней панели блока ВП-П в положение ГЕТЕРОДИН',
+			},
+		},
+	},
+	el16 : {
+	click : '16',
+		current : {
+		inStack : 'stack3',
+		inBlock : 'stack3_block2',
+		onSide : 'stack3_block2_front',
+		num : '1',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1',
+			description : 'Установите переключатель СЕТЬ в положение ВКЛ на блоке ПУ-П',
+			},
+		},
+	},
+	el17 : {
+	click : '17',
+		current : {
+		inStack : 'stack7',
+		inBlock : 'stack7_block2',
+		onSide : 'stack7_block2_front',
+		num : '14',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'Установите переключатель СЕТЬ-ОТКЛ в положение СЕТЬ на блоке БУА-П',
+			},
+		},
+	},
+	el18 : {
+	click : '18',
+		current : {
+		inStack : 'stack6',
+		inBlock : 'stack6_block4',
+		onSide : 'stack6_block4_front',
+		num : '17',
+		type : 'knob',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение 0',
+			},
+			position_2 : {
+			state : '1', // Было undefined
+			description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение -210В',
+				action_1 : {
+				inStack : 'stack6',
+				inBlock : 'stack6_block4',
+				onSide : 'stack6_block4_front',
+				type : 'scale',
+				num : '16',
+				status : 'undefined',
+				},
+			},
+			position_3 : {
+			state : '1', // Было undefined
+			description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение +200В',
+				action_1 : {
+				inStack : 'stack6',
+				inBlock : 'stack6_block4',
+				onSide : 'stack6_block4_front',
+				type : 'scale',
+				num : '16',
+				status : 'undefined',
+				},
+			},
+			position_4 : {
+			state : '1', // Было undefined
+			description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение +250В',
+				action_1 : {
+				inStack : 'stack6',
+				inBlock : 'stack6_block4',
+				onSide : 'stack6_block4_front',
+				type : 'scale',
+				num : '16',
+				status : 'undefined',
+				},
+			},
+		},
+	},
+	el19 : {
+	click : '19',
+		current : {
+		inStack : 'stack6',
+		inBlock : 'stack6_block3',
+		onSide : 'stack6_block3_front',
+		num : '14',
+		type : 'knob',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'На субпанели блока ИК-П установите тумблер в положение 5КВ /35-45/',
+			},
+		},
+	},
+	el20 : {
+	click : '20',
+		current : {
+		inStack : 'stack2',
+		inBlock : 'stack2_block1',
+		onSide : 'stack2_block1_front',
+		num : '3',
+		type : 'knob',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение КР.1',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_2 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение КР.2',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_3 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение КР.3',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_4 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение КР.4',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_5 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение 50; +250В',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_6 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение 30; +150В',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_7 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение 40+50; +27В',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_8 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение КОНТР. ДИСКР.',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_9 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение 42; -105В',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_10 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение ВЫХ. ДЕТ.',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+			position_11 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-П установить тумблер номинального напряжения в положение БАЛАНС МУ',
+				action_1 : {
+				inStack : 'stack2',
+				inBlock : 'stack2_block1',
+				onSide : 'stack2_block1_front',
+				type : 'scale',
+				num : '6',
+				status : 'undefined',
+				},
+			},
+		},
+	},
+	el21 : {
+	click : '21',
+		current : {
+		inStack : 'stack1',
+		inBlock : 'stack1_block1',
+		onSide : 'stack1_block1_front',
+		num : '1',
+		type : 'knob',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-Д установить тумблер величины токов в положение КР.1',
+				action_1 : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block1',
+				onSide : 'stack1_block1_front',
+				type : 'scale',
+				num : '15',
+				status : 'undefined',
+				},
+			},
+			position_2 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-Д установить тумблер величины токов в положение КР.2',
+				action_1 : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block1',
+				onSide : 'stack1_block1_front',
+				type : 'scale',
+				num : '15',
+				status : 'undefined',
+				},
+			},
+			position_3 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-Д установить тумблер величины токов в положение ГЕТЕР.',
+				action_1 : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block1',
+				onSide : 'stack1_block1_front',
+				type : 'scale',
+				num : '15',
+				status : 'undefined',
+				},
+			},
+			position_4 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-Д установить тумблер величины токов в положение КР.3',
+				action_1 : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block1',
+				onSide : 'stack1_block1_front',
+				type : 'scale',
+				num : '15',
+				status : 'undefined',
+				},
+			},
+			position_5 : {
+			state : '1', // Было undefined
+			description : 'На блоке П-Д установить тумблер величины токов в положение КР.4',
+				action_1 : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block1',
+				onSide : 'stack1_block1_front',
+				type : 'scale',
+				num : '15',
+				status : 'undefined',
+				},
+			},
+		},
+	},
+	el22 : {
+	click : '22',
+		current : {
+		inStack : 'stack3',
+		inBlock : 'stack3_block2',
+		onSide : 'stack3_block2_front',
+		num : '2',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'На блоке ПУ-П установить тумблер включения высокого напряжения в положение ВЫСОКОЕ НАПРЯЖ',
+				action_1 : {
+				inStack : 'stack3',
+				inBlock : 'stack3_block2',
+				onSide : 'stack3_block2_front',
+				type : 'lamp',
+				num : '2',
+				status : 'on',
+				},
+			},
+		},
+	},
+	el23 : {
+	click : '23',
+		current : {
+		inStack : 'stack3',
+		inBlock : 'stack3_block2',
+		onSide : 'stack3_block2_front',
+		num : '1',
+		type : 'rotator',
+		},
+		positions : {
+			position_1 : {
+			state : '1', // Было undefined
+			description : 'Вращайте ручку вариака до установления тока в районе 0,8 мА',
+				action_1 : {
+				inStack : 'stack3',
+				inBlock : 'stack3_block2',
+				onSide : 'stack3_block2_front',
+				type : 'scale',
+				num : '37',
+				status : 'undefined',
+				},
+			},
+		},
+	},
+	el24 : {
+	click : '24',
+		current : {
+		inStack : 'stack3',
+		inBlock : 'stack3_block3',
+		onSide : 'stack3_block3_front',
+		num : '1',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '0',
+			description : 'Переключите тумблер СМЕНА ВОЛН на блоке ГМ-П в положение, соответствующее необходимой волне',
+			},
+		},
+	},
+	el25 : {
+	click : '25',
+		current : {
+		inStack : 'stack6',
+		inBlock : 'stack6_block3',
+		onSide : 'stack6_block3_front',
+		num : '31',
+		type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+			state : '0',
+			description : 'Переключите тумблер ПРИВОД АНТЕНН на пульте управления индикаторов в положение ВКЛ',
+			},
+			position_2 : {
+			state : '0',
+			description : 'Переключите тумблер ПРИВОД АНТЕНН на пульте управления индикаторов в положение ВЫКЛ',
+			},
+		},
+	},
+	el26 : {
+	click : '26',
+		current : {
+		inStack : 'stack6',
+		inBlock : 'stack6_block3',
+		onSide : 'stack6_block3_front',
+		num : '16',
+		type : 'button',
+		},
+		positions : {
+			position_1 : {
+			state : 'off',
+			description : 'Нажмите кнопку БЛОКИРОВКА СИРЕНЫ',
+			},
+		},
+	},
+},
