@@ -267,3 +267,35 @@
 		}
 	}
 }
+#blocks #popup {
+	position: fixed !important;
+	top: @pad*20;
+	max-width: 100%;
+	width: 100%;
+	margin: 0;
+	left: 0;
+	z-index: 9999999999;
+	//background: @clouds;
+	bottom: 0;
+	background: transparent;
+	.block-holder {
+		background: @silver;
+	}
+	.card-holder,
+	.block-holder {
+		display: block;
+		max-width: 940px;
+		margin: auto;
+		box-shadow: 0 0 @pad*20;
+		.border-light;
+
+		.card > div:hover::after {
+			background: none;
+		}
+		>section>div {
+			&::after {
+				display: none;
+			}
+		}
+	}
+}

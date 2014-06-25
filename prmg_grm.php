@@ -174,7 +174,8 @@
       </li>
       <li id="min_stack1">
         <div>
-          <section class="size300" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>    
+          <section class="size300" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>  
+          <section class="size30" id="min_stack1_block2"><div side="front" id="min_stack1_block2_front"></div></section>      
         </div>
       </li>
     </ul>
@@ -221,6 +222,7 @@
       <li id="stack1">
         <div class="block-holder">
           <section class="size300" id="stack1_block1"><div side="front" id="stack1_block1_front"></div></section>    
+          <section class="size30" id="stack1_block2"><div side="front" id="stack1_block2_front"></div></section>    
         </div>
       </li>
     </ul>
