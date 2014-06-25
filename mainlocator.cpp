@@ -74,6 +74,8 @@ void MainLocator::ContinueSearch(void)
     {
         ray_position=ray.begin();
         //Impulse (Temporary: It's time to hitrozhop hacks)
+        if(settings["active_insync_trash"]["show"].toBool() && S.active_insync_trash[scale][0].isEmpty())
+            GenerationActiveInSyncTrash();
         if(!S.active_insync_trash[scale][0].isEmpty())
             S.active_insync_trash[scale][0].pop_front();
         if(!S.active_insync_trash[scale][1].isEmpty())
