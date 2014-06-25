@@ -89,7 +89,8 @@ class Daddy : public QGLWidget
         {
             QHash<quint16,QVector<PointsR> >trash,local_items,meteo;
             QHash<quint16,QVector<RoundLine> >range;
-            QHash<quint16,QVector<RoundLineR> >active_answer_trash,active_insync_trash;
+            QHash<quint16,QVector<RoundLineR> >active_answer_trash;
+            QHash<quint16,QHash<quint8,QVector<RoundLineR> > >active_insync_trash;
             QVector<CenterStraightLine>azimuth;
             QVector<RoundLine>active_noise_trash;
         }S;

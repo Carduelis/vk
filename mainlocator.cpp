@@ -74,8 +74,14 @@ void MainLocator::ContinueSearch(void)
     {
         ray_position=ray.begin();
         //Impulse (Temporary: It's time to hitrozhop hacks)
-        if(!S.active_insync_trash[scale].isEmpty())
-            S.active_insync_trash[scale].pop_front();
+        if(!S.active_insync_trash[scale][0].isEmpty())
+            S.active_insync_trash[scale][0].pop_front();
+        if(!S.active_insync_trash[scale][1].isEmpty())
+            S.active_insync_trash[scale][1].pop_front();
+        if(!S.active_insync_trash[scale][2].isEmpty())
+            S.active_insync_trash[scale][2].pop_front();
+        if(!S.active_insync_trash[scale][3].isEmpty())
+            S.active_insync_trash[scale][3].pop_front();
     }
     ray_position++;
 }
@@ -742,23 +748,11 @@ void MainLocator::GenerationActiveInSyncTrash(void)
     qreal r=.0f,delta;
     S.active_insync_trash[scale].clear();
 
-    delta=CalcScaleValue(3.0f);//CalcScaleValue(settings["active_insync_trash"]["distance"].toDouble());
-    /*
-    switch(settings["system"]["range"].toUInt())
-    {
-        case 1:
-            delta=distance*10u;
-            break;
-        case 0:
-            return;
-        default:
-            delta=distance*50u;
-    }
-    */
+    delta=CalcScaleValue(3.0f,Scale::S_SMALL);//CalcScaleValue(settings["active_insync_trash"]["distance"].toDouble());
 
-    RoundLineR cache;
-    quint16 c,a=0u,
-            angle=50u;//settings["active_insync_trash"]["azimuth"].toUInt();
+    RoundLineR cache,cache2,cache3,cache4;
+    quint16 c,a=0u;//settings["active_insync_trash"]["azimuth"].toUInt();
+    const quint16 angle=20u,d=90u;
     while(r<=1.0f)
     {
         cache.width=6.5f;
@@ -772,11 +766,52 @@ void MainLocator::GenerationActiveInSyncTrash(void)
             cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
             cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
         }
-        S.active_insync_trash[scale].append(cache);
+        S.active_insync_trash[scale][0].append(cache);
+
+        cache2.width=6.5f;
+        cache2.Coordinates=new PointsR[TARGET_LENGTH];
+        c=0u;
+        for(Points *i=radians+ROUND_DEGREE-(d+angle)-a,*end=radians+ROUND_DEGREE-(d+angle)+TARGET_LENGTH-a;i<end;i++,c++)
+        {
+            cache2.Coordinates[c].angle=i->angle;
+            cache2.Coordinates[c].r=r;
+            cache2.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+            cache2.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+        }
+        S.active_insync_trash[scale][1].append(cache2);
+
+        cache3.width=6.5f;
+        cache3.Coordinates=new PointsR[TARGET_LENGTH];
+        c=0u;
+        for(Points *i=radians+ROUND_DEGREE-(2u*d+angle)-a,*end=radians+ROUND_DEGREE-(2u*d+angle)+TARGET_LENGTH-a;i<end;i++,c++)
+        {
+            cache3.Coordinates[c].angle=i->angle;
+            cache3.Coordinates[c].r=r;
+            cache3.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+            cache3.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+        }
+
+        S.active_insync_trash[scale][2].append(cache3);
+
+        cache4.width=6.5f;
+        cache4.Coordinates=new PointsR[TARGET_LENGTH];
+        c=0u;
+        for(Points *i=radians+ROUND_DEGREE-(3u*d+angle)-a,*end=radians+ROUND_DEGREE-(3u*d+angle)+TARGET_LENGTH-a;i<end;i++,c++)
+        {
+            cache4.Coordinates[c].angle=i->angle;
+            cache4.Coordinates[c].r=r;
+            cache4.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+            cache4.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+        }
+
+        S.active_insync_trash[scale][3].append(cache4);
         r+=delta;
-        a++;
+        a+=5u;
     }
-    S.active_insync_trash[scale].pop_front();
+    S.active_insync_trash[scale][0].pop_front();
+    S.active_insync_trash[scale][1].pop_front();
+    S.active_insync_trash[scale][2].pop_front();
+    S.active_insync_trash[scale][3].pop_front();
 }
 
 void MainLocator::DrawActiveInSyncTrash(void)const
@@ -784,8 +819,68 @@ void MainLocator::DrawActiveInSyncTrash(void)const
     qreal alpha,brightness;
     brightness=1.0f;
     QColor color=Color;
-    //for(QVector<LineEntityR>::const_iterator it=Cache.active_insync_trash.begin();it<Cache.active_insync_trash.end();it++)
-    QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale].begin();
+    //for(QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale][0].begin();it<S.active_insync_trash[scale][0].end();it++)
+    QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale][0].begin();
+    {
+        glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
+        glBegin(GL_LINE_STRIP);
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        {
+            alpha=CalcAlpha(i->angle);
+            if(alpha>.0f)
+            {
+                alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
+                color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+                qglColor(color);
+                glVertex2d(i->x,i->y);
+            }
+        }
+        glEnd();
+    }
+
+    //for(QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale][1].begin();it<S.active_insync_trash[scale][1].end();it++)
+    it=S.active_insync_trash[scale][1].begin();
+    {
+        glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
+        glBegin(GL_LINE_STRIP);
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        {
+            alpha=CalcAlpha(i->angle);
+            if(alpha>.0f)
+            {
+                alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
+                color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+                qglColor(color);
+                glVertex2d(i->x,i->y);
+            }
+        }
+        glEnd();
+    }
+
+    //for(QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale][2].begin();it<S.active_insync_trash[scale][2].end();it++)
+    it=S.active_insync_trash[scale][2].begin();
+    {
+        glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
+        glBegin(GL_LINE_STRIP);
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        {
+            alpha=CalcAlpha(i->angle);
+            if(alpha>.0f)
+            {
+                alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
+                color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+                qglColor(color);
+                glVertex2d(i->x,i->y);
+            }
+        }
+        glEnd();
+    }
+
+    //for(QVector<RoundLineR>::const_iterator it=S.active_insync_trash[scale][3].begin();it<S.active_insync_trash[scale][3].end();it++)
+    it=S.active_insync_trash[scale][3].begin();
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
         glBegin(GL_LINE_STRIP);
