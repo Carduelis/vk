@@ -26,20 +26,23 @@ body {
 	a {
 		color: @color-back;
 		position: absolute;
-		width: 940px;
+		width: 200px;
 		.normal;
 		left: 50%;
-		margin-left: -470px;
+		margin-left: -100px;
 		text-align: right;
-		top: 0;
+		top: @pad*2.5;
+		background: @carrot;
+		background: @main-color;
+		text-align: center;
 		text-decoration: none;
 		&::after {
 			.icon-close;
 			.small;
-			margin: 0 @pad;
+			margin-left: @pad;
 		}
 		&:hover {
-
+			background: saturate(lighten(@main-color,5%),5%);
 		}
 	}
 	&.active a {
