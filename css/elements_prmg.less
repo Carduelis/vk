@@ -509,8 +509,28 @@ footer {
 		}
 	}
 	&[type="runner"] {
-		width: 30%;
+		width: 28%;
 		height: 4%;
-		background: @clouds;
+		//background: @clouds;
+		.body {
+			background-image:  url('@{path-to-elements}/large_scale/runner.png');
+			width: 30%;
+			height: 300%;
+			top: -70%;
+			left: 12%;
+			margin-left: -15%;
+		}
+		&[num="3"] {
+			.body {
+				top: -110%;
+				.rotate(180deg);
+			}
+		}
+		&[num="4"] {
+			.body {
+				top: -130%;
+				.rotate(180deg);
+			}
+		}
 	}
 } 

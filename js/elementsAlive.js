@@ -129,12 +129,15 @@ $('.element').each(function(){
 		var min = 0;
 		var max = 360;
 		var step = 45;
+		var status = element.attr('status');
+		var num = element.attr('num');
 		if (element.attr('range'))	 max = 45*element.attr('range')
 		if (element.attr('step'))	 step = 45*element.attr('step')
 		if (element.attr('defaultposition'))	 value = 45*element.attr('defaultposition')
 
+	        	element.find('.ui-slider-handle').css('left',status);
 		clicker.next('.slider').slider({
-	      value:value,
+	      value: value,
 	      min: min,
 	      max: max,
 	      step: step,
@@ -144,8 +147,9 @@ $('.element').each(function(){
 	        if (element.attr('view2') == "yes") {
 	        	element.children('.overlay').html('<span class="counter">'+ui.value/step+'</span>')
 	        }
-	        if (element.attr('view-special') == "ears") {
-	        	
+	        if (element.attr('view_special') == "ears") {
+	        	$('.element[type="runner"][num="'+num+'"]').attr('status', ui.value/step);
+	        	$('.element[type="runner"][num="'+num+'"]').find('.body').css('left', (ui.value/(step*1.2)+12)+'%');
 	        }
 	      }
 		});
