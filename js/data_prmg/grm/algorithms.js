@@ -758,7 +758,339 @@ ex1 : {
 },
 
 ex2 : {
-
+	
+	nameOfExercise : 'Порядок работы при местном управлении',
+	el1 : {
+		click : '1',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '5',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Установите на ПИУ Г переключатель УПРАВЛЕНИЕ в положение МУ',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '23',
+					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '0',
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите на ПИУ Г переключатель переключатель РЕЖИМ в положение РАБОТА',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '1',
+	},
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '99',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'off',
+				description : 'Включите ГРМ нажатием соответствующей кнопки ВКЛ',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '264',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block14',
+			onSide : 'stack0_block14_front',
+			num : '19',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Установите переключатель РАБОТА — КАЛИБРОВКА на передней панели ИКР в положение КАЛИБРОВКА.',
+			},
+		},
+		defaultPosition : '0',
+	},
+	el5 : {
+		click : '5',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Установите на ПИУ Г переключатель РЕЖИМ в положение НАСТРОЙКА',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el6 : {
+		click : '6',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block14',
+			onSide : 'stack0_block14_front',
+			num : '36',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Соедините гнездо 12,5 Гц на передней панели ИКР с гнездом 12,5 Гц на передней панели БМК',
+			},
+		},
+	},
+	el7 : {
+		click : '7',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block3',
+			onSide : 'stack1_block3_front',
+			num : '11',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Соедините гнездо 12,5 Гц на передней панели ИКР с гнездом 12,5 Гц на передней панели БМК',
+			},
+		},
+	},
+	el8 : {
+		click : '8',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block14',
+			onSide : 'stack0_block14_front',
+			num : '11',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'С гнезд ВЫХОД на передней панели БМК или с клемм ВЫХОД на задней стенке БМК подайте сигнал посадки на гнезда «0» и «S» ИКР',
+			},
+		},
+	},
+	el9 : {
+		click : '9',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block14',
+			onSide : 'stack0_block14_front',
+			num : '23',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'С гнезд ВЫХОД на передней панели БМК или с клемм ВЫХОД на задней стенке БМК подайте сигнал посадки на гнезда «0» и «S» ИКР',
+			},
+		},
+	},
+	el10 : {
+		click : '10',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block3',
+			onSide : 'stack1_block3_front',
+			num : '5',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'С гнезд ВЫХОД на передней панели БМК или с клемм ВЫХОД на задней стенке БМК подайте сигнал посадки на гнезда «0» и «S» ИКР',
+			},
+		},
+	},
+	el11 : {
+		click : '11',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block3',
+			onSide : 'stack1_block3_front',
+			num : '10',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Включите БМК и проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block3',
+					onSide : 'stack1_block3_front',
+					type : 'lamp',
+					num : '8',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el12 : {
+		click : '12',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block3',
+			onSide : 'stack1_block3_front',
+			num : '4',
+			type : 'knob',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите БМК и проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %',
+			},
+		},
+	},
+	el13 : {
+		click : '13',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block14',
+			onSide : 'stack0_block14_front',
+			num : '19',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Переключатель РАБОТА — КАЛИБРОВКА на передней панели ИКР установите в положение РАБОТА и снова проверьте погрешность ИКР по каналам контроля «0» и «S»',
+			},
+		},
+	},
+	el14 : {
+		click : '14',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите после окончание проверок отключившегося комплекта переключатель РЕЖИМ на ПИУ Г в положение РАБОТА.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'off',
+				},
+			},
+		},
+	},
+	el15 : {
+		click : '15',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '99',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'off',
+				description : 'Включите выбранный комплект, исходя из равномерной наработки каждого комплекта.',
+			},
+		},
+	},
+	el16 : {
+		click : '16',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '20',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'off',
+				description : 'Перед уходом обслуживающего персонала необходимо в тёмное время суток включить светоограждение, нажав на кнопку ВКЛ. СВЕТООГРАЖДЕНИЕ на распределительном щите',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '182',
+					status : 'on',
+				},
+			},
+		},
+	},
 },
 
 ex3 : {
