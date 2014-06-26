@@ -1242,4 +1242,95 @@ var exercisesContainer = {
 			},
 		},
 	},
+
+
+	ex9 : {
+
+	nameOfExercise : 'Подготовка ГРМ к дистанционному включению',
+	el1 : {
+		click : '1',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '5',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите переключатель УПРАВЛЕНИЕ в положение ДУ',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '16',
+					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '1',
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите переключатель РЕЖИМ в положение РАБОТА',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '1',
+	},
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '5',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Установите переключатель М ВКЛ 	Д ВКЛ в положение Д ВКЛ',
+			},
+		},
+		defaultPosition : '0',
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '5',
+			type : 'knob',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите переключатель ВЕНТИЛЯТОР в положение АВТ',
+			},
+		},
+		defaultPosition : '1',
+	},
+},
+
 }
