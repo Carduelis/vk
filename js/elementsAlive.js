@@ -135,7 +135,6 @@ $('.element').each(function(){
 		if (element.attr('step'))	 step = 45*element.attr('step')
 		if (element.attr('defaultposition'))	 value = 45*element.attr('defaultposition')
 
-	        	element.find('.ui-slider-handle').css('left',status);
 		clicker.next('.slider').slider({
 	      value: value,
 	      min: min,

@@ -138,6 +138,8 @@
           <section class="size215" id="min_stack0_block1"><div side="front" id="min_stack0_block1_front"></div></section>
           <section class="ear left" id="min_stack0_block2"><div side="front" id="min_stack0_block2_front"></div></section>
           <section class="ear right" id="min_stack0_block3"><div side="front" id="min_stack0_block3_front"></div></section>
+          <section class="ear left bottom" id="stack0_block27"><div side="front" id="stack0_block27_front"></div></section>
+          <section class="ear right bottom" id="stack0_block28"><div side="front" id="stack0_block28_front"></div></section>
           <div class="separator outer"></div>
           <div class="card-block">
             <div class="separator inner"></div>
@@ -179,10 +181,10 @@
         </div>
       </li>
       <li id="min_stack1">
-          <div>
-          <header>Блок питания</header>
-          <section class="size300" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>    
-          <section class="size30" id="min_stack1_block2"><div side="front" id="min_stack1_block2_front"></div></section>      
+        <div>
+          <section class="size120" id="min_stack1_block3"><div side="front" id="min_stack1_block3_front"></div></section>    
+          <section class="size240" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>  
+          <section class="size64" id="min_stack1_block2"><div side="front" id="min_stack1_block2_front"></div></section>      
         </div>
       </li>
     </ul>
@@ -198,51 +200,60 @@
       <a href='javascript:void(0);'>Назад</a>
     </div>
       <li id="stack0">
-      <div class="block-holder">
-          <section class="size215" id="stack0_block1"><div alt="Перейти к боковой стороне блока" side="left" id="stack0_block1_left"></div><div side="front" id="stack0_block1_front"></div><div alt="Перейти к боковой стороне блока" side="right" id="stack0_block1_right"></div></section>
-      </div>
-      <div class="block-holder">
-        <section class="ear left" id="stack0_block2"><div side="front" id="stack0_block2_front"></div></section>
-      </div>
-      <div class="block-holder">   
-        <section class="ear right" id="stack0_block3"><div side="front" id="stack0_block3_front"></div></section>
-      </div>
-      <div class="card-holder">
-        <section class="card size1 radiator" id="stack0_block4"><div side="front" id="stack0_block4_front"></div></section>
-        <section class="card size3" id="stack0_block5"><div side="front" id="stack0_block5_front"></div></section>
-        <section class="card size2" id="stack0_block6"><div side="front" id="stack0_block6_front"></div></section>
-        <section class="card size2" id="stack0_block7"><div side="front" id="stack0_block7_front"></div></section>
-        <section class="card size2" id="stack0_block8"><div side="front" id="stack0_block8_front"></div></section>
-        <section class="card size3" id="stack0_block9"><div side="front" id="stack0_block9_front"></div></section>
-        <section class="card size1 radiator" id="stack0_block10"><div side="front" id="stack0_block10_front"></div></section>
-      </div>
-      <div class="card-holder">
-        <section class="card size3" id="stack0_block11"><div side="front" id="stack0_block11_front"></div></section>
-        <section class="card size3" id="stack0_block12"><div side="front" id="stack0_block12_front"></div></section>
-        <section class="card size2" id="stack0_block13"><div side="front" id="stack0_block13_front"></div></section>
-        <section class="card size3" id="stack0_block14"><div side="front" id="stack0_block14_front"></div></section>
-        <section class="card size3" id="stack0_block15"><div side="front" id="stack0_block15_front"></div></section>
-        <section class="card size2" id="stack0_block16"><div side="front" id="stack0_block16_front"></div></section>
-        <section class="card size3" id="stack0_block17"><div side="front" id="stack0_block17_front"></div></section>
-        <section class="card size3" id="stack0_block18"><div side="front" id="stack0_block18_front"></div></section>
-      </div>
-      <div class="card-holder">
-        <section class="card size4" id="stack0_block19"><div side="front" id="stack0_block19_front"></div></section>
-        <section class="card size1" id="stack0_block20"><div side="front" id="stack0_block20_front"></div></section>
-        <section class="card size3" id="stack0_block21"><div side="front" id="stack0_block21_front"></div></section>
-        <section class="card size3" id="stack0_block22"><div side="front" id="stack0_block22_front"></div></section>
-        <section class="card size3" id="stack0_block23"><div side="front" id="stack0_block23_front"></div></section>
-        <section class="card size1" id="stack0_block24"><div side="front" id="stack0_block24_front"></div></section>
-        <section class="card size4" id="stack0_block25"><div side="front" id="stack0_block25_front"></div></section>
-      </div>
-      <div class="block-holder">
-        <section class="size215" id="stack0_block26"><div side="front" id="stack0_block26_front"></div></section>
-      </div>
+        <div class="block-holder">
+            <section class="size215" id="stack0_block1"><div alt="Перейти к боковой стороне блока" side="left" id="stack0_block1_left"></div><div side="front" id="stack0_block1_front"></div><div alt="Перейти к боковой стороне блока" side="right" id="stack0_block1_right"></div></section>
+        </div>
+        <div class="block-holder">
+          <section class="ear left" id="stack0_block2"><div side="front" id="stack0_block2_front"></div></section>
+        </div>
+        <div class="block-holder">   
+          <section class="ear right" id="stack0_block3"><div side="front" id="stack0_block3_front"></div></section>
+        </div>
+        <div class="card-holder">
+          <section class="card size1 radiator" id="stack0_block4"><div side="front" id="stack0_block4_front"></div></section>
+          <section class="card size3" id="stack0_block5"><div side="front" id="stack0_block5_front"></div></section>
+          <section class="card size2" id="stack0_block6"><div side="front" id="stack0_block6_front"></div></section>
+          <section class="card size2" id="stack0_block7"><div side="front" id="stack0_block7_front"></div></section>
+          <section class="card size2" id="stack0_block8"><div side="front" id="stack0_block8_front"></div></section>
+          <section class="card size3" id="stack0_block9"><div side="front" id="stack0_block9_front"></div></section>
+          <section class="card size1 radiator" id="stack0_block10"><div side="front" id="stack0_block10_front"></div></section>
+        </div>
+        <div class="card-holder">
+          <section class="card size3" id="stack0_block11"><div side="front" id="stack0_block11_front"></div></section>
+          <section class="card size3" id="stack0_block12"><div side="front" id="stack0_block12_front"></div></section>
+          <section class="card size2" id="stack0_block13"><div side="front" id="stack0_block13_front"></div></section>
+          <section class="card size3" id="stack0_block14"><div side="front" id="stack0_block14_front"></div></section>
+          <section class="card size3" id="stack0_block15"><div side="front" id="stack0_block15_front"></div></section>
+          <section class="card size2" id="stack0_block16"><div side="front" id="stack0_block16_front"></div></section>
+          <section class="card size3" id="stack0_block17"><div side="front" id="stack0_block17_front"></div></section>
+          <section class="card size3" id="stack0_block18"><div side="front" id="stack0_block18_front"></div></section>
+        </div>
+        <div class="card-holder">
+          <section class="card size4" id="stack0_block19"><div side="front" id="stack0_block19_front"></div></section>
+          <section class="card size1" id="stack0_block20"><div side="front" id="stack0_block20_front"></div></section>
+          <section class="card size3" id="stack0_block21"><div side="front" id="stack0_block21_front"></div></section>
+          <section class="card size3" id="stack0_block22"><div side="front" id="stack0_block22_front"></div></section>
+          <section class="card size3" id="stack0_block23"><div side="front" id="stack0_block23_front"></div></section>
+          <section class="card size1" id="stack0_block24"><div side="front" id="stack0_block24_front"></div></section>
+          <section class="card size4" id="stack0_block25"><div side="front" id="stack0_block25_front"></div></section>
+        </div>
+        <div class="block-holder">
+          <section class="size215" id="stack0_block26"><div side="front" id="stack0_block26_front"></div></section>
+        </div>
+        <div class="block-holder">
+          <section class="ear left bottom" id="stack0_block27"><div side="front" id="stack0_block27_front"></div></section>
+        </div>
+        <div class="block-holder">   
+          <section class="ear right bottom" id="stack0_block28"><div side="front" id="stack0_block28_front"></div></section>
+        </div>
       </li>
       <li id="stack1">
         <div class="block-holder">
-          <section class="size300" id="stack1_block1"><div side="front" id="stack1_block1_front"></div></section>    
-          <section class="size30" id="stack1_block2"><div side="front" id="stack1_block2_front"></div></section>    
+          <section class="size120" id="stack1_block3"><div side="front" id="stack1_block3_front"></div></section>    
+        </div>
+        <div class="block-holder">
+          <section class="size240" id="stack1_block1"><div side="front" id="stack1_block1_front"></div></section>    
+          <section class="size64" id="stack1_block2"><div side="front" id="stack1_block2_front"></div></section>    
         </div>
       </li>
     </ul>
