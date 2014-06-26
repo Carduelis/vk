@@ -726,7 +726,7 @@ ex1 : {
 		positions : {
 			position_1 : {
 				state : 'on',
-				description : 'Нажмите кнопку ВКЛ ГРМ1',
+				description : 'Нажмите кнопку ВКЛ КРМ1',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
@@ -775,7 +775,7 @@ ex3 : {
 		positions : {
 			position_1 : {
 				state : '1',
-				description : 'Переключатель РАБОТА-НАСТР на ПИУ Г установите в положение НАСТР',
+				description : 'Переключатель РАБОТА-НАСТР на ПИУ КД установите в положение НАСТР',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
