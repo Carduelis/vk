@@ -130,6 +130,7 @@ void MainLocator::SetCurrentScaleMode(const MainLocator::Scale s)
 {
     scale=s;
     GenerationRange();
+    GenerationTrash();
     GenerationLocalItems();
     GenerationMeteo();
 }
@@ -300,33 +301,19 @@ void MainLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qr
         storage.clear();
     PointsR cache;
     for(Points*i=radians,*k=radians+ROUND_DEGREE;i<k;i++)
-    {
         for(quint16 l=0u,t=fmod(qrand(),intensity);l<t;l++)
         {
-            if(ellipse)
-            {
-                rand=begin+fmod(GetRandomCoord(4u),end-begin);
-                cache.x=i->x*rand+CalcScaleValue(offset_x)+GetRandomSign();//*CalcScaleValue(offset_x*rand);
-                rand=begin+fmod(GetRandomCoord(4u),end-begin);
-                cache.y=i->y*rand+CalcScaleValue(offset_y)+GetRandomSign();//*CalcScaleValue(offset_y*rand);
-            }
-            else
-            {
-                rand=begin+fmod(GetRandomCoord(4u),end-begin);
-                cache.x=i->x*rand+CalcScaleValue(offset_x);
-                cache.y=i->y*rand+CalcScaleValue(offset_y);
-            }
+            rand=begin+fmod(GetRandomCoord(4u),end-begin);
+            cache.x=i->x*rand+CalcScaleValue(offset_x);
+            cache.y=i->y*rand+CalcScaleValue(offset_y);
             cache.r=qSqrt(qPow(cache.x,2u)+qPow(cache.y,2u));
-            if(offset_x>.0f || offset_y>.0f)
-                if(cache.x==0)
-                    cache.angle=M_PI/2;
-                else
-                    cache.angle=qAtan2(cache.y,cache.x);
+
+            if(offset_x!=.0f || offset_y!=.0f)
+                cache.angle=qAtan2(cache.y,cache.x);
             else
                 cache.angle=i->angle;
             storage.append(cache);
         }
-    }
 }
 
 void MainLocator::DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size)const
@@ -354,15 +341,18 @@ void MainLocator::DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size)const
 
 void MainLocator::GenerationMeteo(void)
 {
-    CreateEllipseTrashArea(S.meteo[scale],20.0f,20.0f,3u,true);
-    CreateEllipseTrashArea(S.meteo[scale],-20.0f,20.0f,3u,true,false);
-    CreateEllipseTrashArea(S.meteo[scale],-30.0f,-30.0f,3u,true,false);
-    CreateEllipseTrashArea(S.meteo[scale],-50.0f,-10.0f,3u,true,false);
+    CreateEllipseTrashArea(S.meteo[scale][0],0.0f,7.0f,-17.0f,-27.0f,3u);
+    CreateEllipseTrashArea(S.meteo[scale][1],0.0f,7.0f,73.0f,-94.0f,3u);
+    CreateEllipseTrashArea(S.meteo[scale][2],0.0f,7.0f,-74.0f,56.0f,3u);
+    CreateEllipseTrashArea(S.meteo[scale][3],0.0f,7.0f,94.0f,112.0f,3u);
 }
 
 void MainLocator::DrawMeteo(void)const
 {
-    DrawEllipseTrashArea(S.meteo[scale],5);
+    DrawEllipseTrashArea(S.meteo[scale][0],5);
+    DrawEllipseTrashArea(S.meteo[scale][1],5);
+    DrawEllipseTrashArea(S.meteo[scale][2],5);
+    DrawEllipseTrashArea(S.meteo[scale][3],5);
 }
 
 void MainLocator::GenerationActiveNoiseTrash(void)
@@ -750,7 +740,7 @@ void MainLocator::GenerationActiveInSyncTrash(void)
     qreal r=.0f,delta;
     S.active_insync_trash[scale].clear();
 
-    delta=CalcScaleValue(3.0f,Scale::S_SMALL);//CalcScaleValue(settings["active_insync_trash"]["distance"].toDouble());
+    delta=CalcScaleValue(3.0f);//CalcScaleValue(settings["active_insync_trash"]["distance"].toDouble());
 
     RoundLineR cache,cache2,cache3,cache4;
     quint16 c,a=0u;//settings["active_insync_trash"]["azimuth"].toUInt();
