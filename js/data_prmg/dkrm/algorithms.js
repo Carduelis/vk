@@ -759,6 +759,153 @@ ex1 : {
 
 ex2 : {
 
+	nameOfExercise : 'Включение РД',
+	el1 : {
+		click : '1',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Переключатель РЕЖИМ на ПИУ КД установите в положение НАСТР.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '0',
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '43',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Включите РД1',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '47',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '132',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Включите РД2',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '95',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block6',
+			onSide : 'stack0_block6_front',
+			num : '16',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Включите ИПС ПРД 1-го комплекта',
+			},
+		},
+	},
+	el5 : {
+		click : '5',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block8',
+			onSide : 'stack0_block8_front',
+			num : '16',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Включите ИПС ПРД 2-го комплекта',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block8',
+					onSide : 'stack0_block8_front',
+					type : 'lamp',
+					num : '13',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block8',
+					onSide : 'stack0_block8_front',
+					type : 'lamp',
+					num : '13',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block8',
+					onSide : 'stack0_block8_front',
+					type : 'lamp',
+					num : '22',
+					status : 'on',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block8',
+					onSide : 'stack0_block8_front',
+					type : 'lamp',
+					num : '34',
+					status : 'on',
+				},
+				action_5 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block8',
+					onSide : 'stack0_block8_front',
+					type : 'lamp',
+					num : '48',
+					status : 'on',
+				},
+			},
+		},
+	},
+
 },
 
 ex3 : {
@@ -799,7 +946,7 @@ ex3 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ВКЛ ГРМ1',
 				action_1 : {
 					inStack : 'stack0',
@@ -831,7 +978,7 @@ ex3 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится номер частотного канала, заданный заводской настройкой.',
 				action_1 : {
 					inStack : 'stack0',
@@ -996,7 +1143,7 @@ ex4 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите первый комплект аппаратуры ГРМ',
 				action_1 : {
 					inStack : 'stack0',
@@ -1181,7 +1328,7 @@ ex5 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
 				action_1 : {
 					inStack : 'stack0',
@@ -1316,7 +1463,7 @@ ex7 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
 				action_1 : {
 					inStack : 'stack0',
@@ -1409,7 +1556,7 @@ ex8 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Убедитесь, что показания ИКР по каналу контроля "S" составляют 30 % КРС',
 				action_1 : {
 					inStack : 'stack0',
@@ -1582,7 +1729,7 @@ ex9 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Убедитесь, что показания ИКР по каналу контроля "S" составляют 30 % КРС',
 				action_1 : {
 					inStack : 'stack0',

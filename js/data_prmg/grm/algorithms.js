@@ -821,7 +821,7 @@ ex2 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите ГРМ нажатием соответствующей кнопки ВКЛ',
 				action_1 : {
 					inStack : 'stack0',
@@ -1062,7 +1062,7 @@ ex2 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите выбранный комплект, исходя из равномерной наработки каждого комплекта.',
 			},
 		},
@@ -1078,7 +1078,7 @@ ex2 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Перед уходом обслуживающего персонала необходимо в тёмное время суток включить светоограждение, нажав на кнопку ВКЛ. СВЕТООГРАЖДЕНИЕ на распределительном щите',
 				action_1 : {
 					inStack : 'stack1',
@@ -1131,7 +1131,7 @@ ex3 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ВКЛ ГРМ1',
 				action_1 : {
 					inStack : 'stack0',
@@ -1163,7 +1163,7 @@ ex3 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится номер частотного канала, заданный заводской настройкой.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1328,7 +1328,7 @@ ex4 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите первый комплект аппаратуры ГРМ',
 				action_1 : {
 					inStack : 'stack0',
@@ -1513,7 +1513,7 @@ ex5 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
 				action_1 : {
 					inStack : 'stack0',
@@ -1606,7 +1606,7 @@ ex6 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Убедитесь, что показания ИКР по каналу контроля "S" составляют 30 % КРС',
 				action_1 : {
 					inStack : 'stack0',
@@ -1820,7 +1820,7 @@ ex7 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
 				action_1 : {
 					inStack : 'stack0',
