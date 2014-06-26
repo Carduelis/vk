@@ -144,6 +144,9 @@ $('.element').each(function(){
 	        if (element.attr('view2') == "yes") {
 	        	element.children('.overlay').html('<span class="counter">'+ui.value/step+'</span>')
 	        }
+	        if (element.attr('view-special') == "ears") {
+	        	
+	        }
 	      }
 		});
 		clicker.on('click',function(){
