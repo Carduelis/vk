@@ -45,6 +45,7 @@ $('#hidePopUp').on('click', function(){
 });
 
 
+
 $('#container section').on('click', function(){
   $('#hidePopUp').fadeIn();
   var sectionId = $(this).attr('id').substr(4);
