@@ -53,12 +53,6 @@ class Daddy : public QGLWidget
         static QPixmap RotateResourceImage(const QString resource_path,const qint16 degree);
         bool clockwise=true;
         QColor Color;
-
-    signals:
-
-    public slots:
-
-    protected:
         struct Points
         {
             qreal x,y,angle;
@@ -85,6 +79,18 @@ class Daddy : public QGLWidget
             qreal width;
             Points Coordinates;
         };
+
+        struct TargetsStorage
+        {
+            qreal angle;
+            qreal range;
+        };
+
+    signals:
+
+    public slots:
+
+    protected:
         struct Storage
         {
             QHash<quint16,QVector<PointsR> >trash,local_items;
