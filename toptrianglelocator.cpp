@@ -431,3 +431,6 @@ qreal TopTriangleLocator::CalcAlpha(qreal angle)const
     }
     return alpha;
 }
+
+void TopTriangleLocator::GenerationTargets(void){}
+void TopTriangleLocator::DrawTargets(void){}

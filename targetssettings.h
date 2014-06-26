@@ -16,7 +16,7 @@ class TargetsSettings : public QMainWindow
     public:
         explicit TargetsSettings(QWidget *parent=0);
         ~TargetsSettings();
-        quint8 GetTargetsGount();
+        static quint8 GetTargetsGount();
         static quint16 time;
         enum Landing{NO=0u,FIRST=150u,SECOND=330u};
         struct Targets
@@ -34,7 +34,7 @@ class TargetsSettings : public QMainWindow
         void on_SwitchTargetPrev_clicked();
 
     private:
-        quint8 targets_count=0u;
+        static quint8 targets_count;
         Ui::TargetsSettings *ui;
         static QVector<Targets>T;
 };

@@ -361,3 +361,6 @@ qreal RightTriangleLocator::CalcAlpha(qreal angle)const
     }
     return alpha;
 }
+
+void RightTriangleLocator::GenerationTargets(void){}
+void RightTriangleLocator::DrawTargets(void){}

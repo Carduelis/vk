@@ -84,6 +84,12 @@ void MainLocator::ContinueSearch(void)
             S.active_insync_trash[scale][2].pop_front();
         if(!S.active_insync_trash[scale][3].isEmpty())
             S.active_insync_trash[scale][3].pop_front();
+        if(TargetsSettings::GetTargetsGount()!=0)
+        {
+            for(quint8 i=0u;i<TargetsSettings::GetTargetsGount();i++)
+                if(!S.targets[scale][i].isEmpty())
+                    S.targets[scale][i].pop_front();
+        }
     }
     ray_position++;
 }
@@ -904,4 +910,248 @@ qreal MainLocator::CalcAlpha(qreal angle)const
             alpha+=2u*M_PI;
     }
     return alpha;
+}
+
+void MainLocator::GenerationTargets(void)
+{
+    //QHash<quint16,QHash<quint8,QVector<RoundLineR> > >targets;
+    QVector<TargetsSettings::Targets> vt=TargetsSettings::GetTargetsStorage();
+    qreal ar=.0f,d1=.0f,d2=.0f,d=.0f;
+    quint8 z=0u;
+    RoundLineR cache;
+    cache.width=6.5f;
+    //QVector<TargetsSettings::Targets>::const_iterator it=vt.begin();
+    for(QVector<TargetsSettings::Targets>::const_iterator it=vt.begin();it<vt.end();it++,z++)
+    {
+        d1=CalcScaleValue(it->Points[0].range);
+        d2=CalcScaleValue(it->Points[1].range);
+        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[1].angle-it->Points[0].angle));
+        d=d1;
+        if(it->Points[0].angle<=it->Points[1].angle)
+            for(quint16 a=it->Points[0].angle;a<=it->Points[1].angle;a++)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                //speed=qFloor(static_cast<qreal>(it->speed)/250);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+        else
+            for(quint16 a=it->Points[0].angle;a>it->Points[1].angle;a--)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+
+        d1=CalcScaleValue(it->Points[1].range);
+        d2=CalcScaleValue(it->Points[2].range);
+        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[2].angle-it->Points[1].angle));
+        d=d1;
+        if(it->Points[1].angle<=it->Points[2].angle)
+            for(quint16 a=it->Points[1].angle;a<=it->Points[2].angle;a++)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+        else
+            for(quint16 a=it->Points[1].angle;a>it->Points[2].angle;a--)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+
+        d1=CalcScaleValue(it->Points[2].range);
+        d2=CalcScaleValue(it->Points[3].range);
+        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[3].angle-it->Points[2].angle));
+        d=d1;
+        if(it->Points[2].angle<=it->Points[3].angle)
+            for(quint16 a=it->Points[2].angle;a<=it->Points[3].angle;a++)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+        else
+            for(quint16 a=it->Points[2].angle;a>it->Points[3].angle;a--)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+
+        d1=CalcScaleValue(it->Points[3].range);
+        d2=CalcScaleValue(it->Points[4].range);
+        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[4].angle-it->Points[3].angle));
+        d=d1;
+        if(it->Points[3].angle<=it->Points[4].angle)
+            for(quint16 a=it->Points[3].angle;a<=it->Points[4].angle;a++)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+        else
+            for(quint16 a=it->Points[3].angle;a>it->Points[4].angle;a--)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d1<d2 ? d+=ar : d-=ar;
+            }
+
+        if(it->L!=TargetsSettings::Landing::NO)
+        {
+            d1=CalcScaleValue(it->Points[4].range);
+            d2=CalcScaleValue(10.0f);
+            ar=qAbs(static_cast<qreal>(d2-d1)/(it->L-it->Points[4].angle));
+            d=d1;
+            if(it->Points[4].angle<=it->L)
+                for(quint16 a=it->Points[4].angle;a<=it->L;a++)
+                {
+                    cache.Coordinates=new PointsR[TARGET_LENGTH];
+                    quint16 c=0u;
+                    for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                    {
+                        cache.Coordinates[c].angle=i->angle;
+                        cache.Coordinates[c].r=d;
+                        cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                        cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                    }
+                    S.targets[scale][z].append(cache);
+                    d1<d2 ? d+=ar : d-=ar;
+                }
+            else
+                for(quint16 a=it->Points[4].angle;a>it->L;a--)
+                {
+                    cache.Coordinates=new PointsR[TARGET_LENGTH];
+                    quint16 c=0u;
+                    for(Points *i=radians+ROUND_DEGREE-a,*end=radians+ROUND_DEGREE+TARGET_LENGTH-a;i<end;i++,c++)
+                    {
+                        cache.Coordinates[c].angle=i->angle;
+                        cache.Coordinates[c].r=d;
+                        cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                        cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                    }
+                    S.targets[scale][z].append(cache);
+                    d1<d2 ? d+=ar : d-=ar;
+                }
+
+            d1=CalcScaleValue(10.0f);
+            d2=CalcScaleValue(.0f);
+            d=d1;
+            while(d>d2)
+            {
+                cache.Coordinates=new PointsR[TARGET_LENGTH];
+                quint16 c=0u;
+                for(Points *i=radians+ROUND_DEGREE-it->L,*end=radians+ROUND_DEGREE+TARGET_LENGTH-it->L;i<end;i++,c++)
+                {
+                    cache.Coordinates[c].angle=i->angle;
+                    cache.Coordinates[c].r=d;
+                    cache.Coordinates[c].x=cache.Coordinates[c].r*i->x;
+                    cache.Coordinates[c].y=cache.Coordinates[c].r*i->y;
+                }
+                S.targets[scale][z].append(cache);
+                d-=static_cast<qreal>(d1-d2)/10.0f;
+            }
+
+        }
+    }
+}
+
+void MainLocator::DrawTargets(void)
+{
+    //QHash<quint16,QHash<quint8,QVector<RoundLineR> > >targets;
+    if(!TargetsSettings::GetTargetsStorage().isEmpty() && S.targets[scale].isEmpty())
+        GenerationTargets();
+    if(TargetsSettings::GetTargetsStorage().isEmpty())
+        return;
+    qreal alpha,brightness=1.0f;
+    QColor color=Color;
+    for(quint8 z=0u;z<TargetsSettings::GetTargetsGount();z++)
+    {
+        //for(QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();it<S.targets[scale][z].end();it++)
+        QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();
+        {
+            glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
+            glBegin(GL_LINE_STRIP);
+            for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+            {
+                alpha=CalcAlpha(i->angle);
+                if(alpha>.0f)
+                {
+                    alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
+                    alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
+                    color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
+                    qglColor(color);
+                    glVertex2d(i->x,i->y);
+                }
+            }
+            glEnd();
+        }
+    }
 }

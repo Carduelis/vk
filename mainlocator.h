@@ -5,6 +5,7 @@
 #include<QBasicTimer>
 #include<QTimerEvent>
 #include"daddy.h"
+#include"targetssettings.h"
 
 #ifndef LOCATOR_ROTATE_ANGLE
 #define LOCATOR_ROTATE_ANGLE 30.0f
@@ -41,13 +42,11 @@ class MainLocator : public Daddy
         void GenerationLocalItems(void);
         void GenerationMeteo(void);
 
-
     signals:
 
     public slots:
 
     protected:
-
         //void timerEvent(QTimerEvent *event);
         //void mouseDoubleClickEvent(QMouseEvent  *event);
         Azimuth azimuth=Azimuth::A_NO;
@@ -76,6 +75,8 @@ class MainLocator : public Daddy
         void DrawActiveInSyncTrash(void)const;
         void CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity=3.0f,bool ellipse=false,bool clear=true);
         void DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size=8u)const;
+        void GenerationTargets(void);
+        void DrawTargets(void);
         template<typename T>T CalcScaleValue(const T value,Scale scale)const;
         template<typename T>T CalcScaleValue(const T value)const;
     private:

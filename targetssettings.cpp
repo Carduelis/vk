@@ -3,6 +3,7 @@
 #include<QDebug>
 
 quint16 TargetsSettings::time=12u;
+quint8 TargetsSettings::targets_count=0u;
 QVector<TargetsSettings::Targets> TargetsSettings::T;
 TargetsSettings::TargetsSettings(QWidget *parent) : QMainWindow(parent),ui(new Ui::TargetsSettings)
 {
@@ -72,6 +73,7 @@ void TargetsSettings::on_ApplyTargets_clicked()
         T.append(t);
     }
     ui->Targets->setCurrentIndex(old);
+    close();
 }
 
 void TargetsSettings::on_TargetsGoHome_stateChanged(int arg)

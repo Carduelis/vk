@@ -74,6 +74,8 @@ class TopTriangleLocator : public Daddy
         void DrawActiveInSyncTrash(void)const;
         void CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qreal end,qreal offset_x,qreal offset_y,qreal intensity=3.0f,bool ellipse=false,bool clear=true);
         void DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size=8u)const;
+        void GenerationTargets(void);
+        void DrawTargets(void);
 
         template<typename T>T CalcScaleValue(const T value,Scale scale)const;
         template<typename T>T CalcScaleValue(const T value)const;

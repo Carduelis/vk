@@ -98,6 +98,7 @@ void Daddy::paintGL()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     DrawTrash();
+    DrawTargets();
     if(settings["meteo"]["show"].toBool())
         DrawMeteo();
     if(settings["local_items"]["show"].toBool())

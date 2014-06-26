@@ -97,7 +97,7 @@ class Daddy : public QGLWidget
             QHash<quint8,QHash<quint16,QVector<PointsR> > >meteo;
             QHash<quint16,QVector<RoundLine> >range;
             QHash<quint16,QVector<RoundLineR> >active_answer_trash;
-            QHash<quint16,QHash<quint8,QVector<RoundLineR> > >active_insync_trash;
+            QHash<quint16,QHash<quint8,QVector<RoundLineR> > >active_insync_trash,targets;
             QVector<CenterStraightLine>azimuth;
             QVector<RoundLine>active_noise_trash;
         }S;
@@ -140,6 +140,8 @@ class Daddy : public QGLWidget
         virtual void DrawActiveAnswerTrash(void)const=0;
         virtual void GenerationActiveInSyncTrash(void)=0;
         virtual void DrawActiveInSyncTrash(void)const=0;
+        virtual void GenerationTargets(void)=0;
+        virtual void DrawTargets(void)=0;
 
         qint8 GetRandomSign(void)const;
         qreal GetRandomCoord(quint8 accuracy,const bool rsign=false)const;
