@@ -148,7 +148,7 @@ $('.element').each(function(){
 	        }
 	        if (element.attr('view_special') == "ears") {
 	        	$('.element[type="runner"][num="'+num+'"]').attr('status', ui.value/step);
-	        	$('.element[type="runner"][num="'+num+'"]').find('.body').css('left', (ui.value/(step*1.2)+12)+'%');
+	        	$('.element[type="runner"][num="'+num+'"]').find('.body').css('left', ((ui.value/(step*1.2)*10)+12)+'%');
 	        }
 	      }
 		});
