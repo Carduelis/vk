@@ -35,6 +35,8 @@ class TargetsSettings : public QMainWindow
 
         void on_SetTargetsDefault_clicked();
 
+        void on_SaveTargets_clicked();
+
 private:
         static quint8 targets_count;
         Ui::TargetsSettings *ui;

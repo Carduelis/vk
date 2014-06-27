@@ -118,5 +118,76 @@ const QVector<TargetsSettings::Targets> TargetsSettings::GetTargetsStorage()
 
 void TargetsSettings::on_SetTargetsDefault_clicked()
 {
+    quint8 old=ui->Targets->currentIndex();
+    QGroupBox* Gb,*Gbi;
+    for(quint8 widget=0u;widget<GetTargetsGount();widget++)
+    {
+        ui->Targets->setCurrentIndex(widget);
+        ui->Targets->currentWidget()->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetSpeed").arg(widget+1u))->setValue(qrand()%1000);
+        if(qrand()%60>30)
+        {
+            ui->Targets->currentWidget()->findChild<QCheckBox*>(QString("%1%2").arg("TargetGoHome").arg(widget+1u))->setChecked(true);
+            if(qrand()%60<30)
+                ui->Targets->currentWidget()->findChild<QRadioButton*>(QString("%1%2").arg("TargetGoHome330").arg(widget+1u))->setChecked(true);
+        }
 
+        Gb=ui->Targets->currentWidget()->findChild<QGroupBox*>(QString("%1%2").arg("TargetStart").arg(widget+1u));
+        Gb->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthStart").arg(widget+1u))->setValue(qrand()%360);
+        Gb->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeStart").arg(widget+1u))->setValue(qrand()%150);
+
+        Gb=ui->Targets->currentWidget()->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremums").arg(widget+1u));
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumFirst").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumFirst").arg(widget+1u))->setValue(qrand()%360);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumFirst").arg(widget+1u))->setValue(qrand()%150);
+
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumSecond").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumSecond").arg(widget+1u))->setValue(qrand()%360);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumSecond").arg(widget+1u))->setValue(qrand()%150);
+
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumThird").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumThird").arg(widget+1u))->setValue(qrand()%360);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumThird").arg(widget+1u))->setValue(qrand()%150);
+
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumFourth").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumFourth").arg(widget+1u))->setValue(qrand()%360);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumFourth").arg(widget+1u))->setValue(qrand()%150);
+
+    }
+    ui->Targets->setCurrentIndex(old);
+}
+
+void TargetsSettings::on_SaveTargets_clicked()
+{
+    quint8 old=ui->Targets->currentIndex();
+    QGroupBox* Gb,*Gbi;
+    for(quint8 widget=0u;widget<GetTargetsGount();widget++)
+    {
+        ui->Targets->setCurrentIndex(widget);
+        ui->Targets->currentWidget()->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetSpeed").arg(widget+1u))->setValue(0);
+        ui->Targets->currentWidget()->findChild<QRadioButton*>(QString("%1%2").arg("TargetGoHome150").arg(widget+1u))->setChecked(true);
+        ui->Targets->currentWidget()->findChild<QCheckBox*>(QString("%1%2").arg("TargetGoHome").arg(widget+1u))->setChecked(false);
+
+        Gb=ui->Targets->currentWidget()->findChild<QGroupBox*>(QString("%1%2").arg("TargetStart").arg(widget+1u));
+        Gb->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthStart").arg(widget+1u))->setValue(0);
+        Gb->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeStart").arg(widget+1u))->setValue(0);
+
+        Gb=ui->Targets->currentWidget()->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremums").arg(widget+1u));
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumFirst").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumFirst").arg(widget+1u))->setValue(0);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumFirst").arg(widget+1u))->setValue(0);
+
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumSecond").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumSecond").arg(widget+1u))->setValue(0);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumSecond").arg(widget+1u))->setValue(0);
+
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumThird").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumThird").arg(widget+1u))->setValue(0);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumThird").arg(widget+1u))->setValue(0);
+
+        Gbi=Gb->findChild<QGroupBox*>(QString("%1%2").arg("TargetExtremumFourth").arg(widget+1u));
+        Gbi->findChild<QSpinBox*>(QString("%1%2").arg("TargetAzimuthExtremumFourth").arg(widget+1u))->setValue(0);
+        Gbi->findChild<QDoubleSpinBox*>(QString("%1%2").arg("TargetRangeExtremumFourth").arg(widget+1u))->setValue(0);
+
+    }
+    ui->Targets->setCurrentIndex(old);
 }
