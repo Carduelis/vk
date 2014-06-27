@@ -916,7 +916,7 @@ void MainLocator::GenerationTargets(void)
 {
     //QHash<quint16,QHash<quint8,QVector<RoundLineR> > >targets;
     QVector<TargetsSettings::Targets> vt=TargetsSettings::GetTargetsStorage();
-    qreal ar=.0f,d1=.0f,d2=.0f,d=.0f;
+    qreal ar=.0f,d1=.0f,d2=.0f,d=.0f,speed=.0f,angle=1u;
     quint8 z=0u;
     RoundLineR cache;
     cache.width=6.5f;
@@ -925,10 +925,14 @@ void MainLocator::GenerationTargets(void)
     {
         d1=CalcScaleValue(it->Points[0].range);
         d2=CalcScaleValue(it->Points[1].range);
-        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[1].angle-it->Points[0].angle));
         d=d1;
+        speed=qCeil(it->speed/250);
+        if(speed<=0)
+            speed=1;
+        angle*=speed;
+        ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->Points[1].angle-it->Points[0].angle));
         if(it->Points[0].angle<=it->Points[1].angle)
-            for(quint16 a=it->Points[0].angle;a<=it->Points[1].angle;a++)
+            for(quint16 a=it->Points[0].angle;a<=it->Points[1].angle;a+=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -944,7 +948,7 @@ void MainLocator::GenerationTargets(void)
                 d1<d2 ? d+=ar : d-=ar;
             }
         else
-            for(quint16 a=it->Points[0].angle;a>it->Points[1].angle;a--)
+            for(quint16 a=it->Points[0].angle;a>it->Points[1].angle;a-=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -961,10 +965,10 @@ void MainLocator::GenerationTargets(void)
 
         d1=CalcScaleValue(it->Points[1].range);
         d2=CalcScaleValue(it->Points[2].range);
-        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[2].angle-it->Points[1].angle));
+        ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->Points[2].angle-it->Points[1].angle));
         d=d1;
         if(it->Points[1].angle<=it->Points[2].angle)
-            for(quint16 a=it->Points[1].angle;a<=it->Points[2].angle;a++)
+            for(quint16 a=it->Points[1].angle;a<=it->Points[2].angle;a+=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -979,7 +983,7 @@ void MainLocator::GenerationTargets(void)
                 d1<d2 ? d+=ar : d-=ar;
             }
         else
-            for(quint16 a=it->Points[1].angle;a>it->Points[2].angle;a--)
+            for(quint16 a=it->Points[1].angle;a>it->Points[2].angle;a-=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -996,10 +1000,10 @@ void MainLocator::GenerationTargets(void)
 
         d1=CalcScaleValue(it->Points[2].range);
         d2=CalcScaleValue(it->Points[3].range);
-        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[3].angle-it->Points[2].angle));
+        ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->Points[3].angle-it->Points[2].angle));
         d=d1;
         if(it->Points[2].angle<=it->Points[3].angle)
-            for(quint16 a=it->Points[2].angle;a<=it->Points[3].angle;a++)
+            for(quint16 a=it->Points[2].angle;a<=it->Points[3].angle;a+=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -1014,7 +1018,7 @@ void MainLocator::GenerationTargets(void)
                 d1<d2 ? d+=ar : d-=ar;
             }
         else
-            for(quint16 a=it->Points[2].angle;a>it->Points[3].angle;a--)
+            for(quint16 a=it->Points[2].angle;a>it->Points[3].angle;a-=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -1031,10 +1035,10 @@ void MainLocator::GenerationTargets(void)
 
         d1=CalcScaleValue(it->Points[3].range);
         d2=CalcScaleValue(it->Points[4].range);
-        ar=qAbs(static_cast<qreal>(d2-d1)/(it->Points[4].angle-it->Points[3].angle));
+        ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->Points[4].angle-it->Points[3].angle));
         d=d1;
         if(it->Points[3].angle<=it->Points[4].angle)
-            for(quint16 a=it->Points[3].angle;a<=it->Points[4].angle;a++)
+            for(quint16 a=it->Points[3].angle;a<=it->Points[4].angle;a+=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -1049,7 +1053,7 @@ void MainLocator::GenerationTargets(void)
                 d1<d2 ? d+=ar : d-=ar;
             }
         else
-            for(quint16 a=it->Points[3].angle;a>it->Points[4].angle;a--)
+            for(quint16 a=it->Points[3].angle;a>it->Points[4].angle;a-=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
                 quint16 c=0u;
@@ -1068,10 +1072,10 @@ void MainLocator::GenerationTargets(void)
         {
             d1=CalcScaleValue(it->Points[4].range);
             d2=CalcScaleValue(10.0f);
-            ar=qAbs(static_cast<qreal>(d2-d1)/(it->L-it->Points[4].angle));
+            ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->L-it->Points[4].angle));
             d=d1;
             if(it->Points[4].angle<=it->L)
-                for(quint16 a=it->Points[4].angle;a<=it->L;a++)
+                for(quint16 a=it->Points[4].angle;a<=it->L;a+=angle)
                 {
                     cache.Coordinates=new PointsR[TARGET_LENGTH];
                     quint16 c=0u;
@@ -1086,7 +1090,7 @@ void MainLocator::GenerationTargets(void)
                     d1<d2 ? d+=ar : d-=ar;
                 }
             else
-                for(quint16 a=it->Points[4].angle;a>it->L;a--)
+                for(quint16 a=it->Points[4].angle;a>it->L;a-=angle)
                 {
                     cache.Coordinates=new PointsR[TARGET_LENGTH];
                     quint16 c=0u;
@@ -1130,7 +1134,7 @@ void MainLocator::DrawTargets(void)
         GenerationTargets();
     if(TargetsSettings::GetTargetsStorage().isEmpty())
         return;
-    qreal alpha,brightness=1.0f,angle=.0f;
+    qreal alpha,brightness=1.0f;
     QColor color=Color;
     for(quint8 z=0u;z<TargetsSettings::GetTargetsGount();z++)
     {
@@ -1141,7 +1145,7 @@ void MainLocator::DrawTargets(void)
             glBegin(GL_LINES);
             for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
             {
-                alpha=CalcAlpha(angle);
+                alpha=CalcAlpha(i->angle);
                 if(alpha>.0f)
                 {
                     alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
