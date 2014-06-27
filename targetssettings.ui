@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QWidget" name="layoutWidget">
@@ -2035,6 +2035,1358 @@
                </item>
                <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                 <widget class="QDoubleSpinBox" name="TargetRangeExtremumFourth6">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <widget class="QWidget" name="layoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>436</width>
+        <height>382</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="LayoutTarget7">
+       <item row="0" column="0" alignment="Qt::AlignLeft">
+        <widget class="QLabel" name="LabelTarget7">
+         <property name="text">
+          <string>Цель №7</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="Line7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QGridLayout" name="LayoutTrajectoryStart7">
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="TargetStart7">
+           <property name="title">
+            <string>Начало траектории</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="LayoutAzimuthRangeStart7">
+              <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+               <widget class="QLabel" name="LabelTargetAzimuthStart7">
+                <property name="text">
+                 <string>Азимут:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QSpinBox" name="TargetAzimuthStart7">
+                <property name="suffix">
+                 <string>°</string>
+                </property>
+                <property name="maximum">
+                 <number>360</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QDoubleSpinBox" name="TargetRangeStart7">
+                <property name="suffix">
+                 <string> км.</string>
+                </property>
+                <property name="maximum">
+                 <double>150.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" alignment="Qt::AlignRight">
+               <widget class="QLabel" name="LabelTargetRangeStart7">
+                <property name="text">
+                 <string>Дальность:</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="LayoutOptions7">
+           <item row="1" column="0">
+            <layout class="QGridLayout" name="LayoutSide7">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome1507">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>150°</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome3307">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>330°</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <widget class="QCheckBox" name="TargetGoHome7">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>На посадку</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <layout class="QGridLayout" name="LayoutSpeed7">
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QDoubleSpinBox" name="TargetSpeed7">
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="suffix">
+                <string> км/ч</string>
+               </property>
+               <property name="maximum">
+                <double>1200.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelSpeedTarget7">
+               <property name="text">
+                <string>Скорость:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="TargetExtremums7">
+         <property name="title">
+          <string>Точки перегиба</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="TargetExtremumFirst7">
+            <property name="title">
+             <string>Первая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_17">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFirst7">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFirst7">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFirst7">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFirst7">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFirst7">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="TargetExtremumSecond7">
+            <property name="title">
+             <string>Вторая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_15">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumSecond7">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumSecond7">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumSecond7">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumSecond7">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumSecond7">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGroupBox" name="TargetExtremumThird7">
+            <property name="title">
+             <string>Третья точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_18">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumThird7">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumThird7">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumThird7">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumThird7">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumThird7">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QGroupBox" name="TargetExtremumFourth7">
+            <property name="title">
+             <string>Четвёртая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_19">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFourth7">
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFourth7">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFourth7">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFourth7">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFourth7">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_8">
+     <widget class="QWidget" name="layoutWidget_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>436</width>
+        <height>382</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="LayoutTarget8">
+       <item row="0" column="0" alignment="Qt::AlignLeft">
+        <widget class="QLabel" name="LabelTarget8">
+         <property name="text">
+          <string>Цель №8</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="Line8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QGridLayout" name="LayoutTrajectoryStart8">
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="TargetStart8">
+           <property name="title">
+            <string>Начало траектории</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_11">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="LayoutAzimuthRangeStart8">
+              <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+               <widget class="QLabel" name="LabelTargetAzimuthStart8">
+                <property name="text">
+                 <string>Азимут:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QSpinBox" name="TargetAzimuthStart8">
+                <property name="suffix">
+                 <string>°</string>
+                </property>
+                <property name="maximum">
+                 <number>360</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QDoubleSpinBox" name="TargetRangeStart8">
+                <property name="suffix">
+                 <string> км.</string>
+                </property>
+                <property name="maximum">
+                 <double>150.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" alignment="Qt::AlignRight">
+               <widget class="QLabel" name="LabelTargetRangeStart8">
+                <property name="text">
+                 <string>Дальность:</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="LayoutOptions8">
+           <item row="1" column="0">
+            <layout class="QGridLayout" name="LayoutSide8">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome1508">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>150°</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome3308">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>330°</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <widget class="QCheckBox" name="TargetGoHome8">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>На посадку</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <layout class="QGridLayout" name="LayoutSpeed8">
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QDoubleSpinBox" name="TargetSpeed8">
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="suffix">
+                <string> км/ч</string>
+               </property>
+               <property name="maximum">
+                <double>1200.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelSpeedTarget8">
+               <property name="text">
+                <string>Скорость:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="TargetExtremums8">
+         <property name="title">
+          <string>Точки перегиба</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_20">
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="TargetExtremumFirst8">
+            <property name="title">
+             <string>Первая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_46">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFirst8">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFirst8">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFirst8">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFirst8">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFirst8">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="TargetExtremumSecond8">
+            <property name="title">
+             <string>Вторая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_47">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumSecond8">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumSecond8">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumSecond8">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumSecond8">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumSecond8">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGroupBox" name="TargetExtremumThird8">
+            <property name="title">
+             <string>Третья точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_48">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumThird8">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumThird8">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumThird8">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumThird8">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumThird8">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QGroupBox" name="TargetExtremumFourth8">
+            <property name="title">
+             <string>Четвёртая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_49">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFourth8">
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFourth8">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFourth8">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFourth8">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFourth8">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_9">
+     <widget class="QWidget" name="layoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>436</width>
+        <height>382</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="LayoutTarget9">
+       <item row="0" column="0" alignment="Qt::AlignLeft">
+        <widget class="QLabel" name="LabelTarget9">
+         <property name="text">
+          <string>Цель №9</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="Line9">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QGridLayout" name="LayoutTrajectoryStart9">
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="TargetStart9">
+           <property name="title">
+            <string>Начало траектории</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_50">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="LayoutAzimuthRangeStart9">
+              <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+               <widget class="QLabel" name="LabelTargetAzimuthStart9">
+                <property name="text">
+                 <string>Азимут:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QSpinBox" name="TargetAzimuthStart9">
+                <property name="suffix">
+                 <string>°</string>
+                </property>
+                <property name="maximum">
+                 <number>360</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QDoubleSpinBox" name="TargetRangeStart9">
+                <property name="suffix">
+                 <string> км.</string>
+                </property>
+                <property name="maximum">
+                 <double>150.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" alignment="Qt::AlignRight">
+               <widget class="QLabel" name="LabelTargetRangeStart9">
+                <property name="text">
+                 <string>Дальность:</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="LayoutOptions9">
+           <item row="1" column="0">
+            <layout class="QGridLayout" name="LayoutSide9">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome1509">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>150°</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome3309">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>330°</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <widget class="QCheckBox" name="TargetGoHome9">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>На посадку</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <layout class="QGridLayout" name="LayoutSpeed9">
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QDoubleSpinBox" name="TargetSpeed9">
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="suffix">
+                <string> км/ч</string>
+               </property>
+               <property name="maximum">
+                <double>1200.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelSpeedTarget9">
+               <property name="text">
+                <string>Скорость:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="TargetExtremums9">
+         <property name="title">
+          <string>Точки перегиба</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_51">
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="TargetExtremumFirst9">
+            <property name="title">
+             <string>Первая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_52">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFirst9">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFirst9">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFirst9">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFirst9">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFirst9">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="TargetExtremumSecond9">
+            <property name="title">
+             <string>Вторая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_53">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumSecond9">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumSecond9">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumSecond9">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumSecond9">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumSecond9">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGroupBox" name="TargetExtremumThird9">
+            <property name="title">
+             <string>Третья точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_54">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumThird9">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumThird9">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumThird9">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumThird9">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumThird9">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QGroupBox" name="TargetExtremumFourth9">
+            <property name="title">
+             <string>Четвёртая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_55">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFourth9">
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFourth9">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFourth9">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFourth9">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFourth9">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_10">
+     <widget class="QWidget" name="layoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>436</width>
+        <height>382</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="LayoutTarget10">
+       <item row="0" column="0" alignment="Qt::AlignLeft">
+        <widget class="QLabel" name="LabelTarget10">
+         <property name="text">
+          <string>Цель №10</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="Line10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QGridLayout" name="LayoutTrajectoryStart10">
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="TargetStart10">
+           <property name="title">
+            <string>Начало траектории</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_56">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="LayoutAzimuthRangeStart10">
+              <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+               <widget class="QLabel" name="LabelTargetAzimuthStart10">
+                <property name="text">
+                 <string>Азимут:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QSpinBox" name="TargetAzimuthStart10">
+                <property name="suffix">
+                 <string>°</string>
+                </property>
+                <property name="maximum">
+                 <number>360</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+               <widget class="QDoubleSpinBox" name="TargetRangeStart10">
+                <property name="suffix">
+                 <string> км.</string>
+                </property>
+                <property name="maximum">
+                 <double>150.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" alignment="Qt::AlignRight">
+               <widget class="QLabel" name="LabelTargetRangeStart10">
+                <property name="text">
+                 <string>Дальность:</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QGridLayout" name="LayoutOptions10">
+           <item row="1" column="0">
+            <layout class="QGridLayout" name="LayoutSide10">
+             <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome15010">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>150°</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QRadioButton" name="TargetGoHome33010">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>330°</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+            <widget class="QCheckBox" name="TargetGoHome10">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>На посадку</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <layout class="QGridLayout" name="LayoutSpeed10">
+             <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QDoubleSpinBox" name="TargetSpeed10">
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="suffix">
+                <string> км/ч</string>
+               </property>
+               <property name="maximum">
+                <double>1200.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+              <widget class="QLabel" name="LabelSpeedTarget10">
+               <property name="text">
+                <string>Скорость:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="TargetExtremums10">
+         <property name="title">
+          <string>Точки перегиба</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_57">
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="TargetExtremumFirst10">
+            <property name="title">
+             <string>Первая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_58">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFirst10">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFirst10">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFirst10">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFirst10">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFirst10">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="TargetExtremumSecond10">
+            <property name="title">
+             <string>Вторая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_59">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumSecond10">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumSecond10">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumSecond10">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumSecond10">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumSecond10">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGroupBox" name="TargetExtremumThird10">
+            <property name="title">
+             <string>Третья точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_60">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumThird10">
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumThird10">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumThird10">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumThird10">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumThird10">
+                 <property name="suffix">
+                  <string> км.</string>
+                 </property>
+                 <property name="maximum">
+                  <double>150.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QGroupBox" name="TargetExtremumFourth10">
+            <property name="title">
+             <string>Четвёртая точка</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_61">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="LayoutExtremumFourth10">
+               <item row="1" column="0">
+                <widget class="QLabel" name="LabelTargetRangeExtremumFourth10">
+                 <property name="text">
+                  <string>Дальность:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QSpinBox" name="TargetAzimuthExtremumFourth10">
+                 <property name="suffix">
+                  <string>°</string>
+                 </property>
+                 <property name="maximum">
+                  <number>360</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+                <widget class="QLabel" name="LabelTargetAzimuthExtremumFourth10">
+                 <property name="text">
+                  <string>Азимут:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                <widget class="QDoubleSpinBox" name="TargetRangeExtremumFourth10">
                  <property name="suffix">
                   <string> км.</string>
                  </property>

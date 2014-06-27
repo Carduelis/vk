@@ -323,6 +323,18 @@ void IndicatorDRL::on_SelectWorkVariant_released()
     {
         degree=0u;
         ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_PASS);
+        if(!ui->BoxTrashSettings->isEnabled())
+            ui->BoxTrashSettings->setEnabled(true);
+        if(!ui->BoxActiveTrashSettings->isEnabled())
+            ui->BoxActiveTrashSettings->setEnabled(true);
+        if(!ui->BoxActiveNoiseTrash->isEnabled())
+            ui->BoxActiveNoiseTrash->setEnabled(true);
+
+        ui->CheckShowMeteo->stateChanged(ui->CheckShowMeteo->checkState());
+        ui->CheckShowLocalItems->stateChanged(ui->CheckShowLocalItems->checkState());
+        ui->CheckActiveNoiseShow->stateChanged(ui->CheckActiveNoiseShow->checkState());
+        ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
+        ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
     }
     else if(wm==MainLocator::WorkMode::WM_PASS)
     {
@@ -330,11 +342,31 @@ void IndicatorDRL::on_SelectWorkVariant_released()
         {
             degree=-60;
             ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_AKT);
+            if(!ui->BoxActiveTrashSettings->isEnabled())
+                ui->BoxActiveTrashSettings->setEnabled(true);
+            if(!ui->BoxActiveTrashSettings->isEnabled())
+                ui->BoxActiveTrashSettings->setEnabled(true);
+            if(ui->BoxActiveNoiseTrash->isEnabled())
+                ui->BoxActiveNoiseTrash->setEnabled(false);
+            if(ui->BoxTrashSettings->isEnabled())
+                ui->BoxTrashSettings->setEnabled(false);
+            ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
+            ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
         }
         else
         {
             degree=60u;
             ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_SDC);
+            if(!ui->BoxActiveTrashSettings->isEnabled())
+                ui->BoxActiveTrashSettings->setEnabled(true);
+            if(!ui->BoxActiveTrashSettings->isEnabled())
+                ui->BoxActiveTrashSettings->setEnabled(true);
+            if(ui->BoxActiveNoiseTrash->isEnabled())
+                ui->BoxActiveNoiseTrash->setEnabled(false);
+            if(ui->BoxTrashSettings->isEnabled())
+                ui->BoxTrashSettings->setEnabled(false);
+            ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
+            ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
         }
         way=!way;
     }
@@ -342,6 +374,17 @@ void IndicatorDRL::on_SelectWorkVariant_released()
     {
         degree=0u;
         ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_PASS);
+        if(!ui->BoxTrashSettings->isEnabled())
+            ui->BoxTrashSettings->setEnabled(true);
+        if(!ui->BoxActiveTrashSettings->isEnabled())
+            ui->BoxActiveTrashSettings->setEnabled(true);
+        if(!ui->BoxActiveNoiseTrash->isEnabled())
+            ui->BoxActiveNoiseTrash->setEnabled(true);
+        ui->CheckShowMeteo->stateChanged(ui->CheckShowMeteo->checkState());
+        ui->CheckShowLocalItems->stateChanged(ui->CheckShowLocalItems->checkState());
+        ui->CheckActiveNoiseShow->stateChanged(ui->CheckActiveNoiseShow->checkState());
+        ui->CheckActiveAnswerShow->stateChanged(ui->CheckActiveAnswerShow->checkState());
+        ui->CheckActiveInSyncShow->stateChanged(ui->CheckActiveInSyncShow->checkState());
     }
     ui->SelectWorkVariant->setIcon(QIcon(degree==0u ? QPixmap(":/buttons/knob") : Daddy::RotateResourceImage(":/buttons/knob",degree)));
     ui->SelectWorkVariant->setCursor(Qt::OpenHandCursor);

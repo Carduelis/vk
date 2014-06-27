@@ -84,12 +84,13 @@ void MainLocator::ContinueSearch(void)
             S.active_insync_trash[scale][2].pop_front();
         if(!S.active_insync_trash[scale][3].isEmpty())
             S.active_insync_trash[scale][3].pop_front();
-        if(TargetsSettings::GetTargetsGount()!=0)
+        for(quint8 i=0u;i<TargetsSettings::GetTargetsGount();i++)
         {
-            for(quint8 i=0u;i<TargetsSettings::GetTargetsGount();i++)
+            if(!S.targets[scale].isEmpty())
                 if(!S.targets[scale][i].isEmpty())
                     S.targets[scale][i].pop_front();
         }
+        //TargetsActions();
     }
     ray_position++;
 }
@@ -324,6 +325,9 @@ void MainLocator::CreateEllipseTrashArea(QVector<PointsR>&storage,qreal begin,qr
 
 void MainLocator::DrawEllipseTrashArea(QVector<PointsR>storage,quint8 size)const
 {
+    WorkMode wm=GetCurrentWorkMode();
+    if(wm!=WorkMode::WM_PASS)
+        return;
     glPointSize(size*settings["system"]["focus"].toDouble());
     glEnable(GL_ALPHA_TEST);
     qreal alpha;
@@ -650,6 +654,9 @@ void MainLocator::GenerationActiveNoiseTrash(void)
 
 void MainLocator::DrawActiveNoiseTrash(void)const
 {
+    WorkMode wm=GetCurrentWorkMode();
+    if(wm==WorkMode::WM_SDC)
+        return;
     qreal alpha;
     QColor color=Color;
     for(QVector<RoundLine>::const_iterator it=S.active_noise_trash.begin();it<S.active_noise_trash.end();it++)
@@ -715,6 +722,10 @@ void MainLocator::GenerationActiveAnswerTrash(void)
 
 void MainLocator::DrawActiveAnswerTrash(void)const
 {
+    WorkMode wm=GetCurrentWorkMode();
+    if(wm==WorkMode::WM_SDC)
+        return;
+
     qreal alpha,brightness;
     brightness=1.0f;
     QColor color=Color;
@@ -814,6 +825,9 @@ void MainLocator::GenerationActiveInSyncTrash(void)
 
 void MainLocator::DrawActiveInSyncTrash(void)const
 {
+    WorkMode wm=GetCurrentWorkMode();
+    if(wm==WorkMode::WM_PASS)
+        return;
     qreal alpha,brightness;
     brightness=1.0f;
     QColor color=Color;
@@ -926,10 +940,10 @@ void MainLocator::GenerationTargets(void)
         d1=CalcScaleValue(it->Points[0].range);
         d2=CalcScaleValue(it->Points[1].range);
         d=d1;
-        speed=qCeil(it->speed/250);
-        if(speed<=0)
-            speed=1;
+        speed=qCeil(it->speed/350);
         angle*=speed;
+        if(angle<=0)
+            angle=1;
         ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->Points[1].angle-it->Points[0].angle));
         if(it->Points[0].angle<=it->Points[1].angle)
             for(quint16 a=it->Points[0].angle;a<=it->Points[1].angle;a+=angle)
@@ -948,6 +962,7 @@ void MainLocator::GenerationTargets(void)
                 d1<d2 ? d+=ar : d-=ar;
             }
         else
+        {
             for(quint16 a=it->Points[0].angle;a>it->Points[1].angle;a-=angle)
             {
                 cache.Coordinates=new PointsR[TARGET_LENGTH];
@@ -962,6 +977,7 @@ void MainLocator::GenerationTargets(void)
                 S.targets[scale][z].append(cache);
                 d1<d2 ? d+=ar : d-=ar;
             }
+        }
 
         d1=CalcScaleValue(it->Points[1].range);
         d2=CalcScaleValue(it->Points[2].range);
@@ -1138,7 +1154,7 @@ void MainLocator::DrawTargets(void)
     QColor color=Color;
     for(quint8 z=0u;z<TargetsSettings::GetTargetsGount();z++)
     {
-        //for(QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();it<S.targets[scale][z].end();it++)
+      //  for(QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();it<S.targets[scale][z].end();it++)
         QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();
         {
             glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);

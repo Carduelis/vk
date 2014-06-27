@@ -1,4 +1,5 @@
 #include"daddy.h"
+#include"targetssettings.h"
 #include<QTime>
 #include<QDebug>
 
@@ -244,4 +245,32 @@ qint8 Daddy::GetRandomSign(void)const
     if(rand()%2u)
         return 1u;
     return-1;
+}
+
+void Daddy::TargetsActions()
+{
+    if(TargetsSettings::GetTargetsGount()!=0)
+    {
+        for(quint8 i=0u;i<TargetsSettings::GetTargetsGount();i++)
+        {
+            if(!S.targets[20].isEmpty())
+                if(!S.targets[20][i].isEmpty())
+                    S.targets[20][i].pop_front();
+            if(!S.targets[30].isEmpty())
+                if(!S.targets[30][i].isEmpty())
+                    S.targets[30][i].pop_front();
+            if(!S.targets[45].isEmpty())
+                if(!S.targets[45][i].isEmpty())
+                    S.targets[45][i].pop_front();
+            if(!S.targets[60].isEmpty())
+                if(!S.targets[60][i].isEmpty())
+                    S.targets[60][i].pop_front();
+            if(!S.targets[90].isEmpty())
+                if(!S.targets[90][i].isEmpty())
+                    S.targets[90][i].pop_front();
+            if(!S.targets[150].isEmpty())
+                if(!S.targets[150][i].isEmpty())
+                    S.targets[150][i].pop_front();
+        }
+    }
 }

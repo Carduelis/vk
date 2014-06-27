@@ -2,6 +2,7 @@
 #define RIGHTTRIANGLELOCATOR_H
 
 #include"daddy.h"
+#include"targetssettings.h"
 
 #ifndef TRIANGLE_ANGLE
 #define TRIANGLE_ANGLE  8

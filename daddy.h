@@ -35,13 +35,6 @@
 #define GL_MULTISAMPLE  0x809D
 #endif
 
-//Макрос стырен из Chromium, т.к. это пока лучшее, что можно придумать для подсчёта элементов массива
-#ifndef ArraySize
-template<typename T,size_t N>
-char(&ArraySizeHelper(T(&array)[N]))[N];
-#define ArraySize(array)(sizeof(ArraySizeHelper(array)))
-#endif
-
 class Daddy : public QGLWidget
 {
     Q_OBJECT
@@ -131,6 +124,7 @@ class Daddy : public QGLWidget
         void GenerationRay(void);
         void GenerationRay(quint16 angle);
         void DrawRay(void)const;
+        void TargetsActions();
 
         virtual void GenerationTrash(void)=0;
         virtual void DrawTrash(void)const=0;

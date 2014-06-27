@@ -535,6 +535,9 @@ void RSPView::on_ChangeMainTrashAKT_sliderReleased()
     ui->ChangeMainTrashAKT->setDisabled(true);
     ui->ChangeMainTrashAKT->setCursor(Qt::OpenHandCursor);
     ui->ChangeMainTrashAKTButton->setCursor(Qt::OpenHandCursor);
+    MainLocator::WorkMode wm=ui->RenderMainLocator->GetCurrentWorkMode();
+    if(wm!=MainLocator::WorkMode::WM_AKT)
+        return;
     ui->RenderMainLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeMainTrashAKT->value()));
 }
 
@@ -542,6 +545,7 @@ void RSPView::on_ChangeMainTrashAKT_valueChanged(int value)
 {
     if(value<0)
         return;
+    qint8 degree=0u;
     ui->ChangeMainTrashAKTButton->setIcon(QIcon(value%100u==0 || value==0u ? QPixmap(":/buttons/reo_knob.png") : Daddy::RotateResourceImage(":/buttons/reo_knob.png",value*360/ui->ChangeMainTrashAKT->maximum())));
 }
 
@@ -563,6 +567,9 @@ void RSPView::on_ChangeMainTrashPASS_sliderReleased()
     ui->ChangeMainTrashPASS->setDisabled(true);
     ui->ChangeMainTrashPASS->setCursor(Qt::OpenHandCursor);
     ui->ChangeMainTrashPASSButton->setCursor(Qt::OpenHandCursor);
+    MainLocator::WorkMode wm=ui->RenderMainLocator->GetCurrentWorkMode();
+    if(wm==MainLocator::WorkMode::WM_AKT)
+        return;
     ui->RenderMainLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeMainTrashPASS->value()));
 }
 
@@ -851,6 +858,10 @@ void RSPView::on_ChangeTopTrashSDC_sliderReleased()
     ui->ChangeTopTrashSDC->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashSDCButton->setCursor(Qt::OpenHandCursor);
 
+    TopTriangleLocator::WorkMode wm=ui->RenderTopTriangleLocator->GetCurrentWorkMode();
+    if(wm!=TopTriangleLocator::WorkMode::WM_SDC)
+        return;
+
     ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashSDC->value()));
     ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashSDC->value()));
 }
@@ -880,6 +891,9 @@ void RSPView::on_ChangeTopTrashPASS_sliderReleased()
     ui->ChangeTopTrashPASS->setDisabled(true);
     ui->ChangeTopTrashPASS->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashPASSButton->setCursor(Qt::OpenHandCursor);
+    TopTriangleLocator::WorkMode wm=ui->RenderTopTriangleLocator->GetCurrentWorkMode();
+    if(wm!=TopTriangleLocator::WorkMode::WM_PASS)
+        return;
     ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashPASS->value()));
     ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashPASS->value()));
 }
@@ -909,6 +923,9 @@ void RSPView::on_ChangeTopTrashAKT_sliderReleased()
     ui->ChangeTopTrashAKT->setDisabled(true);
     ui->ChangeTopTrashAKT->setCursor(Qt::OpenHandCursor);
     ui->ChangeTopTrashAKTButton->setCursor(Qt::OpenHandCursor);
+    TopTriangleLocator::WorkMode wm=ui->RenderTopTriangleLocator->GetCurrentWorkMode();
+    if(wm!=TopTriangleLocator::WorkMode::WM_AKT)
+        return;
     ui->RenderTopTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashAKT->value()));
     ui->RenderRightTriangleLocator->SetSettings("trash","intensity",static_cast<quint8>(ui->ChangeTopTrashAKT->value()));
 }
@@ -985,6 +1002,7 @@ void RSPView::on_SelectTopMode_released()
     if(wm==TopTriangleLocator::WorkMode::WM_PASS && wmr==RightTriangleLocator::WorkMode::WM_PASS)
     {
         degree=0u;
+        ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_SDC);
         ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
         ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
     }
@@ -993,12 +1011,14 @@ void RSPView::on_SelectTopMode_released()
         if(way)
         {
             degree=-60;
+            ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_PASS);
             ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_PASS);
             ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_PASS);
         }
         else
         {
             degree=60u;
+            ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_AKT);
             ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_AKT);
             ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_AKT);
         }
@@ -1007,6 +1027,7 @@ void RSPView::on_SelectTopMode_released()
     else if(wm==TopTriangleLocator::WorkMode::WM_AKT && wmr==RightTriangleLocator::WorkMode::WM_AKT)
     {
         degree=0u;
+        ui->RenderMainLocator->SetCurrentWorkMode(MainLocator::WorkMode::WM_SDC);
         ui->RenderTopTriangleLocator->SetCurrentWorkMode(TopTriangleLocator::WorkMode::WM_COMMON);
         ui->RenderRightTriangleLocator->SetCurrentWorkMode(RightTriangleLocator::WorkMode::WM_COMMON);
     }
