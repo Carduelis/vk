@@ -24,7 +24,11 @@
 #endif
 
 #ifndef TARGET_LENGTH
-#define TARGET_LENGTH 10
+#define TARGET_LENGTH 1u
+#endif
+
+#ifndef TRASH_ACTIVE_LENGTH
+#define TRASH_ACTIVE_LENGTH 10u
 #endif
 
 #ifndef GL_MULTISAMPLE

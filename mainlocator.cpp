@@ -698,10 +698,10 @@ void MainLocator::GenerationActiveAnswerTrash(void)
     while(r<=1.0f)
     {
         cache.width=6.5f;
-        cache.Coordinates=new PointsR[TARGET_LENGTH];
+        cache.Coordinates=new PointsR[TRASH_ACTIVE_LENGTH];
         c=0u;
 
-        for(Points *i=radians+ROUND_DEGREE-angle,*end=radians+ROUND_DEGREE-angle+TARGET_LENGTH;i<end;i++,c++)
+        for(Points *i=radians+ROUND_DEGREE-angle,*end=radians+ROUND_DEGREE-angle+TRASH_ACTIVE_LENGTH;i<end;i++,c++)
         {
             cache.Coordinates[c].angle=i->angle;
             cache.Coordinates[c].r=r;
@@ -722,7 +722,7 @@ void MainLocator::DrawActiveAnswerTrash(void)const
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
         glBegin(GL_LINE_STRIP);
-        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TRASH_ACTIVE_LENGTH;i<end;i++)
         {
             alpha=CalcAlpha(i->angle);
             if(alpha>.0f)
@@ -754,10 +754,10 @@ void MainLocator::GenerationActiveInSyncTrash(void)
     while(r<=1.0f)
     {
         cache.width=6.5f;
-        cache.Coordinates=new PointsR[TARGET_LENGTH];
+        cache.Coordinates=new PointsR[TRASH_ACTIVE_LENGTH];
         c=0u;
 
-        for(Points *i=radians+ROUND_DEGREE-angle-a,*end=radians+ROUND_DEGREE-angle+TARGET_LENGTH-a;i<end;i++,c++)
+        for(Points *i=radians+ROUND_DEGREE-angle-a,*end=radians+ROUND_DEGREE-angle+TRASH_ACTIVE_LENGTH-a;i<end;i++,c++)
         {
             cache.Coordinates[c].angle=i->angle;
             cache.Coordinates[c].r=r;
@@ -767,9 +767,9 @@ void MainLocator::GenerationActiveInSyncTrash(void)
         S.active_insync_trash[scale][0].append(cache);
 
         cache2.width=6.5f;
-        cache2.Coordinates=new PointsR[TARGET_LENGTH];
+        cache2.Coordinates=new PointsR[TRASH_ACTIVE_LENGTH];
         c=0u;
-        for(Points *i=radians+ROUND_DEGREE-(d+angle)-a,*end=radians+ROUND_DEGREE-(d+angle)+TARGET_LENGTH-a;i<end;i++,c++)
+        for(Points *i=radians+ROUND_DEGREE-(d+angle)-a,*end=radians+ROUND_DEGREE-(d+angle)+TRASH_ACTIVE_LENGTH-a;i<end;i++,c++)
         {
             cache2.Coordinates[c].angle=i->angle;
             cache2.Coordinates[c].r=r;
@@ -779,9 +779,9 @@ void MainLocator::GenerationActiveInSyncTrash(void)
         S.active_insync_trash[scale][1].append(cache2);
 
         cache3.width=6.5f;
-        cache3.Coordinates=new PointsR[TARGET_LENGTH];
+        cache3.Coordinates=new PointsR[TRASH_ACTIVE_LENGTH];
         c=0u;
-        for(Points *i=radians+ROUND_DEGREE-(2u*d+angle)-a,*end=radians+ROUND_DEGREE-(2u*d+angle)+TARGET_LENGTH-a;i<end;i++,c++)
+        for(Points *i=radians+ROUND_DEGREE-(2u*d+angle)-a,*end=radians+ROUND_DEGREE-(2u*d+angle)+TRASH_ACTIVE_LENGTH-a;i<end;i++,c++)
         {
             cache3.Coordinates[c].angle=i->angle;
             cache3.Coordinates[c].r=r;
@@ -792,9 +792,9 @@ void MainLocator::GenerationActiveInSyncTrash(void)
         S.active_insync_trash[scale][2].append(cache3);
 
         cache4.width=6.5f;
-        cache4.Coordinates=new PointsR[TARGET_LENGTH];
+        cache4.Coordinates=new PointsR[TRASH_ACTIVE_LENGTH];
         c=0u;
-        for(Points *i=radians+ROUND_DEGREE-(3u*d+angle)-a,*end=radians+ROUND_DEGREE-(3u*d+angle)+TARGET_LENGTH-a;i<end;i++,c++)
+        for(Points *i=radians+ROUND_DEGREE-(3u*d+angle)-a,*end=radians+ROUND_DEGREE-(3u*d+angle)+TRASH_ACTIVE_LENGTH-a;i<end;i++,c++)
         {
             cache4.Coordinates[c].angle=i->angle;
             cache4.Coordinates[c].r=r;
@@ -822,7 +822,7 @@ void MainLocator::DrawActiveInSyncTrash(void)const
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
         glBegin(GL_LINE_STRIP);
-        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TRASH_ACTIVE_LENGTH;i<end;i++)
         {
             alpha=CalcAlpha(i->angle);
             if(alpha>.0f)
@@ -842,7 +842,7 @@ void MainLocator::DrawActiveInSyncTrash(void)const
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
         glBegin(GL_LINE_STRIP);
-        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TRASH_ACTIVE_LENGTH;i<end;i++)
         {
             alpha=CalcAlpha(i->angle);
             if(alpha>.0f)
@@ -862,7 +862,7 @@ void MainLocator::DrawActiveInSyncTrash(void)const
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
         glBegin(GL_LINE_STRIP);
-        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TRASH_ACTIVE_LENGTH;i<end;i++)
         {
             alpha=CalcAlpha(i->angle);
             if(alpha>.0f)
@@ -882,7 +882,7 @@ void MainLocator::DrawActiveInSyncTrash(void)const
     {
         glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
         glBegin(GL_LINE_STRIP);
-        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
+        for(PointsR *i=it->Coordinates,*end=it->Coordinates+TRASH_ACTIVE_LENGTH;i<end;i++)
         {
             alpha=CalcAlpha(i->angle);
             if(alpha>.0f)
@@ -1130,7 +1130,7 @@ void MainLocator::DrawTargets(void)
         GenerationTargets();
     if(TargetsSettings::GetTargetsStorage().isEmpty())
         return;
-    qreal alpha,brightness=1.0f;
+    qreal alpha,brightness=1.0f,angle=.0f;
     QColor color=Color;
     for(quint8 z=0u;z<TargetsSettings::GetTargetsGount();z++)
     {
@@ -1138,17 +1138,36 @@ void MainLocator::DrawTargets(void)
         QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();
         {
             glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
-            glBegin(GL_LINE_STRIP);
+            glBegin(GL_LINES);
             for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
             {
-                alpha=CalcAlpha(i->angle);
+                alpha=CalcAlpha(angle);
                 if(alpha>.0f)
                 {
                     alpha=alpha<settings["system"]["lightning"].toDouble() ? 1.0f : settings["system"]["lightning"].toDouble()/alpha;
                     alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
                     color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
                     qglColor(color);
-                    glVertex2d(i->x,i->y);
+                    if(i->y>0 && i->x>0 || i->x<0 && i->y<0)
+                    {
+                        glVertex2f(i->x-0.02,i->y+0.02);
+                        glVertex2f(i->x+0.02,i->y-0.02);
+                    }
+                    else if(i->y==0)
+                    {
+                        glVertex2f(i->x,i->y-0.02);
+                        glVertex2f(i->x,i->y+0.02);
+                    }
+                    else if(i->x==0)
+                    {
+                        glVertex2f(i->x-0.02,i->y);
+                        glVertex2f(i->x+0.02,i->y);
+                    }
+                    else
+                    {
+                        glVertex2f(i->x-0.02,i->y-0.02);
+                        glVertex2f(i->x+0.02,i->y+0.02);
+                    }
                 }
             }
             glEnd();
