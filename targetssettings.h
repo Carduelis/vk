@@ -33,7 +33,9 @@ class TargetsSettings : public QMainWindow
         void on_SwitchTargetNext_clicked();
         void on_SwitchTargetPrev_clicked();
 
-    private:
+        void on_SetTargetsDefault_clicked();
+
+private:
         static quint8 targets_count;
         Ui::TargetsSettings *ui;
         static QVector<Targets>T;

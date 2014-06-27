@@ -8,6 +8,7 @@ QVector<TargetsSettings::Targets> TargetsSettings::T;
 TargetsSettings::TargetsSettings(QWidget *parent) : QMainWindow(parent),ui(new Ui::TargetsSettings)
 {
     ui->setupUi(this);
+    T.clear();
     targets_count=ui->Targets->count();
     QCheckBox *checkbox;
     for(quint8 widget=0u;widget<targets_count;widget++)
@@ -113,4 +114,9 @@ void TargetsSettings::on_SwitchTargetPrev_clicked()
 const QVector<TargetsSettings::Targets> TargetsSettings::GetTargetsStorage()
 {
     return T;
+}
+
+void TargetsSettings::on_SetTargetsDefault_clicked()
+{
+
 }
