@@ -401,7 +401,7 @@ var exercisesContainer = {
 				},
 				positions : {
 					position_1 : {
-						state : '1',
+						state : 'on',
 						description : 'Отдайте команду "ОТКЛЮЧИТЬ ПИТАНИЕ РСП" в ЛАРИНГОФОН',
 					},
 				},
