@@ -21,9 +21,9 @@ slider = $('#container ul').bxSlider({
 
 
  $('#showBxPager').click(function(){
-  $('#bx-pager').fadeIn();
+  $('#bx-pager').show();
   $(this).removeClass('attention');
-  $(this).fadeOut(800)
+  $(this).hide()
  })
 
 $('#bx-pager section').click(function(){
@@ -34,8 +34,8 @@ $('#bx-pager section').click(function(){
 
   var offset = $('#'+blockId).offset();
   $('body').scrollTop(offset.top-100);
-    $('#bx-pager').delay(800).fadeOut(800);
-     $('#showBxPager').delay(800).fadeIn(800);
+    $('#bx-pager').delay(800).hide();
+     $('#showBxPager').delay(800).show();
 });
 $('#bx-pager section').each(function(){
   var block = $(this).attr('id');

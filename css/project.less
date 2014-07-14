@@ -71,7 +71,7 @@ body> header {
 	.header {
 		overflow: inherit;
 		box-shadow: none;
-		background: darken(fadeout(@main-color,20%),20%);
+		background: darken(@main-color,20%);
 		&::after {
 			content: '';
 			height: 0;
@@ -331,9 +331,9 @@ body> header {
 		}
 	}
 	ol {
-		margin-left: 0;
+		margin-left: @pad*3;
 		padding-left: 0;
-		list-style-position: inside;
+		list-style-position: outside;
 		li {
 			margin-left: 0;
 			padding-left: 0;
@@ -382,6 +382,10 @@ body> header {
 			&[disabled] {
 				opacity: .4;
 			}
+			&::after {
+				.icon-arrow-right;
+				margin-left: @pad*2;
+			}
 		}
 	}
 	.passing {
@@ -406,6 +410,26 @@ body> header {
 		&.active::before {
 			.rotate(45deg)
 		}
+	}
+}
+#reloadPage,
+#goToWelcome {
+	float: right;
+}
+#reloadPage {
+	a::before {
+		padding: 0;
+		margin-right: @pad;
+		.icon-undo-2;
+		display: inline-block;
+	}
+}
+#goToWelcome {
+	a::before {
+		padding: 0;
+		margin-right: @pad;
+		.icon-home;
+		display: inline-block;
 	}
 }
 .dev.hidden {
@@ -838,7 +862,7 @@ footer {
 	box-shadow: inset 0 0 0 @bpad fadeout(@color-back, 30%), 0 0 0 @bpad @color-border;
 	padding: @pad*3 0;
 	.header {
-		background-color: fadeout(@color-back, 20%);
+		background-color: @color-back;
 		padding: @pad*2;
 	}
 	h2 {

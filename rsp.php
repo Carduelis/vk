@@ -35,7 +35,13 @@
       <a href='javascript:void(0);' alt="Прохождение алгоритмов">Выбрать упражнение</a>
     </li>
     <li id='showBxPager' class="btn">
-      <a href='javascript:void(0);'>Показать РСП-11 целиком</a>
+      <a href='javascript:void(0);'>Показать РСП-10М целиком</a>
+    </li>
+    <li id='reloadPage' class="btn">
+      <a href='/' alt="Начать заново">Начать заново</a>
+    </li>
+    <li id='goToWelcome' class="btn">
+      <a href='/rsp.php' alt="Открыть страницу приветствия">Стартовая страница</a>
     </li>
     <li id='hideDev' class="btn">
       <a href='javascript:void(0);'>dev</a>
@@ -109,23 +115,23 @@
       <ol>
       </ol>
       <li class="passing" style="display: none;">
-        <ol>
+        <ul>
           <li><header>Выбор режима</header>
             <ul>
             <li><a data-codename="training" class="checkbox">Тренировка</a></li>
             <li><a data-codename="passing" class="checkbox">Экзамен</a></li>
             </ul>
           </li>
-        </ol>
+        </ul>
       <li class="options" style="display:none">
         <ol>
         </ol>
       <li class="starting" style="display: none;">
-        <ol>
+        <ul>
           <li>
             <header>Старт</header>
               <button id="go" disabled="disabled">Приступить к выполнению!</button>
-        </ol>
+        </ul>
      </ul>
   </div>
   <div id="historyBody" class="hidden-block">
@@ -148,7 +154,7 @@
 <ul>
       <li id="stack0">
         <div>
-        <header>Стойка #0</header>
+        <header>ПРД-Д</header>
         <section class="size215" id="stack0_block1"><div side="front" id="stack0_block1_front"></div></section>
         <section class="size215" id="stack0_block2"><div side="front" id="stack0_block2_front"></div></section>
         <section class="size445" id="stack0_block3"><div side="front" id="stack0_block3_front"></div></section>
@@ -157,7 +163,7 @@
       </li>
       <li id="stack1">
         <div>
-        <header>Стойка #1</header>
+        <header>ПРМ-Д</header>
         <section class="size215" id="stack1_block1"><div side="front" id="stack1_block1_front"></div></section>
         <section class="size215" id="stack1_block2"><div side="front" id="stack1_block2_front"></div></section>
         <section class="size215" id="stack1_block3"><div side="front" id="stack1_block3_front"></div></section>
@@ -168,7 +174,7 @@
       </li>
       <li id="stack2">
         <div>
-        <header>Стойка #2</header>
+        <header>ПРМ-П</header>
         <section class="size500" id="stack2_block1"><div side="front" id="stack2_block1_front"></div></section>
         <section class="size215" id="stack2_block2"><div alt="Перейти к боковой стороне блока" side="left" id="stack2_block2_left"></div><div side="front" id="stack2_block2_front"></div><div alt="Перейти к боковой стороне блока" side="right" id="stack2_block2_right"></div></section>
         <section class="size215" id="stack2_block3"><div side="front" id="stack2_block3_front"></div></section>
@@ -178,7 +184,7 @@
       </li>
       <li id="stack3">
         <div>
-        <header>Стойка #3</header>
+        <header>ПРД-П</header>
         <section class="size140" id="stack3_block1"><div side="front" id="stack3_block1_front"></div></section>
         <section class="size215" id="stack3_block2"><div side="front" id="stack3_block2_front"></div><div alt="Боковая панель" side="right" id="stack3_block2_right"></div></section>
         <section class="size215" id="stack3_block3"><div side="front" id="stack3_block3_front"></div></section>
@@ -190,7 +196,7 @@
       </li>
       <li id="stack4">
         <div>
-        <header>Левый пульт</header>
+        <header>ИКО-Д</header>
         <section class="size140" id="stack4_block1"><div side="front" id="stack4_block1_front"></div></section>
         <section class="size420" id="stack4_block2"><div side="front" id="stack4_block2_front"><div class="door"><span class="close">Закрыть крышку</span><span class="open">Открыть крышку</span></div></div></section>
         <section class="size300 separator"><div side="front"></div></section>
@@ -200,13 +206,13 @@
       </li>
       <li id="stack5">
         <div>
-        <header>Центальный пульт</header>
+        <header>ПУР</header>
         <section class="width250 height670" id="stack5_block1"><div side="front" id="stack5_block1_front"></div></section>
         </div>
       </li>
       <li id="stack6">
         <div>
-        <header>Правый пульт</header>
+        <header>ИКО-П</header>
         <section class="size215-350" id="stack6_block1"><div side="front" id="stack6_block1_front"></div></section>
         <section class="size370" id="stack6_block2"><div side="front" id="stack6_block2_front"></div></section>
         <section class="size420" id="stack6_block3"><div side="front" id="stack6_block3_front"><div class="door"><span class="close">Закрыть крышку</span><span class="open">Открыть крышку</span></div></div></section>
@@ -244,7 +250,7 @@
 
       <a data-slide-index="0" class="stack0" href="javascript:void()">
         <div>
-        <header>Стойка #0</header>
+        <header>ПРД-Д</header>
         <section class="size215" id="min_stack0_block1"></section>
         <section class="size215" id="min_stack0_block2"></section>
         <section class="size445" id="min_stack0_block3"></section>
@@ -253,7 +259,7 @@
       </a>
       <a data-slide-index="1" class="stack1" href="javascript:void()">
         <div>
-        <header>Стойка #1</header>
+        <header>ПРМ-Д</header>
         <section class="size215" id="min_stack1_block1"></section>
         <section class="size215" id="min_stack1_block2"></section>
         <section class="size215" id="min_stack1_block3"></section>
@@ -264,7 +270,7 @@
       </a>
       <a data-slide-index="2" class="stack2" href="javascript:void()">
         <div>
-        <header>Стойка #2</header>
+        <header>ПРМ-П</header>
         <section class="size500" id="min_stack2_block1"></section>
         <section class="size215" id="min_stack2_block2"></section>
         <section class="size215" id="min_stack2_block3"></section>
@@ -274,7 +280,7 @@
       </a>
       <a data-slide-index="3" class="stack3" href="javascript:void()">
         <div>
-        <header>Стойка #3</header>
+        <header>ПРД-П</header>
         <section class="size140" id="min_stack3_block1"></section>
         <section class="size215" id="min_stack3_block2"></section>
         <section class="size215" id="min_stack3_block3"></section>
@@ -286,7 +292,7 @@
       </a>
       <a data-slide-index="4" class="stack4" href="javascript:void()">
         <div>
-        <header>Левый пульт</header>
+        <header>ИКО-П</header>
         <section class="size140" id="min_stack4_block1"></section>
         <section class="size420" id="min_stack4_block2"></section>
         <section class="size300 separator"></section>
@@ -296,13 +302,13 @@
       </a>
       <a data-slide-index="5" class="stack5" href="javascript:void()">
         <div>
-        <header>Центальный пульт</header>
+        <header>ПУР</header>
         <section class="width250 height670" id="min_stack5_block1"></section>
         </div>
       </a>
       <a data-slide-index="6" class="stack6" href="javascript:void()">
         <div>
-        <header>Правый пульт</header>
+        <header>ИКО-Д</header>
         <section class="size215-350" id="min_stack6_block1"></section>
         <section class="size370" id="min_stack6_block2"></section>
 
@@ -337,6 +343,7 @@
 
 <!-- Интерактив -->
 <script src="js/elementsAlive.js" type="text/javascript"></script>
+<script src="js/showExercises.js" type="text/javascript"></script>
 <script src="js/showExercises_rsp.js" type="text/javascript"></script>
 
 <!-- Конструкторы -->

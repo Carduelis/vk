@@ -251,6 +251,7 @@
 
 <!-- Интерактив -->
 <script src="js/elementsAlive.js" type="text/javascript"></script>
+<script src="js/showExercises.js" type="text/javascript"></script>
 <script src="js/showExercises_prmg.js" type="text/javascript"></script>
 
 <!-- Конструкторы -->
