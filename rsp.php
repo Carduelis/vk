@@ -196,7 +196,7 @@
       </li>
       <li id="stack4">
         <div>
-        <header>ИКО-Д</header>
+        <header>ИКО-П</header>
         <section class="size140" id="stack4_block1"><div side="front" id="stack4_block1_front"></div></section>
         <section class="size420" id="stack4_block2"><div side="front" id="stack4_block2_front"><div class="door"><span class="close">Закрыть крышку</span><span class="open">Открыть крышку</span></div></div></section>
         <section class="size300 separator"><div side="front"></div></section>
@@ -212,7 +212,7 @@
       </li>
       <li id="stack6">
         <div>
-        <header>ИКО-П</header>
+        <header>ИКО-Д</header>
         <section class="size215-350" id="stack6_block1"><div side="front" id="stack6_block1_front"></div></section>
         <section class="size370" id="stack6_block2"><div side="front" id="stack6_block2_front"></div></section>
         <section class="size420" id="stack6_block3"><div side="front" id="stack6_block3_front"><div class="door"><span class="close">Закрыть крышку</span><span class="open">Открыть крышку</span></div></div></section>

@@ -64,7 +64,7 @@ $('#bx-pager section').each(function(){
   if (block == "min_stack6_block3") blockTitle = "ИК-П"
   if (block == "min_stack6_block4") blockTitle = "ВИ-П"
   if (block == "min_stack6_block5") blockTitle = "ВРС-П"
-  if (block == "min_stack7_block1") blockTitle = "щиту"
+  if (block == "min_stack7_block1") blockTitle = "РЩ"
   if (block == "min_stack7_block2") blockTitle = "БУА-П"
 
   $(this).attr('alt',blockTitle);
