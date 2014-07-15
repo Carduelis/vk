@@ -23,7 +23,7 @@
     <h2>Военная кафедра</h2>
     <h1>Симулятор РСП-10МН</h1>
   </div>
-  <div class="img" id="prmg">
+  <div class="img" id="rsp">
   </div>
   <div class="authors">
     <ul>
