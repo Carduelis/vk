@@ -365,7 +365,7 @@ var exercisesContainer = {
 		el6 : {
 			multiply: 'phases',
 			phase_correct : {
-				shift : '1', // У нас одно действие "лишнее". Открыть/закрыть крышку в действие не входит.
+				shift : '2', // У нас одно действие "лишнее". Открыть/закрыть крышку в действие не входит.
 			},
 			phase_incorrect : {
 				click: '5',
@@ -386,11 +386,6 @@ var exercisesContainer = {
 		},
 		el7 : {
 			// Получается только для одного типа фазы 
-			multiply: 'phases',
-			phase_correct : {
-				shift : '1', // У нас одно действие "лишнее". Открыть/закрыть крышку в действие не входит.
-			},
-			phase_incorrect : {
 				click: '6',
 				current : {
 					inStack : 'stack7',
@@ -401,32 +396,24 @@ var exercisesContainer = {
 				},
 				positions : {
 					position_1 : {
-						state : 'on',
+						state : '1',
 						description : 'Отдайте команду "ОТКЛЮЧИТЬ ПИТАНИЕ РСП" в ЛАРИНГОФОН',
 					},
 				},
-			},
 		},
 		el8 : {
-			// Получается только для одного типа фазы 
-			multiply: 'phases',
-			phase_correct : {
-				shift : '1', // У нас одно действие "лишнее". Открыть/закрыть крышку в действие не входит.
+			click: '6',
+			current : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_left',
+				num : '1',
+				type : 'toggler',
 			},
-			phase_incorrect : {
-				click: '6',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_left',
-					num : '1',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '0',
-						description : 'Установите клеммы в правильном порядке',
-					},
+			positions : {
+				position_1 : {
+					state : '0',
+					description : 'Установите клеммы в правильном порядке',
 				},
 			},
 		},
