@@ -127,6 +127,8 @@ $('#go').one('click',function(){
 			});
 		},600);
 	});
+
+// Подсветка
 $('#stack7_block1_front .element[type="toggler"][num="4"]').on('click', function(){
   if ($(this).attr('status') == '0') {
     $('#stack7_block1_front .element[type="scale"][num="1"]').addClass('light');
@@ -232,7 +234,11 @@ function focusOnElement(parameter){
 	if (parameter) {
 		elementOffsetTop = parameter
 	} else {
-		elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+		if(obj_element(eN, choosenParam)) {
+			if(obj_element(eN, choosenParam).offset()) {
+				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+			}
+		}
 	}
 	if (elementOffsetTop < screenTop) {
 		$('#look-up').addClass('show');
@@ -539,18 +545,22 @@ if(choosenParam) {
 	$('#bx-pager a').not($('.'+str_whatever(eN, 'inStack', choosenParam))).addClass('opacity'); // minimap-stack
 	$('.'+str_whatever(eN, 'inStack',choosenParam)).addClass('shadow'); // minimap-stack
 	$('#min_'+str_whatever(eN, 'inBlock',choosenParam)).addClass('shadow'); // minimap-block
+	/*
 	if (str_whatever(eN, 'inBlock', choosenParam) != str_whatever(eN, 'inBlock'+1, choosenParam)) {
 		$('#showBxPager').addClass('attention');
 		//$('#showhint span').html('Действия на данном блоке завершены. <b class="active" id="goToBlock">Кликните здесь для перехода к следующему блоку</b> или воспользуйтесь кнопкой перехода к общему виду: "Показать РСП-11 целиком"');
 	}
+	*/
 } else {
 	$('#bx-pager a').not($('.'+str_whatever(eN, 'inStack'))).addClass('opacity'); // minimap-stack
 	$('.'+str_whatever(eN, 'inStack')).addClass('shadow'); // minimap-stack
 	$('#min_'+str_whatever(eN, 'inBlock')).addClass('shadow'); // minimap-block
+	/*
 	if (str_whatever(eN, 'inBlock') != str_whatever(eN, 'inBlock'+1)) {
 		$('#showBxPager').addClass('attention');
 		//$('#showhint span').html('Действия на данном блоке завершены. <b class="active" id="goToBlock">Кликните здесь для перехода к следующему блоку</b> или воспользуйтесь кнопкой перехода к общему виду: "Показать РСП-11 целиком"');
 	}
+	*/
 }
 
 
