@@ -419,111 +419,38 @@ var exercisesContainer = {
 		},
 
 		el9 : {
-			multiply: 'fiders',
-			fider1: {
-				click : '6',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_front',
-					num : '13',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '3',
-						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
-					},
-				},
+			click : '6',
+			current : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_front',
+				num : '13',
+				type : 'toggler',
 			},
-			fider2: {
-				click : '6',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_front',
-					num : '13',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '1',
-						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
-					},
+			positions : {
+				position_1 : {
+					state : '3',
+					description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
 				},
 			},
 		},
 		el10 : {
-			multiply: 'fiders',
-			fider1: {
-				click : '7',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_front',
-					num : '13',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '3',
-						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
-					},
-				},
+			click : '8',
+			current : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_front',
+				num : '34',
+				type : 'toggler',
 			},
-			fider2: {
-				click : '7',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_front',
-					num : '13',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '1',
-						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
-					},
+			positions : {
+				position_1 : {
+					state : '0',
+					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
 				},
 			},
 		},
 		el11 : {
-			multiply: 'fiders',
-			fider1: {
-				click : '8',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_front',
-					num : '34',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '0',
-						description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
-					},
-				},
-			},
-			fider2: {
-				click : '8',
-				current : {
-					inStack : 'stack7',
-					inBlock : 'stack7_block1',
-					onSide : 'stack7_block1_front',
-					num : '34',
-					type : 'toggler',
-				},
-				positions : {
-					position_1 : {
-						state : '0',
-						description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
-					},
-				},
-			},
-		},
-		el12 : {
 			click : '9',
 			current : {
 				inStack : 'stack7',
@@ -539,7 +466,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el13 : {
+		el12 : {
 			click : '10',
 			current : {
 				inStack : 'stack7',
@@ -555,7 +482,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el14 : {
+		el13 : {
 			click : '11',
 			current : {
 				inStack : 'stack7',
@@ -571,7 +498,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el15 : {
+		el14 : {
 			click : '12',
 			current : {
 				inStack : 'stack6',
@@ -587,7 +514,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el16 : {
+		el15 : {
 			click : '13',
 			current : {
 				inStack : 'stack2',
@@ -603,7 +530,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el17 : {
+		el16 : {
 			click : '14',
 			current : {
 				inStack : 'stack2',
@@ -619,7 +546,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el18 : {
+		el17 : {
 			click : '15',
 			current : {
 				inStack : 'stack2',
@@ -635,7 +562,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el19 : {
+		el18 : {
 			click : '16',
 			current : {
 				inStack : 'stack3',
@@ -659,7 +586,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el20 : {
+		el19 : {
 			click : '17',
 			current : {
 				inStack : 'stack7',
@@ -675,7 +602,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el21 : {
+		el20 : {
 			click : '18',
 			current : {
 				inStack : 'stack6',
@@ -727,7 +654,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el22 : {
+		el21 : {
 			click : '19',
 			current : {
 				inStack : 'stack6',
@@ -743,7 +670,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el23 : {
+		el22 : {
 			click : '20',
 			current : {
 				inStack : 'stack2',
@@ -887,7 +814,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el24 : {
+		el23 : {
 			click : '21',
 			current : {
 				inStack : 'stack1',
@@ -959,7 +886,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el25 : {
+		el24 : {
 			click : '22',
 			current : {
 				inStack : 'stack3',
@@ -983,7 +910,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el26 : {
+		el25 : {
 			click : '23',
 			current : {
 				inStack : 'stack3',
@@ -1007,7 +934,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el27 : {
+		el26 : {
 			click : '24',
 			current : {
 				inStack : 'stack3',
@@ -1023,7 +950,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el28 : {
+		el27 : {
 			click : '25',
 			current : {
 				inStack : 'stack6',
@@ -1043,7 +970,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el29 : {
+		el28 : {
 			click : '26',
 			current : {
 				inStack : 'stack6',
