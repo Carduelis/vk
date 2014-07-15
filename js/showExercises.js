@@ -35,6 +35,7 @@ $('#chooseExerciseBody .listing a').on('click', function(){
 	thisEx = exercisesContainer;
 	$('.dev').addClass('hidden');
 	$('.passing, .options, .starting').hide();
+	$('.passing a').removeClass('active');
 	$('.passing').fadeIn();
 });
 
