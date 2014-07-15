@@ -3,7 +3,7 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>Welcome</title>
+  <title>Симулятор ПРМГ</title>
   
   
   <!--realtime less compiler
@@ -23,12 +23,15 @@
     <h2>Военная кафедра</h2>
     <h1>Симулятор ПРМГ</h1>
   </div>
-  <p class="authors">
+  <div class="img" id="prmg">
+  </div>
+  <div class="authors">
     <ul>
       <li><b>Руководитель:</b><span>Полковник Каргапельцев Аркадий Аркадьевич</span>
       <li><b>Разработчики:</b><span>Щеголев Павел</span><span>Жур Богдан</span>
+      <li><b>Тестировщики:</b><span>Кучерук Дмитрий</span><span>Назаров Павел</span>
     </ul>
-  </p>
+  </div>
   <a id="dkrm_start" href="prgm_dkrm.php">Приступить к ПРМГ (ДКРМ)</a>
   <a id="grm_start" href="prgm_grm.php">Приступить к ПРМГ (ГРМ)</a>
 </div>

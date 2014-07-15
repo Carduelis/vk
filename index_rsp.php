@@ -3,7 +3,7 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>Выберите симулятор</title>
+  <title>РСП-10МН</title>
   
   
   <!--realtime less compiler
@@ -21,7 +21,9 @@
   <div class="header">
     <h2 class="mirea">Федеральное государственное бюджетное образовательное учреждение высшего профессионального образования <br> «Московский государственный технический университет радиотехники, электроники и автоматики» (МГТУ МИРЭА)</h2>
     <h2>Военная кафедра</h2>
-    <h1>Симуляторы устройств РТО</h1>
+    <h1>Симулятор РСП-10МН</h1>
+  </div>
+  <div class="img" id="prmg">
   </div>
   <div class="authors">
     <ul>
@@ -31,9 +33,8 @@
     </ul>
   </div>
   <div class="btns">
-    <a href="index_rsp.php">РСП-10МН</a>
-    <a href="index_prmg.php">ПРМГ-5</a>
-    <a href="index_par.php">ПАР-10</a>
+    <a href="rsp.php">Приступить к РСП-10МН</a>
+    <a href="index.php" id="back">На главную</a>
   </div>
 </div>
 
