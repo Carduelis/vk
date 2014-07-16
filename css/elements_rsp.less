@@ -165,7 +165,12 @@ footer {
 	&[type="toggler"][view="rotate"] {
 		.element(@el*50);
 		.body {
-			background-image: url('@{path-to-elements}/knob_large.png');
+			background-image: url('@{path-to-elements}/knob_large_symmetric.png');
+		}
+		&[toggles="4"] {
+			.body {
+				background-image: url('@{path-to-elements}/knob_large.png');
+			}
 		}
 		&[defaultposition="0"], 
 		&[status="0"] {
@@ -259,6 +264,20 @@ footer {
 			&[color="green"] .body {background-image: url('@{path-to-elements}/lamp_small_green.png');}
 			&[color="red"] .body {background-image: url('@{path-to-elements}/lamp_small_red.png');}
 			&[color="yellow"] .body {background-image: url('@{path-to-elements}/lamp_small_yellow.png');}
+		}
+		&[view_special="phase"] {
+			padding: 1.775% 9%;
+			margin-left: -9%;
+			margin-top: -1.775%;
+			.body {
+				background-image: url('@{path-to-elements}/phase_indicator/0-0.png');
+			}
+			&[status="correct"] {
+				.body {background-image: url('@{path-to-elements}/phase_indicator/1-2.png');}
+			}
+			&[status="incorrect"] {
+				.body {background-image: url('@{path-to-elements}/phase_indicator/2-1.png');}
+			}
 		}
 	}
 	&[type="button"] {
