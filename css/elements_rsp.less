@@ -272,10 +272,10 @@ footer {
 			.body {
 				background-image: url('@{path-to-elements}/phase_indicator/0-0.png');
 			}
-			&[status="correct"] {
+			&[phase="correct"][status="on"] {
 				.body {background-image: url('@{path-to-elements}/phase_indicator/1-2.png');}
 			}
-			&[status="incorrect"] {
+			&[phase="incorrect"][status="on"] {
 				.body {background-image: url('@{path-to-elements}/phase_indicator/2-1.png');}
 			}
 		}

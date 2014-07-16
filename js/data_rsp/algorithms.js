@@ -226,7 +226,14 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
-
+						action_2 : {
+							inStack : 'stack7',
+							inBlock : 'stack7_block1',
+							onSide : 'stack7_block1_front',
+							type : 'lamp',
+							num : '15',
+							status : 'on',
+						},
 					},
 				},
 			},
@@ -243,6 +250,14 @@ var exercisesContainer = {
 					position_1 : {
 						state : '2', // Было undefined
 						description : 'Установите переключатель фазоиндикатора в положение ФИДЕР II',
+						action_1 : {
+							inStack : 'stack7',
+							inBlock : 'stack7_block1',
+							onSide : 'stack7_block1_front',
+							type : 'lamp',
+							num : '15',
+							status : 'on',
+						},
 					},
 				},
 			},
@@ -294,14 +309,6 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
-						action_2 : {
-							inStack : 'stack7',
-							inBlock : 'stack7_block1',
-							onSide : 'stack7_block1_front',
-							type : 'lamp',
-							num : '15',
-						status : 'on',
-						},
 					},
 				},
 			},
@@ -349,14 +356,6 @@ var exercisesContainer = {
 							type : 'scale',
 							num : '1',
 							status : '34',
-						},
-						action_2 : {
-							inStack : 'stack7',
-							inBlock : 'stack7_block1',
-							onSide : 'stack7_block1_front',
-							type : 'lamp',
-							num : '7',
-							status : 'on',
 						},
 					},
 				},
@@ -1052,6 +1051,14 @@ var exercisesContainer = {
 					position_1 : {
 						state : '0', // Было undefined
 						description : 'Установите переключатель фазоиндикатора в положение ФИДЕР I',
+						action_1 : {
+							inStack : 'stack7',
+							inBlock : 'stack7_block1',
+							onSide : 'stack7_block1_front',
+							type : 'lamp',
+							num : '15',
+							status : 'on',
+						},
 					},
 				},
 			},
@@ -1068,6 +1075,14 @@ var exercisesContainer = {
 					position_1 : {
 						state : '2', // Было undefined
 						description : 'Установите переключатель фазоиндикатора в положение ФИДЕР II',
+						action_1 : {
+							inStack : 'stack7',
+							inBlock : 'stack7_block1',
+							onSide : 'stack7_block1_front',
+							type : 'lamp',
+							num : '15',
+							status : 'on',
+						},
 					},
 				},
 			},
@@ -1095,14 +1110,6 @@ var exercisesContainer = {
 					position_3 : {
 						state : '2', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение В-С',
-						action_1 : {
-							inStack : 'stack7',
-							inBlock : 'stack7_block1',
-							onSide : 'stack7_block1_front',
-							type : 'lamp',
-							num : '15',
-						status : 'on',
-						},
 					},
 				},
 			},
@@ -1127,14 +1134,6 @@ var exercisesContainer = {
 					position_3 : {
 						state : '5', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР II в положение В-С',
-						action_1 : {
-							inStack : 'stack7',
-							inBlock : 'stack7_block1',
-							onSide : 'stack7_block1_front',
-							type : 'lamp',
-							num : '7',
-						status : 'on',
-						},
 					},
 				},
 			},

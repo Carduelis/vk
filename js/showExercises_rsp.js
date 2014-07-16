@@ -31,6 +31,15 @@ $('#go').one('click',function(){
 	for(var i in exercisesOptions[thisExId]) {
 		console.info(exercisesOptions[thisExId][i].typeName+': '+window[exercisesOptions[thisExId][i].typeName]);
 	};
+
+		// Фазоиндикатор
+		if (phases == 'phase_incorrect') {
+			$('.element[view_special="phase"]').attr('phase','incorrect')
+		}
+		if (phases == 'phase_correct') {
+			$('.element[view_special="phase"]').attr('phase','correct')
+		}
+		
 	$('#history').one('click', function(){
 		exportAlgorythm(thisExId);
 	})
@@ -140,6 +149,7 @@ $('#stack7_block1_front .element[type="toggler"][num="4"]').on('click', function
   }
 })
 });
+
 
 
 function hideAndRemoveAllHints() {
