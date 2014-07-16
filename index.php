@@ -8,16 +8,16 @@
   
   <!--realtime less compiler
   
-  -->
  <link rel="stylesheet/less" type="text/css" href="css/style_rsp.less">
  <script src="js/libs/less-1.6.2.min.js" type="text/javascript"></script>
-  <!--это для скопмилированного css
-    <link rel="stylesheet" href="css/style_rsp.css">
   -->
+  <!--это для скопмилированного css
+  -->
+  <link rel="stylesheet" href="css/style_rsp.css">
   </head>
 <body id="top_page">
 
-<div class="welcome">
+<div class="welcome" id="index">
   <div class="header">
     <h2 class="mirea">Федеральное государственное бюджетное образовательное учреждение высшего профессионального образования <br> «Московский государственный технический университет радиотехники, электроники и автоматики» (МГТУ МИРЭА)</h2>
     <h2>Военная кафедра</h2>

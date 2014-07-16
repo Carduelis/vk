@@ -8,12 +8,12 @@
   
   <!--realtime less compiler
   
-  -->
  <link rel="stylesheet/less" type="text/css" href="css/style_prmg.less">
  <script src="js/libs/less-1.6.2.min.js" type="text/javascript"></script>
-  <!--это для скопмилированного css
-    <link rel="stylesheet" href="css/style_rsp.css">
   -->
+  <!--это для скопмилированного css
+  -->
+    <link rel="stylesheet" href="css/style_rsp.css">
   </head>
 <body id="top_page">
 

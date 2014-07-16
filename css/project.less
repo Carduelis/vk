@@ -659,7 +659,7 @@ body> header {
 		&.size300 {padding: @scale*150 @scale*200;}
 		&.size240 {padding: @scale*120 @scale*160;}
 		&.size64 {padding: @scale*32 @scale*30;}
-		&.size120 {padding: @scale*60 @scale*60;}
+		&.size120 {padding: @scale*60 @scale*60;} // ломает блок на rsp
 		//&.size850 {padding: @scale*425 @scale*200;}
 		&.size850 {padding: 77.25% @scale*200;}
 
@@ -857,19 +857,19 @@ footer {
 		position: relative;
 		z-index: 2;
 	}
-
 	div.img {
 		background-size: cover;
 		background-position: 50%;
-		width: 100%;
-		height: 75%;
-		position: absolute;
-		top: 10%;
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		left: 0;
-		box-shadow: inset 0 @pad @pad -@pad #000;
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		height: 200px;
+		margin-top: -100px;
+		//box-shadow: inset 0 @pad @pad -@pad #000;
 		&#rsp {
 			background-image: url('rsp10.jpg');
 		}
@@ -932,6 +932,14 @@ footer {
 		position: absolute;
 		bottom: @pad*8;
 		width: 100%;
+	}
+	&#index {
+		.btns {
+			bottom: 30%;
+			a {
+				margin: @pad*2;
+			}
+		}
 	}
 	a {
 		.btn-flat(@belize_hole);

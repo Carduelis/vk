@@ -39,7 +39,12 @@ $('#bx-pager section').click(function(){
 });
 $('#bx-pager section').each(function(){
   var block = $(this).attr('id');
+  if(block) {
+    block = block.substr(4);
+  }
   var blockTitle;
+  blockTitle = nameOfBlock(block);
+  /*
   if (block == "min_stack0_block2") blockTitle = "ПУ-Д"
   if (block == "min_stack1_block1") blockTitle = "П-Д"
   if (block == "min_stack1_block2") blockTitle = "Ф-Д"
@@ -66,7 +71,7 @@ $('#bx-pager section').each(function(){
   if (block == "min_stack6_block5") blockTitle = "ВРС-П"
   if (block == "min_stack7_block1") blockTitle = "РЩ"
   if (block == "min_stack7_block2") blockTitle = "БУА-П"
-
+*/
   $(this).attr('alt',blockTitle);
 });
  

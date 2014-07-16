@@ -33,6 +33,7 @@ function nameOfBlock(blockId) {
 	if (blockId == "stack3_block4") return "МВ-П"
 	if (blockId == "stack3_block5") return "НПО-П"
 	if (blockId == "stack3_block6") return "БВК"
+	if (blockId == "stack4_block1") return "ИКО-Д-0"
 	if (blockId == "stack4_block2") return "ИКО-Д"
 	if (blockId == "stack4_block3") return "ВИ-Д"
 	if (blockId == "stack4_block4") return "ВРС-Д"

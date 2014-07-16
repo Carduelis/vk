@@ -38,9 +38,8 @@ $('#go').one('click',function(){
 	wow_first(eN,pN); // Показали первый элемент в первой позиции
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
-
+	
 	$('.element').on('click',function() {
-
 	////////
 		detectMultiply();
 		var thisType = $(this).attr('type');
