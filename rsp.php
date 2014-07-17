@@ -260,6 +260,7 @@
       <a data-slide-index="1" class="stack1" href="javascript:void()">
         <div>
         <header>ПРМ-Д</header>
+        <img id='lbu' src="elements/rsp/overlays/lbu.png">
         <section class="size215" id="min_stack1_block1"></section>
         <section class="size215" id="min_stack1_block2"></section>
         <section class="size215" id="min_stack1_block3"></section>
