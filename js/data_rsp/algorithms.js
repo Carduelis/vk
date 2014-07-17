@@ -2535,7 +2535,7 @@ var exercisesContainer = {
 					positions : {
 								position_1 : {
 									state : '0',
-									description : 'Переключателем ЧАСТОТА на распределительном щите выберите рабочую частоту в соответствии с переключателем блока НКО-П',
+									description : 'Переключателем ЧАСТОТА на распределительном щите выберите рабочую частоту в соответствии с переключателем блока НПО-Д',
 								},
 					},
 		},
@@ -2701,7 +2701,7 @@ var exercisesContainer = {
 				},
 				position_2 : {
 					state : '2',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение	+188В',
+					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение	+180В',
 					action_1 : {
 						inStack : 'stack0',
 						inBlock : 'stack0_block2',
@@ -3023,7 +3023,7 @@ var exercisesContainer = {
 				inStack : 'stack7',
 				inBlock : 'stack7_block1',
 				onSide : 'stack7_block1_front',
-				num : '22',
+				num : '23',
 				type : 'button',
 			},
 			positions : {
