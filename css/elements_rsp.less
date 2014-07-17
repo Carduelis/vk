@@ -456,7 +456,13 @@ footer {
 		}
 	}
 } 
+section > div {
 
+	perspective: 1400px;
+	perspective-origin: 50% 0%;
+	-webkit-perspective: 1400px;
+	-webkit-perspective-origin: 50% 0%; 
+}
 .door {
 	position: absolute;
 	z-index: 999;
@@ -464,10 +470,41 @@ footer {
 	height: 78.5%;
 	margin-left: -14%;
 	background-image: url('@{path-to-elements}/background.png');
-	opacity: 1;
-	box-shadow: inset 0 0 @pad/2 @wet_asphalt, inset 0 0 0 @pad*20 @color-border;
+			box-shadow: inset 0 0 @pad/2 @wet_asphalt, inset 0 0 0 @pad*20 @color-border;
+	opacity: 1; 
 	cursor: pointer;
 	margin-top: -38.5%;
+
+	-webkit-transform-origin: right;
+	-webkit-transform: rotateY(0deg);
+	-webkit-transform-style: preserve-3d;
+	.transitions(all,400ms);
+	&::after {
+		content: 'Открыть крышку';
+		opacity: 0;
+		.transitions;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		z-index: 9;
+		text-align: center;
+		display: block;
+		width: 100%;
+		.transitions;
+	}
+	&:hover::after {
+		opacity: 1;
+	}
+	&.opened {
+		transform: rotateY(120deg);
+		-ms-transform: rotateY(120deg);
+		-webkit-transform: rotateY(120deg);
+		box-shadow: inset 0 0 .25rem #34495e,inset 0 0 0 10rem rgba(0,0,0,0.15), -2rem 1rem 3rem -2rem;
+		&::after {
+			opacity: 1;
+		}
+
+	}
 	> span {
 		position: absolute;
 		left: 0;
@@ -481,27 +518,47 @@ footer {
 		background: @belize_hole;
 		display: block;
 		&.open {
-		
+			display: none;
 		}
 		&.close {
 			display: none;
 		}
 	}
 	&.opened {
-		height: 7%;
-		opacity: 1;
 		.open {display: none;}
-		.close {display: block;}
+		.close {display: none;}
 	}
+
+		/*	
+		&::before  {
+			.transitions(all,400ms);
+			transform-origin: left;
+    		transform: rotateY(0deg);
+    		transform-style: preserve-3d; 
+
+    		-webkit-transform-origin: left;
+    		-webkit-transform: rotateY(0deg);
+    		-webkit-transform-style: preserve-3d;
+		}
+		&::before {
+			position: absolute;
+			.radius(@bpad);
+			width: 100%;
+			content: '';
+			height: 100%;
+			box-shadow: inset 0 0 @pad/2 @wet_asphalt, inset 0 0 0 @pad*20 @color-border;
+			background-image: url('@{path-to-elements}/background.png');
+			left: 0;
+			top:0;
+			z-index: 999999;
+		}
+		*/
 }
 #stack4_block2_front {
 	.door {
 		//background-image: url('@{path-to-elements}/hatch_left.png');
 		left: 17%;
 		top: 42%;
-		&.opened {
-			top: 38%;
-		}
 	}
 }
 #stack6_block3_front {
@@ -509,8 +566,5 @@ footer {
 		//background-image: url('@{path-to-elements}/hatch_right.png');
 		left: 83.2%;
 		top: 48%;
-		&.opened {
-			top: 38%;
-		}
 	}
 }
