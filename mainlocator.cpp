@@ -825,9 +825,6 @@ void MainLocator::GenerationActiveInSyncTrash(void)
 
 void MainLocator::DrawActiveInSyncTrash(void)const
 {
-    WorkMode wm=GetCurrentWorkMode();
-    if(wm==WorkMode::WM_PASS)
-        return;
     qreal alpha,brightness;
     brightness=1.0f;
     QColor color=Color;
@@ -941,7 +938,7 @@ void MainLocator::GenerationTargets(void)
         d2=CalcScaleValue(it->Points[1].range);
         d=d1;
         speed=qCeil(it->speed/350);
-        angle*=speed;
+        angle*=1;
         if(angle<=0)
             angle=1;
         ar=qAbs(static_cast<qreal>(d2-d1)*angle/(it->Points[1].angle-it->Points[0].angle));
