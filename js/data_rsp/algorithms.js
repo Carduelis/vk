@@ -395,7 +395,7 @@ var exercisesContainer = {
 				},
 				positions : {
 					position_1 : {
-						state : '1',
+						state : 'on',
 						description : 'Отдайте команду "ОТКЛЮЧИТЬ ПИТАНИЕ РСП" в ЛАРИНГОФОН',
 					},
 				},
@@ -444,7 +444,7 @@ var exercisesContainer = {
 			},
 			positions : {
 				position_1 : {
-					state : '0',
+					state : '1',
 					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
 				},
 			},
@@ -612,10 +612,6 @@ var exercisesContainer = {
 			},
 			positions : {
 				position_1 : {
-					state : '0', // Было undefined
-					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение 0',
-				},
-				position_2 : {
 					state : '1', // Было undefined
 					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение	210В',
 					action_1 : {
@@ -624,10 +620,10 @@ var exercisesContainer = {
 						onSide : 'stack6_block4_front',
 						type : 'scale',
 						num : '16',
-					status : 'undefined',
+					status : '30',
 					},
 				},
-				position_3 : {
+				position_2 : {
 					state : '2', // Было undefined
 					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение +200В',
 					action_1 : {
@@ -636,10 +632,10 @@ var exercisesContainer = {
 						onSide : 'stack6_block4_front',
 						type : 'scale',
 						num : '16',
-					status : 'undefined',
+					status : '29',
 					},
 				},
-				position_4 : {
+				position_3 : {
 					state : '3', // Было undefined
 					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение +250В',
 					action_1 : {
@@ -648,7 +644,7 @@ var exercisesContainer = {
 						onSide : 'stack6_block4_front',
 						type : 'scale',
 						num : '16',
-					status : 'undefined',
+					status : '33',
 					},
 				},
 			},
