@@ -62,67 +62,73 @@ $('#go').one('click',function(){
 
 		history(thisType,thisNum,thisStatus,thisSide,thisBlock);
 
-	
-		console.info('choosenParam: '+choosenParam+'; eN: '+eN+'; ');
-		
-		if (isShift(eN,choosenParam)) {
-			console.info(eN);
-			eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
-			pN = 1;
-			console.info(eN);
-			wow(eN,pN, choosenParam);
-		} else {
-			if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
-				aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
-				// Проверка: все ли позиции данного элемента учтены?
-				if (isPositionsThere(eN,choosenParam))  { // Нет, еще есть позиции
-					isPositionsThereBoolean = false;
-					for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-						show(eN,pN,aN,choosenParam);
-						//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
-						aN++
-					};
-					pN++ // идем к следующей позиции
-					wow(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
-		
-					
-				} else { // все учтено, следующий элемент
-					isPositionsThereBoolean = true;
-					if (thisEx[thisExId]['el'+(eN+1)]) {
-						console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; '+thisEx[thisExId]['el'+(eN+1)].multiply+': '+choosenParam);
-					} else {
-						console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; конец');
-					}
-					for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-						show(eN,pN,aN,choosenParam);
-						//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
-						aN++
-					};
-
-					pN = 1; // в предыдущем элементе накопился счетчик позиций, надо сбросить
-					if (eN != posCount(thisEx[thisExId]) - 1)  { // Проверка: последний ли элемент?
-						eN++;
-						 // Идем к следующему элементу
-						detectMultiply();
-						// Если следующий элемент содержит shift, то wow(eN,pN,choosenParam) не может ничего показать
-
-						if (isShift(eN,choosenParam)) {
-
-							console.info(eN);
-							eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
-							eN++;
-							// Нам так же нужно еще раз проверить новое значение choosenParam
-							detectMultiply();
-							console.info(eN);
-						}
-						wow(eN,pN,choosenParam); // Показываем информацию о следующем элементе
-					} else {
-						alert('Упражнение выполнено!');
-						hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+		if (
+			(thisNum == str_whatever(eN, 'num',choosenParam) )
+			&&
+			(thisType == str_whatever(eN, 'type',choosenParam) )
+		) { // Примерное условие, чтобы подсказки для следующих элементах не появлялись при клике куда попало
+			console.info('choosenParam: '+choosenParam+'; eN: '+eN+'; ');
+			
+			if (isShift(eN,choosenParam)) {
+				console.info(eN);
+				eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
+				pN = 1;
+				console.info(eN);
+				wow(eN,pN, choosenParam);
+			} else {
+				if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
+					aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
+					// Проверка: все ли позиции данного элемента учтены?
+					if (isPositionsThere(eN,choosenParam))  { // Нет, еще есть позиции
+						isPositionsThereBoolean = false;
+						for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+							show(eN,pN,aN,choosenParam);
+							//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+							aN++
+						};
+						pN++ // идем к следующей позиции
+						wow(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
+			
 						
+					} else { // все учтено, следующий элемент
+						isPositionsThereBoolean = true;
+						if (thisEx[thisExId]['el'+(eN+1)]) {
+							console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; '+thisEx[thisExId]['el'+(eN+1)].multiply+': '+choosenParam);
+						} else {
+							console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; конец');
+						}
+						for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+							show(eN,pN,aN,choosenParam);
+							//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+							aN++
+						};
+
+						pN = 1; // в предыдущем элементе накопился счетчик позиций, надо сбросить
+						if (eN != posCount(thisEx[thisExId]) - 1)  { // Проверка: последний ли элемент?
+							eN++;
+							 // Идем к следующему элементу
+							detectMultiply();
+							// Если следующий элемент содержит shift, то wow(eN,pN,choosenParam) не может ничего показать
+
+							if (isShift(eN,choosenParam)) {
+
+								console.info(eN);
+								eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
+								eN++;
+								// Нам так же нужно еще раз проверить новое значение choosenParam
+								detectMultiply();
+								console.info(eN);
+							}
+							wow(eN,pN,choosenParam); // Показываем информацию о следующем элементе
+						} else {
+							alert('Упражнение выполнено!');
+							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+							
+						}
 					}
 				}
 			}
+
 		}
 		//////////////////////////////////////////////////
 
