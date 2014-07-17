@@ -1,7 +1,7 @@
 
 scaleRelations = {
 
-/* 'scaleRelationGroup9711610856' : {
+	scaleRelationGroup9711610856 : {
 		control : {
 			block : 'stack7_block1_front',
 			type : 'knob',
@@ -14,16 +14,76 @@ scaleRelations = {
 		},
 		relations : {
 			relation1 : {
-				status : '0',
-				degree : '34',
+				multiply : {
+					fider1 : {			
+						status : '0',
+						degree : '34',
+					},
+					fider2 : {			
+						status : '0',
+						degree : '-50',
+					},
+				},
 			},
 			relation2 : {
-				status : '1',
-				degree : '34',
+				multiply : {
+					fider1 : {			
+						status : '1',
+						degree : '34',
+					},
+					fider2 : {			
+						status : '1',
+						degree : '-50',
+					},
+				},
 			},
 			relation3 : {
-				status : '2',
-				degree : '34',
+				multiply : {
+					fider1 : {			
+						status : '2',
+						degree : '34',
+					},
+					fider2 : {			
+						status : '2',
+						degree : '-50',
+					},
+				},
+			},
+			relation4 : {
+				multiply : {
+					fider1 : {			
+						status : '3',
+						degree : '-50',
+					},
+					fider2 : {			
+						status : '3',
+						degree : '34',
+					},
+				},
+			},
+			relation5 : {
+				multiply : {
+					fider1 : {			
+						status : '4',
+						degree : '-50',
+					},
+					fider2 : {			
+						status : '4',
+						degree : '34',
+					},
+				},
+			},
+			relation6 : {
+				multiply : {
+					fider1 : {			
+						status : '5',
+						degree : '-50',
+					},
+					fider2 : {			
+						status : '5',
+						degree : '34',
+					},
+				},
 			},
 		},
 		exercises : {
@@ -104,7 +164,6 @@ scaleRelations = {
 		},
 	},
 
-*/
 	scaleRelationGroup40947659 : {
 		control : {
 			block : 'stack6_block4_front',
@@ -516,7 +575,6 @@ scaleRelations = {
 			},
 		},
 	},
-
 
 	scaleRelationGroup503736352 : {
 		control : {

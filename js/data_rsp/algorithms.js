@@ -144,6 +144,36 @@ var exercisesOptions = {
 			},
 		},
 	},
+	ex10 : {
+		optionBlock1 : {
+			name : 'Выбор фидера',
+			typeName: 'fiders',
+			options : {
+				option1 : {
+					viewName: 'Фидер I',
+					codeName: 'fider1',
+				},
+				option2 : {
+					viewName: 'Фидер II',
+					codeName: 'fider2',
+				},
+			},
+		},
+		optionBlock2 : {
+			name : 'Выбор Фазности',
+			typeName : 'phases',
+			options : {
+				option1 : {
+					viewName: 'Правильная',
+					codeName: 'phase_correct',
+				},
+				option2 : {
+					viewName: 'Неправильная',
+					codeName: 'phase_incorrect',
+				},
+			},
+		},
+	},
 }
 // Внутри элемента elN делаем новые объекты, содержащие в себе один или несколько позиций/элементов
 // если элементов внутри одного элемента несколько, то нужно будет уменьшать каждый раз 
@@ -277,6 +307,7 @@ var exercisesContainer = {
 					position_1 : {
 						state : '0', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение А-В',
+						/*
 						action_1 : {
 							inStack : 'stack7',
 							inBlock : 'stack7_block1',
@@ -285,10 +316,12 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
+						*/
 					},
 					position_2 : {
 						state : '1', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение А-С',
+						/*
 						action_1 : {
 							inStack : 'stack7',
 							inBlock : 'stack7_block1',
@@ -297,10 +330,12 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
+						*/
 					},
 					position_3 : {
 						state : '2', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР I в положение В-С',
+						/*
 						action_1 : {
 							inStack : 'stack7',
 							inBlock : 'stack7_block1',
@@ -309,6 +344,7 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
+						*/
 					},
 				},
 			},
@@ -325,6 +361,7 @@ var exercisesContainer = {
 					position_1 : {
 						state : '3', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР II в положение А-В',
+						/*
 						action_1 : {
 							inStack : 'stack7',
 							inBlock : 'stack7_block1',
@@ -333,10 +370,12 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
+						*/
 					},
 					position_2 : {
 						state : '4', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР II в положение А-С',
+						/*
 						action_1 : {
 							inStack : 'stack7',
 							inBlock : 'stack7_block1',
@@ -345,10 +384,12 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
+						*/
 					},
 					position_3 : {
 						state : '5', // Было undefined
 						description : 'Установите тумблер номиналов напряжения ФИДЕР II в положение В-С',
+						/*
 						action_1 : {
 							inStack : 'stack7',
 							inBlock : 'stack7_block1',
@@ -357,6 +398,7 @@ var exercisesContainer = {
 							num : '1',
 							status : '34',
 						},
+						*/
 					},
 				},
 			},
@@ -2998,92 +3040,128 @@ var exercisesContainer = {
 	},
 	ex10 : {
 		nameOfExercise : 'Упражнение для теста',
+	
 		el1 : {
-			click : '1',
-			current : {
-				inStack : 'stack0',
-				inBlock : 'stack0_block2',
-				onSide : 'stack0_block2_front',
-				num : '2',
-				type : 'knob',
-			},
-			positions : {
-				position_1 : {
-					state : '1',
-					description : 'Установите в положение 0',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'lamp',
-						num : '2',
-						status : 'on',
+			multiply: 'fiders',
+			fider1: {
+				click : '1',
+				current : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block2',
+					onSide : 'stack0_block2_front',
+					num : '2',
+					type : 'knob',
+				},
+				positions : {
+					position_1 : {
+						state : '1',
+						description : 'Установите в положение 0',
+						action_1 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'lamp',
+							num : '2',
+							status : 'on',
+						},
+						action_2 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '22',
+							status : '-135',
+						},
+						action_3 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '21',
+							status : '10',
+						}
 					},
-					action_2 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-						status : '-35',
+					position_2 : {
+						state : '3',
+						description : 'Установите в положение	600В',
+						action_1 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '22',
+							status : '0',
+						},
+						 action_2 : {
+							 inStack : 'stack0',
+							 inBlock : 'stack0_block2',
+							 onSide : 'stack0_block2_front',
+							 type : 'lamp',
+							 num : '1',
+							 status : 'on',
+						 },
+						 action_3 : {
+							 inStack : 'stack0',
+							 inBlock : 'stack0_block2',
+							 onSide : 'stack0_block2_front',
+							 type : 'scale',
+							 num : '21',
+							 status : '0',
+						 },
 					},
-					action_3 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '21',
-						status : '10',
+					position_3 : {
+						state : '7',
+						description : 'Установите в положение +1800В',
+						action_1 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '22',
+							status : '-50',
+						},
+						action_2 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '21',
+							status : '-50',
+						},
 					}
 				},
-				position_2 : {
-					state : '3',
-					description : 'Установите в положение	600В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-						status : '0',
-					},
-					 action_2 : {
-						 inStack : 'stack0',
-						 inBlock : 'stack0_block2',
-						 onSide : 'stack0_block2_front',
-						 type : 'lamp',
-						 num : '1',
-						 status : 'on',
-					 },
-					 action_3 : {
-						 inStack : 'stack0',
-						 inBlock : 'stack0_block2',
-						 onSide : 'stack0_block2_front',
-						 type : 'scale',
-						 num : '21',
-						 status : '0',
-					 },
+			},
+			fider2: {
+				click : '1',
+				current : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block2',
+					onSide : 'stack0_block2_front',
+					num : '2',
+					type : 'knob',
 				},
-				position_3 : {
-					state : '7',
-					description : 'Установите в положение +1800В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-						status : '-50',
-					},
-					action_2 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '21',
-						status : '-50',
-					},
-				}
+				positions : {
+					position_1 : {
+						state : '7',
+						description : 'Установите в положение +1800В',
+						action_1 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '22',
+							status : '-50',
+						},
+						action_2 : {
+							inStack : 'stack0',
+							inBlock : 'stack0_block2',
+							onSide : 'stack0_block2_front',
+							type : 'scale',
+							num : '21',
+							status : '-50',
+						},
+					}
+				},
 			},
 		},
 		el2 : {

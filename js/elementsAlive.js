@@ -6,24 +6,47 @@ $(document).ready(function(){
 
 
 function scaleAlive(scaleAliveBlockId,scaleAliveElementType,scaleAliveElementNum,scaleAliveElementStatus) {
-	for(var i in scaleRelations) {
-		//controller = $('#'+scaleRelations[i].control.block+' .element[type="'+scaleRelations[i].control.type+'"][num="'+scaleRelations[i].control.num+'"]');
-		//controllerClicker = controller.children('.control').children('a');
-		scale = $('#'+scaleRelations[i].scale.block+' .element[type="'+scaleRelations[i].scale.type+'"][num="'+scaleRelations[i].scale.num+'"]');
-		if 	((scaleAliveBlockId == scaleRelations[i].control.block) 
-			&&	(scaleAliveElementType == scaleRelations[i].control.type) 
-			&&	(scaleAliveElementNum == scaleRelations[i].control.num))  {
-			for(var j in scaleRelations[i].relations) {
-				if (scaleAliveElementStatus == scaleRelations[i].relations[j].status) {
-					scale.find('.body').css('-webkit-transform','rotate('+(scaleRelations[i].relations[j].degree-15)+'deg)');
-					
-					setTimeout(function(){
-						scale.find('.body').css('-webkit-transform','rotate('+scaleRelations[i].relations[j].degree+'deg)');
-					}, 300)
+		for(var i in scaleRelations) {
+			//controller = $('#'+scaleRelations[i].control.block+' .element[type="'+scaleRelations[i].control.type+'"][num="'+scaleRelations[i].control.num+'"]');
+			//controllerClicker = controller.children('.control').children('a');
+			scale = $('#'+scaleRelations[i].scale.block+' .element[type="'+scaleRelations[i].scale.type+'"][num="'+scaleRelations[i].scale.num+'"]');
+			if 	((scaleAliveBlockId == scaleRelations[i].control.block) 
+				&&	(scaleAliveElementType == scaleRelations[i].control.type) 
+				&&	(scaleAliveElementNum == scaleRelations[i].control.num))  {
+				for(var j in scaleRelations[i].relations) {
+					if (scaleRelations[i].relations[j].multiply) {
+						console.info('scaleRelations multiply is true')
+						if (scaleAliveElementStatus == scaleRelations[i].relations[j].multiply[fiders].status) {
+							scale.attr('status',scaleRelations[i].relations[j].multiply[fiders].degree);
+							var current_degree = +scaleRelations[i].relations[j].multiply[fiders].degree;
+							var shift_degree = +current_degree-15;
+							var thisScale = scale.find('.body');
+							if (current_degree != '-50') {
+								thisScale.css('-webkit-transform','rotate('+shift_degree+'deg)');
+							}
+							
+							setTimeout(function() {
+								console.info(current_degree);
+								thisScale.css('-webkit-transform','rotate('+current_degree+'deg)');
+							}, 300)
+						}
+
+					} else {
+						if (scaleAliveElementStatus == scaleRelations[i].relations[j].status) {
+
+							scale.find('.body').css('-webkit-transform','rotate('+(scaleRelations[i].relations[j].degree)+'deg)');
+							scale.attr('status',scaleRelations[i].relations[j].degree);
+							
+							/*
+							setTimeout(function(){
+								scale.find('.body').css('-webkit-transform','rotate('+scaleRelations[i].relations[j].degree+'deg)');
+							}, 300)
+							*/
+						}
+					}
 				}
 			}
 		}
-	}
 }
 $('.element').each(function(){
 	var status = 0;

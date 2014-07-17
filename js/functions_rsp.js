@@ -44,34 +44,6 @@ $('#bx-pager section').each(function(){
   }
   var blockTitle;
   blockTitle = nameOfBlock(block);
-  /*
-  if (block == "min_stack0_block2") blockTitle = "ПУ-Д"
-  if (block == "min_stack1_block1") blockTitle = "П-Д"
-  if (block == "min_stack1_block2") blockTitle = "Ф-Д"
-  if (block == "min_stack1_block3") blockTitle = "К-Д"
-  if (block == "min_stack1_block4") blockTitle = "НПО-Д"
-  if (block == "min_stack1_block5") blockTitle = "ВКПО-Д"
-  if (block == "min_stack1_block6") blockTitle = "ВП-Д"
-  if (block == "min_stack2_block2") blockTitle = "СГ-П"
-  if (block == "min_stack2_block3") blockTitle = "ФП"
-  if (block == "min_stack2_block4") blockTitle = "К-П"
-  if (block == "min_stack2_block5") blockTitle = "ВП-П"
-  if (block == "min_stack3_block1") blockTitle = "БПУ-П"
-  if (block == "min_stack3_block2") blockTitle = "ПУ-П"
-  if (block == "min_stack3_block3") blockTitle = "ГМ-П"
-  if (block == "min_stack3_block5") blockTitle = "НПО-П"
-  if (block == "min_stack4_block2") blockTitle = "ИКО-Д"
-  if (block == "min_stack4_block3") blockTitle = "ВИ-Д"
-  if (block == "min_stack4_block4") blockTitle = "ВРС-Д"
-  if (block == "min_stack5_block1") blockTitle = "ПУР"
-  if (block == "min_stack6_block1") blockTitle = "БИК"
-  if (block == "min_stack6_block2") blockTitle = "ИГ-П"
-  if (block == "min_stack6_block3") blockTitle = "ИК-П"
-  if (block == "min_stack6_block4") blockTitle = "ВИ-П"
-  if (block == "min_stack6_block5") blockTitle = "ВРС-П"
-  if (block == "min_stack7_block1") blockTitle = "РЩ"
-  if (block == "min_stack7_block2") blockTitle = "БУА-П"
-*/
   $(this).attr('alt',blockTitle);
 });
  

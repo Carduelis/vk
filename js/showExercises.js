@@ -177,14 +177,15 @@ function showSideHint(eN,choosenParam) {
 function show(eN, pN, aN, choosenParam) {
 		if (str_action_whatever(eN, 'type', pN, aN, choosenParam) == 'scale') {
 			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN,choosenParam)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN,choosenParam));
-
-			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN)+'"] .body').css('-webkit-transform','rotate('+(str_action_whatever(eN, "status", pN, aN,choosenParam)-15)+'deg)');
-			setTimeout(function(){
-			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN)+'"] .body').css('-webkit-transform','rotate('+str_action_whatever(eN, "status", pN, aN,choosenParam)+'deg)');
+			console.info('Scale status is '+str_action_whatever(eN, 'status', pN, aN,choosenParam)+'deg');
+			var shifted_deg = +str_action_whatever(eN, "status", pN, aN,choosenParam)-15;
+			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN,choosenParam)+'"] .body').css('-webkit-transform','rotate('+shifted_deg+'deg)');
+			setTimeout(function() {
+			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN,choosenParam)+'"] .body').css('-webkit-transform','rotate('+str_action_whatever(eN, "status", pN, aN,choosenParam)+'deg)');
 			}, 300);
-			//alert('scale');//.find('.body').css('transform','rotate('+str_action_whatever(eN, 'status', pN, aN)+'deg)')
 		} else {
 			$('#'+str_action_whatever(eN, 'onSide', pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, 'type', pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, 'num', pN, aN,choosenParam)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN,choosenParam));
+			console.info('no_Scale status is '+str_action_whatever(eN, 'status', pN, aN,choosenParam));
 			//alert('lamp');
 		}
 }

@@ -31,14 +31,15 @@ $('#go').one('click',function(){
 	for(var i in exercisesOptions[thisExId]) {
 		console.info(exercisesOptions[thisExId][i].typeName+': '+window[exercisesOptions[thisExId][i].typeName]);
 	};
-
-		// Фазоиндикатор
+	// Фазоиндикатор
+	if ((thisExId == 'ex1') || (thisExId == 'ex2')) {
 		if (phases == 'phase_incorrect') {
 			$('.element[view_special="phase"]').attr('phase','incorrect')
 		}
 		if (phases == 'phase_correct') {
 			$('.element[view_special="phase"]').attr('phase','correct')
 		}
+	}
 		
 	$('#history').one('click', function(){
 		exportAlgorythm(thisExId);
@@ -125,7 +126,7 @@ $('#go').one('click',function(){
 		}
 		//////////////////////////////////////////////////
 
-
+/*
 		$('.element[type="scale"]').each(function(){
 			var statusDeg = $(this).attr('status');
 			$(this).find('.body').css('-webkit-transform','rotate('+(statusDeg-15)+'deg)');
@@ -137,6 +138,7 @@ $('#go').one('click',function(){
 				$(this).find('.body').css('-webkit-transform','rotate('+statusDeg+'deg)');
 			});
 		},600);
+		*/
 	});
 
 // Подсветка
@@ -407,6 +409,9 @@ $('#stack3_block2_front [type="rotator"][num="1"]').find('.slider').slider({
   }
 });
 */
+
+
+
 function setScaleRotatorRelation(blockid,scaleNum,rotatorNum) {
 	$block = $('#'+blockid);
 	$rotator = $block.find('[type="rotator"][num="'+rotatorNum+'"]');
