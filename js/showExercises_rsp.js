@@ -449,4 +449,5 @@ function setScaleRotatorRelation(blockid,scaleNum,rotatorNum) {
 }
 $(document).ready(function(){
 	setScaleRotatorRelation('stack3_block2_front','37','1');
+	setScaleRotatorRelation('stack0_block2_front','21','1');
 })

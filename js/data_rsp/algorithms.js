@@ -655,7 +655,7 @@ var exercisesContainer = {
 			positions : {
 				position_1 : {
 					state : '1', // Было undefined
-					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение	210В',
+					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение	-210В',
 					action_1 : {
 						inStack : 'stack6',
 						inBlock : 'stack6_block4',
@@ -667,7 +667,7 @@ var exercisesContainer = {
 				},
 				position_2 : {
 					state : '2', // Было undefined
-					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение +200В',
+					description : 'На блоке КОНТРОЛЬ НАПРЯЖЕНИЯ установить тумблер номинального напряжения в положение -200В',
 					action_1 : {
 						inStack : 'stack6',
 						inBlock : 'stack6_block4',
@@ -1366,8 +1366,8 @@ var exercisesContainer = {
 			},
 			positions : {
 				position_1 : {
-					state : '1',
-					description : 'Установите переключатель ИНДИКАТОР-ОТКЛ блока ВИ-Д в положение ИНЛИКАТОР',
+					state : '0',
+					description : 'Установите переключатель ИНДИКАТОР-ОТКЛ блока ВИ-Д в положение ИНДИКАТОР',
 				},
 			},
 		},
