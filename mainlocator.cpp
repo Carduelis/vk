@@ -1155,7 +1155,8 @@ void MainLocator::DrawTargets(void)
         QVector<RoundLineR>::const_iterator it=S.targets[scale][z].begin();
         {
             glLineWidth(it->width*settings["system"]["focus"].toDouble()*brightness);
-            glBegin(GL_LINES);
+            glBegin(GL_LINE_STRIP);
+            //glBegin(GL_LINES);
             for(PointsR *i=it->Coordinates,*end=it->Coordinates+TARGET_LENGTH;i<end;i++)
             {
                 alpha=CalcAlpha(i->angle);
@@ -1165,6 +1166,8 @@ void MainLocator::DrawTargets(void)
                     alpha*=settings["system"]["brightness"].toDouble()+i->r-settings["system"]["varu"].toDouble();
                     color.setAlphaF(alpha>1u ? 1.0f : alpha<.0f ? .0f : alpha);
                     qglColor(color);
+                    glVertex2f(i->x,i->y);
+                    /*
                     if(i->y>0 && i->x>0 || i->x<0 && i->y<0)
                     {
                         glVertex2f(i->x-0.02,i->y+0.02);
@@ -1185,6 +1188,7 @@ void MainLocator::DrawTargets(void)
                         glVertex2f(i->x-0.02,i->y-0.02);
                         glVertex2f(i->x+0.02,i->y+0.02);
                     }
+                    */
                 }
             }
             glEnd();

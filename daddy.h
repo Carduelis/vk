@@ -24,7 +24,7 @@
 #endif
 
 #ifndef TARGET_LENGTH
-#define TARGET_LENGTH 1u
+#define TARGET_LENGTH 10u
 #endif
 
 #ifndef TRASH_ACTIVE_LENGTH
