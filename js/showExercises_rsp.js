@@ -91,6 +91,7 @@ $('#go').one('click',function(){
 			
 						
 					} else { // все учтено, следующий элемент
+
 						isPositionsThereBoolean = true;
 						if (thisEx[thisExId]['el'+(eN+1)]) {
 							console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; '+thisEx[thisExId]['el'+(eN+1)].multiply+': '+choosenParam);
@@ -104,6 +105,7 @@ $('#go').one('click',function(){
 						};
 
 						pN = 1; // в предыдущем элементе накопился счетчик позиций, надо сбросить
+						
 						if (eN != posCount(thisEx[thisExId]) - 1)  { // Проверка: последний ли элемент?
 							eN++;
 							 // Идем к следующему элементу
@@ -119,7 +121,29 @@ $('#go').one('click',function(){
 								detectMultiply();
 								console.info(eN);
 							}
+						/*
+							if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'status', 1, choosenParam) ) {
+								if(isPositionsThereBoolean) {
+									//wow(eN,(pN+1),choosenParam); // Показываем информацию о следующем элементе
+								} else {
+									//wow((eN+1),pN,choosenParam); // Показываем информацию о следующем элементе
+								}
+							} else {
+
+							}
+							*/
+console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
+console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
+if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
+	if (isPositionsThere(eN,choosenParam)) {
+		pN++;
+	} else {
+		eN++;
+		detectMultiply();
+	}
+}
 							wow(eN,pN,choosenParam); // Показываем информацию о следующем элементе
+
 						} else {
 							alert('Упражнение выполнено!');
 							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов

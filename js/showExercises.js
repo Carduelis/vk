@@ -233,12 +233,16 @@ function str_whatever(eN, subject, choosenParam) {
 
 function str_pos_whatever(eN, subject, pN, choosenParam) { 
 	if (choosenParam) {
-	 	if (thisEx[thisExId]['el'+eN][choosenParam].positions) {
-			return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN][subject];
+		if (thisEx[thisExId]['el'+eN][choosenParam]) {
+		 	if (thisEx[thisExId]['el'+eN][choosenParam].positions) {
+				return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN][subject];
+			}
 		}
 	} 	else {
 	 	if (thisEx[thisExId]['el'+eN].positions) {
-			return thisEx[thisExId]['el'+eN].positions['position_'+pN][subject];
+	 		if (thisEx[thisExId]['el'+eN].positions['position_'+pN]) {
+				return thisEx[thisExId]['el'+eN].positions['position_'+pN][subject];
+			}
 		}
 	}
 }
