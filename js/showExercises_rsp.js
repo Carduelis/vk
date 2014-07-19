@@ -135,7 +135,13 @@ $('#go').one('click',function(){
 console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
 console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
 if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
+	
 	if (isPositionsThere(eN,choosenParam)) {
+		for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+			show(eN,pN,aN,choosenParam);
+			//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+			aN++
+		};
 		pN++;
 	} else {
 		eN++;
