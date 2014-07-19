@@ -730,7 +730,7 @@ scaleRelations = {
 		relations : {
 			relation1 : {
 				status : '1',
-				degree : '-6',
+				degree : '-10',
 			},
 			relation2 : {
 				status : '2',
@@ -738,7 +738,7 @@ scaleRelations = {
 			},
 			relation3 : {
 				status : '3',
-				degree : '-4',
+				degree : '10',
 			},
 			relation4 : {
 				status : '4',
@@ -746,7 +746,7 @@ scaleRelations = {
 			},
 			relation5 : {
 				status : '5',
-				degree : '18',
+				degree : '10',
 			},
 			relation6 : {
 				status : '6',

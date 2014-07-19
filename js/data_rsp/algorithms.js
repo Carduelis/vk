@@ -465,31 +465,18 @@ var exercisesContainer = {
 				inStack : 'stack7',
 				inBlock : 'stack7_block1',
 				onSide : 'stack7_block1_front',
-				num : '13',
+				num : '23',
 				type : 'toggler',
 			},
 			positions : {
 				position_1 : {
 					state : '3',
-					description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
+					description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ПОСАДОЧНЫЙ в положение выбранного фидера',
 				},
 			},
 		},
 		el10 : {
-			click : '8',
-			current : {
-				inStack : 'stack7',
-				inBlock : 'stack7_block1',
-				onSide : 'stack7_block1_front',
-				num : '34',
-				type : 'toggler',
-			},
-			positions : {
-				position_1 : {
-					state : '1',
-					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
-				},
-			},
+			shift : '1', //проверить
 		},
 		el11 : {
 			click : '9',
