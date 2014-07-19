@@ -487,7 +487,7 @@ body> header {
 				> div {
 					.radius(@pad/2);
 					box-shadow: inset 0 0 0 @scale*10 @color-border;
-					
+					background-repeat: no-repeat;
 					&.transparent {
 						opacity: .2;
 					}
@@ -692,18 +692,7 @@ body> header {
 			}
 		}
 		&.size100-400 {
-			padding: @scale*270 @scale*200;
-			&::after {
-				position: absolute;
-				top:0;
-				left: 37%;
-				width: 63%;
-				z-index: 9;
-				background-color: @silver;
-				content: '';
-				display: block;
-				height: 100%;
-			}
+			padding: @scale*270 @scale*100;
 		}
 		&#min_stack7_block2 {
 			position: relative;
@@ -873,6 +862,7 @@ footer {
 	div.img {
 		background-size: cover;
 		background-position: 50%;
+		
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
