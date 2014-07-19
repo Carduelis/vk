@@ -249,9 +249,10 @@ qint8 Daddy::GetRandomSign(void)const
 
 void Daddy::TargetsActions()
 {
-    if(TargetsSettings::GetTargetsGount()!=0)
+    quint8 count=TargetsSettings::GetTargetsGount();
+    if(count!=0)
     {
-        for(quint8 i=0u;i<TargetsSettings::GetTargetsGount();i++)
+        for(quint8 i=0u;i<count;i++)
         {
             if(!S.targets[20].isEmpty())
                 if(!S.targets[20][i].isEmpty())

@@ -9,7 +9,7 @@
 #endif
 
 #ifndef TRIANGLE_ANGLE_SPEED_FIX
-#define TRIANGLE_ANGLE_SPEED_FIX  16u
+#define TRIANGLE_ANGLE_SPEED_FIX  8u
 #endif
 
 #ifndef TRIANGLE_ANGLE_RANGE
