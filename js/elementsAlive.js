@@ -154,10 +154,16 @@ $('.element').each(function(){
 		var step = 45;
 		var status = element.attr('status');
 		var num = element.attr('num');
+		var scaleNum;
+		var scaleBlockid;
+		var scaleRatio = 1;
+		var zeroPosition = 50;
 		if (element.attr('range'))	 max = 45*element.attr('range')
 		if (element.attr('step'))	 step = 45*element.attr('step')
 		if (element.attr('defaultposition'))	 value = 45*element.attr('defaultposition')
-
+		if (element.attr('relationScaleBlockid')) scaleBlockid = element.attr('relationScaleBlockid');
+		if (element.attr('relationScaleNum')) scaleNum = element.attr('relationScaleNum');
+		if (element.attr('relationScaleRatio')) scaleRatio = element.attr('relationScaleRatio');
 		clicker.next('.slider').slider({
 	      value: value,
 	      min: min,
@@ -166,6 +172,12 @@ $('.element').each(function(){
 	      slide: function( event, ui ) {
 	        body.css('transform','rotate('+ui.value+'deg)');
 	        element.attr('status', ui.value/step);
+	        if (element.attr('relationScaleBlockid')) {
+	        	if ($('#'+scaleBlockid+' [type="scale"][num="'+scaleNum+'"]').attr('zeroposition') == 'center') {
+	        		zeroPosition = 0;
+	        	}
+	        	$('#'+scaleBlockid+' [type="scale"][num="'+scaleNum+'"]').find('.body').css('transform','rotate('+((ui.value/(4*scaleRatio))-zeroPosition)+'deg)');
+	        }
 	        if (element.attr('view2') == "yes") {
 	        	element.children('.overlay').html('<span class="counter">'+ui.value/step+'</span>')
 	        }

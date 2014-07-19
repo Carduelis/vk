@@ -446,6 +446,11 @@ $('#stack3_block2_front [type="rotator"][num="1"]').find('.slider').slider({
 
 
 function setScaleRotatorRelation(blockid,scaleNum,rotatorNum) {
+	console.info(blockid);
+	console.info(scaleNum);
+	console.info(rotatorNum);
+	console.info('-----------------');
+
 	$block = $('#'+blockid);
 	$rotator = $block.find('[type="rotator"][num="'+rotatorNum+'"]');
 	$scale = $block.find('[type="scale"][num="'+scaleNum+'"]');
@@ -469,9 +474,10 @@ function setScaleRotatorRelation(blockid,scaleNum,rotatorNum) {
 	    $scale.find('.body').css('transform','rotate('+((ui.value/4)-50)+'deg)')
 	  }
 	});
-	return
 }
 $(document).ready(function(){
-	setScaleRotatorRelation('stack3_block2_front','37','1');
-	setScaleRotatorRelation('stack0_block2_front','21','1');
-})
+	//setScaleRotatorRelation('stack3_block2_front','37','1');
+	//setScaleRotatorRelation('stack0_block2_front','21','1');
+	//setScaleRotatorRelation('stack3_block5_front','3','7');
+});
+
