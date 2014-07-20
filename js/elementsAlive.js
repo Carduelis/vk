@@ -2,10 +2,8 @@
 // ============================================
 // Здесь описываются действия с элементами
 // ============================================
-$(document).ready(function(){
-
-
 function scaleAlive(scaleAliveBlockId,scaleAliveElementType,scaleAliveElementNum,scaleAliveElementStatus) {
+		
 		for(var i in scaleRelations) {
 			//controller = $('#'+scaleRelations[i].control.block+' .element[type="'+scaleRelations[i].control.type+'"][num="'+scaleRelations[i].control.num+'"]');
 			//controllerClicker = controller.children('.control').children('a');
@@ -32,22 +30,28 @@ function scaleAlive(scaleAliveBlockId,scaleAliveElementType,scaleAliveElementNum
 						}
 
 					} else {
+						console.info('scaleRelations multiply is false')
 						if (scaleAliveElementStatus == scaleRelations[i].relations[j].status) {
 
 							scale.find('.body').css('-webkit-transform','rotate('+(scaleRelations[i].relations[j].degree)+'deg)');
 							scale.attr('status',scaleRelations[i].relations[j].degree);
 							
-							/*
-							setTimeout(function(){
-								scale.find('.body').css('-webkit-transform','rotate('+scaleRelations[i].relations[j].degree+'deg)');
-							}, 300)
-							*/
+							
+							//setTimeout(function(){
+							//	scale.find('.body').css('-webkit-transform','rotate('+scaleRelations[i].relations[j].degree+'deg)');
+							//}, 300)
+							
 						}
 					}
 				}
 			}
 		}
+
+		return console.info('scaleAlive')
 }
+$(document).ready(function(){
+
+
 $('.element').each(function(){
 	var status = 0;
 	var element = $(this);

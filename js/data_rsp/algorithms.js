@@ -3158,7 +3158,41 @@ var exercisesContainer = {
 	},
 	ex11 : {
 		nameOfExercise : 'Упражнение для тестирования 3',
+		
 		el1 : {
+		 click : '1',
+		 current : {
+			 inStack : 'stack0',
+			 inBlock : 'stack0_block2',
+			 onSide : 'stack0_block2_front',
+			 num : '2',
+			 type : 'toggler',
+		 },
+		 positions : {
+			 position_1 : {
+				 state : '1',
+				 description : 'Вертикально',
+
+				 action_1 : {
+					 inStack : 'stack0',
+					 inBlock : 'stack0_block2',
+					 onSide : 'stack0_block2_front',
+					 type : 'lamp',
+					 num : '2',
+					 status : 'on',
+				 },
+				 action_2 : {
+					 inStack : 'stack0',
+					 inBlock : 'stack0_block2',
+					 onSide : 'stack0_block2_front',
+					 type : 'scale',
+					 num : '21',
+					 status : '7',
+				 },
+			 },
+		 },
+		},
+		el2 : {
 			click : '21',
 			current : {
 				inStack : 'stack1',
@@ -3197,39 +3231,6 @@ var exercisesContainer = {
 					description : 'Установите переключатель величины токов блока Ф-Д в положение +150В',
 				},
 			},
-		},
-		el2 : {
-		 click : '1',
-		 current : {
-			 inStack : 'stack0',
-			 inBlock : 'stack0_block2',
-			 onSide : 'stack0_block2_front',
-			 num : '2',
-			 type : 'toggler',
-		 },
-		 positions : {
-			 position_1 : {
-				 state : '1',
-				 description : 'Вертикально',
-
-				 action_1 : {
-					 inStack : 'stack0',
-					 inBlock : 'stack0_block2',
-					 onSide : 'stack0_block2_front',
-					 type : 'lamp',
-					 num : '2',
-					 status : 'on',
-				 },
-				 action_2 : {
-					 inStack : 'stack0',
-					 inBlock : 'stack0_block2',
-					 onSide : 'stack0_block2_front',
-					 type : 'scale',
-					 num : '21',
-					 status : '7',
-				 },
-			 },
-		 },
 		},
 		el3 : {
 		 click : '2',

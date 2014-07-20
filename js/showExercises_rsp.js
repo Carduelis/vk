@@ -60,7 +60,7 @@ $('#go').one('click',function(){
 		var thisViewSpecial = $(this).attr('view_special');
 		var thisSide = $(this).parent().attr('id');
 		var thisBlock = $(this).parent().parent().attr('id');
-
+		console.log('thisType: '+thisType+'thisNum: '+thisNum+'thisStatus: '+thisStatus+'thisView: '+thisView+'thisViewSpecial: '+thisViewSpecial+'thisSide: '+thisSide+'thisBlock: '+thisBlock)
 		history(thisType,thisNum,thisStatus,thisSide,thisBlock);
 
 		if (
@@ -146,6 +146,7 @@ $('#go').one('click',function(){
 					//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
 					aN++
 				};
+				scaleAlive(str_whatever(eN, 'onSide',choosenParam),str_whatever(eN, 'type',choosenParam),str_whatever(eN, 'num',choosenParam),str_pos_whatever(eN, 'state',pN,choosenParam));
 				pN++;
 			} else {
 				eN++;
