@@ -116,7 +116,10 @@ $('section i').on('click',function(){
   $(this).parent().parent().children('div[side="front"]').fadeIn();
 });
 
-
+//Запуск РСП
+$('#stack4_block2_front').on('dblclick',function(){
+  location.href="rsp://launch/";
+});
 
 });
 
