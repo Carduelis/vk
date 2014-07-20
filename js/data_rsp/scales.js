@@ -178,15 +178,15 @@ scaleRelations = {
 		relations : {
 			relation1 : {
 				status : '1',
-				degree : '28',
+				degree : '21',
 			},
 			relation3 : {
 				status : '2',
-				degree : '28',
+				degree : '20',
 			},
 			relation4 : {
 				status : '3',
-				degree : '28',
+				degree : '32',
 			},
 		},
 		exercises : {
