@@ -1,4 +1,3 @@
-
 // Показ упражнений
 
 var eN = 1;
@@ -45,7 +44,7 @@ $('#go').one('click',function(){
 		exportAlgorythm(thisExId);
 	})
 
-	wow_first(eN,pN); // Показали первый элемент в первой позиции
+	showFirstStepTrainingFeatures(eN,pN); // Показали первый элемент в первой позиции
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 	
@@ -76,7 +75,7 @@ $('#go').one('click',function(){
 				eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
 				pN = 1;
 				console.info(eN);
-				wow(eN,pN, choosenParam);
+				showTrainingFeatures(eN,pN, choosenParam);
 			} else {
 				if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
 					aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
@@ -84,12 +83,12 @@ $('#go').one('click',function(){
 					if (isPositionsThere(eN,choosenParam))  { // Нет, еще есть позиции
 						isPositionsThereBoolean = false;
 						for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-							show(eN,pN,aN,choosenParam);
+							showActions(eN,pN,aN,choosenParam);
 							//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
 							aN++
 						};
 						pN++ // идем к следующей позиции
-						wow(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
+						showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
 			
 						
 					} else { // все учтено, следующий элемент
@@ -101,7 +100,7 @@ $('#go').one('click',function(){
 							console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; конец');
 						}
 						for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-							show(eN,pN,aN,choosenParam);
+							showActions(eN,pN,aN,choosenParam);
 							//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
 							aN++
 						};
@@ -112,7 +111,7 @@ $('#go').one('click',function(){
 							eN++;
 							 // Идем к следующему элементу
 							detectMultiply();
-							// Если следующий элемент содержит shift, то wow(eN,pN,choosenParam) не может ничего показать
+							// Если следующий элемент содержит shift, то showTrainingFeatures(eN,pN,choosenParam) не может ничего показать
 
 							if (isShift(eN,choosenParam)) {
 
@@ -126,9 +125,9 @@ $('#go').one('click',function(){
 						/*
 							if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'status', 1, choosenParam) ) {
 								if(isPositionsThereBoolean) {
-									//wow(eN,(pN+1),choosenParam); // Показываем информацию о следующем элементе
+									//showTrainingFeatures(eN,(pN+1),choosenParam); // Показываем информацию о следующем элементе
 								} else {
-									//wow((eN+1),pN,choosenParam); // Показываем информацию о следующем элементе
+									//showTrainingFeatures((eN+1),pN,choosenParam); // Показываем информацию о следующем элементе
 								}
 							} else {
 
@@ -143,7 +142,7 @@ $('#go').one('click',function(){
 				aN = 1;
 				detectMultiply();
 				for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-					show(eN,pN,aN,choosenParam);
+					showActions(eN,pN,aN,choosenParam);
 					//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
 					aN++
 				};
@@ -153,12 +152,12 @@ $('#go').one('click',function(){
 				detectMultiply();
 			}
 		}
-							wow(eN,pN,choosenParam); // Показываем информацию о следующем элементе
+							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
 
 						} else {
 							alert('Упражнение выполнено!');
 							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
-							$('#bx-pager, #history').show();
+							$('#bx-pager, #history').showActions();
 							$('#history + .btn').remove();
 							$('#showBxPager').hide();
 							$('#chooseExercise,#reloadPage').addClass('active');
@@ -166,7 +165,6 @@ $('#go').one('click',function(){
 					}
 				}
 			}
-
 		}
 		//////////////////////////////////////////////////
 
@@ -277,113 +275,6 @@ function focusOnElement(parameter){
 	}
 }
 
-
-/*
-function show(eN, pN, aN, choosenParam) {
-	if (choosenParam) {
-		if (str_action_whatever(eN, 'type', pN, aN, choosenParam) == 'scale') {
-			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN,choosenParam)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN,choosenParam));
-
-			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN)+'"] .body').css('-webkit-transform','rotate('+(str_action_whatever(eN, "status", pN, aN,choosenParam)-15)+'deg)');
-			setTimeout(function(){
-			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN)+'"] .body').css('-webkit-transform','rotate('+str_action_whatever(eN, "status", pN, aN,choosenParam)+'deg)');
-			}, 300);
-			//alert('scale');//.find('.body').css('transform','rotate('+str_action_whatever(eN, 'status', pN, aN)+'deg)')
-		} else {
-			$('#'+str_action_whatever(eN, 'onSide', pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, 'type', pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, 'num', pN, aN,choosenParam)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN,choosenParam));
-			//alert('lamp');
-		}
-
-	} else {
-		if (str_action_whatever(eN, 'type', pN, aN) == 'scale') {
-			$('#'+str_action_whatever(eN, 'onSide', pN, aN)+' .element[type="'+str_action_whatever(eN, 'type', pN, aN)+'"][num="'+str_action_whatever(eN, 'num', pN, aN)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN));
-			$('#'+str_action_whatever(eN, 'onSide', pN, aN)+' .element[type="'+str_action_whatever(eN, 'type', pN, aN)+'"][num="'+str_action_whatever(eN, 'num', pN, aN)+'"] .body').css('-webkit-transform','rotate('+str_action_whatever(eN, 'status', pN, aN)+'deg)');
-			//alert('scale');//.find('.body').css('transform','rotate('+str_action_whatever(eN, 'status', pN, aN)+'deg)')
-		} else {
-			$('#'+str_action_whatever(eN, 'onSide', pN, aN)+' .element[type="'+str_action_whatever(eN, 'type', pN, aN)+'"][num="'+str_action_whatever(eN, 'num', pN, aN)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN));
-			//alert('lamp');
-		}
-		//alert('show function'+eN+pN+aN);
-	}
-}
-
-
-function str_action_whatever(eN, subject, pN, aN, choosenParam) 	{
-	 if (choosenParam) {
-		 return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN]['action_'+aN][subject];
-	 } else {
-	 	if (thisEx[thisExId]['el'+eN].positions) {
-		 return thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN][subject];
-	 	}
-	 }
-	}
-*/
-
-function exportAlgorythm(thisExId) {
-	$('#expectations').append('<table><tbody><tr><th>#</th><th>Блок</th><th>Тип элемента</th><th>Описание</th></tr></tbody></table>');
-	for (var i = 1; i < Object.keys(exercisesContainer[thisExId]).length; i++) {
-		var oneAction = Object.keys(exercisesContainer[thisExId])[i];
-		//var eN = i; // detectMultiply внутри содержит переменную eN
-		//detectMultiply();
-		
-		if (exercisesContainer[thisExId]['el'+i].multiply) {
-			console.info('i'+i) // 1,2,3,4..
-			for(var j in exercisesOptions[thisExId]) {
-				console.info('j'+j) // optionBlock1 / optionBlock2
-				if (exercisesContainer[thisExId]['el'+i].multiply == exercisesOptions[thisExId][j].typeName) {
-					console.info(exercisesOptions[thisExId][j].typeName) // fiders / phases
-					choosenParam = window[exercisesOptions[thisExId][j].typeName];
-					console.info(choosenParam)
-				}
-			}
-		} else {
-			choosenParam = null;
-		}
-			var element = obj_element(i,choosenParam);
-			var text = str_pos_whatever(i, 'description', 1, choosenParam);
-			var block = nameOfBlock(str_whatever(i,'inBlock',choosenParam));
-			if (isShift(i,choosenParam)) {
-				console.info('shift'+i);
-				i = +i + +thisEx[thisExId]['el'+i][choosenParam].shift;
-				console.info('shift'+i);
-			}
-		
-		
-		
-		$('#expectations tbody').append('<tr><td>'+i+'</td><td>'+block+'</td><td><div class="element-container"></div></td><td><p>'+text+'</p></td></tr>');
-		$('#expectations tbody tr:eq('+i+') .element-container').append(element);
-	};
-}
-
-function showDependentAction(eN,pN,aN) {
-	var thisOnSide, thisNum, thisType, thisStatus;
-	thisOnSide = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].onSide;
-	thisNum = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].num;
-	thisType = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].type;
-	thisStatus = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].status;
-	$('#'+thisOnSide+' .element[type="'+thisType+'"][num="'+thisNum+'"]').attr('status',thisStatus);
-}
-
-
-
-function posCount(obj) {
-   var a = 0;
-   for (var i in obj)
-      a++
-   return a
-}
-
-historyClick = 1;
-function history(thisType,thisNum,thisStatus,thisSide,thisBlock) {
-	$('#reality tbody').append('<tr><td>'+historyClick+'</td><td>'+nameOfBlock(thisBlock)+'</td><td>'+nameOfControl(thisType)+' №'+thisNum+'</td></tr>');
-	historyClick++;
-}
-
-
-
-
-
-
 function showhint(eN, choosenParam) {
 	// TO DO 
 	// Вбить значения в html, и цеплять их оттуда
@@ -393,27 +284,27 @@ function showhint(eN, choosenParam) {
 	$('#showhint span').html('Стойка: <b class="active" id="goToStack">'+stack+'</b>, Блок: <b id="goToBlock">'+block+'</b>');
 
 
-if(choosenParam) {
-	$('#bx-pager a').not($('.'+str_whatever(eN, 'inStack', choosenParam))).addClass('opacity'); // minimap-stack
-	$('.'+str_whatever(eN, 'inStack',choosenParam)).addClass('shadow'); // minimap-stack
-	$('#min_'+str_whatever(eN, 'inBlock',choosenParam)).addClass('shadow'); // minimap-block
-	/*
-	if (str_whatever(eN, 'inBlock', choosenParam) != str_whatever(eN, 'inBlock'+1, choosenParam)) {
-		$('#showBxPager').addClass('attention');
-		//$('#showhint span').html('Действия на данном блоке завершены. <b class="active" id="goToBlock">Кликните здесь для перехода к следующему блоку</b> или воспользуйтесь кнопкой перехода к общему виду: "Показать РСП-11 целиком"');
+	if(choosenParam) {
+		$('#bx-pager a').not($('.'+str_whatever(eN, 'inStack', choosenParam))).addClass('opacity'); // minimap-stack
+		$('.'+str_whatever(eN, 'inStack',choosenParam)).addClass('shadow'); // minimap-stack
+		$('#min_'+str_whatever(eN, 'inBlock',choosenParam)).addClass('shadow'); // minimap-block
+		/*
+		if (str_whatever(eN, 'inBlock', choosenParam) != str_whatever(eN, 'inBlock'+1, choosenParam)) {
+			$('#showBxPager').addClass('attention');
+			//$('#showhint span').html('Действия на данном блоке завершены. <b class="active" id="goToBlock">Кликните здесь для перехода к следующему блоку</b> или воспользуйтесь кнопкой перехода к общему виду: "Показать РСП-11 целиком"');
+		}
+		*/
+	} else {
+		$('#bx-pager a').not($('.'+str_whatever(eN, 'inStack'))).addClass('opacity'); // minimap-stack
+		$('.'+str_whatever(eN, 'inStack')).addClass('shadow'); // minimap-stack
+		$('#min_'+str_whatever(eN, 'inBlock')).addClass('shadow'); // minimap-block
+		/*
+		if (str_whatever(eN, 'inBlock') != str_whatever(eN, 'inBlock'+1)) {
+			$('#showBxPager').addClass('attention');
+			//$('#showhint span').html('Действия на данном блоке завершены. <b class="active" id="goToBlock">Кликните здесь для перехода к следующему блоку</b> или воспользуйтесь кнопкой перехода к общему виду: "Показать РСП-11 целиком"');
+		}
+		*/
 	}
-	*/
-} else {
-	$('#bx-pager a').not($('.'+str_whatever(eN, 'inStack'))).addClass('opacity'); // minimap-stack
-	$('.'+str_whatever(eN, 'inStack')).addClass('shadow'); // minimap-stack
-	$('#min_'+str_whatever(eN, 'inBlock')).addClass('shadow'); // minimap-block
-	/*
-	if (str_whatever(eN, 'inBlock') != str_whatever(eN, 'inBlock'+1)) {
-		$('#showBxPager').addClass('attention');
-		//$('#showhint span').html('Действия на данном блоке завершены. <b class="active" id="goToBlock">Кликните здесь для перехода к следующему блоку</b> или воспользуйтесь кнопкой перехода к общему виду: "Показать РСП-11 целиком"');
-	}
-	*/
-}
 
 
 	$('#goToStack').on('click', function(){
@@ -428,67 +319,3 @@ if(choosenParam) {
 		$('body').scrollTop(offset.top);
 	});
 }
-/*
-$( document ).ready(function() {
-$('#stack3_block2_front').each(function(){
-	var $scale = $(this).find($('[type="scale"][num="37"]'));
-	var scale_status = $scale.attr('status');
-	var $rotator = $(this).find($('[type="rotator"][num="1"]'));
-	$rotator.slider({
-	  slide: function( event, ui ) {
-	    $scale.find('.body').css('transform','rotate('+(scale_status + ui.value/10)+'deg)');
-	    //element.attr('status', ui.value/step);
-	  }
-	});
-});
-});
-*/
-/*
-$('#stack3_block2_front [type="rotator"][num="1"]').find('.slider').slider({
-	var scale = $('#stack3_block2_front [type="scale"][num="37"]');
-	scale_status = $scale.attr('status');
-  slide: function( event, ui ) {
-    $scale.find('.body').css('transform','rotate('+(scale_status + ui.value/10)+'deg)');
-    //element.attr('status', ui.value/step);
-  }
-});
-*/
-
-
-
-function setScaleRotatorRelation(blockid,scaleNum,rotatorNum) {
-	console.info(blockid);
-	console.info(scaleNum);
-	console.info(rotatorNum);
-	console.info('-----------------');
-
-	$block = $('#'+blockid);
-	$rotator = $block.find('[type="rotator"][num="'+rotatorNum+'"]');
-	$scale = $block.find('[type="scale"][num="'+scaleNum+'"]');
-	
-	var rotator_status;
-	var rotator_range;
-	var scale_status;
-	rotator_range = $rotator.attr('range');
-	scale_status = $scale.attr('status');
-	rotator_range = rotator_range/2.5;
-	/*
-	$rotator.on('click', function(){
-		rotator_status = $(this).attr('status');
-	});
-	*/
-
-	var value = scale_status;
-
-	$rotator.find('.slider').slider({
-	  slide: function( event, ui ) {
-	    $scale.find('.body').css('transform','rotate('+((ui.value/4)-50)+'deg)')
-	  }
-	});
-}
-$(document).ready(function(){
-	//setScaleRotatorRelation('stack3_block2_front','37','1');
-	//setScaleRotatorRelation('stack0_block2_front','21','1');
-	//setScaleRotatorRelation('stack3_block5_front','3','7');
-});
-

@@ -30,7 +30,7 @@ $('#go').one('click',function(){
 		exportAlgorythm(thisExId);
 	})
 
-	wow_first(eN,pN); // Показали первый элемент в первой позиции
+	showFirstStepTrainingFeatures(eN,pN); // Показали первый элемент в первой позиции
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 
@@ -56,7 +56,7 @@ $('#go').one('click',function(){
 			eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
 			pN = 1;
 			console.info(eN);
-			wow(eN,pN, choosenParam);
+			showTrainingFeatures(eN,pN, choosenParam);
 		} else {
 			if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
 				aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
@@ -64,12 +64,12 @@ $('#go').one('click',function(){
 				if (isPositionsThere(eN,choosenParam))  { // Нет, еще есть позиции
 					isPositionsThereBoolean = false;
 					for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-						show(eN,pN,aN,choosenParam);
+						showActions(eN,pN,aN,choosenParam);
 						//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
 						aN++
 					};
 					pN++ // идем к следующей позиции
-					wow(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
+					showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
 		
 					
 				} else { // все учтено, следующий элемент
@@ -80,7 +80,7 @@ $('#go').one('click',function(){
 						console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; конец');
 					}
 					for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-						show(eN,pN,aN,choosenParam);
+						showActions(eN,pN,aN,choosenParam);
 						//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
 						aN++
 					};
@@ -90,7 +90,7 @@ $('#go').one('click',function(){
 						eN++;
 						 // Идем к следующему элементу
 						detectMultiply();
-						// Если следующий элемент содержит shift, то wow(eN,pN,choosenParam) не может ничего показать
+						// Если следующий элемент содержит shift, то showTrainingFeatures(eN,pN,choosenParam) не может ничего показать
 
 						if (isShift(eN,choosenParam)) {
 
@@ -101,7 +101,7 @@ $('#go').one('click',function(){
 							detectMultiply();
 							console.info(eN);
 						}
-						wow(eN,pN,choosenParam); // Показываем информацию о следующем элементе
+						showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
 					} else {
 						alert('Упражнение выполнено!');
 						hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
@@ -138,65 +138,6 @@ function hideAndRemoveAllHints() {
 }
 
 
-
-function exportAlgorythm(thisExId) {
-	$('#expectations').append('<table><tbody><tr><th>#</th><th>Блок</th><th>Тип элемента</th><th>Описание</th></tr></tbody></table>');
-	for (var i = 1; i < Object.keys(exercisesContainer[thisExId]).length; i++) {
-		var oneAction = Object.keys(exercisesContainer[thisExId])[i];
-		//var eN = i; // detectMultiply внутри содержит переменную eN
-		//detectMultiply();
-		
-		if (exercisesContainer[thisExId]['el'+i].multiply) {
-			console.info('i'+i) // 1,2,3,4..
-			for(var j in exercisesOptions[thisExId]) {
-				console.info('j'+j) // optionBlock1 / optionBlock2
-				if (exercisesContainer[thisExId]['el'+i].multiply == exercisesOptions[thisExId][j].typeName) {
-					console.info(exercisesOptions[thisExId][j].typeName) // fiders / phases
-					choosenParam = window[exercisesOptions[thisExId][j].typeName];
-					console.info(choosenParam)
-				}
-			}
-		} else {
-			choosenParam = null;
-		}
-			var element = obj_element(i,choosenParam);
-			var text = str_pos_whatever(i, 'description', 1, choosenParam);
-			var block = nameOfBlock(str_whatever(i,'inBlock',choosenParam));
-			if (isShift(i,choosenParam)) {
-				console.info('shift'+i);
-				i = +i + +thisEx[thisExId]['el'+i][choosenParam].shift;
-				console.info('shift'+i);
-			}
-		
-		
-		
-		$('#expectations tbody').append('<tr><td>'+i+'</td><td>'+block+'</td><td><div class="element-container"></div></td><td><p>'+text+'</p></td></tr>');
-		$('#expectations tbody tr:eq('+i+') .element-container').append(element);
-	};
-}
-
-function showDependentAction(eN,pN,aN) {
-	var thisOnSide, thisNum, thisType, thisStatus;
-	thisOnSide = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].onSide;
-	thisNum = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].num;
-	thisType = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].type;
-	thisStatus = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].status;
-	$('#'+thisOnSide+' .element[type="'+thisType+'"][num="'+thisNum+'"]').attr('status',thisStatus);
-}
-
-
-function posCount(obj) {
-   var a = 0;
-   for (var i in obj)
-      a++
-   return a
-}
-
-historyClick = 1;
-function history(thisType,thisNum,thisStatus,thisSide,thisBlock) {
-	$('#reality tbody').append('<tr><td>'+historyClick+'</td><td>'+nameOfBlock(thisBlock)+'</td><td>'+nameOfControl(thisType)+' №'+thisNum+'</td></tr>');
-	historyClick++;
-}
 
 
 

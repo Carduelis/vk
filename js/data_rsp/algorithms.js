@@ -3169,8 +3169,8 @@ var exercisesContainer = {
 			},
 			positions : {
 				position_1 : {
-					state : '1',
-					description : 'Установите переключатель величины токов блока Ф-Д в положение 0',
+					state : '0',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение +150В',
 				},
 				position_2 : {
 					state : '2',

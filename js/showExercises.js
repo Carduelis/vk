@@ -112,7 +112,7 @@ function positionsObj(eN,pN,choosenParam) {
 }
 
 
-function wow_first(eN,pN) {
+function showFirstStepTrainingFeatures(eN,pN) {
 	if (mode == 'training') {
 		showhint(eN, choosenParam);
 		obj_element(eN, choosenParam).addClass('shadow');
@@ -122,7 +122,7 @@ function wow_first(eN,pN) {
 
 }
 
-function wow(eN,pN, choosenParam) {
+function showTrainingFeatures(eN,pN, choosenParam) {
 	if (mode == 'training') {
 		hideAndRemoveAllHints();
 		showSideHint(eN, choosenParam);
@@ -172,9 +172,7 @@ function showSideHint(eN,choosenParam) {
 }
 
 
-
-
-function show(eN, pN, aN, choosenParam) {
+function showActions(eN, pN, aN, choosenParam) {
 		if (str_action_whatever(eN, 'type', pN, aN, choosenParam) == 'scale') {
 			$('#'+str_action_whatever(eN, "onSide", pN, aN,choosenParam)+' .element[type="'+str_action_whatever(eN, "type", pN, aN,choosenParam)+'"][num="'+str_action_whatever(eN, "num", pN, aN,choosenParam)+'"]').attr('status',str_action_whatever(eN, 'status', pN, aN,choosenParam));
 			console.info('Scale status is '+str_action_whatever(eN, 'status', pN, aN,choosenParam)+'deg');
@@ -282,4 +280,64 @@ function append_desc(eN, pN, choosenParam) {
 	} else {
 		obj_element(eN).append('<div class="hint"><p>'+str_pos_whatever(eN, 'description', pN)+'</p></div>')
 	}
+}
+
+
+
+function exportAlgorythm(thisExId) {
+	$('#expectations').append('<table><tbody><tr><th>#</th><th>Блок</th><th>Тип элемента</th><th>Описание</th></tr></tbody></table>');
+	for (var i = 1; i < Object.keys(exercisesContainer[thisExId]).length; i++) {
+		var oneAction = Object.keys(exercisesContainer[thisExId])[i];
+		//var eN = i; // detectMultiply внутри содержит переменную eN
+		//detectMultiply();
+		
+		if (exercisesContainer[thisExId]['el'+i].multiply) {
+			console.info('i'+i) // 1,2,3,4..
+			for(var j in exercisesOptions[thisExId]) {
+				console.info('j'+j) // optionBlock1 / optionBlock2
+				if (exercisesContainer[thisExId]['el'+i].multiply == exercisesOptions[thisExId][j].typeName) {
+					console.info(exercisesOptions[thisExId][j].typeName) // fiders / phases
+					choosenParam = window[exercisesOptions[thisExId][j].typeName];
+					console.info(choosenParam)
+				}
+			}
+		} else {
+			choosenParam = null;
+		}
+			var element = obj_element(i,choosenParam);
+			var text = str_pos_whatever(i, 'description', 1, choosenParam);
+			var block = nameOfBlock(str_whatever(i,'inBlock',choosenParam));
+			if (isShift(i,choosenParam)) {
+				console.info('shift'+i);
+				i = +i + +thisEx[thisExId]['el'+i][choosenParam].shift;
+				console.info('shift'+i);
+			}
+		
+		
+		
+		$('#expectations tbody').append('<tr><td>'+i+'</td><td>'+block+'</td><td><div class="element-container"></div></td><td><p>'+text+'</p></td></tr>');
+		$('#expectations tbody tr:eq('+i+') .element-container').append(element);
+	};
+}
+
+function showDependentAction(eN,pN,aN) {
+	var thisOnSide, thisNum, thisType, thisStatus;
+	thisOnSide = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].onSide;
+	thisNum = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].num;
+	thisType = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].type;
+	thisStatus = thisEx[thisExId]['el'+eN].positions['position_'+pN]['action_'+aN].status;
+	$('#'+thisOnSide+' .element[type="'+thisType+'"][num="'+thisNum+'"]').attr('status',thisStatus);
+}
+
+function posCount(obj) {
+   var a = 0;
+   for (var i in obj)
+      a++
+   return a
+}
+
+historyClick = 1;
+function history(thisType,thisNum,thisStatus,thisSide,thisBlock) {
+	$('#reality tbody').append('<tr><td>'+historyClick+'</td><td>'+nameOfBlock(thisBlock)+'</td><td>'+nameOfControl(thisType)+' №'+thisNum+'</td></tr>');
+	historyClick++;
 }
