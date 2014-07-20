@@ -3159,6 +3159,46 @@ var exercisesContainer = {
 	ex11 : {
 		nameOfExercise : 'Упражнение для тестирования 3',
 		el1 : {
+			click : '21',
+			current : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block2',
+				onSide : 'stack1_block2_front',
+				num : '3',
+				type : 'knob',
+			},
+			positions : {
+				position_1 : {
+					state : '1',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение 0',
+				},
+				position_2 : {
+					state : '2',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение +75В',
+				},
+				position_3 : {
+					state : '3',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение 0',
+				},
+				position_4 : {
+					state : '4',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение +27В',
+				},
+				position_5 : {
+					state : '5',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение +250В',
+				},
+				position_6 : {
+					state : '6',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение -105В',
+				},
+				position_7 : {
+					state : '0',
+					description : 'Установите переключатель величины токов блока Ф-Д в положение +150В',
+				},
+			},
+		},
+		el2 : {
 		 click : '1',
 		 current : {
 			 inStack : 'stack0',
@@ -3191,7 +3231,7 @@ var exercisesContainer = {
 			 },
 		 },
 		},
-		el2 : {
+		el3 : {
 		 click : '2',
 		 current : {
 			 inStack : 'stack1',
@@ -3223,7 +3263,7 @@ var exercisesContainer = {
 			 },
 		 },
 		},
-		el3 : {
+		el4 : {
 		 click : '3',
 		 current : {
 			 inStack : 'stack0',
