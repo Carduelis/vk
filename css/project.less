@@ -316,7 +316,9 @@ body> header {
 	}
 }
 #chooseExerciseBody {
+
 	position: relative;
+
 	> ul > li  {
 		vertical-align: top;
 		li {
@@ -335,10 +337,8 @@ body> header {
 		}
 	}
 	ol {
-		-webkit-backface-visibility: visible;
-		margin-left: @pad*3;
 		padding-left: 0;
-		list-style-position: outside;
+		list-style-position: inside;
 		li {
 			margin-left: 0;
 			padding-left: 0;
@@ -346,6 +346,7 @@ body> header {
 	}
 	.listing {
 		max-width: 400px;
+
 		div {display: none}
 		> li {
 			margin-left: @pad*3;
@@ -358,6 +359,9 @@ body> header {
 				float: right;
 				margin-left: @pad-list;
 				display: inline-block;
+			}
+			&::before {
+				content: ' ';
 			}
 		}
 	}
