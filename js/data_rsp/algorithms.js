@@ -1624,14 +1624,6 @@ var exercisesContainer = {
 				position_1 : {
 					state : '2',
 					description : 'Установите вращением ручки вариака средний ток магнетрона по прибору ТОК МАГЕТРОНА, не превышая 20 мА',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '21',
-						status : '21',
-					},
 				},
 			},
 		},
@@ -1812,7 +1804,7 @@ var exercisesContainer = {
 			defaultPosition : '4',
 		},	
 		el32 : {
-			multiply: 'current_check',
+			multiply: 'crystal_current',
 			current_ok : {
 				shift : '1', // У нас одно действие "лишнее". Открыть/закрыть крышку в действие не входит.
 			},
