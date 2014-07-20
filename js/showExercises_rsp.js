@@ -49,7 +49,7 @@ $('#go').one('click',function(){
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 	
-	$('.element').on('click',function() {
+	$('.element').on('mouseup',function() {
 	////////
 		detectMultiply();
 		var thisType = $(this).attr('type');
@@ -137,7 +137,9 @@ console.info('Необходимый статус элемента (pN): '+str_p
 if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
 
 	if (isPositionsThere(eN,choosenParam)) {
+
 		aN = 1;
+		detectMultiply();
 		for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
 			show(eN,pN,aN,choosenParam);
 			//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
