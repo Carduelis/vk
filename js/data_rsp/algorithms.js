@@ -953,7 +953,7 @@ var exercisesContainer = {
 						onSide : 'stack3_block2_front',
 						type : 'scale',
 						num : '37',
-					status : '8',
+					status : '7',
 					},
 				},
 			},
