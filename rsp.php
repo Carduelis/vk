@@ -37,12 +37,6 @@
     <li id='showBxPager' class="btn">
       <a href='javascript:void(0);'>Показать РСП-10М целиком</a>
     </li>
-    <li id='reloadPage' class="btn">
-      <a href='./rsp.php' alt="Начать заново">Начать заново</a>
-    </li>
-    <li id='goToWelcome' class="btn">
-      <a href='./index_rsp.php' alt="Открыть страницу приветствия">Стартовая страница</a>
-    </li>
     <li id='hideDev' class="btn">
       <a href='javascript:void(0);'>dev</a>
     </li>
@@ -52,6 +46,12 @@
     </li>
     <li id='history' class="btn">
       <a href='javascript:void(0)'>История</a>
+    </li>
+    <li id='reloadPage' class="btn">
+      <a href='./rsp.php' alt="Начать заново">Начать заново</a>
+    </li>
+    <li id='goToWelcome' class="btn">
+      <a href='./index_rsp.php' alt="Открыть страницу приветствия">Стартовая страница</a>
     </li>
   </ul>
 

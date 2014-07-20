@@ -45,6 +45,12 @@
       <i>Помощник:</i>
       <span></span>
     </li>
+    <li id='reloadPage' class="btn">
+      <a href='./prmg.php' alt="Начать заново">Начать заново</a>
+    </li>
+    <li id='goToWelcome' class="btn">
+      <a href='./index_prmg.php' alt="Открыть страницу приветствия">Стартовая страница</a>
+    </li>
   </ul>
   <div id="addBody" class="hidden-block">
     <ul id="addControl">

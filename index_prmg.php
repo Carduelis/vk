@@ -33,8 +33,8 @@
     </ul>
   </div>
   <div class="btns">
-    <a id="dkrm_start" href="prgm_dkrm.php">Приступить к ПРМГ (ДКРМ)</a>
-    <a id="grm_start" href="prgm_grm.php">Приступить к ПРМГ (ГРМ)</a>
+    <a id="dkrm_start" href="prmg_dkrm.php">Приступить к ПРМГ (ДКРМ)</a>
+    <a id="grm_start" href="prmg_grm.php">Приступить к ПРМГ (ГРМ)</a>
     <a href="index.php" id="back">На главную</a>
   </div>
 </div>

@@ -6,14 +6,7 @@
   <title>ПРМГ ГРМ</title>
   
   
-  <!--realtime less compiler
-  -->
- <link rel="stylesheet/less" type="text/css" href="css/style_prmg.less">
- <script src="js/libs/less-1.6.2.min.js" type="text/javascript"></script>
-  
-  <!--это для скопмилированного css
   <link rel="stylesheet" href="css/style_prmg.css">
-  -->
   </head>
 <body id="top_page">
 <header>
@@ -21,8 +14,8 @@
   <ul class='header top-line'>
     <li id="prmg-trigger">
       <div class="link-wrapper">
-        <a href="prmg_dkrm.php#!watch">ДКРМ</a>
-        <a class="current" href="prmg_grm.php#!watch">ГРМ</a>
+        <a href="prmg_dkrm.php">ДКРМ</a>
+        <a class="current" href="prmg_grm.php">ГРМ</a>
       </div>
     <li id='add' class="btn dev">
       <a href='javascript:void(0);' alt="Добавление элемента"></a>
@@ -45,6 +38,12 @@
     <li id='showhint' class="btn" style="display: none;">
       <i>Помощник:</i>
       <span></span>
+    </li>
+    <li id='reloadPage' class="btn">
+      <a href='./prmg_grm.php' alt="Начать заново">Начать заново</a>
+    </li>
+    <li id='goToWelcome' class="btn">
+      <a href='./index_prmg.php' alt="Открыть страницу приветствия">Стартовая страница</a>
     </li>
   </ul>
   <div id="addBody" class="hidden-block">
