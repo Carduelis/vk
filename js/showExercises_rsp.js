@@ -49,7 +49,9 @@ $('#go').one('click',function(){
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 	
-	$('.element').on('mouseup',function() {
+	$('.element').not('[type="rotator"]').on('click',superFunction);
+	$('.element[type="rotator"]').on('mouseup',superFunction);
+	function superFunction() {
 	////////
 		detectMultiply();
 		var thisType = $(this).attr('type');
@@ -132,25 +134,25 @@ $('#go').one('click',function(){
 
 							}
 							*/
-console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
-console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
-if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
+		console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
+		console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
+		if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
 
-	if (isPositionsThere(eN,choosenParam)) {
+			if (isPositionsThere(eN,choosenParam)) {
 
-		aN = 1;
-		detectMultiply();
-		for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-			show(eN,pN,aN,choosenParam);
-			//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
-			aN++
-		};
-		pN++;
-	} else {
-		eN++;
-		detectMultiply();
-	}
-}
+				aN = 1;
+				detectMultiply();
+				for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+					show(eN,pN,aN,choosenParam);
+					//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+					aN++
+				};
+				pN++;
+			} else {
+				eN++;
+				detectMultiply();
+			}
+		}
 							wow(eN,pN,choosenParam); // Показываем информацию о следующем элементе
 
 						} else {
@@ -168,7 +170,7 @@ if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state'
 		}
 		//////////////////////////////////////////////////
 
-/*
+		/*
 		$('.element[type="scale"]').each(function(){
 			var statusDeg = $(this).attr('status');
 			$(this).find('.body').css('-webkit-transform','rotate('+(statusDeg-15)+'deg)');
@@ -181,7 +183,7 @@ if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state'
 			});
 		},600);
 		*/
-	});
+	}
 
 // Подсветка
 $('#stack7_block1_front .element[type="toggler"][num="4"]').on('click', function(){
