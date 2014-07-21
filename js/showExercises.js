@@ -163,7 +163,11 @@ function showSideHint(eN,choosenParam) {
 			sideOpener.removeClass('active');
 			sideCloser.addClass('active');
 			console.info(str_whatever(eN,'onSide',choosenParam)+' '+str_whatever((eN-1),'onSide',choosenParamPrev));
-			focusOnElement(sideCloser.offset().top);
+			if (sideCloser) {
+				if (sideCloser.offset()) {
+					focusOnElement(sideCloser.offset().top);
+				}
+			}
 			sideCloser.click(function(){
 				focusOnElement();
 			})
