@@ -32,9 +32,9 @@
       <li><b>Тестировщики:</b><span>Кучерук Дмитрий</span><span>Назаров Павел</span>
     </ul>
   </div>
-    <div class="install" style="max-width: 600px; margin: 10px auto 0; padding: 5px; font-size: 12px;">Для обеспечения работы радиолокаторов <b>необходимо установить</b> программу, путем запуска файлов <b>protocol.reg</b> и <b>install.bat</b> из папки <b>install</b> в корневом каталоге симулятора</div>
   <div class="btns">
     <a href="rsp.php">Приступить к РСП-10МН</a>
+    <div class="install" style="max-width: 600px; margin: 10px auto 0; padding: 5px; font-size: 12px;">Для обеспечения работы радиолокаторов <b>необходимо установить</b> программу, путем запуска файла <b>install.bat</b> из корневого каталога симулятора</div>
     <a href="index.php" id="back">На главную</a>
   </div>
 </div>
