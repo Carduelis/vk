@@ -523,6 +523,130 @@ scaleRelations = {
 		},
 	},
 
+scaleRelationGroup675968756 : {
+		control : {
+			block : 'stack2_block2_front',
+			type : 'knob',
+			num : '2',
+		},
+		scale : {
+			block : 'stack2_block2_front',
+			type : 'scale',
+			num : '7',
+		},
+		relations : {
+			relation1 : {
+				status : '0',
+				degree : '0',
+			},
+			relation2 : {
+				status : '1',
+				degree : '40',
+			},
+			relation3 : {
+				status : '2',
+				degree : '11',
+			},
+			relation4 : {
+				status : '3',
+				degree : '15',
+			},
+		},
+		exercises : {
+			ex1 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex2 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex3 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex4 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex5 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex6 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex10 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'false',
+			},
+		},
+	},
+
 	'scaleRelationGroup1' : {
 		'control' : {
 			'block': 'stack0_block2_front',
