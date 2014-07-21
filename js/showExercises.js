@@ -281,9 +281,12 @@ function obj_element(eN, choosenParam) {
 }
 
 function append_desc(eN, pN, choosenParam) {
+	$('section > div[side]').removeClass('z-index');
 	if (choosenParam) {
+		$('#'+str_whatever(eN,'onSide',choosenParam)).addClass('z-index');
 		obj_element(eN, choosenParam).append('<div class="hint"><p>'+str_pos_whatever(eN, 'description', pN,choosenParam)+'</p></div>')
 	} else {
+		$('#'+str_whatever(eN,'onSide')).addClass('z-index');
 		obj_element(eN).append('<div class="hint"><p>'+str_pos_whatever(eN, 'description', pN)+'</p></div>')
 	}
 }
