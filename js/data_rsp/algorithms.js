@@ -2646,7 +2646,7 @@ var exercisesContainer = {
 						},
 						position_3 : {
 							state : '3',
-							description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение	+600В',
+							description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение	-600В',
 									action_1 : {
 										inStack : 'stack0',
 										inBlock : 'stack0_block2',

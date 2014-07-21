@@ -660,28 +660,36 @@ scaleRelationGroup675968756 : {
 		},
 		'relations' : {
 			'relation1' : {
-				'status' : '1',
-				'degree' : '10'
+				'status' : '0',
+				'degree' : '-12'
 			},
 			'relation2' : {
-				'status' : '2',
-				'degree' : '20'
+				'status' : '1',
+				'degree' : '-50'
 			},
 			'relation3' : {
-				'status' : '3',
-				'degree' : '30'
+				'status' : '2',
+				'degree' : '-35'
 			},
 			'relation4' : {
-				'status' : '4',
-				'degree' : '40'
+				'status' : '3',
+				'degree' : '10'
 			},
 			'relation5' : {
-				'status' : '5',
-				'degree' : '50'
+				'status' : '4',
+				'degree' : '-14'
 			},
 			'relation6' : {
+				'status' : '5',
+				'degree' : '20'
+			},
+			'relation7' : {
 				'status' : '6',
-				'degree' : '60'
+				'degree' : '50'
+			},
+			'relation8' : {
+				'status' : '7',
+				'degree' : '50'
 			},
 		},
 		'exercises' : {
