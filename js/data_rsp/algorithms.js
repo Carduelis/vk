@@ -2759,122 +2759,6 @@ var exercisesContainer = {
 				inStack : 'stack0',
 				inBlock : 'stack0_block2',
 				onSide : 'stack0_block2_front',
-				num : '2',
-				type : 'knob',
-			},
-			positions : {
-				position_1 : {
-					state : '0',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение 24КВ',
-				},
-				position_2 : {
-					state : '2',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение	+180В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-				position_3 : {
-					state : '3',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение	+600В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-				position_4 : {
-					state : '4',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение +300В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-				position_5 : {
-					state : '5',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение +700В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-				position_6 : {
-					state : '6',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение +1200В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-				position_7 : {
-					state : '7',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение +1800В',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-				position_8 : {
-					state : '1',
-					description : 'Установите тумблер КОНТРОЛЬ НАПР. блока ПУ-Д в положение 0',
-					action_1 : {
-						inStack : 'stack0',
-						inBlock : 'stack0_block2',
-						onSide : 'stack0_block2_front',
-						type : 'scale',
-						num : '22',
-					status : 'undefined',
-					},
-				},
-			},
-		},
-		el2 : {
-			click : '2',
-			current : {
-				inStack : 'stack0',
-				inBlock : 'stack0_block2',
-				onSide : 'stack0_block2_front',
-				num : '4',
-				type : 'button',
-			},
-			positions : {
-				position_1 : {
-					state : 'on',
-					description : 'Нажмите кнопку СПЦ на блоке ПУ-Д',
-				},
-			},
-		},
-		el3 : {
-			click : '3',
-			current : {
-				inStack : 'stack0',
-				inBlock : 'stack0_block2',
-				onSide : 'stack0_block2_front',
 				num : '5',
 				type : 'button',
 			},
@@ -2885,8 +2769,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el4 : {
-			click : '4',
+		el2 : {
+			click : '2',
 			current : {
 				inStack : 'stack1',
 				inBlock : 'stack1_block1',
@@ -2918,6 +2802,14 @@ var exercisesContainer = {
 						num : '1',
 					status : 'on',
 					},
+					action_1 : {
+						inStack : 'stack1',
+						inBlock : 'stack1_block1',
+						onSide : 'stack1_block1_front',
+						type : 'lamp',
+						num : '1',
+					status : 'off',
+					},
 					action_2 : {
 						inStack : 'stack1',
 						inBlock : 'stack1_block1',
@@ -2929,8 +2821,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el5 : {
-			click : '5',
+		el3 : {
+			click : '3',
 			current : {
 				inStack : 'stack1',
 				inBlock : 'stack1_block1',
@@ -2945,8 +2837,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el6 : {
-			click : '6',
+		el4 : {
+			click : '4',
 			current : {
 				inStack : 'stack1',
 				inBlock : 'stack1_block1',
@@ -2961,8 +2853,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el7 : {
-			click : '7',
+		el5 : {
+			click : '5',
 			current : {
 				inStack : 'stack0',
 				inBlock : 'stack0_block2',
@@ -2977,8 +2869,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el8 : {
-			click : '8',
+		el6 : {
+			click : '6',
 			current : {
 				inStack : 'stack0',
 				inBlock : 'stack0_block2',
@@ -2993,8 +2885,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el9 : {
-			click : '9',
+		el7 : {
+			click : '7',
 			current : {
 				inStack : 'stack1',
 				inBlock : 'stack1_block2',
@@ -3013,8 +2905,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el10 : {
-			click : '10',
+		el8 : {
+			click : '8',
 			current : {
 				inStack : 'stack1',
 				inBlock : 'stack1_block3',
@@ -3037,8 +2929,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el11 : {
-			click : '11',
+		el9 : {
+			click : '9',
 			current : {
 				inStack : 'stack1',
 				inBlock : 'stack1_block1',
@@ -3053,8 +2945,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el12 : {
-			click : '12',
+		el10 : {
+			click : '10',
 			current : {
 				inStack : 'stack6',
 				inBlock : 'stack6_block3',
@@ -3069,8 +2961,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el13 : {
-			click : '13',
+		el11 : {
+			click : '11',
 			current : {
 				inStack : 'stack4',
 				inBlock : 'stack4_block2',
@@ -3085,8 +2977,8 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el14 : {
-			click : '14',
+		el12 : {
+			click : '12',
 			current : {
 				inStack : 'stack7',
 				inBlock : 'stack7_block1',
