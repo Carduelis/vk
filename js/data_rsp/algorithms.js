@@ -460,18 +460,37 @@ var exercisesContainer = {
 		},
 
 		el9 : {
-			click : '6',
-			current : {
-				inStack : 'stack7',
-				inBlock : 'stack7_block1',
-				onSide : 'stack7_block1_front',
-				num : '23',
-				type : 'toggler',
+			multiply: 'fiders',
+			fider1 : {
+				click : '6',
+				current : {
+					inStack : 'stack7',
+					inBlock : 'stack7_block1',
+					onSide : 'stack7_block1_front',
+					num : '23',
+					type : 'toggler',
+				},
+				positions : {
+					position_1 : {
+						state : '3',
+						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ПОСАДОЧНЫЙ в положение выбранного фидера',
+					},
+				},
 			},
-			positions : {
-				position_1 : {
-					state : '3',
-					description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ПОСАДОЧНЫЙ в положение выбранного фидера',
+			fider2 : {
+				click : '6',
+				current : {
+					inStack : 'stack7',
+					inBlock : 'stack7_block1',
+					onSide : 'stack7_block1_front',
+					num : '23',
+					type : 'toggler',
+				},
+				positions : {
+					position_1 : {
+						state : '1',
+						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ПОСАДОЧНЫЙ в положение выбранного фидера',
+					},
 				},
 			},
 		},
@@ -511,6 +530,22 @@ var exercisesContainer = {
 			},
 		},
 		el13 : {
+			click : '10',
+			current : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_front',
+				num : '34',
+				type : 'toggler',
+			},
+			positions : {
+				position_1 : {
+					state : '1',
+					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ДРЛ',
+				},
+			},
+		},
+		el14 : {
 			click : '11',
 			current : {
 				inStack : 'stack7',
@@ -526,7 +561,23 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el14 : {
+		el15 : {
+			click : '11',
+			current : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_front',
+				num : '73',
+				type : 'toggler',
+			},
+			positions : {
+				position_1 : {
+					state : '1',
+					description : 'Включите автомат ДИСПЕТЧЕРСКИЙ на распределительном щите',
+				},
+			},
+		},
+		el16 : {
 			click : '12',
 			current : {
 				inStack : 'stack6',
@@ -542,7 +593,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el15 : {
+		el17 : {
 			click : '13',
 			current : {
 				inStack : 'stack2',
@@ -558,7 +609,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el16 : {
+		el18 : {
 			click : '14',
 			current : {
 				inStack : 'stack2',
@@ -574,7 +625,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el17 : {
+		el19 : {
 			click : '15',
 			current : {
 				inStack : 'stack2',
@@ -590,7 +641,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el18 : {
+		el20 : {
 			click : '16',
 			current : {
 				inStack : 'stack3',
@@ -614,7 +665,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el19 : {
+		el21 : {
 			click : '17',
 			current : {
 				inStack : 'stack7',
@@ -630,7 +681,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el20 : {
+		el22 : {
 			click : '18',
 			current : {
 				inStack : 'stack6',
@@ -678,7 +729,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el21 : {
+		el23 : {
 			click : '19',
 			current : {
 				inStack : 'stack6',
@@ -694,7 +745,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el22 : {
+		el24 : {
 			click : '20',
 			current : {
 				inStack : 'stack2',
@@ -838,7 +889,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el23 : {
+		el25 : {
 			click : '21',
 			current : {
 				inStack : 'stack1',
@@ -910,7 +961,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el24 : {
+		el26 : {
 			click : '22',
 			current : {
 				inStack : 'stack3',
@@ -934,7 +985,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el25 : {
+		el27 : {
 			click : '23',
 			current : {
 				inStack : 'stack3',
@@ -945,7 +996,7 @@ var exercisesContainer = {
 			},
 			positions : {
 				position_1 : {
-					state : '8',
+					state : '7',
 					description : 'Вращайте ручку вариака до установления тока в районе 0,8 мА',
 					action_1 : {
 						inStack : 'stack3',
@@ -958,7 +1009,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el26 : {
+		el28 : {
 			click : '24',
 			current : {
 				inStack : 'stack3',
@@ -974,7 +1025,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el27 : {
+		el29 : {
 			click : '25',
 			current : {
 				inStack : 'stack6',
@@ -994,7 +1045,7 @@ var exercisesContainer = {
 				},
 			},
 		},
-		el28 : {
+		el30 : {
 			click : '26',
 			current : {
 				inStack : 'stack6',

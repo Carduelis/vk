@@ -575,6 +575,113 @@ scaleRelations = {
 			},
 		},
 	},
+	scaleRelationGroup5423345234 : {
+		control : {
+			block : 'stack6_block3_front',
+			type : 'knob',
+			num : '14',
+		},
+		scale : {
+			block : 'stack6_block3_front',
+			type : 'scale',
+			num : '15',
+		},
+		relations : {
+			relation1 : {
+				status : '0',
+				degree : '45',
+			},
+			relation2 : {
+				status : '1',
+				degree : '20',
+			},
+			relation3 : {
+				status : '2',
+				degree : '12',
+			},
+		},
+		exercises : {
+			ex1 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex2 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex3 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex4 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex5 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+			ex6 : {
+				elementTrigger : {
+					block : {
+					},
+					type : {
+					},
+					num : {
+					},
+					status : {
+					},
+				},
+				on : 'true',
+			},
+		},
+	},
+
 
 	scaleRelationGroup503736352 : {
 		control : {
