@@ -138,13 +138,13 @@ function showTrainingFeatures(eN,pN, choosenParam) {
 function showSideHint(eN,choosenParam) {
 	detectMultiplyPrev();
 	if (
-		(str_whatever((eN-1),'onSide',choosenParamPrev)) 
+		//(str_whatever((eN-1),'onSide',choosenParamPrev)) 
 		// проверяет наличие значения stackN_blockM_side
-		&&
+		//&&
 		(str_whatever(eN,'onSide',choosenParam) != str_whatever((eN-1),'onSide',choosenParamPrev))
 		// проверяет отличается ли сторона в предыдущем действии
-		&&
-		(str_whatever(eN,'inBlock',choosenParam) == str_whatever((eN-1),'inBlock',choosenParamPrev))
+		//&&
+		//(str_whatever(eN,'inBlock',choosenParam) == str_whatever((eN-1),'inBlock',choosenParamPrev))
 		// текущее и предыдущие действия должны быть на одном блоке
 	) {
 		if (str_whatever(eN,'onSide',choosenParam).substr(14) != 'front') {
@@ -154,7 +154,7 @@ function showSideHint(eN,choosenParam) {
 			focusOnElement(sideOpener.offset().top);
 			sideOpener.click(function(){
 				focusOnElement();
-			})
+			});
 			
 		} else if (str_whatever(eN,'onSide',choosenParam).substr(14) == 'front') {
 			// проверяет, что это возврат на переднюю сторону
@@ -172,6 +172,7 @@ function showSideHint(eN,choosenParam) {
 	}
 
 }
+
 
 
 function showActions(eN, pN, aN, choosenParam) {

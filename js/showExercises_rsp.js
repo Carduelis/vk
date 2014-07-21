@@ -109,7 +109,7 @@ $('#go').one('click',function(){
 						
 						if (eN != posCount(thisEx[thisExId]) - 1)  { // Проверка: последний ли элемент?
 							eN++;
-							 // Идем к следующему элементу
+							// Идем к следующему элементу
 							detectMultiply();
 							// Если следующий элемент содержит shift, то showTrainingFeatures(eN,pN,choosenParam) не может ничего показать
 
@@ -120,7 +120,7 @@ $('#go').one('click',function(){
 								eN++;
 								// Нам так же нужно еще раз проверить новое значение choosenParam
 								detectMultiply();
-								console.info(eN);
+								console.info('eN: '+eN+'; posCount: '+posCount(thisEx[thisExId]));
 								if (eN == posCount(thisEx[thisExId]) - 1) {
 									alert('Упражнение выполнено!');
 									hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
@@ -202,6 +202,8 @@ $('#stack7_block1_front .element[type="toggler"][num="4"]').on('click', function
   }
 })
 });
+
+
 
 
 

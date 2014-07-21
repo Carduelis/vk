@@ -2134,7 +2134,7 @@ var exercisesContainer = {
 		el2 : {
 			multiply: 'current_check',
 			current_ok : {
-				shift : '1',
+				shift : '0',
 			},
 			current_bad : {
 				click : '2',
@@ -2142,7 +2142,7 @@ var exercisesContainer = {
 					inStack : 'stack3',
 					inBlock : 'stack3_block2',
 					onSide : 'stack3_block2_right',
-					num : '1',
+					num : '2',
 					type : 'rotator',
 				},
 				positions : {
