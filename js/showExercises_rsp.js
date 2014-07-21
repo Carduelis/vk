@@ -115,14 +115,22 @@ $('#go').one('click',function(){
 
 							if (isShift(eN,choosenParam)) {
 
-								console.info(eN);
+								console.info(eN + ' shift');
 								eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
 								eN++;
 								// Нам так же нужно еще раз проверить новое значение choosenParam
 								detectMultiply();
 								console.info(eN);
+								if (eN == posCount(thisEx[thisExId]) - 1) {
+									alert('Упражнение выполнено!');
+									hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+									$('#bx-pager, #history').show();
+									$('#history + .btn').remove();
+									$('#showBxPager').hide();
+									$('#chooseExercise,#reloadPage').addClass('active');
+								}
 							}
-						/*
+							/*
 							if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'status', 1, choosenParam) ) {
 								if(isPositionsThereBoolean) {
 									//showTrainingFeatures(eN,(pN+1),choosenParam); // Показываем информацию о следующем элементе
@@ -133,26 +141,26 @@ $('#go').one('click',function(){
 
 							}
 							*/
-		console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
-		console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
-		if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
+							console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
+							console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
+							if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
 
-			if (isPositionsThere(eN,choosenParam)) {
+								if (isPositionsThere(eN,choosenParam)) {
 
-				aN = 1;
-				detectMultiply();
-				for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-					showActions(eN,pN,aN,choosenParam);
-					//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
-					aN++
-				};
-				scaleAlive(str_whatever(eN, 'onSide',choosenParam),str_whatever(eN, 'type',choosenParam),str_whatever(eN, 'num',choosenParam),str_pos_whatever(eN, 'state',pN,choosenParam));
-				pN++;
-			} else {
-				eN++;
-				detectMultiply();
-			}
-		}
+									aN = 1;
+									detectMultiply();
+									for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+										showActions(eN,pN,aN,choosenParam);
+										//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+										aN++
+									};
+									scaleAlive(str_whatever(eN, 'onSide',choosenParam),str_whatever(eN, 'type',choosenParam),str_whatever(eN, 'num',choosenParam),str_pos_whatever(eN, 'state',pN,choosenParam));
+									pN++;
+								} else {
+									eN++;
+									detectMultiply();
+								}
+							}
 							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
 
 						} else {
@@ -258,7 +266,7 @@ function focusOnElement(parameter){
 
 	});
 
-	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
+//	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
 	detectMultiplyPrev();
 	if (
 		(str_whatever((eN-1),'inStack',choosenParamPrev)) 

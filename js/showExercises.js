@@ -60,14 +60,16 @@ $('a[data-codename="passing"]').on('click', function(){
 
 
 function detectMultiply() {
-	if (thisEx[thisExId]['el'+eN].multiply) {
-		for(var i in exercisesOptions[thisExId]) {
-			if (thisEx[thisExId]['el'+eN].multiply == exercisesOptions[thisExId][i].typeName) {
-				choosenParam = window[exercisesOptions[thisExId][i].typeName];
+	if (thisEx[thisExId]['el'+eN]) {
+		if (thisEx[thisExId]['el'+eN].multiply) {
+			for(var i in exercisesOptions[thisExId]) {
+				if (thisEx[thisExId]['el'+eN].multiply == exercisesOptions[thisExId][i].typeName) {
+					choosenParam = window[exercisesOptions[thisExId][i].typeName];
+				}
 			}
+		} else {
+			choosenParam = null;
 		}
-	} else {
-		choosenParam = null;
 	}
 }
 
@@ -222,9 +224,11 @@ function str_action_whatever(eN, subject, pN, aN, choosenParam) 	{
 }
 function str_whatever(eN, subject, choosenParam) {
 	if (choosenParam) {
-		if (thisEx[thisExId]['el'+eN][choosenParam]) {
-			if (thisEx[thisExId]['el'+eN][choosenParam].current) {
-				return thisEx[thisExId]['el'+eN][choosenParam].current[subject];
+		if (thisEx[thisExId]['el'+eN]) {
+			if (thisEx[thisExId]['el'+eN][choosenParam]) {
+				if (thisEx[thisExId]['el'+eN][choosenParam].current) {
+					return thisEx[thisExId]['el'+eN][choosenParam].current[subject];
+				}
 			}
 		}
 	} 	else {
@@ -238,9 +242,11 @@ function str_whatever(eN, subject, choosenParam) {
 
 function str_pos_whatever(eN, subject, pN, choosenParam) { 
 	if (choosenParam) {
-		if (thisEx[thisExId]['el'+eN][choosenParam]) {
-		 	if (thisEx[thisExId]['el'+eN][choosenParam].positions) {
-				return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN][subject];
+		if (thisEx[thisExId]['el'+eN]) {
+			if (thisEx[thisExId]['el'+eN][choosenParam]) {
+			 	if (thisEx[thisExId]['el'+eN][choosenParam].positions) {
+					return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN][subject];
+				}
 			}
 		}
 	} 	else {
