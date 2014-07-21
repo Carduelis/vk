@@ -498,22 +498,6 @@ var exercisesContainer = {
 			shift : '1', //проверить
 		},
 		el11 : {
-			click : '9',
-			current : {
-				inStack : 'stack7',
-				inBlock : 'stack7_block1',
-				onSide : 'stack7_block1_front',
-				num : '46',
-				type : 'toggler',
-			},
-			positions : {
-				position_1 : {
-					state : '1',
-					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ИНДИКАТОРЫ',
-				},
-			},
-		},
-		el12 : {
 			click : '10',
 			current : {
 				inStack : 'stack7',
@@ -526,6 +510,22 @@ var exercisesContainer = {
 				position_1 : {
 					state : '1',
 					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ПРЛ',
+				},
+			},
+		},
+		el12 : {
+			click : '10',
+			current : {
+				inStack : 'stack7',
+				inBlock : 'stack7_block1',
+				onSide : 'stack7_block1_front',
+				num : '46',
+				type : 'toggler',
+			},
+			positions : {
+				position_1 : {
+					state : '1',
+					description : 'Установите переключатель ВЕНТИЛЯТОРЫ в положение ИНДИКАТОРЫ',
 				},
 			},
 		},
