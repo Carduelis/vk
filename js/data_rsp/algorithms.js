@@ -1902,7 +1902,7 @@ var exercisesContainer = {
 				},
 				positions : {
 					position_1 : {
-						state : '1',
+						state : '4',
 						description : 'Отрегулируйте ток кристалла потенциометром так, чтобы ток был в зеленой зоне',
 						action_1 : {
 							inStack : 'stack1',
