@@ -495,7 +495,39 @@ var exercisesContainer = {
 			},
 		},
 		el10 : {
-			shift : '1', //проверить
+			multiply: 'fiders',
+			fider1 : {
+				click : '7',
+				current : {
+					inStack : 'stack7',
+					inBlock : 'stack7_block1',
+					onSide : 'stack7_block1_front',
+					num : '13',
+					type : 'toggler',
+				},
+				positions : {
+					position_1 : {
+						state : '3',
+						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
+					},
+				},
+			},
+			fider2 : {
+				click : '6',
+				current : {
+					inStack : 'stack7',
+					inBlock : 'stack7_block1',
+					onSide : 'stack7_block1_front',
+					num : '13',
+					type : 'toggler',
+				},
+				positions : {
+					position_1 : {
+						state : '1',
+						description : 'Установите переключатель ПИТАНИЕ РАДИОЛОКАТОРОВ ДИСПЕТЧЕРСКИЙ в положение выбранного фидера',
+					},
+				},
+			},
 		},
 		el11 : {
 			click : '10',
