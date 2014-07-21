@@ -1890,9 +1890,9 @@ var exercisesContainer = {
 			in_red_zone : {
 				click : '31',
 				current : {
-					inStack : 'stack4',
-					inBlock : 'stack4_block1',
-					onSide : 'stack4_block1_front',
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
 					num : '13',
 					type : 'knob',
 				},
@@ -1901,9 +1901,9 @@ var exercisesContainer = {
 						state : '2',
 						description : 'Установите переключатель Напряжения шумов в положение Канал Подавл',
 						action_1 : {
-							inStack : 'stack4',
-							inBlock : 'stack4_block1',
-							onSide : 'stack4_block1_front',
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
 							type : 'scale',
 							num : '13',
 							status : '0',
@@ -1913,9 +1913,9 @@ var exercisesContainer = {
 						state : '0',
 						description : 'Установите переключатель  Напряжения шумов в положение Канал Основной',
 						action_1 : {
-							inStack : 'stack4',
-							inBlock : 'stack4_block1',
-							onSide : 'stack4_block1_front',
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
 							type : 'scale',
 							num : '13',
 							status : '0',
@@ -1937,9 +1937,9 @@ var exercisesContainer = {
 						state : '2',
 						description : 'Установите переключатель Напряжения шумов в положение Канал Подавл',
 						action_1 : {
-							inStack : 'stack4',
-							inBlock : 'stack4_block1',
-							onSide : 'stack4_block1_front',
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
 							type : 'scale',
 							num : '13',
 							status : '0',
@@ -1949,9 +1949,9 @@ var exercisesContainer = {
 						state : '0',
 						description : 'Установите переключатель  Напряжения шумов в положение Канал Основной',
 						action_1 : {
-							inStack : 'stack4',
-							inBlock : 'stack4_block1',
-							onSide : 'stack4_block1_front',
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
 							type : 'scale',
 							num : '13',
 							status : '25',
@@ -1963,7 +1963,29 @@ var exercisesContainer = {
 		el34 : {
 			multiply: 'noises',
 			in_red_zone : {
-				shift : '1', // У нас одно действие "лишнее". Открыть/закрыть крышку в действие не входит.
+			click : '32',
+				current : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
+					num : '1',
+					type : 'rotator',
+				},
+				positions : {
+					position_1 : {
+						state : '2', //это дёрти-хак, чтобы упражнение закончилось
+						description : 'Отрегулируйте уровень шумов потенциометром так, чтобы ток был в красной зоне',
+						action_1 : {
+							inStack : 'stack1',
+							inBlock : 'stack1_block4',
+							onSide : 'stack1_block4_front',
+							type : 'scale',
+							num : '13',
+							status : '2',
+						},
+					},
+				},
+				defaultPosition : '2',
 			},
 			out_red_zone :{
 				click : '32',
@@ -1989,6 +2011,22 @@ var exercisesContainer = {
 					},
 				},
 				defaultPosition : '2',
+			},
+		},
+		el35 : {
+			click : '33',
+			current : {
+				inStack : 'stack1',
+				inBlock : 'stack1_block4',
+				onSide : 'stack1_block4_front',
+				num : '1',
+				type : 'toggler',
+			},
+			positions : {
+				position_1 : {
+					state : '1',
+					description : 'Установите переключатель в положение ДИСТАНЦ',
+				},
 			},
 		},
 	},

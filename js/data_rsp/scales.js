@@ -421,11 +421,11 @@ scaleRelations = {
 			},
 			relation7 : {
 				status : '6',
-				degree : '50',
+				degree : '',
 			},
 			relation8 : {
 				status : '7',
-				degree : '50',
+				degree : '-20',
 			},
 		},
 		exercises : {
