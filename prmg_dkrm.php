@@ -38,18 +38,18 @@
     <li id='chooseExercise' class="btn">
       <a href='javascript:void(0);' alt="Прохождение алгоритмов">Выбрать упражнение</a>
     </li>
+    <li id='reloadPage' class="btn">
+      <a href='./prmg.php' alt="Начать заново">Начать заново</a>
+    </li>
+    <li id='goToWelcome' class="btn">
+      <a href='./index_prmg.php' alt="Открыть страницу приветствия">Стартовая страница</a>
+    </li>
     <li id='hideDev' class="btn">
       <a href='javascript:void(0);'>dev</a>
     </li>
     <li id='showhint' class="btn" style="display: none;">
       <i>Помощник:</i>
       <span></span>
-    </li>
-    <li id='reloadPage' class="btn">
-      <a href='./prmg.php' alt="Начать заново">Начать заново</a>
-    </li>
-    <li id='goToWelcome' class="btn">
-      <a href='./index_prmg.php' alt="Открыть страницу приветствия">Стартовая страница</a>
     </li>
   </ul>
   <div id="addBody" class="hidden-block">
