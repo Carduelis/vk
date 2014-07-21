@@ -2127,6 +2127,14 @@ var exercisesContainer = {
 							num : '57',
 							status : '5',
 						},
+						action_2 : {
+							inStack : 'stack3',
+							inBlock : 'stack3_block2',
+							onSide : 'stack3_block2_right',
+							type : 'scale',
+							num : '57',
+							status : '5',
+						},
 					},
 				},
 			},
@@ -2148,7 +2156,15 @@ var exercisesContainer = {
 				positions : {
 					position_1 : {
 						state : '1',
-						description : 'Отрегулируйте напряжение смещения потенциометром',
+						description : 'Потенциометром НАПРЯЖЕНИЕ СМЕЩЕНИЯ установить наряжение по прибору контроль напряжения на 32',
+						action_1 : {
+							inStack : 'stack3',
+							inBlock : 'stack3_block2',
+							onSide : 'stack3_block2_front',
+							type : 'scale',
+							num : '57',
+							status : '-16',
+						},
 					},
 				},
 			},
