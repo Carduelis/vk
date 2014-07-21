@@ -1926,9 +1926,9 @@ var exercisesContainer = {
 			out_red_zone : {
 				click : '31',
 				current : {
-					inStack : 'stack4',
-					inBlock : 'stack4_block1',
-					onSide : 'stack4_block1_front',
+					inStack : 'stack1',
+					inBlock : 'stack1_block4',
+					onSide : 'stack1_block4_front',
 					num : '13',
 					type : 'knob',
 				},
