@@ -152,7 +152,11 @@ function showSideHint(eN,choosenParam) {
 				// проверяет, что это не возврат на переднюю сторону
 				var sideOpener = $('#'+str_whatever(eN,'inBlock',choosenParam)).find('span[for="'+str_whatever(eN,'onSide',choosenParam).substr(14)+'"]');
 				sideOpener.addClass('active');
-				focusOnElement(sideOpener.offset().top);
+				if (sideOpener) {
+					if (sideOpener.offset()) {
+						focusOnElement(sideOpener.offset().top);
+					}
+				}
 				sideOpener.click(function(){
 					focusOnElement();
 				});

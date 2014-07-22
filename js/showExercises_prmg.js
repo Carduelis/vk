@@ -4,10 +4,11 @@ var eN = 1;
 var pN = 1;
 var aN = 1;
 //var eNdouble = 1;
-var isPositionsThereBoolean = true;
+var isPositionsThereBoolean = true; 
 
 $('#go').one('click',function(){
 	$('.header').append('<li class="btn"><a><i>Упражнение: </i>'+exercisesContainer[thisExId].nameOfExercise+'</a></li>');
+	
 	if (helloText[thisExId]) {
 		alert(helloText[thisExId]);
 	}
@@ -18,6 +19,9 @@ $('#go').one('click',function(){
 		window[exercisesOptions[thisExId][i].typeName] = exercisesOptions[thisExId][i].options['option'+random(numOfOptions)].codeName
 		console.info(exercisesOptions[thisExId][i].typeName+': '+window[exercisesOptions[thisExId][i].typeName]);
 	}
+	// Скопировано из _rsp.js
+		detectMultiply();
+		console.info(choosenParam);
 	// Пишем выбранные параметры
 	$('#chooseExerciseBody .options a.active').each(function(){
 		optionBlock = $(this).attr('data-type');
@@ -34,9 +38,11 @@ $('#go').one('click',function(){
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 
-	$('.element').on('click',function() {
+	$('.element').on('click',superFunction);
 
+	function superFunction() {
 	////////
+
 		detectMultiply();
 		var thisType = $(this).attr('type');
 		var thisNum = $(this).attr('num');
@@ -45,86 +51,104 @@ $('#go').one('click',function(){
 		var thisViewSpecial = $(this).attr('view_special');
 		var thisSide = $(this).parent().attr('id');
 		var thisBlock = $(this).parent().parent().attr('id');
-
+		console.log('thisType: '+thisType+'thisNum: '+thisNum+'thisStatus: '+thisStatus+'thisView: '+thisView+'thisViewSpecial: '+thisViewSpecial+'thisSide: '+thisSide+'thisBlock: '+thisBlock)
 		history(thisType,thisNum,thisStatus,thisSide,thisBlock);
 
-	
-		console.info('choosenParam: '+choosenParam+'; eN: '+eN+'; ');
+		if (
+			(thisNum == str_whatever(eN, 'num',choosenParam) )
+			&&
+			(thisType == str_whatever(eN, 'type',choosenParam) )
+		) { // Примерное условие, чтобы подсказки для следующих элементах не появлялись при клике куда попало
+			console.info('choosenParam: '+choosenParam+'; eN: '+eN+'; ');
 		
-		if (isShift(eN,choosenParam)) {
-			console.info(eN);
-			eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
-			pN = 1;
-			console.info(eN);
-			showTrainingFeatures(eN,pN, choosenParam);
-		} else {
-			if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
-				aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
-				// Проверка: все ли позиции данного элемента учтены?
-				if (isPositionsThere(eN,choosenParam))  { // Нет, еще есть позиции
-					isPositionsThereBoolean = false;
-					for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-						showActions(eN,pN,aN,choosenParam);
-						//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
-						aN++
-					};
-					pN++ // идем к следующей позиции
-					showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
-		
-					
-				} else { // все учтено, следующий элемент
-					isPositionsThereBoolean = true;
-					if (thisEx[thisExId]['el'+(eN+1)]) {
-						console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; '+thisEx[thisExId]['el'+(eN+1)].multiply+': '+choosenParam);
-					} else {
-						console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; конец');
-					}
-					for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
-						showActions(eN,pN,aN,choosenParam);
-						//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
-						aN++
-					};
-
-					pN = 1; // в предыдущем элементе накопился счетчик позиций, надо сбросить
-					if (eN != posCount(thisEx[thisExId]) - 1)  { // Проверка: последний ли элемент?
-						eN++;
-						 // Идем к следующему элементу
-						detectMultiply();
-						// Если следующий элемент содержит shift, то showTrainingFeatures(eN,pN,choosenParam) не может ничего показать
-
-						if (isShift(eN,choosenParam)) {
-
-							console.info(eN);
-							eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
-							eN++;
-							// Нам так же нужно еще раз проверить новое значение choosenParam
-							detectMultiply();
-							console.info(eN);
+			if (isShift(eN,choosenParam)) {
+				console.info(eN);
+				eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
+				pN = 1;
+				console.info(eN);
+				showTrainingFeatures(eN,pN, choosenParam);
+			} else {
+				if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
+					aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
+					// Проверка: все ли позиции данного элемента учтены?
+					if (isPositionsThere(eN,choosenParam))  { // Нет, еще есть позиции
+						isPositionsThereBoolean = false;
+						for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+							showActions(eN,pN,aN,choosenParam);
+							//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+							aN++
+						};
+						pN++ // идем к следующей позиции
+						showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
+			
+						
+					} else { // все учтено, следующий элемент
+						
+						isPositionsThereBoolean = true;
+						if (thisEx[thisExId]['el'+(eN+1)]) {
+							console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; '+thisEx[thisExId]['el'+(eN+1)].multiply+': '+choosenParam);
+						} else {
+							console.info('multiply: '+thisEx[thisExId]['el'+eN].multiply+'; конец');
 						}
-						showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
-					} else {
-						alert('Упражнение выполнено!');
-						hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+						for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+							showActions(eN,pN,aN,choosenParam);
+							//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+							aN++
+						};
+
+						pN = 1; // в предыдущем элементе накопился счетчик позиций, надо сбросить
+						if (eN != posCount(thisEx[thisExId]) - 1)  { // Проверка: последний ли элемент?
+							eN++;
+							 // Идем к следующему элементу
+							detectMultiply();
+							// Если следующий элемент содержит shift, то showTrainingFeatures(eN,pN,choosenParam) не может ничего показать
+
+							if (isShift(eN,choosenParam)) {
+
+								console.info(eN);
+								eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
+								eN++;
+								// Нам так же нужно еще раз проверить новое значение choosenParam
+								detectMultiply();
+								console.info(eN);
+								if (eN == posCount(thisEx[thisExId]) - 1) {
+									alert('Упражнение выполнено!');
+									hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+								}
+							}
+							console.info('Статус текущего элемента: '+obj_element(eN, choosenParam).attr('status'));
+							console.info('Необходимый статус элемента (pN): '+str_pos_whatever(eN, 'state',pN,choosenParam));
+							if (obj_element(eN, choosenParam).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) {
+
+								if (isPositionsThere(eN,choosenParam)) {
+
+									aN = 1;
+									detectMultiply();
+									for (var i = 0; i < positionsObj(eN,pN,choosenParam)-2; i++) {
+										showActions(eN,pN,aN,choosenParam);
+										//console.info(posCount(thisEx[thisExId]['el'+eN].positions['position_'+pN])+'; if(choosenParam): '+positionsObj(eN,pN,choosenParam));
+										aN++
+									};
+									scaleAlive(str_whatever(eN, 'onSide',choosenParam),str_whatever(eN, 'type',choosenParam),str_whatever(eN, 'num',choosenParam),str_pos_whatever(eN, 'state',pN,choosenParam));
+									pN++;
+								} else {
+									eN++;
+									detectMultiply();
+								}
+							}
+							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
+
+						} else {
+							alert('Упражнение выполнено!');
+							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+						}
 					}
 				}
 			}
 		}
 		//////////////////////////////////////////////////
 
-
-		$('.element[type="scale"]').each(function(){
-			var statusDeg = $(this).attr('status');
-			$(this).find('.body').css('-webkit-transform','rotate('+(statusDeg-15)+'deg)');
-
-		});
-		setTimeout(function(){
-			$('.element[type="scale"]').each(function(){
-				var statusDeg = $(this).attr('status');
-				$(this).find('.body').css('-webkit-transform','rotate('+statusDeg+'deg)');
-			});
-		},600);
-
-	});
+	};
 });
 
 
@@ -139,6 +163,19 @@ function hideAndRemoveAllHints() {
 
 
 
+var screenTop = 0;
+var elementOffsetTop; 
+var screenHeight = $(window).height();
+var screenBottom = screenTop + screenHeight - 60;
+$(window).resize(function(){
+	screenHeight = $(this).height();
+	//console.info(screenHeight);
+});
+$(window).scroll(function(){
+	screenTop = $(this).scrollTop();
+	screenBottom = screenTop + screenHeight - 60;
+	//console.info(screenTop);
+});
 
 
 function focusOnElement(parameter){
@@ -154,9 +191,12 @@ function focusOnElement(parameter){
 		// (если у нас карты разных секциях)
 	)	{
 		console.info('Следующий блок');
+		$('.card-block').addClass('opened');
 		$('#hidePopUp').addClass('active');
+	
 		setTimeout(function(){
 			$('#hidePopUp').removeClass('active');
+			$('.card-block').addClass('opened');
 		},1000);
 	} else {
 		console.info('В том же блоке')
@@ -165,6 +205,109 @@ function focusOnElement(parameter){
 }
 
 
+
+function focusOnMinBlock(parameter){
+	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;
+	if (parameter) {
+		elementOffsetTop = parameter
+	} else {
+		if(obj_element(eN, choosenParam)) {
+			if(obj_element(eN, choosenParam).offset()) {
+				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+			}
+		}
+	}
+	if (elementOffsetTop < screenTop) {
+		$('#look-up').addClass('show');
+	} else if (elementOffsetTop > screenBottom) {
+		$('#look-down').addClass('show');
+	}
+	$(window).scroll(function(){
+		if (elementOffsetTop < screenTop) {
+			$('#look-up').addClass('show');
+		} else if (elementOffsetTop > screenBottom) {
+			$('#look-down').addClass('show');
+		}
+		if (
+			(elementOffsetTop > screenTop)
+			&&
+			(elementOffsetTop < screenBottom)
+		) {
+			$('#look-up').removeClass('show');
+			$('#look-down').removeClass('show');
+		}
+	});
+
+	$('#look-up, #look-down').on('click', function(){
+		$('body').animate({
+			scrollTop: elementOffsetTop-(screenHeight/2)
+		}, 300);
+	});
+
+}
+
+function focusOnElementInPopUp(parameter){
+	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;
+	if (parameter) {
+		elementOffsetTop = parameter
+	} else {
+		if(obj_element(eN, choosenParam)) {
+			if(obj_element(eN, choosenParam).offset()) {
+				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+			}
+		}
+	}
+	if (elementOffsetTop < screenTop) {
+		$('#look-up').addClass('show');
+	} else if (elementOffsetTop > screenBottom) {
+		$('#look-down').addClass('show');
+	}
+	$(window).scroll(function(){
+		if (elementOffsetTop < screenTop) {
+			$('#look-up').addClass('show');
+		} else if (elementOffsetTop > screenBottom) {
+			$('#look-down').addClass('show');
+		}
+		if (
+			(elementOffsetTop > screenTop)
+			&&
+			(elementOffsetTop < screenBottom)
+		) {
+			$('#look-up').removeClass('show');
+			$('#look-down').removeClass('show');
+		}
+	});
+
+	$('#look-up, #look-down').on('click', function(){
+		$(this).hide();
+		$('#blocks').animate({
+			scrollTop: elementOffsetTop-(screenHeight/2)
+		}, 300);
+	});
+
+	//	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
+	detectMultiplyPrev();
+	if (
+		(str_whatever((eN-1),'inStack',choosenParamPrev)) 
+		// проверяет наличие значения stackN_blockM_side
+		&&
+		(str_whatever(eN,'inStack',choosenParam) != str_whatever((eN-1),'inStack',choosenParamPrev))
+		&& 
+		(isPositionsThereBoolean)
+	)	{
+
+		setTimeout(function(){
+			$('#bx-pager').fadeIn();
+			$('#showBxPager').removeClass('attention').hide();
+		},500);
+	}
+	$('.element').on('click', function() {
+		if (mode == 'training') {
+			focusOnElementInPopUp();
+		}
+	})
+}
+
 function showhint(eN, choosenParam) {
 	// TO DO 
 	// Вбить значения в html, и цеплять их оттуда
@@ -172,7 +315,15 @@ function showhint(eN, choosenParam) {
 	var stack = nameOfStack(str_whatever(eN, 'inStack'));
 	var minBlockId = "min_"+str_whatever(eN, 'inBlock', choosenParam);	
 	console.info(minBlockId);
+	focusOnMinBlock($('#'+minBlockId).offset().top);
 	$('#container section').removeClass('active');
 	$('#'+minBlockId).addClass('active');
 	$('#showhint span').html('Стойка: <b class="active" id="goToStack">'+stack+'</b>, Блок: <b id="goToBlock">'+block+'</b>');
 }
+
+$('#container section > div').on('click', function(){
+	$('body').css('overflow', 'hidden');
+})
+$('#hidePopUp').on('click', function(){
+	$('body').removeAttr('style');
+})

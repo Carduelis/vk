@@ -4,15 +4,7 @@
   <head>
   <meta charset="utf-8">
   <title>ПРМГ ДКРМ</title>
-  
-  
-  <!--realtime less compiler-->
- <link rel="stylesheet/less" type="text/css" href="css/style_prmg.less">
- <script src="js/libs/less-1.6.2.min.js" type="text/javascript"></script>
-  
-  <!--это для скопмилированного css
   <link rel="stylesheet" href="css/style_prmg.css">
-  -->
   </head>
 <body id="top_page">
 <header>
@@ -39,7 +31,7 @@
       <a href='javascript:void(0);' alt="Прохождение алгоритмов">Выбрать упражнение</a>
     </li>
     <li id='reloadPage' class="btn">
-      <a href='./prmg.php' alt="Начать заново">Начать заново</a>
+      <a href='./prmg_dkrm.php' alt="Начать заново">Начать заново</a>
     </li>
     <li id='goToWelcome' class="btn">
       <a href='./index_prmg.php' alt="Открыть страницу приветствия">Стартовая страница</a>
@@ -113,23 +105,23 @@
       <ol>
       </ol>
       <li class="passing" style="display: none;">
-        <ol>
+        <ul>
           <li><header>Выбор режима</header>
             <ul>
             <li><a data-codename="training" class="checkbox">Тренировка</a></li>
             <li><a data-codename="passing" class="checkbox">Экзамен</a></li>
             </ul>
           </li>
-        </ol>
+        </ul>
       <li class="options" style="display:none">
         <ol>
         </ol>
       <li class="starting" style="display: none;">
-        <ol>
+        <ul>
           <li>
             <header>Старт</header>
               <button id="go" disabled="disabled">Приступить к выполнению!</button>
-        </ol>
+        </ul>
      </ul>
   </div>
 </header>
@@ -137,6 +129,8 @@
 <div id="wrapper">
 <div id="root">
   <div id="container" class="container">
+  <span id="look-up"></span>
+  <span id="look-down"></span>
     <ul>
       <li id="min_stack0">
         <div>

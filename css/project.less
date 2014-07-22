@@ -1108,6 +1108,54 @@ section.shadow {
 	}
 }
 
+#look-up,
+#look-down {
+	z-index: 9;
+	position: fixed;
+	display: block;
+	width: @pad*6;
+	height: @pad*6;
+	text-align: center;
+	line-height: @pad*6 !important;
+	color: @color-back;
+	.xxlarge;
+	cursor: pointer;
+	//background-color: @color-border;
+	background-color: fadeout(@accent-color, 20%);
+	.radius(50%);
+	&::before {
+		color: @color-back;
+	}
+	&:hover {
+	}
+}
+#look-up {
+	position: fixed;
+	top: @pad*7;
+	left: 50%;
+	display: none;
+	&::before {
+		.icon-arrow-up;
+	}
+	&.show {
+		display: block;
+		.bounceInUp;
+	}
+}
+#look-down {
+	position: fixed;
+	bottom: @pad*2;
+	left: 50%;
+	display: none;
+	&::before {
+		.icon-arrow-down;
+	}
+	&.show {
+		display: block;
+		.bounceInDown;
+	}
+}
+
 @-webkit-keyframes bounceIn {
   0% {
     opacity: 0;
