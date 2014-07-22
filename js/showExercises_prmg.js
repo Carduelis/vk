@@ -67,6 +67,9 @@ $('#go').one('click',function(){
 				pN = 1;
 				console.info(eN);
 				showTrainingFeatures(eN,pN, choosenParam);
+				if (mode == 'training') {
+					focusOnElementInPopUp()
+				}
 			} else {
 				if ($(this).attr('status') == str_pos_whatever(eN, 'state',pN,choosenParam)) { // Когда текущий контрол в нужной позиции
 					aN = 1; // Сбрасываем в дефолтное состояние, так как при новой позиции элемента эта переменная равна числу событий предыдущей позиции
@@ -80,7 +83,9 @@ $('#go').one('click',function(){
 						};
 						pN++ // идем к следующей позиции
 						showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
-			
+						if (mode == 'training') {
+							focusOnElementInPopUp()
+						}
 						
 					} else { // все учтено, следующий элемент
 						
@@ -137,7 +142,9 @@ $('#go').one('click',function(){
 								}
 							}
 							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
-
+							if (mode == 'training') {
+								focusOnElementInPopUp()
+							}
 						} else {
 							alert('Упражнение выполнено!');
 							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
@@ -246,17 +253,14 @@ function focusOnMinBlock(parameter){
 
 }
 
-function focusOnElementInPopUp(parameter){
-	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;
-	if (parameter) {
-		elementOffsetTop = parameter
-	} else {
-		if(obj_element(eN, choosenParam)) {
-			if(obj_element(eN, choosenParam).offset()) {
-				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
-			}
+function focusOnElementInPopUp(){
+
+	if(obj_element(eN, choosenParam)) {
+		if(obj_element(eN, choosenParam).offset()) {
+			elementOffsetTop = obj_element(eN, choosenParam).offset().top;
 		}
 	}
+	/*
 	if (elementOffsetTop < screenTop) {
 		$('#look-up').addClass('show');
 	} else if (elementOffsetTop > screenBottom) {
@@ -284,28 +288,13 @@ function focusOnElementInPopUp(parameter){
 			scrollTop: elementOffsetTop-(screenHeight/2)
 		}, 300);
 	});
+	*/
 
-	//	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
-	detectMultiplyPrev();
-	if (
-		(str_whatever((eN-1),'inStack',choosenParamPrev)) 
-		// проверяет наличие значения stackN_blockM_side
-		&&
-		(str_whatever(eN,'inStack',choosenParam) != str_whatever((eN-1),'inStack',choosenParamPrev))
-		&& 
-		(isPositionsThereBoolean)
-	)	{
+		$('#blocks').animate({
+			scrollTop: elementOffsetTop-(screenHeight/2)
+		}, 300);
 
-		setTimeout(function(){
-			$('#bx-pager').fadeIn();
-			$('#showBxPager').removeClass('attention').hide();
-		},500);
-	}
-	$('.element').on('click', function() {
-		if (mode == 'training') {
-			focusOnElementInPopUp();
-		}
-	})
+	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
 }
 
 function showhint(eN, choosenParam) {
@@ -323,6 +312,11 @@ function showhint(eN, choosenParam) {
 
 $('#container section > div').on('click', function(){
 	$('body').css('overflow', 'hidden');
+	setTimeout(function(){
+		if (mode == 'training') {
+			focusOnElementInPopUp()
+		}
+	},500)
 })
 $('#hidePopUp').on('click', function(){
 	$('body').removeAttr('style');
