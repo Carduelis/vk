@@ -199,10 +199,12 @@ function focusOnElement(parameter){
 	)	{
 		console.info('Следующий блок');
 		$('.card-block').addClass('opened');
-		$('#hidePopUp').addClass('active');
-	
+		$('#hidePopUp').addClass('highlight');
+		$('#blocks').animate({
+			scrollTop: 0
+		}, 300);
 		setTimeout(function(){
-			$('#hidePopUp').removeClass('active');
+			//$('#hidePopUp').removeClass('active');
 			$('.card-block').addClass('opened');
 		},1000);
 	} else {
@@ -255,11 +257,12 @@ function focusOnMinBlock(parameter){
 
 function focusOnElementInPopUp(){
 
-	if(obj_element(eN, choosenParam)) {
-		if(obj_element(eN, choosenParam).offset()) {
-			elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+		if(obj_element(eN, choosenParam)) {
+			if(obj_element(eN, choosenParam).offset()) {
+				
+				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+			}
 		}
-	}
 	/*
 	if (elementOffsetTop < screenTop) {
 		$('#look-up').addClass('show');
@@ -290,9 +293,12 @@ function focusOnElementInPopUp(){
 	});
 	*/
 
+	if ((elementOffsetTop < screenTop) || (elementOffsetTop > screenBottom)) {
+		console.info(elementOffsetTop+ '; ' + screenTop + '; ' +screenBottom);
 		$('#blocks').animate({
 			scrollTop: elementOffsetTop-(screenHeight/2)
 		}, 300);
+	}
 
 	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
 }
