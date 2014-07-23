@@ -67,6 +67,8 @@ $('#go').one('click',function(){
 				pN = 1;
 				console.info(eN);
 				showTrainingFeatures(eN,pN, choosenParam);
+				next_eN=eN+1;
+				set_default(next_eN);
 				if (mode == 'training') {
 					focusOnElementInPopUp()
 				}
@@ -83,6 +85,8 @@ $('#go').one('click',function(){
 						};
 						pN++ // идем к следующей позиции
 						showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
+						next_eN=eN+1;
+						set_default(next_eN);
 						if (mode == 'training') {
 							focusOnElementInPopUp()
 						}
@@ -142,6 +146,8 @@ $('#go').one('click',function(){
 								}
 							}
 							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
+							next_eN=eN+1;
+							set_default(next_eN);
 							if (mode == 'training') {
 								focusOnElementInPopUp()
 							}
