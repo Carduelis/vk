@@ -1147,7 +1147,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
 					num : '21',
-					status : 'off',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1175,7 +1175,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
 					num : '10',
-					status : 'off',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1203,7 +1203,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
 					num : '6',
-					status : 'off',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1231,7 +1231,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
 					num : '15',
-					status : 'off',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1369,11 +1369,11 @@ ex4 : {
 		positions : {
 			position_1 : {
 				state : '3',
-				description : 'Ручкой ФАЗА добейтесь максимального отрицательного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС',
+				description : 'Ручкой ФАЗА добейтесь максимального отрицательного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС (30)',
 			},
 			position_2 : {
 				state : '8',
-				description : 'Ручкой ФАЗА добейтесь максимального положительного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС',
+				description : 'Ручкой ФАЗА добейтесь максимального положительного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС (80)',
 			},
 		},
 	},
