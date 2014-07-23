@@ -265,6 +265,12 @@ function focusOnMinBlock(parameter){
 			scrollTop: elementOffsetTop-(screenHeight/2)
 		}, 300);
 	});
+	$(window).scroll(function(){
+		return;
+	});
+	$('#look-up, #look-down').on('click', function(){
+		return;
+	});
 
 }
 
