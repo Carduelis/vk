@@ -1267,91 +1267,139 @@ ex5 : {
 },
 
 
-ex7 : {
-
-	nameOfExercise : 'Проверка задержки переключения на резерв с момента появления сигнала «Аваария»',
+ex6 : {
+	nameOfExercise : 'Проверка выдачи сигналов аварии для мгновенного переключения на резервный комплект',
 	el1 : {
 		click : '1',
 		current : {
 			inStack : 'stack0',
-			inBlock : 'stack0_block4',
-			onSide : 'stack0_block4_front',
-			num : '1',
-			type : 'next',
+			inBlock : 'stack0_block6',
+			onSide : 'stack0_block6_front',
+			num : '16',
+			type : 'toggler',
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
-				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ Г загорается индикатор АВАРИЯ Мщ ГРМ. Мощность в момент выдачи сигнала АВАРИЯ должна быть от 3 до 5 Вт. Задержка времени переключения — не более 2 с.',
+				state : '1',
+				description : 'Снимите напряжение питания с УМ КГ работающего комплекта установкой тумблера СЕТЬ – ОТКЛ на ИПС ПРД в положение ОТКЛ. ',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '384',
+					num : '40',
 					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '0',
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '71',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'На ПИУ КД должен светиться индикатор НЕТ РЕЗЕРВА и включиться звуковой сигнал. Для отключения звукового сигнала нажмите кнопку ЗВУК – ОТКЛ.',
+			},
+		},
+	},
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block6',
+			onSide : 'stack0_block6_front',
+			num : '16',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Включите тумблер СЕТЬ на ИПС ПРД первого комплекта',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '3',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '13',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '22',
+					status : 'on',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '34',
+					status : 'on',
+				},
+				action_5 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '48',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Разблокируйте КРМ, для чего переведите переключатель РЕЖИМ на ПИУ КД в положение НАСТР.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
 				},
 				action_2 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '23',
-					status : 'on',
-				},
-				action_3 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '100',
-					status : 'on',
-				},
-				action_4 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '31',
-					status : 'on',
-				},
-				action_5 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '213',
-					status : 'on',
-				},
-				action_6 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '264',
-					status : 'on',
-				},
-				action_7 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '291',
-					status : 'on',
-				},
-				action_8 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '50',
+					num : '115',
 					status : 'on',
 				},
 			},
 		},
 	},
-	el2 : {
-		click : '2',
+	el5 : {
+		click : '5',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -1362,44 +1410,36 @@ ex7 : {
 		positions : {
 			position_1 : {
 				state : '0',
-				description : 'Установите переключатель РЕЖИМ в положение РАБОТА',
-			},
-		},
-		defaultPosition : '1',
-	},
-	el3 : {
-		click : '3',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '5',
-			type : 'button',
-		},
-		positions : {
-			position_1 : {
-				state : 'on',
-				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
+				description : 'Верните переключатель в положение РАБОТА',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '31',
-					status : 'off',
+					num : '100',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '10',
-					status : 'on',
+					num : '115',
+					status : 'off',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '40',
+					status : 'off',
 				},
 			},
 		},
 	},
 },
+
 ex8 : {
 
 	nameOfExercise : 'Проверка выдачи сигнала "авария" от ухода нуля и переключение с задержкой времени на резервный комплект',
