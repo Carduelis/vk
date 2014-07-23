@@ -186,7 +186,7 @@ ex1 : {
 					onSide : 'stack1_block1_front',
 					type : 'scale',
 					num : '1',
-					status : '-38',
+					status : '40',
 				},
 			},
 		},
