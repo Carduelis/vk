@@ -194,6 +194,8 @@ function focusOnElement(parameter){
 		(str_whatever(eN,'inBlock',choosenParam) != str_whatever((eN-1),'inBlock',choosenParamPrev))
 		&& 
 		(isPositionsThereBoolean)
+		&&
+		(str_whatever(eN,'inBlock',choosenParam) != 'stack1_block1')
 		// &&
 		// (если у нас карты разных секциях)
 	)	{
