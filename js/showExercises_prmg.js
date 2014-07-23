@@ -44,6 +44,7 @@ $('#go').one('click',function(){
 	////////
 
 		detectMultiply();
+		set_default('1');
 		var thisType = $(this).attr('type');
 		var thisNum = $(this).attr('num');
 		var thisStatus = $(this).attr('status');
@@ -201,7 +202,7 @@ function focusOnElement(parameter){
 		&& 
 		(isPositionsThereBoolean)
 		&&
-		(str_whatever(eN,'inBlock',choosenParam) != 'stack1_block1')
+		(str_whatever((eN-1),'inBlock',choosenParamPrev) != 'stack1_block2')
 		// &&
 		// (если у нас карты разных секциях)
 	)	{
@@ -267,7 +268,6 @@ function focusOnElementInPopUp(){
 
 		if(obj_element(eN, choosenParam)) {
 			if(obj_element(eN, choosenParam).offset()) {
-				
 				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
 			}
 		}

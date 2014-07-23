@@ -132,10 +132,10 @@ $('.element').each(function(){
 		} else {
 			clicker.on('click',function(){
 				if (status == 1) {
-					status = 0	
+					status = 0
 				} else {
-					status = 1	
-				} 
+					status = 1
+				}
 				element.attr('status',status)
 			});
 		}
