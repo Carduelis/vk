@@ -62,6 +62,7 @@ body {
 	}
 	&.highlight {
 		a {
+			.bounceIn;
 			background: @carrot;
 		}
 	}
@@ -214,6 +215,9 @@ body {
 		-webkit-perspective: 1400px;
 		-webkit-perspective-origin: 50% 0%; 
 			.transitions(all,400ms);
+			&.opened {
+				z-index: 2;
+			}
 			&.opened::before {
     		  transform: rotateY(-120deg);
     		  -ms-transform: rotateY(-120deg);
