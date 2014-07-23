@@ -121,7 +121,6 @@ $('.element').each(function(){
 	}
 	if (element.attr('type') == 'toggler') {
 		if (element.attr('toggles') == '4') {
-
 			clicker.on('click',function(){
 				status++
 				if (status == 4) {
@@ -132,8 +131,11 @@ $('.element').each(function(){
 
 		} else {
 			clicker.on('click',function(){
-				if (status) status = 0
-				else status = 1
+				if (status == 1) {
+					status = 0	
+				} else {
+					status = 1	
+				} 
 				element.attr('status',status)
 			});
 		}
