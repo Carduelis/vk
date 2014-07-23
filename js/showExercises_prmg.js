@@ -7,10 +7,14 @@ var aN = 1;
 var isPositionsThereBoolean = true; 
 
 $('#go').one('click',function(){
-	$('.header').append('<li class="btn"><a><i>Упражнение: </i>'+exercisesContainer[thisExId].nameOfExercise+'</a></li>');
+	$('.header').append('<li id="nameOfExercise" class="btn"><a><i>Упражнение: </i>'+exercisesContainer[thisExId].nameOfExercise+'</a></li>');
 	
 	if (helloText[thisExId]) {
 		alert(helloText[thisExId]);
+		if (eN != posCount(thisEx[thisExId]) - 1)  {
+			alert('Упражнение выполнено!');
+			hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
+		}
 	}
 	$('#chooseExercise').hide();
 	// Создаем переменные 
@@ -215,7 +219,7 @@ function focusOnElement(parameter){
 		setTimeout(function(){
 			//$('#hidePopUp').removeClass('active');
 			$('.card-block').addClass('opened');
-		},1000);
+		},1300);
 	} else {
 		console.info('В том же блоке')
 		$('#hidePopUp').removeClass('active');
