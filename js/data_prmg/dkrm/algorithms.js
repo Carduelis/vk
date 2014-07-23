@@ -156,38 +156,14 @@ ex1 : {
 			position_1 : {
 				state : '1',
 				description : 'Установите переключатель контроля напряжения в положение СЕТЬ ОСН. Измерьте напряжение.',
-				action_1 : {
-					inStack : 'stack1',
-					inBlock : 'stack1_block1',
-					onSide : 'stack1_block1_front',
-					type : 'scale',
-					num : '1',
-					status : '26',
-				},
 			},
 			position_2 : {
 				state : '2',
 				description : 'Установите переключатель контроля напряжения в положение СЕТЬ РЕЗ. Измерьте напряжение.',
-				action_1 : {
-					inStack : 'stack1',
-					inBlock : 'stack1_block1',
-					onSide : 'stack1_block1_front',
-					type : 'scale',
-					num : '1',
-					status : '24',
-				},
 			},
 			position_3 : {
 				state : '5',
 				description : 'Установите переключатель контроля напряжения в положение +27В ДЕЖ. Измерьте напряжение.',
-				action_1 : {
-					inStack : 'stack1',
-					inBlock : 'stack1_block1',
-					onSide : 'stack1_block1_front',
-					type : 'scale',
-					num : '1',
-					status : '40',
-				},
 			},
 		},
 	},
@@ -1006,7 +982,7 @@ ex3 : {
 				},
 			},
 			position_2 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится значение мощности в ваттах.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1034,7 +1010,7 @@ ex3 : {
 				},
 			},
 			position_3 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится коэффициент стоячей волны.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1062,7 +1038,7 @@ ex3 : {
 				},
 			},
 			position_4 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится температура.',
 				action_1 : {
 					inStack : 'stack0',
