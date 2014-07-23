@@ -312,7 +312,9 @@ function showhint(eN, choosenParam) {
 	var stack = nameOfStack(str_whatever(eN, 'inStack'));
 	var minBlockId = "min_"+str_whatever(eN, 'inBlock', choosenParam);	
 	console.info(minBlockId);
-	focusOnMinBlock($('#'+minBlockId).offset().top);
+	if ($('#'+minBlockId)) {
+		focusOnMinBlock($('#'+minBlockId).offset().top);
+	}
 	$('#container section').removeClass('active');
 	$('#'+minBlockId).addClass('active');
 	$('#showhint span').html('Стойка: <b class="active" id="goToStack">'+stack+'</b>, Блок: <b id="goToBlock">'+block+'</b>');
@@ -327,5 +329,6 @@ $('#container section > div').on('click', function(){
 	},500)
 })
 $('#hidePopUp').on('click', function(){
+	$(this).removeClass('highlight');
 	$('body').removeAttr('style');
 })

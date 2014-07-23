@@ -209,9 +209,7 @@ function str_action_whatever(eN, subject, pN, aN, choosenParam) 	{
 					if (thisEx[thisExId]['el'+eN][choosenParam].positions) {
 						if (thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN]) {
 							if (thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN]['action_'+aN]) {
-
-								 return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN]['action_'+aN][subject];
-
+								return thisEx[thisExId]['el'+eN][choosenParam].positions['position_'+pN]['action_'+aN][subject];
 							}
 						}
 					}
