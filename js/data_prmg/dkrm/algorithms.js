@@ -1006,7 +1006,7 @@ ex3 : {
 				},
 			},
 			position_2 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится значение мощности в ваттах.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1034,7 +1034,7 @@ ex3 : {
 				},
 			},
 			position_3 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится коэффициент стоячей волны.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1062,7 +1062,7 @@ ex3 : {
 				},
 			},
 			position_4 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится температура.',
 				action_1 : {
 					inStack : 'stack0',
