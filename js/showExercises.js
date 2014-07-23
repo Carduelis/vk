@@ -234,9 +234,8 @@ function str_action_whatever(eN, subject, pN, aN, choosenParam) 	{
 function set_default(eN) {
 	var defaultPosition;
 	if (thisEx[thisExId]['el'+eN]) {
-			if (thisEx[thisExId]['el'+eN]) {
-				defaultPosition = thisEx[thisExId]['el'+eN].defaultPosition;
-			}
+		if (thisEx[thisExId]['el'+eN]) {
+			defaultPosition = thisEx[thisExId]['el'+eN].defaultPosition;
 		}
 	}
 	obj_element(eN, 'null').attr('status',defaultPosition)
