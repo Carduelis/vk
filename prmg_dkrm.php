@@ -182,7 +182,7 @@
       </li>
       <li id="min_stack1">
         <div>
-          <section class="size120" id="min_stack1_block3"><div side="front" id="min_stack1_block3_front"></div></section>    
+          <section class="size120" id="min_stack1_block3"><header>БМК</header><div side="front" id="min_stack1_block3_front"></div></section>    
           <section class="size240" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>  
           <section class="size64" id="min_stack1_block2"><div side="front" id="min_stack1_block2_front"></div></section>      
         </div>
