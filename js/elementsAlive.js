@@ -131,7 +131,7 @@ $('.element').each(function(){
 
 		} else {
 			clicker.on('click',function(){
-				if (status == 1) {
+				if (status == '1') {
 					status = 0
 				} else {
 					status = 1

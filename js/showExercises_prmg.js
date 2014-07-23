@@ -14,6 +14,9 @@ $('#go').one('click',function(){
 		alert(helloText[thisExId]);
 		if (eN != posCount(thisEx[thisExId]) - 1)  {
 			alert('Упражнение выполнено!');
+
+			$('#reloadPage').addClass('active');
+			$('#chooseExercise, #nameOfExercise').hide();
 			hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 		}
 	}
@@ -126,6 +129,9 @@ $('#go').one('click',function(){
 								console.info(eN);
 								if (eN == posCount(thisEx[thisExId]) - 1) {
 									alert('Упражнение выполнено!');
+
+									$('#reloadPage').addClass('active');
+									$('#chooseExercise, #nameOfExercise').hide();
 									hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 								}
 							}
@@ -156,6 +162,8 @@ $('#go').one('click',function(){
 							}
 						} else {
 							alert('Упражнение выполнено!');
+							$('#reloadPage').addClass('active');
+							$('#chooseExercise, #nameOfExercise').hide();
 							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 						}
 					}
@@ -174,7 +182,6 @@ function hideAndRemoveAllHints() {
 	$('section').removeClass('active');
 	$('#hidePopUp').removeClass('active');
 	$('.element').find('.hint').remove();
-	
 }
 
 
@@ -210,7 +217,7 @@ function set_default(thisExId) {
 			}
 			if (exercisesContainer[thisExId][el].defaultPosition) {
 				defaultPosition = exercisesContainer[thisExId][el].defaultPosition;
-				console.info(defaultPosition);
+				console.info(el+': '+defaultPosition);
 				var eN = el.substr(2);
 				obj_element(eN,choosenParamForDP).attr('status',defaultPosition)
 			} else {
