@@ -2,6 +2,15 @@ var helloText = {
 //	ex1 : 'Без лишних вступлений',
 	ex10 : 'Подогрейте паяльником или мощной осветительной лампой реле температурное, расположенное на потолке аппаратной, над шкафом с аппаратурой. В момент срабатывания реле должна отключаться аппаратура радиомаяка и загораться индикатор ПЕРЕГРЕВ на ПИУ КД; При искусственном задымлении в аппаратной должен сработать датчик дыма, расположенный рядом с реле температурным. При этом должно произойти отключение основной и резервной сети.',
 }
+/*var exerciseText = {
+	ex1 : {
+		message : {
+			eN : 'eN4',
+			//pN : '1',
+			text : 'Сообщение выводится в 1 упражнении после 4 элемента' 
+		}
+	}
+}*/
 var exercisesOptions = {
 	/*
 	ex1 : {
@@ -1089,22 +1098,48 @@ ex3 : {
 		defaultPosition : '0',
 	},	
 },
-ex4 : {
-
-	nameOfExercise : '“Установка и контроль положения зоны курса, установка порогов срабатывания выдачи сигналов АВАРИЯ',
+/*ex4 : {
+	nameOfExercise : '“Установка и контроль положения зоны курса, установка порогов срабатывания выдачи сигналов АВАРИЯ',	
+},*/
+ex5 : {
+	nameOfExercise : 'Проверка порога срабатывания контроля уровня мощности на выходе УМ КГ',
 	el1 : {
 		click : '1',
 		current : {
 			inStack : 'stack0',
-			inBlock : 'stack0_block2',
-			onSide : 'stack0_block2_front',
-			num : '1',
-			type : 'rotator',
+			inBlock : 'stack0_block5',
+			onSide : 'stack0_block5_front',
+			num : '9',
+			type : 'socket',
 		},
 		positions : {
 			position_1 : {
-				state : '5',
-				description : 'Установите ручку крутизны на 50 делений',
+				state : 'on',
+				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы АИЦТ.467716.001 с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ из состава ЗИ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ КД загорается индикатор АВАРИЯ Мщ КРМ. (4±1 Вт)',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '21',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '6',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '000',
+				},
 			},
 		},
 	},
@@ -1112,104 +1147,24 @@ ex4 : {
 		click : '2',
 		current : {
 			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '99',
-			type : 'button',
+			inBlock : 'stack0_block4',
+			onSide : 'stack0_block4_front',
+			num : '7',
+			type : 'socket',
 		},
 		positions : {
 			position_1 : {
 				state : 'on',
-				description : 'Включите первый комплект аппаратуры ГРМ',
+				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы АИЦТ.467716.001 с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ из состава ЗИ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ КД загорается индикатор АВАРИЯ Мщ КРМ. (4±1 Вт)',
 				action_1 : {
 					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '264',
-					status : 'on',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '004',
 				},
 				action_2 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '291',
-					status : 'on',
-				},
-				action_3 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '23',
-					status : 'on',
-				},
-				action_4 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '31',
-					status : 'on',
-				},
-				action_5 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '100',
-					status : 'on',
-				},
-				action_6 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '213',
-					status : 'on',
-				},
-			},
-		},
-	},
-	el3 : {
-		click : '3',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block2',
-			onSide : 'stack0_block2_front',
-			num : '2',
-			type : 'rotator',
-		},
-		positions : {
-			position_1 : {
-				state : '3',
-				description : 'Ручкой ФАЗА добейтесь максимального отрицательного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС',
-			},
-			position_2 : {
-				state : '8',
-				description : 'Ручкой ФАЗА добейтесь максимального положительного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС',
-			},
-		},
-	},
-},
-ex5 : {
-
-	nameOfExercise : 'Проверка порога срабатывания контроля уровня мощности на выходе УМ КГ',
-	el1 : {
-		click : '1',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block4',
-			onSide : 'stack0_block4_front',
-			num : '1',
-			type : 'next',
-		},
-		positions : {
-			position_1 : {
-				state : 'off',
-				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ Г загорается индикатор АВАРИЯ Мщ ГРМ. Мощность в момент выдачи сигнала АВАРИЯ должна быть от 3 до 5 Вт. Задержка времени переключения — не более 2 с.',
-				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
@@ -1217,20 +1172,12 @@ ex5 : {
 					num : '384',
 					status : 'on',
 				},
-				action_2 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '23',
-					status : 'on',
-				},
 				action_3 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '100',
+					num : '238',
 					status : 'on',
 				},
 				action_4 : {
@@ -1238,60 +1185,11 @@ ex5 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '31',
-					status : 'on',
-				},
-				action_5 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '213',
-					status : 'on',
-				},
-				action_6 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '264',
-					status : 'on',
-				},
-				action_7 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '291',
-					status : 'on',
-				},
-				action_8 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '50',
+					num : '4',
 					status : 'on',
 				},
 			},
 		},
-	},
-	el2 : {
-		click : '2',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '21',
-			type : 'toggler',
-		},
-		positions : {
-			position_1 : {
-				state : '0',
-				description : 'Установите переключатель РЕЖИМ в положение РАБОТА',
-			},
-		},
-		defaultPosition : '1',
 	},
 	el3 : {
 		click : '3',
@@ -1305,13 +1203,13 @@ ex5 : {
 		positions : {
 			position_1 : {
 				state : 'on',
-				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
+				description : 'Включите выбранный комплект радиомаяка нажатием кнопки ВЫБОР КОМПЛЕКТА на ПИУ Г',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '31',
+					num : '4',
 					status : 'off',
 				},
 				action_2 : {
@@ -1324,6 +1222,47 @@ ex5 : {
 				},
 			},
 		},
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Переключатель РЕЖИМ установите в положение РАБОТА.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '144',
+					status : 'on',
+				},
+			},
+		},
+		defaultPosition : '1',
 	},
 },
 
