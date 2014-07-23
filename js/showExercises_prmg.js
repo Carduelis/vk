@@ -16,7 +16,7 @@ $('#go').one('click',function(){
 			alert('Упражнение выполнено!');
 
 			$('#reloadPage').addClass('active');
-			$('#chooseExercise, #nameOfExercise').hide();
+			$('#chooseExercise, #nameOfExercise, #chooseExerciseBody').hide();
 			hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 		}
 	}
@@ -131,7 +131,7 @@ $('#go').one('click',function(){
 									alert('Упражнение выполнено!');
 
 									$('#reloadPage').addClass('active');
-									$('#chooseExercise, #nameOfExercise').hide();
+									$('#chooseExercise, #nameOfExercise, #chooseExerciseBody').hide();
 									hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 								}
 							}
@@ -163,7 +163,7 @@ $('#go').one('click',function(){
 						} else {
 							alert('Упражнение выполнено!');
 							$('#reloadPage').addClass('active');
-							$('#chooseExercise, #nameOfExercise').hide();
+							$('#chooseExercise, #nameOfExercise, #chooseExerciseBody').hide();
 							hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 						}
 					}
@@ -358,7 +358,9 @@ function showhint(eN, choosenParam) {
 	var minBlockId = "min_"+str_whatever(eN, 'inBlock', choosenParam);	
 	console.info(minBlockId);
 	if ($('#'+minBlockId)) {
-		focusOnMinBlock($('#'+minBlockId).offset().top);
+		if($('#'+minBlockId).offset()) {
+			focusOnMinBlock($('#'+minBlockId).offset().top);
+		}
 	}
 	$('#container section').removeClass('active');
 	$('#'+minBlockId).addClass('active');
