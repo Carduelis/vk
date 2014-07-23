@@ -7,6 +7,7 @@ var aN = 1;
 var isPositionsThereBoolean = true; 
 
 $('#go').one('click',function(){
+	set_default(thisExId);
 	$('.header').append('<li id="nameOfExercise" class="btn"><a><i>Упражнение: </i>'+exercisesContainer[thisExId].nameOfExercise+'</a></li>');
 	
 	if (helloText[thisExId]) {
@@ -43,12 +44,12 @@ $('#go').one('click',function(){
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 
 	$('.element').on('click',superFunction);
+	
 
 	function superFunction() {
 	////////
 
 		detectMultiply();
-		set_default('1');
 		var thisType = $(this).attr('type');
 		var thisNum = $(this).attr('num');
 		var thisStatus = $(this).attr('status');
@@ -73,7 +74,6 @@ $('#go').one('click',function(){
 				console.info(eN);
 				showTrainingFeatures(eN,pN, choosenParam);
 				next_eN=eN+1;
-				set_default(next_eN);
 				if (mode == 'training') {
 					focusOnElementInPopUp()
 				}
@@ -91,7 +91,6 @@ $('#go').one('click',function(){
 						pN++ // идем к следующей позиции
 						showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
 						next_eN=eN+1;
-						set_default(next_eN);
 						if (mode == 'training') {
 							focusOnElementInPopUp()
 						}
@@ -152,7 +151,6 @@ $('#go').one('click',function(){
 							}
 							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
 							next_eN=eN+1;
-							set_default(next_eN);
 							if (mode == 'training') {
 								focusOnElementInPopUp()
 							}
@@ -195,7 +193,31 @@ $(window).scroll(function(){
 	//console.info(screenTop);
 });
 
-
+function set_default(thisExId) {
+		var defaultPosition;
+		var choosenParamForDP = null;
+		for (var el in exercisesContainer[thisExId]) {
+			if (exercisesContainer[thisExId][el].current) {
+				sideForDP = exercisesContainer[thisExId][el].current.onSide;
+				numForDP = exercisesContainer[thisExId][el].current.num;
+				typeForDP = exercisesContainer[thisExId][el].current.type;
+			} else {
+				if (el == 'nameOfExercise')  {
+					console.info('nameOfExercise')
+				} else {
+					console.info('multiply не реализован, он встретился на'+el);
+				}
+			}
+			if (exercisesContainer[thisExId][el].defaultPosition) {
+				defaultPosition = exercisesContainer[thisExId][el].defaultPosition;
+				console.info(defaultPosition);
+				var eN = el.substr(2);
+				obj_element(eN,choosenParamForDP).attr('status',defaultPosition)
+			} else {
+				console.info(thisExId+' '+el+' defaultPosition is false')
+			}
+		}
+	}
 function focusOnElement(parameter){
 	detectMultiplyPrev();
 	if (
