@@ -46,13 +46,13 @@ $('#go').one('click',function(){
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
 	if ((eN == 1)
-			&& ($('#'+str_whatever(eN,'inBlock',choosenParam)).parent().hasClass('card-holder'))
-		) {
-			$('#min_stack0 .card-block').addClass('opened');
-		}
+		&& ($('#'+str_whatever(eN,'inBlock',choosenParam)).parent().hasClass('card-holder'))
+	) {
+		$('#min_stack0 .card-block').addClass('opened');
+	}
 	$('.element').on('click',superFunction);
 	
-	
+
 	function superFunction() {
 	////////
 		detectMultiply();
@@ -65,7 +65,6 @@ $('#go').one('click',function(){
 		var thisBlock = $(this).parent().parent().attr('id');
 		console.log('thisType: '+thisType+'thisNum: '+thisNum+'thisStatus: '+thisStatus+'thisView: '+thisView+'thisViewSpecial: '+thisViewSpecial+'thisSide: '+thisSide+'thisBlock: '+thisBlock)
 		history(thisType,thisNum,thisStatus,thisSide,thisBlock);
-
 		
 		if (
 			(thisNum == str_whatever(eN, 'num',choosenParam) )
@@ -175,7 +174,7 @@ $('#go').one('click',function(){
 			}
 		}
 		//////////////////////////////////////////////////
-		
+
 	};
 });
 
@@ -231,6 +230,12 @@ function set_default(thisExId) {
 }
 function focusOnElement(parameter){
 	detectMultiplyPrev();
+	var isNotSameBlockInCardHolder = true;
+	if ($('#'+str_whatever((eN-1),'inBlock', choosenParamPrev)).parent().hasClass('card-holder')) {
+		if ($('#'+str_whatever((eN-1),'inBlock', choosenParamPrev)).parent().attr('id') == $('#'+str_whatever(eN,'inBlock', choosenParam)).parent().attr('id')) {
+			isNotSameBlockInCardHolder = false;
+		}
+	}
 	if (
 		(str_whatever((eN-1),'inBlock',choosenParamPrev)) 
 		// проверяет наличие значения stackN_blockM_side
@@ -240,7 +245,9 @@ function focusOnElement(parameter){
 		(isPositionsThereBoolean)
 		&&
 		(str_whatever((eN-1),'inBlock',choosenParamPrev) != 'stack1_block2')
-		// &&
+		&&
+		(isNotSameBlockInCardHolder)
+		// (Нужно, чтобы было false при случае, если предыдущий и последующий элементы находятся на разных картах, но в одном кард-блоке)
 		// (если у нас карты разных секциях)
 	)	{
 		console.info('Следующий блок');

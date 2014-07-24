@@ -143,7 +143,7 @@
           <div class="separator outer"></div>
           <div class="card-block">
             <div class="separator inner"></div>
-            <div class="card-holder">
+            <div class="card-holder" id="card_holder0">
               <section class="card size1 radiator" id="min_stack0_block4"><div side="front" id="min_stack0_block4_front"></div></section>
               <section class="card size3" id="min_stack0_block5"><div side="front" id="min_stack0_block5_front"></div></section>
               <section class="card size2" id="min_stack0_block6"><div side="front" id="min_stack0_block6_front"></div></section>
@@ -153,14 +153,14 @@
               <section class="card size1 radiator" id="min_stack0_block10"><div side="front" id="min_stack0_block10_front"></div></section>
             </div>
             <div class="separator inner"></div>
-            <div class="card-holder">
+            <div class="card-holder" id="card_holder1">
               <section class="card size2" id="min_stack0_block13"><div side="front" id="min_stack0_block13_front"></div></section>
               <section class="card size3" id="min_stack0_block14"><div side="front" id="min_stack0_block14_front"></div></section>
               <section class="card size3" id="min_stack0_block15"><div side="front" id="min_stack0_block15_front"></div></section>
               <section class="card size2" id="min_stack0_block16"><div side="front" id="min_stack0_block16_front"></div></section>
             </div>
             <div class="separator inner"></div>
-            <div class="card-holder">
+            <div class="card-holder" id="card_holder2">
               <section class="card size1 radiator" id="min_stack0_block17"><div side="front" id="min_stack0_block17_front"></div></section>
             </div>
             <div class="separator inner"></div>
@@ -199,7 +199,7 @@
       <div class="block-holder">   
         <section class="ear right" id="stack0_block3"><div side="front" id="stack0_block3_front"></div></section>
       </div>
-      <div class="card-holder">
+      <div class="card-holder"  id="card_holder0">
         <section class="card size1 radiator" id="stack0_block4"><div side="front" id="stack0_block4_front"></div></section>
         <section class="card size3" id="stack0_block5"><div side="front" id="stack0_block5_front"></div></section>
         <section class="card size2" id="stack0_block6"><div side="front" id="stack0_block6_front"></div></section>
@@ -208,13 +208,13 @@
         <section class="card size3" id="stack0_block9"><div side="front" id="stack0_block9_front"></div></section>
         <section class="card size1 radiator" id="stack0_block10"><div side="front" id="stack0_block10_front"></div></section>
       </div>
-      <div class="card-holder">
+      <div class="card-holder" id="card_holder1">
         <section class="card size2" id="stack0_block13"><div side="front" id="stack0_block13_front"></div></section>
         <section class="card size3" id="stack0_block14"><div side="front" id="stack0_block14_front"></div></section>
         <section class="card size3" id="stack0_block15"><div side="front" id="stack0_block15_front"></div></section>
         <section class="card size2" id="stack0_block16"><div side="front" id="stack0_block16_front"></div></section>
       </div>
-      <div class="card-holder">
+      <div class="card-holder" id="card_holder2">
        <section class="card size1 radiator" id="stack0_block17"><div side="front" id="stack0_block17_front"></div></section>
       </div>
       <div class="block-holder">
