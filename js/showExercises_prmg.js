@@ -271,10 +271,12 @@ function focusOnElement(parameter){
 function focusOnMinBlock(parameter){
 	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;\
 		if (parameter) {
-			elementOffsetTop = parameter
+			elementOffsetTop = parameter;
+
 		} else {
 			if(obj_element(eN, choosenParam)) {
 				if(obj_element(eN, choosenParam).offset()) {
+					choosenParam =null;
 					elementOffsetTop = obj_element(eN, choosenParam).offset().top;
 				}
 			}
@@ -300,9 +302,13 @@ function focusOnMinBlock(parameter){
 			}
 		});
 		$('#look-up, #look-down').on('click', function(){
+			/*
 			$('body').animate({
 				scrollTop: elementOffsetTop-(screenHeight/2)
 			});
+			*/
+
+			$('body').scrollTop(elementOffsetTop-(screenHeight/2))
 			$('#look-up').removeClass('show');
 			$('#look-down').removeClass('show');
 		});
@@ -356,7 +362,51 @@ function focusOnElementInPopUp(){
 
 	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));
 }
+/*
+function focusOnMinBlock(){
+	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;
+		if(str_whatever(eN, 'inBlock', choosenParam)) {
+			if($('#min_'+str_whatever((eN), 'inBlock', choosenParam)).offset()) {
 
+				heightOfBlock = $('#min_'+str_whatever((eN), 'inBlock', choosenParam)).children().height();
+				elementOffsetTop = $('#min_'+str_whatever((eN), 'inBlock', choosenParam)).offset().top;
+				elementOffsetTop = elementOffsetTop + heightOfBlock/2;
+				console.info('elementOffsetTop'+elementOffsetTop);
+				
+				//	choosenParam =null;
+				//	elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+				
+			}
+		}
+		if (elementOffsetTop < screenTop) {
+			$('#look-up').addClass('show');
+		} else if (elementOffsetTop > screenBottom) {
+			$('#look-down').addClass('show');
+		}
+		$(window).scroll(function(){
+			if (elementOffsetTop < screenTop) {
+				$('#look-up').addClass('show');
+			} else if (elementOffsetTop > screenBottom) {
+				$('#look-down').addClass('show');
+			}
+			if (
+				(elementOffsetTop > screenTop)
+				&&
+				(elementOffsetTop < screenBottom)
+			) {
+				$('#look-up').removeClass('show');
+				$('#look-down').removeClass('show');
+			}
+		});
+		$('#look-up, #look-down').on('click', function(){
+			$('body').scrollTop(elementOffsetTop-(screenHeight/2))
+			$('#look-up').removeClass('show');
+			$('#look-down').removeClass('show');
+		});
+	
+	return
+}
+*/
 function showhint(eN, choosenParam) {
 	// TO DO 
 	// Вбить значения в html, и цеплять их оттуда
@@ -364,9 +414,11 @@ function showhint(eN, choosenParam) {
 	var stack = nameOfStack(str_whatever(eN, 'inStack'));
 	var minBlockId = "min_"+str_whatever(eN, 'inBlock', choosenParam);	
 	console.info(minBlockId);
+	/* 
+	*/
 	if ($('#'+minBlockId)) {
 		if($('#'+minBlockId).offset()) {
-			focusOnMinBlock($('#'+minBlockId).offset().top);
+			//focusOnMinBlock($('#'+minBlockId).offset().top);
 		}
 	}
 	$('#container section').removeClass('active');

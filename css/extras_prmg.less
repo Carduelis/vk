@@ -88,7 +88,7 @@ body {
 	}
 }
 .container {
-	width: @pad*150;
+	width: @pad*120;
 	ul {
 		margin-top: @pad*8;
 		font-size: 0;
@@ -166,6 +166,9 @@ body {
 				//box-shadow: none;
 				//background: @color-border-w;
 			}
+		}
+		&.active > div {
+			background-color: #BDBE87;
 		}
 	}
 	&.active {
@@ -370,12 +373,13 @@ body {
 	}
 }
 #min_stack1_block2 {
-	bottom: @pad*3;
-	position: absolute;
-	right: @pad*3;
+bottom: 11.5rem;
+position: absolute;
+right: -7.5rem;
 }
 
 #container section {
+	background-size: cover!important;
 	> div {
 		box-shadow: inset 0 0 0 1px @concrete;
 	}
