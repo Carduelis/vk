@@ -14,7 +14,6 @@ $('#go').one('click',function(){
 		alert(helloText[thisExId]);
 		if (eN != posCount(thisEx[thisExId]) - 1)  {
 			alert('Упражнение выполнено!');
-
 			$('#reloadPage').addClass('active');
 			$('#chooseExercise, #nameOfExercise, #chooseExerciseBody').hide();
 			hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
@@ -46,13 +45,16 @@ $('#go').one('click',function(){
 	showFirstStepTrainingFeatures(eN,pN); // Показали первый элемент в первой позиции
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
-
+	if ((eN == 1)
+			&& ($('#'+str_whatever(eN,'inBlock',choosenParam)).parent().hasClass('card-holder'))
+		) {
+			$('#min_stack0 .card-block').addClass('opened');
+		}
 	$('.element').on('click',superFunction);
 	
-
+	
 	function superFunction() {
 	////////
-
 		detectMultiply();
 		var thisType = $(this).attr('type');
 		var thisNum = $(this).attr('num');
@@ -64,6 +66,7 @@ $('#go').one('click',function(){
 		console.log('thisType: '+thisType+'thisNum: '+thisNum+'thisStatus: '+thisStatus+'thisView: '+thisView+'thisViewSpecial: '+thisViewSpecial+'thisSide: '+thisSide+'thisBlock: '+thisBlock)
 		history(thisType,thisNum,thisStatus,thisSide,thisBlock);
 
+		
 		if (
 			(thisNum == str_whatever(eN, 'num',choosenParam) )
 			&&
@@ -172,7 +175,7 @@ $('#go').one('click',function(){
 			}
 		}
 		//////////////////////////////////////////////////
-
+		
 	};
 });
 
@@ -259,49 +262,45 @@ function focusOnElement(parameter){
 
 
 function focusOnMinBlock(parameter){
-	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;
-	if (parameter) {
-		elementOffsetTop = parameter
-	} else {
-		if(obj_element(eN, choosenParam)) {
-			if(obj_element(eN, choosenParam).offset()) {
-				elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+	//elementOffsetLeft = obj_element(eN, choosenParam).offset().left;\
+		if (parameter) {
+			elementOffsetTop = parameter
+		} else {
+			if(obj_element(eN, choosenParam)) {
+				if(obj_element(eN, choosenParam).offset()) {
+					elementOffsetTop = obj_element(eN, choosenParam).offset().top;
+				}
 			}
 		}
-	}
-	if (elementOffsetTop < screenTop) {
-		$('#look-up').addClass('show');
-	} else if (elementOffsetTop > screenBottom) {
-		$('#look-down').addClass('show');
-	}
-	$(window).scroll(function(){
 		if (elementOffsetTop < screenTop) {
 			$('#look-up').addClass('show');
 		} else if (elementOffsetTop > screenBottom) {
 			$('#look-down').addClass('show');
 		}
-		if (
-			(elementOffsetTop > screenTop)
-			&&
-			(elementOffsetTop < screenBottom)
-		) {
+		$(window).scroll(function(){
+			if (elementOffsetTop < screenTop) {
+				$('#look-up').addClass('show');
+			} else if (elementOffsetTop > screenBottom) {
+				$('#look-down').addClass('show');
+			}
+			if (
+				(elementOffsetTop > screenTop)
+				&&
+				(elementOffsetTop < screenBottom)
+			) {
+				$('#look-up').removeClass('show');
+				$('#look-down').removeClass('show');
+			}
+		});
+		$('#look-up, #look-down').on('click', function(){
+			$('body').animate({
+				scrollTop: elementOffsetTop-(screenHeight/2)
+			});
 			$('#look-up').removeClass('show');
 			$('#look-down').removeClass('show');
-		}
-	});
-
-	$('#look-up, #look-down').on('click', function(){
-		$('body').animate({
-			scrollTop: elementOffsetTop-(screenHeight/2)
-		}, 300);
-	});
-	$(window).scroll(function(){
-		return;
-	});
-	$('#look-up, #look-down').on('click', function(){
-		return;
-	});
-
+		});
+	
+	return
 }
 
 function focusOnElementInPopUp(){
