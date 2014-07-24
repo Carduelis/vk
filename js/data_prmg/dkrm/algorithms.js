@@ -894,6 +894,356 @@ ex2 : {
 },
 
 ex3 : {
+	nameOfExercise : 'Порядок работы ДКРМ при местном управлении',
+	el1 : {
+		click : '1',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '315',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите автомат СЕТЬ ОСН ',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '6',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '276',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите автомат СЕТЬ РЕЗ',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '13',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '2',
+			type : 'knob',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Установите переключатель контроля напряжений в положение СЕТЬ ОСН и проверьте напряжение по прибору',
+			},
+			position_2 : {
+				state : '2',
+				description : 'Установите переключатель контроля напряжений в положение СЕТЬ РЕЗ и проверьте напряжение по прибору',
+			},
+			position_3 : {
+				state : '5',
+				description : 'Установите переключатель контроля напряжений в положение +27В ДЕЖ и проверьте напряжение по прибору',
+			},
+		},
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '130',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите автомат БП1',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '21',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el5 : {
+		click : '5',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '96',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите автомат БП2',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '30',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el6 : {
+		click : '6',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '63',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите автомат +27В БП1 /2/',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '40',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el7 : {
+		click : '7',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '2',
+			type : 'knob',
+		},
+		positions : {
+			position_1 : {
+				state : '3',
+				description : 'Установите переключатель контроля напряжения в положение +27В БП1(2)',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'scale',
+					num : '1',
+					status : '39',
+				},
+			},
+		},
+	},
+	el8 : {
+		click : '8',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '31',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Включите автомат АККУМ',
+			},
+		},
+	},
+	el9 : {
+		click : '9',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '2',
+			type : 'knob',
+		},
+		positions : {
+			position_1 : {
+				state : '4',
+				description : 'Установите переключатель контроля напряжений в положение АККУМ и измерьте напряжение по прибору',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'scale',
+					num : '1',
+					status : '35',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el10 : {
+		click : '10',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите переключатель РЕЖИМ в положение РАБОТА',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'off',
+				},
+			},
+		},
+		defaultPosition : '1',
+	},
+	el11 : {
+		click : '11',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '5',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Установите переключатель УПРАВЛЕНИЕ в положение МУ',
+			},
+		},
+		defaultPosition : '0',
+	},
+	el12 : {
+		click : '12',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '5',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите переключатель М вкл – Д вкл на РЩ установить в положение М вкл.',
+			},
+		},
+	},
+	el13 : {
+		click : '13',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '99',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Включите ДКРМ нажатием соответствующей кнопки ВКЛ на ПИУ КД первого комплекта',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '291',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el14 : {
+		click : '14',
+		current : {
+			inStack : 'stack1',
+			inBlock : 'stack1_block1',
+			onSide : 'stack1_block1_front',
+			num : '52',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Перед уходом обслуживающего персонала необходимо в темное время суток включить светоограждение, нажав кнопку ВКЛ СВЕТООГРАЖДЕНИЕ на распределительном щите',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'lamp',
+					num : '52',
+					status : 'on',
+				},
+			},
+		},
+	},
+},
+
+ex4 : {
 	nameOfExercise : 'Проверка работоспособности основной аппаратуры маяка',
 	el1 : {
 		click : '1',
@@ -1098,10 +1448,11 @@ ex3 : {
 		defaultPosition : '0',
 	},	
 },
-/*ex4 : {
-	nameOfExercise : '“Установка и контроль положения зоны курса, установка порогов срабатывания выдачи сигналов АВАРИЯ',	
-},*/
 ex5 : {
+	nameOfExercise : '[UNDER_CONSTRUCTION]Установка и контроль положения зоны курса, установка порогов срабатывания выдачи сигналов АВАРИЯ',	
+},
+
+ex6 : {
 	nameOfExercise : 'Проверка порога срабатывания контроля уровня мощности на выходе УМ КГ',
 	el1 : {
 		click : '1',
@@ -1267,7 +1618,7 @@ ex5 : {
 },
 
 
-ex6 : {
+ex7 : {
 	nameOfExercise : 'Проверка выдачи сигналов аварии для мгновенного переключения на резервный комплект',
 	el1 : {
 		click : '1',
@@ -1441,8 +1792,7 @@ ex6 : {
 },
 
 ex8 : {
-
-	nameOfExercise : 'Проверка выдачи сигнала "авария" от ухода нуля и переключение с задержкой времени на резервный комплект',
+	nameOfExercise : 'Проверка выдачи сигнала «Авария» от ухода нуля зоны и переключения с задержкой времени на резервный комплект',
 	el1 : {
 		click : '1',
 		current : {
@@ -1455,13 +1805,13 @@ ex8 : {
 		positions : {
 			position_1 : {
 				state : '0',
-				description : 'Переключатель РЕЖИМ на ПИУ КД установите в положение РАБОТА',
+				description : 'На ПИУ КД установите переключатели РЕЖИМ в положение РАБОТА',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '100',
+					num : '40',
 					status : 'on',
 				},
 				action_2 : {
@@ -1469,23 +1819,23 @@ ex8 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '264',
+					num : '194',
 					status : 'on',
 				},
 				action_3 : {
 					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
+					inBlock : 'stack0_block14',
+					onSide : 'stack0_block14_front',
 					type : 'lamp',
-					num : '213',
+					num : '6',
 					status : 'on',
 				},
 				action_4 : {
 					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
+					inBlock : 'stack0_block14',
+					onSide : 'stack0_block14_front',
 					type : 'lamp',
-					num : '31',
+					num : '21',
 					status : 'on',
 				},
 				action_5 : {
@@ -1493,7 +1843,7 @@ ex8 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '23',
+					num : '321',
 					status : 'on',
 				},
 			},
@@ -1504,53 +1854,21 @@ ex8 : {
 		click : '2',
 		current : {
 			inStack : 'stack0',
-			inBlock : 'stack0_block14',
-			onSide : 'stack0_block14_front',
-			num : '15',
-			type : 'button',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
 		},
 		positions : {
 			position_1 : {
-				state : 'on',
-				description : 'Убедитесь, что показания ИКР по каналу контроля "S" составляют 30 % КРС',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'lamp',
-					num : '15',
-					status : 'on',
-				},
-				action_2 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'indicator',
-					num : '31',
-					status : '30',
-				},
-			},
-		},
-	},
-	el3 : {
-		click : '3',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block2',
-			onSide : 'stack0_block2_front',
-			num : '1',
-			type : 'rotator',
-		},
-		positions : {
-			position_1 : {
-				state : '7',
-				description : 'Вращая ручку КРУТИЗНА устройства фидерного тракта, увеличьте КРС по индикатору на ИКР до включения индикатора АВАРИЯ КРУТ на ПИУ Г (70)',
+				state : '1',
+				description : 'Разблокируйте оба комплекта, включите их в режиме НАСТР и восстановите параметры КРМ, вернув передающую антенну КРМ в исходное положение',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '352',
+					num : '115',
 					status : 'on',
 				},
 				action_2 : {
@@ -1558,15 +1876,15 @@ ex8 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '40',
-					status : 'on',
+					num : '100',
+					status : 'off',
 				},
 				action_3 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '213',
+					num : '40',
 					status : 'off',
 				},
 				action_4 : {
@@ -1574,45 +1892,38 @@ ex8 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '238',
-					status : 'on',
+					num : '194',
+					status : 'off',
 				},
 				action_5 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '636',
-					status : 'on',
+					num : '321',
+					status : 'off',
 				},
 				action_6 : {
 					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
+					inBlock : 'stack0_block14',
+					onSide : 'stack0_block14_front',
 					type : 'lamp',
-					num : '264',
+					num : '6',
+					status : 'off',
+				},
+				action_7 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block14',
+					onSide : 'stack0_block14_front',
+					type : 'lamp',
+					num : '21',
 					status : 'off',
 				},
 			},
 		},
 	},
-	el4 : {
-		click : '4',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block2',
-			onSide : 'stack0_block2_front',
-			num : '1',
-			type : 'rotator',
-		},
-		positions : {
-			position_1 : {
-				state : '2',
-				description : 'На ПИУ КД должны загореться индикаторы АВАРИЯ КРУТ отключив¬шегося комплекта, НЕТ РЕЗЕРВА ГРМ, КАТЕГОРИЯ I ГРМ и включиться звуковой сигнал. Верните ручку крутизны в исходное положение (10).',
-			},
-		},
-	},
 },
+
 ex9 : {
 
 	nameOfExercise : 'Проверка выдачи сигнала "авария" от ухода крутизны зоны и переключение с задержкой времени на резервный комплект',
