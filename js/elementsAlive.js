@@ -79,7 +79,7 @@ $(document).ready(function(){
 	//element.on('click', scaleAlive(element));
 	if (defaultPosition) {
 		status = defaultPosition;
-		//element.removeAttr('defaultposition');
+		element.removeAttr('defaultposition');
 		element.attr('status',status);
 	} 
 
