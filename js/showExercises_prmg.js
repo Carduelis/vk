@@ -20,6 +20,7 @@ $('#go').one('click',function(){
 			hideAndRemoveAllHints(); // Скрываем остаточную инфу от всех элементов
 		}
 	}
+
 	$('#chooseExercise').hide();
 	// Создаем переменные 
 	for(var i in exercisesOptions[thisExId]) {
@@ -201,30 +202,30 @@ $(window).scroll(function(){
 });
 
 function set_default(thisExId) {
-		var defaultPosition;
-		var choosenParamForDP = null;
-		for (var el in exercisesContainer[thisExId]) {
-			if (exercisesContainer[thisExId][el].current) {
-				sideForDP = exercisesContainer[thisExId][el].current.onSide;
-				numForDP = exercisesContainer[thisExId][el].current.num;
-				typeForDP = exercisesContainer[thisExId][el].current.type;
+	var defaultPosition;
+	var choosenParamForDP = null;
+	for (var el in exercisesContainer[thisExId]) {
+		if (exercisesContainer[thisExId][el].current) {
+			sideForDP = exercisesContainer[thisExId][el].current.onSide;
+			numForDP = exercisesContainer[thisExId][el].current.num;
+			typeForDP = exercisesContainer[thisExId][el].current.type;
+		} else {
+			if (el == 'nameOfExercise')  {
+				console.info('nameOfExercise')
 			} else {
-				if (el == 'nameOfExercise')  {
-					console.info('nameOfExercise')
-				} else {
-					console.info('multiply не реализован, он встретился на'+el);
-				}
-			}
-			if (exercisesContainer[thisExId][el].defaultPosition) {
-				defaultPosition = exercisesContainer[thisExId][el].defaultPosition;
-				console.info(el+': '+defaultPosition);
-				var eN = el.substr(2);
-				obj_element(eN,choosenParamForDP).attr('status',defaultPosition)
-			} else {
-				console.info(thisExId+' '+el+' defaultPosition is false')
+				console.info('multiply не реализован, он встретился на'+el);
 			}
 		}
+		if (exercisesContainer[thisExId][el].defaultPosition) {
+			defaultPosition = exercisesContainer[thisExId][el].defaultPosition;
+			console.info(el+': '+defaultPosition);
+			var eN = el.substr(2);
+			obj_element(eN,choosenParamForDP).attr('status',defaultPosition)
+		} else {
+			console.info(thisExId+' '+el+' defaultPosition is false')
+		}
 	}
+}
 function focusOnElement(parameter){
 	detectMultiplyPrev();
 	if (
@@ -244,7 +245,7 @@ function focusOnElement(parameter){
 		$('#hidePopUp').addClass('highlight');
 		$('#blocks').animate({
 			scrollTop: 0
-		}, 300);
+		}, 600);
 		setTimeout(function(){
 			//$('#hidePopUp').removeClass('active');
 			$('.card-block').addClass('opened');
@@ -344,7 +345,7 @@ function focusOnElementInPopUp(){
 		console.info(elementOffsetTop+ '; ' + screenTop + '; ' +screenBottom);
 		$('#blocks').animate({
 			scrollTop: elementOffsetTop-(screenHeight/2)
-		}, 300);
+		}, 600);
 	}
 
 	console.info(isPositionsThereBoolean+' '+pN+' '+posCount(thisEx[thisExId]['el'+eN].positions));

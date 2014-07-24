@@ -33,7 +33,7 @@
   <div class="btns">
     <a href="index_rsp.php">РСП-10МН</a>
     <a href="index_prmg.php">ПРМГ-5</a>
-    <a href="index_par.php">ПАР-10</a>
+    <a href="par10/index.html">ПАР-10</a>
   </div>
 </div>
 

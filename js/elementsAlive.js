@@ -49,15 +49,29 @@ function scaleAlive(scaleAliveBlockId,scaleAliveElementType,scaleAliveElementNum
 
 		return console.info('scaleAlive')
 }
+
+var refreshStatus = {
+	make: function () {
+		console.info('Обновили status. status='+status);
+		status = $(this).attr('status');
+	}
+}
+
+function myStopFunction() {
+    clearInterval(myVar);
+}
+
 $(document).ready(function(){
+	$('.element').each(function(){
 
+	var status;
+	//myVar = setInterval(function(){myTimer()}, 10000);
 
-$('.element').each(function(){
-	var status = 0;
 	var element = $(this);
 	var sectionId = $(this).parent().attr('id');
 	var clicker = element.find('.click');
-	var body = element.children('.body')
+	var body = element.children('.body');
+	//console.info(sectionId+' '+status);
 	element.find('a').attr('href','javascript:void(0);');
 
 	var positions = element.attr('positions');
@@ -131,12 +145,19 @@ $('.element').each(function(){
 
 		} else {
 			clicker.on('click',function(){
-				if (status == '1') {
-					status = 0
+				status = element.attr('status');
+				console.info('clicker on click');
+				if ((status == '1') || (status == 1)) {
+					console.info('status = 1');
+					element.attr('status','0');
+					status = 0;
+					console.info('status: '+status);
 				} else {
-					status = 1
+					console.info('status = 0');
+					element.attr('status','1');
+					status = 1;
+					console.info('status: '+status);
 				}
-				element.attr('status',status)
 			});
 		}
 		if (element.attr('view') == 'rotate') {
@@ -203,7 +224,8 @@ $('.element').each(function(){
 	if (
 			(element.attr('type') == 'button') || 
 			(element.attr('type') == 'next') 
-	) {
+	) 
+	{
 
 		clicker
 		.click(function() {
@@ -241,6 +263,9 @@ $('.element').each(function(){
 			}, 300)
 		}
 	}
+	});
 });
 
-});
+function elementsAlive() {
+
+}
