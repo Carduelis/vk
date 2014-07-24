@@ -41,7 +41,7 @@ $('#go').one('click',function(){
 	$('#history').one('click', function(){
 		exportAlgorythm(thisExId);
 	})
-
+	showText(thisExId,eN,pN);
 	showFirstStepTrainingFeatures(eN,pN); // Показали первый элемент в первой позиции
 	$('#chooseExerciseBody').hide(); // Скрыли ненужное
 	$('#chooseExercise a').removeClass('active'); // И еще скрыли
@@ -66,6 +66,8 @@ $('#go').one('click',function(){
 		console.log('thisType: '+thisType+'thisNum: '+thisNum+'thisStatus: '+thisStatus+'thisView: '+thisView+'thisViewSpecial: '+thisViewSpecial+'thisSide: '+thisSide+'thisBlock: '+thisBlock)
 		history(thisType,thisNum,thisStatus,thisSide,thisBlock);
 		
+
+
 		if (
 			(thisNum == str_whatever(eN, 'num',choosenParam) )
 			&&
@@ -78,6 +80,7 @@ $('#go').one('click',function(){
 				eN = +eN + +thisEx[thisExId]['el'+eN][choosenParam].shift;
 				pN = 1;
 				console.info(eN);
+				showText(thisExId,eN,pN);
 				showTrainingFeatures(eN,pN, choosenParam);
 				next_eN=eN+1;
 				if (mode == 'training') {
@@ -95,6 +98,7 @@ $('#go').one('click',function(){
 							aN++
 						};
 						pN++ // идем к следующей позиции
+						showText(thisExId,eN,pN);
 						showTrainingFeatures(eN,pN,choosenParam); // показываем информацию о следующей позиции текущего элемента
 						next_eN=eN+1;
 						if (mode == 'training') {
@@ -158,6 +162,7 @@ $('#go').one('click',function(){
 									detectMultiply();
 								}
 							}
+							showText(thisExId,eN,pN);
 							showTrainingFeatures(eN,pN,choosenParam); // Показываем информацию о следующем элементе
 							next_eN=eN+1;
 							if (mode == 'training') {
@@ -227,6 +232,24 @@ function set_default(thisExId) {
 			console.info(thisExId+' '+el+' defaultPosition is false')
 		}
 	}
+}
+function showText(thisExId,eN,pN) {
+	for (var message in exerciseText[thisExId]) {
+		console.info('exerciseText '+thisExId+' '+message);
+			console.info('exerciseText'+thisExId+message);
+			console.info(exerciseText[thisExId][message])
+			if (exerciseText[thisExId][message].eN == eN) {
+				if (exerciseText[thisExId][message].pN) {
+					if (exerciseText[thisExId][message].pN == pN) {
+						alert(exerciseText[thisExId][message].text)
+					}
+				} else {
+					alert(exerciseText[thisExId][message].text)
+				}
+			}
+		
+	}
+	
 }
 function focusOnElement(parameter){
 	detectMultiplyPrev();
