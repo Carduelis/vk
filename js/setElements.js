@@ -168,6 +168,11 @@ function select(typeOfElement) {
        options.defaultPosition += '<option value="'+i+'">'+i+'</option>';
     }
   }
+   if (typeOfElement == 'button'){
+    options = {
+        view_special: startHtmlTags+'введите особый тип отображения</label><input data="view_special" type="text" value="">'
+    }
+  }
   if (typeOfElement == 'toggler'){
     options = {
         defaultPosition: startHtmlTags+'Позиция по умолчанию</label><select data="defaultPosition">',
