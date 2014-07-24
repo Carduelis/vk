@@ -1699,7 +1699,7 @@ ex7 : {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ Г загорается индикатор АВАРИЯ Мщ ГРМ. Мощность в момент выдачи сигнала АВАРИЯ должна быть от 3 до 5 Вт. Задержка времени переключения — не более 2 с.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1962,6 +1962,14 @@ ex8 : {
 					num : '22',
 					status : 'on',
 				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '40',
+					status : 'on',
+				},
 			},
 		},
 	},
@@ -2001,6 +2009,14 @@ ex8 : {
 					type : 'lamp',
 					num : '291',
 					status : 'on',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '40',
+					status : 'off',
 				},
 			},
 			position_2 : {
