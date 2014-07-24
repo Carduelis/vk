@@ -238,7 +238,7 @@
       </li>
 
       <li id="stack9">
-        <div>
+        <div class="block-holder">
           <header>НА КДП</header>
           <section class="kdp" id="stack9_block1"><div side="front" id="stack9_block1_front"></div></section>
         </div>
