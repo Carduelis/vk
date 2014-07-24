@@ -79,7 +79,7 @@ $(document).ready(function(){
 	//element.on('click', scaleAlive(element));
 	if (defaultPosition) {
 		status = defaultPosition;
-		element.removeAttr('defaultposition');
+		//element.removeAttr('defaultposition');
 		element.attr('status',status);
 	} 
 
@@ -104,30 +104,34 @@ $(document).ready(function(){
 		body.css('transform','rotate('+rotate+'deg)');
 
 		element.find('.cw').on('click', function(){	
-
-			if (status < positions-1) {
-				status++;
-				element.attr('status',status);
-				var rotate = step*(1-positions+2*status);
-				body.css('transform','rotate('+rotate+'deg)');
-				scaleAlive(sectionId,element.attr('type'),element.attr('num'),status);
-			}
-	        if (element.attr('view2') == "yes") {
-	        	element.children('.overlay').html('<span class="counter">'+status+'</span>')
-	        }
+				status = element.attr('status');
+				if (status) {} else {
+					status = positions/2;
+				}
+				if (status < positions-1) {
+					status++;
+					element.attr('status',status);
+					var rotate = step*(1-positions+2*status);
+					body.css('transform','rotate('+rotate+'deg)');
+					scaleAlive(sectionId,element.attr('type'),element.attr('num'),status);
+				}
+		        if (element.attr('view2') == "yes") {
+		        	element.children('.overlay').html('<span class="counter">'+status+'</span>')
+		        }
 		});
 
 		element.find('.ccw').on('click', function(){	
-			if (status > 0) {
-				status--;	
-				element.attr('status',status);
-				var rotate = step*(1-positions+2*status);
-				body.css('transform','rotate('+rotate+'deg)');
-				scaleAlive(sectionId,element.attr('type'),element.attr('num'),status);
-			}
-	        if (element.attr('view2') == "yes") {
-	        	element.children('.overlay').html('<span class="counter">'+status+'</span>')
-	        }
+				status = element.attr('status');
+				if (status > 0) {
+					status--;	
+					element.attr('status',status);
+					var rotate = step*(1-positions+2*status);
+					body.css('transform','rotate('+rotate+'deg)');
+					scaleAlive(sectionId,element.attr('type'),element.attr('num'),status);
+				}
+		        if (element.attr('view2') == "yes") {
+		        	element.children('.overlay').html('<span class="counter">'+status+'</span>')
+		        }
 		});
         if (element.attr('view2') == "yes") {
         	element.children('.overlay').html('<span class="counter">'+status+'</span>')
@@ -244,6 +248,7 @@ $(document).ready(function(){
 	if (element.attr('type') == 'socket') {
 
 		clicker.on('click',function(){
+			status = element.attr('status');
 			if (element.attr('defaultposition')) {
 				status = 'on';
 				element.removeAttr('defaultposition');
