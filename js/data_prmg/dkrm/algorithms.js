@@ -1249,7 +1249,7 @@ ex3 : {
 },
 
 ex4 : {
-	nameOfExercise : 'Проверка работоспособности основной аппаратуры маяка',
+	nameOfExercise : 'Проверка работоспособности основной аппаратуры КРМ',
 	el1 : {
 		click : '1',
 		current : {
@@ -1622,8 +1622,139 @@ ex6 : {
 	},
 },
 
-
 ex7 : {
+	nameOfExercise : 'Проверка задержки переключения на резерв с момента появления сигнала АВАРИЯ',
+	el1 : {
+		click : '1',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block5',
+			onSide : 'stack0_block5_front',
+			num : '9',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы АИЦТ.467716.001 с ослаблением 1дБ,2дБ 3дБ и 4 дБ из состава ЗИ зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ КД загорается индикатор АВАРИЯ Мщ (4 Вт)',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '21',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '6',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '004',
+				},
+			},
+		},
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block4',
+			onSide : 'stack0_block4_front',
+			num : '7',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы АИЦТ.467716.001 с ослаблением 1дБ,2дБ 3дБ и 4 дБ из состава ЗИ зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ КД загорается индикатор АВАРИЯ Мщ (4 Вт)',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '000',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '384',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '40',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '1',
+				description : 'Разблокируйте ПИУ КД и подождите 10 секунд',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '384',
+					status : 'off',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '40',
+					status : 'off',
+				},
+			},
+		},
+	},
+},
+
+ex8 : {
 	nameOfExercise : 'Проверка выдачи сигналов аварии для мгновенного переключения на резервный комплект',
 	el1 : {
 		click : '1',
@@ -1796,7 +1927,7 @@ ex7 : {
 	},
 },
 
-ex8 : {
+ex9 : {
 	nameOfExercise : 'Проверка выдачи сигнала «Авария» от ухода нуля зоны и переключения с задержкой времени на резервный комплект',
 	el1 : {
 		click : '1',
@@ -1929,7 +2060,7 @@ ex8 : {
 	},
 },
 
-ex9 : {
+ex10 : {
 
 	nameOfExercise : 'Проверка выдачи сигнала "авария" от ухода крутизны зоны и переключение с задержкой времени на резервный комплект',
 	el1 : {
@@ -2102,11 +2233,11 @@ ex9 : {
 		},
 	},
 },
-ex10 : {
+ex11 : {
 	nameOfExercise : 'Проверка выдачи сигнала аварии при возникновении пожароопасной ситуации',
 },
 
-ex11 : {
+ex12 : {
 
 	nameOfExercise : 'Проверка выдачи сигнала аварии и аварийного переключения с рабочего комплекта на резервный',
 	el1 : {
