@@ -1,3 +1,18 @@
+function exercisePassedSuccesfully() {
+	hideAll();
+	alert('Упражнение выполнено верно!');
+}
+
+function exercisePassedUnSuccesfully() {
+	hideAll();
+	alert('Упражнение выполнено неверно');
+}
+function hideAll() {
+	$('#tester').hide();
+	$('#wrapper, .container-level1').hide();
+	$('#training, #passing').hide();
+	$('.sub-menu').prev().hide();
+}
 function loadPage() {
 
 
@@ -215,8 +230,10 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 				});
 			}
 		}, function() {
-			if (type == 'knob') {
-				thisCtrl.children('a').hide();
+			if (type) {
+				if (type == 'knob') {
+					thisCtrl.children('a').hide();
+				}
 			}
 		});
 				
@@ -542,6 +559,10 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 	    clearInterval(interval);
 	    k_speed = slow_speed;
 	    ctrl(201,'toggler',1).removeClass('on').attr('statusData',0);
+	  }).mouseout(function(e){
+	    clearInterval(interval);
+	    k_speed = slow_speed;
+	    ctrl(201,'toggler',1).removeClass('on').attr('statusData',0);
 	  });
 	});
 
@@ -566,6 +587,10 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 			$('.scale201 .arrow').css('-webkit-transform','rotate('+A+'deg)');
 	    },100*k_speed);
 	  }).mouseup(function(e){
+	    clearInterval(interval);
+	    k_speed = slow_speed;
+	    ctrl(201,'toggler',1).removeClass('on').attr('statusData',0);
+	  }).mouseout(function(e){
 	    clearInterval(interval);
 	    k_speed = slow_speed;
 	    ctrl(201,'toggler',1).removeClass('on').attr('statusData',0);
@@ -757,7 +782,12 @@ $('#block7020').click(function() {
 			}
 			while(false);
 
-			f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+			if (f) {
+				exercisePassedSuccesfully();
+			} else {
+				exercisePassedUnSuccesfully();
+			}
+			//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 		}); // END EXERCIZE 1 ALGORITHM
 
 		// START EXERCIZE 1 HINTS
@@ -1078,7 +1108,12 @@ $('#block7020').click(function() {
 			f = true;
 			}
 			while(false);
-			f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+			if (f) {
+				exercisePassedSuccesfully();
+			} else {
+				exercisePassedUnSuccesfully();
+			}
+			//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 		}); // END EXERCIZE 2  ALGORITHM
 
 		// START EXERCIZE 2 HINTS
@@ -1225,7 +1260,12 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+				if (f) {
+					exercisePassedSuccesfully();
+				} else {
+					exercisePassedUnSuccesfully();
+				}
+				//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 			}); // END EXERCIZE 2-1 ALGORITHM
 
 			// START EXERCIZE 2-1 HINTS
@@ -1360,7 +1400,12 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+				if (f) {
+					exercisePassedSuccesfully();
+				} else {
+					exercisePassedUnSuccesfully();
+				}
+				//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 			}); // END EXERCIZE 2-2 ALGORITHM
 
 			// START EXERCIZE 2-2 HINTS
@@ -1485,7 +1530,12 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+				if (f) {
+					exercisePassedSuccesfully();
+				} else {
+					exercisePassedUnSuccesfully();
+				}
+				//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 			}); // END EXERCIZE 2-3 ALGORITHM
 
 			// START EXERCIZE 2-3 HINTS
@@ -1743,7 +1793,12 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+				if (f) {
+					exercisePassedSuccesfully();
+				} else {
+					exercisePassedUnSuccesfully();
+				}
+				//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 			}); // END EXERCIZE 3 ALGORITHM
 
 			// START EXERCIZE 3 HINTS
@@ -2010,7 +2065,12 @@ $('[rel="telegraph"]').click(function() {
 			f = true;
 			}
 			while(false);
-			f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+			if (f) {
+				exercisePassedSuccesfully();
+			} else {
+				exercisePassedUnSuccesfully();
+			}
+			//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 		}); // END EXERCIZE TEST  ALGORITHM
 
 		// START EXERCIZE TEST HINTS
@@ -2165,7 +2225,12 @@ $('[rel="telegraph"]').click(function() {
 			f = true;
 			}
 			while(false);
-			f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+			if (f) {
+				exercisePassedSuccesfully();
+			} else {
+				exercisePassedUnSuccesfully();
+			}
+			//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 		}); // END EXERCIZE TEST  ALGORITHM
 
 		// START EXERCIZE TEST HINTS
@@ -2363,7 +2428,12 @@ $('[rel="telegraph"]').click(function() {
 			f = true;
 			}
 			while(false);
-			f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
+			if (f) {
+				exercisePassedSuccesfully();
+			} else {
+				exercisePassedUnSuccesfully();
+			}
+			//f ? alert('Упражнение выполнено верно!') : alert('Экзамен не сдан!');
 		}); // END EXERCIZE TEST  ALGORITHM
 
 		// START EXERCIZE TEST HINTS
