@@ -101,6 +101,8 @@ toggler 5:
 1: lamp 16 off, lamp 23 on
 
 По-хорошему, этими зависимостями нужно переопределять экшены из упражнений либо игорировать экшены из упражнений для этих ламп
+
+В ГРМ нужно сделать то же самое, с теми же номерами элементов
 */
 var exercisesContainer = {
 ex1 : {
@@ -1716,7 +1718,7 @@ ex7 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '004',
+					status : '000',
 				},
 			},
 		},
@@ -1740,7 +1742,7 @@ ex7 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '000',
+					status : '004',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1804,6 +1806,26 @@ ex7 : {
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
 					num : '40',
+					status : 'off',
+				},
+			},
+			position_2 : {
+				state : '0',
+				description : 'Разблокируйте ПИУ КД и подождите 10 секунд',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '115',
 					status : 'off',
 				},
 			},
