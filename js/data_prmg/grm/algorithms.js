@@ -4,11 +4,11 @@ var helloText = {
 }
 
 var exerciseText = {
-	ex1 : {
+	ex2 : {
 		message1 : {
-			eN : '2',
+			eN : '11',
 			//pN : '1',
-			text : 'Сообщение выводится в 1 упражнении после 2 элемента',
+			text : 'При работе с реальным оборудованием после включения БМК необходимо проверить соответствие показаний ИКР установленным на БМК фиксированным значениям КРС%. При несоответствии значений следует провести калибровку нажатием кнопок 0 или S на ИКР',
 		},
 		message2 : {
 			eN : '4',
@@ -340,7 +340,7 @@ ex1 : {
 					onSide : 'stack1_block1_front',
 					type : 'scale',
 					num : '1',
-					status : '-35',
+					status : '40',
 				},
 			},
 		},
@@ -381,7 +381,7 @@ ex1 : {
 					onSide : 'stack1_block1_front',
 					type : 'scale',
 					num : '1',
-					status : '-42',
+					status : '40',
 				},
 			},
 		},
@@ -417,7 +417,7 @@ ex1 : {
 			inStack : 'stack1',
 			inBlock : 'stack1_block1',
 			onSide : 'stack1_block1_front',
-			num : '52',
+			num : '68',
 			type : 'toggler',
 		},
 		positions : {
@@ -429,7 +429,7 @@ ex1 : {
 					inBlock : 'stack1_block1',
 					onSide : 'stack1_block1_front',
 					type : 'lamp',
-					num : '52',
+					num : '76',
 					status : 'on',
 				},
 			},
@@ -627,15 +627,27 @@ ex1 : {
 		},
 		positions : {
 			position_1 : {
-				state : '2',
-				description : 'Установите переключательконтроля напряжений в положение СЕТЬ РЕЗ. Измерьте напряжение.',
+				state : '3',
+				description : 'Установите переключатель контроля напряжений в положение СЕТЬ РЕЗ. Измерьте напряжение.',
 				action_1 : {
 					inStack : 'stack1',
 					inBlock : 'stack1_block1',
 					onSide : 'stack1_block1_front',
 					type : 'scale',
 					num : '1',
-					status : '25',
+					status : '40',
+				},
+			},
+			position_2 : {
+				state : '2',
+				description : 'Установите переключатель контроля напряжений в положение СЕТЬ РЕЗ. Измерьте напряжение.',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'scale',
+					num : '1',
+					status : '40',
 				},
 			},
 		},
@@ -679,72 +691,6 @@ ex1 : {
 				description : 'Выключите АККУМ',
 			},
 		},
-	},
-	el25 : {
-		click : '25',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '21',
-			type : 'toggler',
-		},
-		positions : {
-			position_1 : {
-				state : '1',
-				description : 'Установите переключатель настройки в положение НАСТРОЙКА',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '115',
-					status : 'on',
-				},
-			},
-		},
-		defaultPosition : '0',
-	},
-	el26 : {
-		click : '26',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '99',
-			type : 'button',
-		},
-		positions : {
-			position_1 : {
-				state : 'on',
-				description : 'Нажмите кнопку ВКЛ ГРМ1',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '264',
-					status : 'on',
-				},
-			},
-		},
-	},
-	el27 : {
-		click : '27',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block14',
-			onSide : 'stack0_block14_front',
-			num : '19',
-			type : 'toggler',
-		},
-		positions : {
-			position_1 : {
-				state : '1',
-				description : 'Установите переключатель КРС-УРОВЕНЬ в положение УРОВЕНЬ',
-			},
-		},
-		defaultPosition : '1',
 	},
 },
 
@@ -820,6 +766,22 @@ ex2 : {
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
 					num : '264',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '291',
 					status : 'on',
 				},
 			},
@@ -978,24 +940,9 @@ ex2 : {
 			},
 		},
 	},
+
 	el12 : {
 		click : '12',
-		current : {
-			inStack : 'stack1',
-			inBlock : 'stack1_block3',
-			onSide : 'stack1_block3_front',
-			num : '4',
-			type : 'knob',
-		},
-		positions : {
-			position_1 : {
-				state : '1',
-				description : 'Включите БМК и проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %',
-			},
-		},
-	},
-	el13 : {
-		click : '13',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block14',
@@ -1010,8 +957,8 @@ ex2 : {
 			},
 		},
 	},
-	el14 : {
-		click : '14',
+	el13 : {
+		click : '13',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -1042,8 +989,8 @@ ex2 : {
 			},
 		},
 	},
-	el15 : {
-		click : '15',
+	el14 : {
+		click : '14',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -1055,11 +1002,19 @@ ex2 : {
 			position_1 : {
 				state : 'on',
 				description : 'Включите выбранный комплект, исходя из равномерной наработки каждого комплекта.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'on',
+				},
 			},
 		},
 	},
-	el16 : {
-		click : '16',
+	el15 : {
+		click : '15',
 		current : {
 			inStack : 'stack1',
 			inBlock : 'stack1_block1',
@@ -1155,41 +1110,13 @@ ex3 : {
 		positions : {
 			position_1 : {
 				state : 'on',
-				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится номер частотного канала, заданный заводской настройкой.',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block5',
-					onSide : 'stack0_block5_front',
-					type : 'lamp',
-					num : '21',
-					status : 'on',
-				},
-				action_2 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block5',
-					onSide : 'stack0_block5_front',
-					type : 'lamp',
-					num : '10',
-					status : 'on',
-				},
-				action_3 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block5',
-					onSide : 'stack0_block5_front',
-					type : 'indicator',
-					num : '9',
-					status : '000',
-				},
-			},
-			position_2 : {
-				state : 'off',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится значение мощности в ваттах.',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block5',
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
-					num : '10',
+					num : '6',
 					status : 'on',
 				},
 				action_2 : {
@@ -1197,7 +1124,35 @@ ex3 : {
 					inBlock : 'stack0_block5',
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
+					num : '10',
+					status : 'off',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '002',
+				},
+			},
+			position_2 : {
+				state : 'on',
+				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится номер частотного канала, заданный заводской настройкой',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
 					num : '6',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '10',
 					status : 'on',
 				},
 				action_3 : {
@@ -1206,19 +1161,19 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '000',
+					status : '001',
 				},
 			},
 			position_3 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится коэффициент стоячей волны.',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block5',
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
-					num : '6',
-					status : 'on',
+					num : '10',
+					status : 'off',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1234,11 +1189,11 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '000',
+					status : '-30',
 				},
 			},
 			position_4 : {
-				state : 'off',
+				state : 'on',
 				description : 'Нажмите кнопку ПАРАМЕТР. На цифровом индикаторе отобразится температура.',
 				action_1 : {
 					inStack : 'stack0',
@@ -1246,7 +1201,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'lamp',
 					num : '15',
-					status : 'on',
+					status : 'off',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1262,7 +1217,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '000',
+					status : '025',
 				},
 			},
 		},
@@ -1390,6 +1345,10 @@ ex4 : {
 				state : '8',
 				description : 'Ручкой ФАЗА добейтесь максимального положительного значения КРС по каналу контроля «0». Запомните положение фазовращателя и значение КРС (80)',
 			},
+			position_3 : {
+				state : '5',
+				description : 'установите указатель фазовращателя в среднее положение между предыдущими отсчётами (55)',
+			},
 		},
 	},
 },
@@ -1402,8 +1361,8 @@ ex5 : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block4',
 			onSide : 'stack0_block4_front',
-			num : '1',
-			type : 'next',
+			num : '7',
+			type : 'socket',
 		},
 		positions : {
 			position_1 : {
@@ -1431,7 +1390,7 @@ ex5 : {
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
 					num : '100',
-					status : 'on',
+					status : 'off',
 				},
 				action_4 : {
 					inStack : 'stack0',
@@ -1473,11 +1432,35 @@ ex5 : {
 					num : '50',
 					status : 'on',
 				},
+				action_9 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'on',
+				},
 			},
 		},
 	},
 	el2 : {
 		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block5',
+			onSide : 'stack0_block5_front',
+			num : '9',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ Г загорается индикатор АВАРИЯ Мщ ГРМ. Мощность в момент выдачи сигнала АВАРИЯ должна быть от 3 до 5 Вт. Задержка времени переключения — не более 2 с.',
+			},
+		},
+	},
+	el3 : {
+		click : '3',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -1493,8 +1476,8 @@ ex5 : {
 		},
 		defaultPosition : '1',
 	},
-	el3 : {
-		click : '3',
+	el4 : {
+		click : '4',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -1709,8 +1692,8 @@ ex7 : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block4',
 			onSide : 'stack0_block4_front',
-			num : '1',
-			type : 'next',
+			num : '7',
+			type : 'socket',
 		},
 		positions : {
 			position_1 : {
@@ -1723,6 +1706,135 @@ ex7 : {
 					type : 'lamp',
 					num : '384',
 					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '23',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'off',
+				},
+				action_5 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '213',
+					status : 'on',
+				},
+				action_6 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '264',
+					status : 'off',
+				},
+				action_7 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '291',
+					status : 'off',
+				},
+				action_8 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '50',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block5',
+			onSide : 'stack0_block5_front',
+			num : '9',
+			type : 'socket',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Устанавливая в тракт между ЦСЧ и УМ КГ фиксированные аттенюаторы с ослаблением 1 дБ, 2 дБ, 3 дБ и 4 дБ, зафиксировать по цифровому индикатору ЦСЧ мощность, при которой на ПИУ Г загорается индикатор АВАРИЯ Мщ ГРМ. Мощность в момент выдачи сигнала АВАРИЯ должна быть от 3 до 5 Вт. Задержка времени переключения — не более 2 с.',
+			},
+		},
+	},
+
+	el3 : {
+		click : '3',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '5',
+			type : 'button',
+		},
+		positions : {
+			position_1 : {
+				state : 'on',
+				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '4',
+					status : 'on',
+				},
+			},
+		},
+	},
+	el4 : {
+		click : '4',
+		current : {
+			inStack : 'stack0',
+			inBlock : 'stack0_block1',
+			onSide : 'stack0_block1_front',
+			num : '21',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Установите переключатель РЕЖИМ в положение РАБОТА',
+							action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '384',
+					status : 'off',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1754,7 +1866,7 @@ ex7 : {
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
 					num : '213',
-					status : 'on',
+					status : 'off',
 				},
 				action_6 : {
 					inStack : 'stack0',
@@ -1778,59 +1890,11 @@ ex7 : {
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
 					num : '50',
-					status : 'on',
+					status : 'off',
 				},
-			},
-		},
-	},
-	el2 : {
-		click : '2',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '21',
-			type : 'toggler',
-		},
-		positions : {
-			position_1 : {
-				state : '0',
-				description : 'Установите переключатель РЕЖИМ в положение РАБОТА',
 			},
 		},
 		defaultPosition : '1',
-	},
-	el3 : {
-		click : '3',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '5',
-			type : 'button',
-		},
-		positions : {
-			position_1 : {
-				state : 'on',
-				description : 'Включите выбранный комплект нажатием кнопки ВЫБОР КОМПЛЕКТА',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '31',
-					status : 'off',
-				},
-				action_2 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '10',
-					status : 'on',
-				},
-			},
-		},
 	},
 },
 ex8 : {
