@@ -162,7 +162,7 @@ $('#table td:nth-of-type(5)').click(function(){
 			progress = $(this).attr('progress');
 $('body>.userlog').append('<span class="log"><u>Прогресс выполнения: <b>'+progress+'</b></u>; Блок №<b>'+parentId+'</b>; Тип элемента: "<b>'+type+'</b>"; Порядковый номер элемента: <b>'+id+'</b>; Положение: <b>'+endPosition+'</b>');
 $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPosition+','+parentId+',"'+type+'",'+id+')) break;</span>');
-			$('#tester').attr('data-click',progressClick);
+			//$('#tester').attr('data-click',progressClick);
 			
 		});
 // */
@@ -230,6 +230,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 				});
 			}
 		}, function() {
+			type = thisCtrl.attr('type');
 			if (type) {
 				if (type == 'knob') {
 					thisCtrl.children('a').hide();
