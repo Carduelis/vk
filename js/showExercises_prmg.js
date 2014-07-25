@@ -182,8 +182,44 @@ $('#go').one('click',function(){
 		//////////////////////////////////////////////////
 
 	};
+
+
+	setTimeout(function(){
+		$('#stack0_block1_front .element[type="toggler"][num="21"]').each(function(){
+			stack0_block1_front__toggler__21($(this));
+		});
+		$('#stack0_block1_front .element[type="toggler"][num="5"]').each(function(){
+			stack0_block1_front__toggler__5($(this));
+		});
+	}, 1000);
+	$('#stack0_block1_front .element[type="toggler"][num="21"]').on('click', function(){
+		stack0_block1_front__toggler__21($(this));
+	});
+	$('#stack0_block1_front .element[type="toggler"][num="5"]').on('click', function(){
+		stack0_block1_front__toggler__5($(this));
+	});
+
 });
 
+	// Зависимости между тумблерами и лампочками
+	function stack0_block1_front__toggler__21(element) {
+		if (element.attr('status') == '0') {
+			$('#stack0_block1_front .element[type="lamp"][num="100"]').attr('status','on');
+			$('#stack0_block1_front .element[type="lamp"][num="115"]').attr('status','off');
+		} else {
+			$('#stack0_block1_front .element[type="lamp"][num="100"]').attr('status','off');
+			$('#stack0_block1_front .element[type="lamp"][num="115"]').attr('status','on'); 
+		}
+	}
+	function stack0_block1_front__toggler__5(element) {
+		if (element.attr('status') == '0') {
+			$('#stack0_block1_front .element[type="lamp"][num="16"]').attr('status','on');
+			$('#stack0_block1_front .element[type="lamp"][num="23"]').attr('status','off');
+		} else {
+			$('#stack0_block1_front .element[type="lamp"][num="16"]').attr('status','off');
+			$('#stack0_block1_front .element[type="lamp"][num="23"]').attr('status','on'); 
+		}
+	}
 
 function hideAndRemoveAllHints() {
 	
