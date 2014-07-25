@@ -3,11 +3,11 @@ var helloText = {
 	ex10 : 'Подогрейте паяльником или мощной осветительной лампой реле температурное, расположенное на потолке аппаратной, над шкафом с аппаратурой. В момент срабатывания реле должна отключаться аппаратура радиомаяка и загораться индикатор ПЕРЕГРЕВ на ПИУ КД; При искусственном задымлении в аппаратной должен сработать датчик дыма, расположенный рядом с реле температурным. При этом должно произойти отключение основной и резервной сети.',
 }
 var exerciseText = {
-	ex1 : {
+	ex9 : {
 		message1 : {
 			eN : '2',
 			//pN : '1',
-			text : 'Сообщение выводится в 1 упражнении после 2 элемента',
+			text : 'Ослабьте стопорящий винт с воротком на передающей антенне и с помощью регулировочного винта со штурвалом поверните антенну до появления сигнала «Авария» на ИКР.С задержкой времени 2 с должно произойти переключение на резервный комплект. На ПИУ КД должны загореться индикаторы АВАРИЯ ЗОНА КРМ отключившегося комплекта, НЕТ РЕЗЕРВА и включиться звуковой сигнал.',
 		},
 		message2 : {
 			eN : '4',
@@ -90,6 +90,18 @@ var exercisesOptions = {
 	*/
 }
 
+/*
+Требуется установить зависимость между положениями тумблеров и лампами на  блоке stack0_block1_front
+toggler 21:
+0: lamp 100 on, lamp 115 off
+1: lamp 100 off, lamp 115 on
+
+toggler 5:
+0: lamp 16 on, lamp 23 off
+1: lamp 16 off, lamp 23 on
+
+По-хорошему, этими зависимостями нужно переопределять экшены из упражнений либо игорировать экшены из упражнений для этих ламп
+*/
 var exercisesContainer = {
 ex1 : {
 	nameOfExercise : 'Включение и проверка источников питания',
@@ -716,11 +728,20 @@ ex2 : {
 					type : 'lamp',
 					num : '115',
 					status : 'on',
+					},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
 				},
 			},
 		},
 		defaultPosition : '0',
 	},
+
 	el2 : {
 		click : '2',
 		current : {
@@ -782,9 +803,58 @@ ex2 : {
 			position_1 : {
 				state : '0',
 				description : 'Включите ИПС ПРД 1-го комплекта',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '3',
+					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '13',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '22',
+					status : 'on',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '34',
+					status : 'on',
+				},
+				action_5 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block6',
+					onSide : 'stack0_block6_front',
+					type : 'lamp',
+					num : '48',
+					status : 'on',
+				},
+				action_6 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '1',
+					status : 'on',
+				},
 			},
 		},
 	},
+
 	el5 : {
 		click : '5',
 		current : {
@@ -803,8 +873,8 @@ ex2 : {
 					inBlock : 'stack0_block8',
 					onSide : 'stack0_block8_front',
 					type : 'lamp',
-					num : '13',
-					status : 'off',
+					num : '3',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1064,6 +1134,22 @@ ex3 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
+					num : '23',
+					status : 'off',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '16',
+					status : 'on',
+				},
+				action_5 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
 					num : '115',
 					status : 'on',
 				},
@@ -1088,8 +1174,8 @@ ex3 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '115',
-					status : 'off',
+					num : '100',
+					status : 'on',
 				},
 				action_2 : {
 					inStack : 'stack0',
@@ -1116,6 +1202,23 @@ ex3 : {
 			position_1 : {
 				state : '1',
 				description : 'Установите переключатель УПРАВЛЕНИЕ в положение МУ',
+
+			action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '16',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '23',
+					status : 'on',
+				},
 			},
 		},
 		defaultPosition : '0',
@@ -1174,19 +1277,19 @@ ex3 : {
 			inStack : 'stack1',
 			inBlock : 'stack1_block1',
 			onSide : 'stack1_block1_front',
-			num : '52',
-			type : 'toggler',
+			num : '20',
+			type : 'button',
 		},
 		positions : {
 			position_1 : {
-				state : '0',
+				state : 'on',
 				description : 'Перед уходом обслуживающего персонала необходимо в темное время суток включить светоограждение, нажав кнопку ВКЛ СВЕТООГРАЖДЕНИЕ на распределительном щите',
 				action_1 : {
 					inStack : 'stack1',
 					inBlock : 'stack1_block1',
 					onSide : 'stack1_block1_front',
 					type : 'lamp',
-					num : '52',
+					num : '182',
 					status : 'on',
 				},
 			},
@@ -1216,6 +1319,14 @@ ex4 : {
 					type : 'lamp',
 					num : '115',
 					status : 'on',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '100',
+					status : 'off',
 				},
 			},
 		},
