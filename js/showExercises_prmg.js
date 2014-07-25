@@ -234,21 +234,23 @@ function set_default(thisExId) {
 	}
 }
 function showText(thisExId,eN,pN) {
-	for (var message in exerciseText[thisExId]) {
-		console.info('exerciseText '+thisExId+' '+message);
-			console.info('exerciseText'+thisExId+message);
-			console.info(exerciseText[thisExId][message])
-			if (exerciseText[thisExId][message].eN == eN) {
-				if (exerciseText[thisExId][message].pN) {
-					if (exerciseText[thisExId][message].pN == pN) {
+	setTimeout(function(){
+		for (var message in exerciseText[thisExId]) {
+			console.info('exerciseText '+thisExId+' '+message);
+				console.info('exerciseText'+thisExId+message);
+				console.info(exerciseText[thisExId][message])
+				if (exerciseText[thisExId][message].eN == eN) {
+					if (exerciseText[thisExId][message].pN) {
+						if (exerciseText[thisExId][message].pN == pN) {
+								alert(exerciseText[thisExId][message].text)
+						}
+					} else {
 						alert(exerciseText[thisExId][message].text)
 					}
-				} else {
-					alert(exerciseText[thisExId][message].text)
 				}
-			}
-		
-	}
+			
+		}
+	},200)
 	
 }
 function focusOnElement(parameter){
