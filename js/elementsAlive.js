@@ -3,7 +3,6 @@
 // Здесь описываются действия с элементами
 // ============================================
 function scaleAlive(scaleAliveBlockId,scaleAliveElementType,scaleAliveElementNum,scaleAliveElementStatus) {
-		
 		for(var i in scaleRelations) {
 			//controller = $('#'+scaleRelations[i].control.block+' .element[type="'+scaleRelations[i].control.type+'"][num="'+scaleRelations[i].control.num+'"]');
 			//controllerClicker = controller.children('.control').children('a');

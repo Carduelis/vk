@@ -50,7 +50,8 @@ $('#go').one('click',function(){
 	) {
 		$('#min_stack0 .card-block').addClass('opened');
 	}
-	$('.element').on('click',superFunction);
+	$('.element').not('[type="rotator"]').on('click',superFunction);
+	$('.element[type="rotator"]').on('mouseup',superFunction);
 	
 
 	function superFunction() {
@@ -462,4 +463,4 @@ $('#container section > div').on('click', function(){
 $('#hidePopUp').on('click', function(){
 	$(this).removeClass('highlight');
 	$('body').removeAttr('style');
-})
+});
