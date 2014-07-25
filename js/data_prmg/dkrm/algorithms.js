@@ -416,7 +416,7 @@ ex1 : {
 			inStack : 'stack1',
 			inBlock : 'stack1_block1',
 			onSide : 'stack1_block1_front',
-			num : '52',
+			num : '68',
 			type : 'toggler',
 		},
 		positions : {
@@ -428,7 +428,7 @@ ex1 : {
 					inBlock : 'stack1_block1',
 					onSide : 'stack1_block1_front',
 					type : 'lamp',
-					num : '52',
+					num : '76',
 					status : 'on',
 				},
 			},
@@ -626,15 +626,27 @@ ex1 : {
 		},
 		positions : {
 			position_1 : {
-				state : '2',
-				description : 'Установите переключательконтроля напряжений в положение СЕТЬ РЕЗ. Измерьте напряжение.',
+				state : '3',
+				description : 'Установите переключатель контроля напряжений в положение СЕТЬ РЕЗ. Измерьте напряжение.',
 				action_1 : {
 					inStack : 'stack1',
 					inBlock : 'stack1_block1',
 					onSide : 'stack1_block1_front',
 					type : 'scale',
 					num : '1',
-					status : '25',
+					status : '40',
+				},
+			},
+			position_2 : {
+				state : '2',
+				description : 'Установите переключатель контроля напряжений в положение СЕТЬ РЕЗ. Измерьте напряжение.',
+				action_1 : {
+					inStack : 'stack1',
+					inBlock : 'stack1_block1',
+					onSide : 'stack1_block1_front',
+					type : 'scale',
+					num : '1',
+					status : '40',
 				},
 			},
 		},
@@ -678,72 +690,6 @@ ex1 : {
 				description : 'Выключите АККУМ',
 			},
 		},
-	},
-	el25 : {
-		click : '25',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '21',
-			type : 'toggler',
-		},
-		positions : {
-			position_1 : {
-				state : '1',
-				description : 'Установите переключатель настройки в положение НАСТРОЙКА',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '115',
-					status : 'on',
-				},
-			},
-		},
-		defaultPosition : '0',
-	},
-	el26 : {
-		click : '26',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '99',
-			type : 'button',
-		},
-		positions : {
-			position_1 : {
-				state : 'on',
-				description : 'Нажмите кнопку ВКЛ КРМ1',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block1',
-					onSide : 'stack0_block1_front',
-					type : 'lamp',
-					num : '264',
-					status : 'on',
-				},
-			},
-		},
-	},
-	el27 : {
-		click : '27',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block14',
-			onSide : 'stack0_block14_front',
-			num : '19',
-			type : 'toggler',
-		},
-		positions : {
-			position_1 : {
-				state : '1',
-				description : 'Установите переключатель КРС-УРОВЕНЬ в положение УРОВЕНЬ',
-			},
-		},
-		defaultPosition : '1',
 	},
 },
 
