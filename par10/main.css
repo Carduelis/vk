@@ -131,7 +131,7 @@ display: block;
 
 background: url(images/icons/always_grey.png);
 box-shadow: inset 0 0 1em;
-margin-top: 1em;
+/*margin-top: 1em;*/
 }
 .container > li {display: inline-block; vertical-align: top;}
 .container > li.content {width: 80%;}
