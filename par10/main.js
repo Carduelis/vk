@@ -13,54 +13,195 @@ function hideAll() {
 	$('#training, #passing').hide();
 	$('.sub-menu').prev().hide();
 }
+
+var trainingMode = false;
+// Обращение к кнопке, возвращает jquery-конструкцию
+	function ctrl(blockId,typeOfControl,dataNumber) {
+		return $('#block'+blockId+' [type="'+typeOfControl+'"][data="num'+dataNumber+'"]')
+	}
+// Обращение к кнопке, возвращает jquery-конструкцию
+	function ctrlStatus(blockId,typeOfControl,dataNumber,status) {
+		return $('#block'+blockId+' [type="'+typeOfControl+'"][data="num'+dataNumber+'"][status="'+status+'"]')
+	}
+// Работа подсказочек-всплывашек
+	function hint(blockId,typeOfControl,dataNumber,text){
+		$('.hint').hide();
+		$('.hint').parent().css('z-index','1');
+		ctrl(blockId,typeOfControl,dataNumber).css('z-index','10').append('<span class="hint"><span style="display: block">'+text+'</span></span>');
+	}		
+// Условие проверки: находится ли определенный контрол в верной позиции
+	function pass(progressId,passPosition,blockId,typeOfControl,dataNumber,text){
+		if (trainingMode) {
+			return true;
+		} else {
+			if (
+					(ctrl(blockId,typeOfControl,dataNumber).attr('status') == passPosition) 
+				&&	(ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId)	
+			) {
+				return true;
+			} else {
+				return false
+			}
+		}
+	}
+// Функция подсказки. Базируется на функциях ctrl и hint
+	function hinter(progressId,blockId,typeOfControl,dataNumber,status,destBlockId,destTypeOfControl,destDataNumber,text) {
+				//ctrl(blockId,typeOfControl,dataNumber).removeClass('disabled');
+				//ctrl(blockId,typeOfControl,dataNumber).children().removeClass('disabled');
+				
+				ctrl(blockId,typeOfControl,dataNumber).on('click',function() {
+					if (ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId) {// условие на защиту от появления старой подсказки на повторных кликах
+						$(this).attr('hintered',status); // защита от появления старой подсказки на повторных кликах
+						if (ctrl(blockId,typeOfControl,dataNumber).attr('status') == status) {
+							hint(destBlockId,destTypeOfControl,destDataNumber,text);
+							ctrl(destBlockId,destTypeOfControl,destDataNumber).addClass('highlighted');
+							$('.control').not(ctrl(destBlockId,destTypeOfControl,destDataNumber)).addClass('disabled');
+							//$('.control').on();
+						};
+					}
+				});
+				ctrl(blockId,typeOfControl,dataNumber).on('mouseover', function(){
+					$(this).removeClass('disabled');
+				});
+	}
+//	степанов
+//	кирилов
+//	кураев
+//	савулей
+// Функция подсказки2. Базируется на функциях ctrl и hint
+	function hinterNextBlock(progressId,blockId,typeOfControl,dataNumber,status,nextBlock,destTypeOfControl,destDataNumber,destText) {  
+		ctrl(blockId,typeOfControl,dataNumber).on('click',function() {
+			if (ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId) {// условие на защиту от появления старой подсказки на повторных кликах
+				if (ctrl(blockId,typeOfControl,dataNumber).attr('status') == status) {
+					$('.hint').hide();
+					$('.hovered').removeClass('hovered');
+					
+					$('#close').text('Закрыть').addClass('hovered');
+					hint(nextBlock,destTypeOfControl,destDataNumber,destText);
+					ctrl(nextBlock,destTypeOfControl,destDataNumber).addClass('highlighted');
+					$('.control').not(ctrl(nextBlock,destTypeOfControl,destDataNumber)).addClass('disabled');
+					$('.zoom .block'+nextBlock).addClass('hovered');
+
+					
+					if (nextBlock == 200) {
+						$('.zoom .block'+nextBlock).parent().append('<span class="hint"><span style="display: block">Откройте блок ИП2</span></span>');
+					} else if (nextBlock == 999) {
+						$('.zoom .block'+nextBlock).parent().append('<span class="hint"><span style="display: block">Откройте блок ДП</span>');
+					} else {
+						$('.zoom .block'+nextBlock).parent().append('<span class="hint"><span style="display: block">Откройте П'+nextBlock+'</span></span>');
+					}
+				};
+			}
+		});
+		ctrl(blockId,typeOfControl,dataNumber).on('mouseover', function(){
+			$(this).removeClass('disabled');
+		});
+	}	
+// Функция подсказки3. Базируется на функциях ctrl и hint
+	function hinterStart(blockId,destTypeOfControl,destDataNumber,destText) { 
+		$('.hint').hide();
+		$('.hovered').removeClass('hovered');
+		hint(blockId,destTypeOfControl,destDataNumber,destText);
+		ctrl(blockId,destTypeOfControl,destDataNumber).addClass('highlighted');
+		$('.zoom .block'+blockId).addClass('hovered');
+		if (blockId == 200) {
+			$('.zoom .block'+blockId).parent().append('<span class="hint"><span style="display: block">Откройте блок ИП2</span></span>');
+		} else if (blockId == 999) {
+			$('.zoom .block'+blockId).parent().append('<span class="hint"><span style="display: block">Откройте блок ДП</span>');
+		} else {
+			$('.zoom .block'+blockId).parent().append('<span class="hint"><span style="display: block">Откройте блок П'+blockId+'</span></span>');
+		}
+		
+	}
+// Функция подсказки4. Конец упражнения
+
+	function hinterEnd(progressId,blockId,typeOfControl,dataNumber,status) {  
+		ctrl(blockId,typeOfControl,dataNumber).on('click',function() {
+			if (ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId) {// условие на защиту от появления старой подсказки на повторных кликах
+				if (ctrl(blockId,typeOfControl,dataNumber).attr('status') == status) {
+					$('.hint').hide();
+					$('.hovered').removeClass('hovered');
+					$('#close').text('Закройте этот блок').addClass('hovered');
+					$('#tester').addClass('hovered');
+				};
+			}
+		});
+	}	
+// Функция является ли работа сдачей или тренировкой
+	function isTrain() {
+		if ($('a[data="coach-activator"]').attr('class') == 'mode current') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+// Возвращаем контролы в положение после выполнения первого упражнение
+	function defaultPositions(nothing,newPosition,blockId,typeOfControl,dataNumber) {
+		ctrl(blockId,typeOfControl,dataNumber).attr('status',newPosition);
+		$('.control[type="knob"]').each(function(){
+			thisCtrl = $(this);
+			status = thisCtrl.attr('status');
+			numOfPositions = thisCtrl.attr('positions');
+
+			var step = 15;
+			var rotate = step*(1-numOfPositions+2*status);
+			$(this).children('.body').css('transform','rotate('+rotate+'deg)');
+		});
+	}
+// Возвращаем лампочки в положение после выполнения первого упражнение
+	function lamp(blockId,dataNumber,status) {
+		var lamp = "lamp";
+		ctrl(blockId,lamp,dataNumber).removeClass();	
+		ctrl(blockId,lamp,dataNumber).addClass(status);	
+	}
+
 function loadPage() {
 
 
 
-$('.sub-menu a').click(function(){
+$('.sub-menu a').on('click',function(){
 	if ( $('.main-menu > li').eq(3).attr('id') == 'currentTest') {
 		$(this).attr('href','');
 		alert('Страница перезагружена. Выберите упражнение снова');
 	}
 });
 
-
-$('#theory').click(function(){
+$('#theory').on('click',function(){
 	$('.theory').slideToggle();
 	$('.about').slideUp();
 });
 
-$('#about').click(function(){
+$('#about').on('click',function(){
 	$('.about').slideToggle();
 	$('.theory').slideUp();
 });
-$('#closeAbout, #closeTheory').click(function(){
+$('#closeAbout, #closeTheory').on('click',function(){
 	$('.about').slideUp();
 	$('.theory').slideUp();
 });
 
-$('#exercise2-1, #exercise2-2, #exercise2-3').click(function(){
+$('#exercise2-1, #exercise2-2, #exercise2-3').on('click',function(){
 	alert('Внимание! \n\r При выполнении данного упражнения подразумевается, что  упражнение #2 "Настройка и проверка работоспособности приводных передатчиков" было выполнено!')
 });
-$('#exercise2').click(function(){
+$('#exercise2').on('click',function(){
 	alert('Внимание! \n\r Выставлена частота в 600кГц')
 });
-$('#exercise1').click(function(){
+$('#exercise1').on('click',function(){
 	$('#tablewrapper').show();
 });
 var letters = 2;
-$('#choosePrivod a').click(function(){
-	$('#choosePrivod').slideUp();
+$('#choosePrivod a').on('click',function(){
+	$('#choosePrivod').fadeOut();
 	if ($(this).attr('rel') == 'near') {
 		letters = 1;
 	}
-	$('#chooseFrequency').slideDown();
+	$('#chooseFrequency').fadeIn();
 });
-$('#chooseFrequency a[rel="openTable"]').click(function(){
-	$('#chooseFrequency').slideUp();
-	$('#table').slideDown();
+$('#chooseFrequency a[rel="openTable"]').on('click',function(){
+	$('#chooseFrequency').fadeOut();
+	$('#table').fadeIn();
 });
-$('#chooseFrequency a[rel="next"]').click(function(){
+$('#chooseFrequency a[rel="next"]').on('click',function(){
 	$('#chooseFrequency, #tablewrapper').fadeOut();
 });
 
@@ -73,7 +214,7 @@ var frequency = {
 	x1: 0,
 	x01: 0
 }
-$('#table td:nth-of-type(5)').click(function(){
+$('#table td:nth-of-type(5)').on('click',function(){
 	var fr = $(this).text();
 	alert('Значение '+fr+'кГц выбрано!');
 	$('#tablewrapper').hide();
@@ -98,18 +239,18 @@ $('#table td:nth-of-type(5)').click(function(){
 		$('#block201 .control[type="rotator"][data="num3"] input').attr('max','180');
 
 	   
-		$('.control .clicker').click(function(){
+		$('.control .clicker').on('click',function(){
 
-		var thisCtrl = 0; var type = 0; var rel = 0; var id = 0; var status = 0; var thisSummary = 0; var numOfPositions = 0;
-		$('.clockwise, .counterclockwise, input[type="range"]').hide();
-		$('*').removeClass('highlighted');
-		thisCtrl = $(this).parent();		
+			var thisCtrl = 0; var type = 0; var rel = 0; var id = 0; var status = 0; var thisSummary = 0; var numOfPositions = 0;
+			$('.clockwise, .counterclockwise, input[type="range"]').hide();
+			$('*').removeClass('highlighted');
+			thisCtrl = $(this).parent();		
 			parentId = thisCtrl.parent().attr('id');
 			type = thisCtrl.attr('type');
 			rel = thisCtrl.attr('rel');
 			id = thisCtrl.attr('data');
 			status = thisCtrl.attr('status');
-			
+
 			thisSummary = parentId+type+id;
 			thisCtrl.attr('id',thisSummary);
 			numOfPositions = thisCtrl.attr('positions');
@@ -126,70 +267,60 @@ $('#table td:nth-of-type(5)').click(function(){
 				thisCtrl.children('input[type="range"]').show();
 			}
 
+			  /* КОД ДЛЯ УПРАЖНЕНИй
+					thisCtrl.append('<div class="datainput"><input type="text" class="rightPos" value="" count=""><button>Ок</button></div>');
 
 
+					thisCtrl.find('button').on('click',function(){
+						parentId = parentId.replace(/block/g,"");
+						id = id.replace(/num/g,"");
+						endPosition = $(this).parent().parent().attr('status');
+
+						progressClick = $('#tester').attr('data-click');
+						
+						$('body>.log>.hinter .log:last-child i').text(parentId+',"'+type+'",'+id+',"'+$(this).prev().val()+'"');
+						$('body>.log>.exercize').append('<span class="log">if(!pass('+progressClick+','+endPosition+','+parentId+',"'+type+'",'+id+')) break;</span>');
+						$('body>.log>.hinter').append('<span class="log">hinter('+progressClick+','+parentId+',"'+type+'",'+id+','+endPosition+', <i></i>);</span>');
+						progressClick++;
+						$('#tester').attr('data-click',progressClick);
+						$(this).parent().remove();
+					});
+						// Конец помощника создания теста
 
 
+				// */
 
-  /* КОД ДЛЯ УПРАЖНЕНИй
-		thisCtrl.append('<div class="datainput"><input type="text" class="rightPos" value="" count=""><button>Ок</button></div>');
+		 		// /* Ввод статистики для пользователя
+				thisCtrl.on('click',function(){
+					parentId = parentId.replace(/block/g,"");
+					id = id.replace(/num/g,"");
+					endPosition = $(this).attr('status');
+					progress = $(this).attr('progress');
+					$('body>.userlog').append('<span class="log"><u>Прогресс выполнения: <b>'+progress+'</b></u>; Блок №<b>'+parentId+'</b>; Тип элемента: "<b>'+type+'</b>"; Порядковый номер элемента: <b>'+id+'</b>; Положение: <b>'+endPosition+'</b>');
+					console.info('if(!pass('+progress+','+endPosition+','+parentId+',"'+type+'",'+id+')) break;');
+					//$('#tester').attr('data-click',progressClick);
+				});
+				// */
+			  		/* КОД ДЛЯ ДЕФОЛТНЫХ ПОЗИЦИЙ
+					thisCtrl.append('<div class="datainput"><button>Ок</button></div>');
+					thisCtrl.find('button').on('click',function(){
+						parentId = parentId.replace(/block/g,"");
+						id = id.replace(/num/g,"");
 
-
-		thisCtrl.find('button').click(function(){
-			parentId = parentId.replace(/block/g,"");
-			id = id.replace(/num/g,"");
-			endPosition = $(this).parent().parent().attr('status');
-
-			progressClick = $('#tester').attr('data-click');
-			
-			$('body>.log>.hinter .log:last-child i').text(parentId+',"'+type+'",'+id+',"'+$(this).prev().val()+'"');
-			$('body>.log>.exercize').append('<span class="log">if(!pass('+progressClick+','+endPosition+','+parentId+',"'+type+'",'+id+')) break;</span>');
-			$('body>.log>.hinter').append('<span class="log">hinter('+progressClick+','+parentId+',"'+type+'",'+id+','+endPosition+', <i></i>);</span>');
-			progressClick++;
-			$('#tester').attr('data-click',progressClick);
-			$(this).parent().remove();
-		});
-			// Конец помощника создания теста
-
-
- // */
-
- // /* Ввод статистики для пользователя
-		thisCtrl.click(function(){
-			parentId = parentId.replace(/block/g,"");
-			id = id.replace(/num/g,"");
-			endPosition = $(this).attr('status');
-			progress = $(this).attr('progress');
-$('body>.userlog').append('<span class="log"><u>Прогресс выполнения: <b>'+progress+'</b></u>; Блок №<b>'+parentId+'</b>; Тип элемента: "<b>'+type+'</b>"; Порядковый номер элемента: <b>'+id+'</b>; Положение: <b>'+endPosition+'</b>');
-$('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPosition+','+parentId+',"'+type+'",'+id+')) break;</span>');
-			//$('#tester').attr('data-click',progressClick);
-			
-		});
-// */
-  /* КОД ДЛЯ ДЕФОЛТНЫХ ПОЗИЦИЙ
-		thisCtrl.append('<div class="datainput"><button>Ок</button></div>');
-		thisCtrl.find('button').click(function(){
-			parentId = parentId.replace(/block/g,"");
-			id = id.replace(/num/g,"");
-
-			endPosition = $(this).parent().parent().attr('status');
-			$('body>.log>.exercize').append('<span class="log">defaultPositions(000,'+endPosition+','+parentId+',"'+type+'",'+id+');</span>');
-			$(this).parent().remove();
-		});
+						endPosition = $(this).parent().parent().attr('status');
+						$('body>.log>.exercize').append('<span class="log">defaultPositions(000,'+endPosition+','+parentId+',"'+type+'",'+id+');</span>');
+						$(this).parent().remove();
+					});
 
 
-			//	defaultPositions(000,1,203,'toggler',1);
-			//	defaultPositions(000,0,203,'toggler',2);
-			//	defaultPositions(000,0,203,'toggler',3);
-			//	defaultPositions(000,1,203,'toggler',4);
+						//	defaultPositions(000,1,203,'toggler',1);
+						//	defaultPositions(000,0,203,'toggler',2);
+						//	defaultPositions(000,0,203,'toggler',3);
+						//	defaultPositions(000,1,203,'toggler',4);
 
-			//	defaultPositions(000,0,205,'toggler',0);
-			//	ctrl(205,'lamp',0);
-// */
-
-
-
-
+						//	defaultPositions(000,0,205,'toggler',0);
+						//	ctrl(205,'lamp',0);
+				// */
 		});
 		
 		$('.control .clicker').hover(function(){
@@ -212,7 +343,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 			
 			if (type == 'knob') {
 				thisCtrl.children('a').show();
-				thisCtrl.children('.clockwise').click(function(){	
+				thisCtrl.children('.clockwise').on('click',function(){	
 				if (status < numOfPositions-1) {
 					status++;
 					thisCtrl.attr('status',status);
@@ -220,7 +351,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 					$('#'+thisSummary+' .body').css('transform','rotate('+rotate+'deg)');
 				}
 				});
-				thisCtrl.children('.counterclockwise').click(function(){	
+				thisCtrl.children('.counterclockwise').on('click',function(){	
 				if (status > 0) {
 					status=status-1;	
 					thisCtrl.attr('status',status);
@@ -272,8 +403,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 		function(){
 			if ($('.sub-menu').attr('class') != 'sub-menu current') {
 				alert('Выберите упражнение!');
-			}
-			else {
+			} else {
 				$(this).toggleClass('current');
 				$('.hint span').fadeOut();
 				if ($('#passing').attr('class') == 'mode current') {
@@ -281,12 +411,12 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 					$('.header').slideUp(999);
 				} 
 				else {
-					//alert('Режим тестирования');
+					trainingMode = true;
 				}
 			}
 		}
 	);
-	$('.mode[test="endTest"]').click(function(){
+	$('.mode[test="endTest"]').on('click',function(){
 		$('body').addClass('endTest');
 	});
 	$('.sub-menu a').click(
@@ -309,7 +439,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 
 // Image-pop-upers
 
-	$('.zoom > img').click(function(){
+	$('.zoom > img').on('click',function(){
 		
 		$('#close').text('Закрыть').removeClass('hovered');
 		// Начало скрипта по открытию поп-апа
@@ -331,42 +461,42 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 		$(this).removeClass('hovered');
 	});
 // Выдвигаемый блок
-	$('#block203 [type="eject"]').click(function(){
+	$('#block203 [type="eject"]').on('click',function(){
 		$('#block2030').fadeIn();
 	});
-	$('#block2030 [type="uneject"]').click(function(){
+	$('#block2030 [type="uneject"]').on('click',function(){
 		$('#block2030').slideUp();
 	});
-	$('#block205 [type="eject"]').click(function(){
+	$('#block205 [type="eject"]').on('click',function(){
 		$('#block2050').fadeIn();
 	});
-	$('#block2050 [type="uneject"]').click(function(){
+	$('#block2050 [type="uneject"]').on('click',function(){
 		$('#block2050').slideUp();
 	});
 // Кнопки закрытия, всплывающий третий уровень
-	$('#close').click(function(){
+	$('#close').on('click',function(){
 		$('.block').slideUp();
 		$('#wrapper').fadeOut();
 		$('.container-level1').hide();
 		$('.container-level1 > .image img').remove();
 	});
 	
-	$('.openWindow').click(function(){
+	$('.openWindow').on('click',function(){
 		var currentBlock = $(this).attr('id');
 		currentBlock = currentBlock + 'Block';
 		$('.container-level2#'+currentBlock).fadeIn();				
 	});
 	
-	$('.close').click(function(){
+	$('.close').on('click',function(){
 		$('.container-level2').fadeOut();
 	});
 		
-	$('.hint span').click(function(){
+	$('.hint span').on('click',function(){
 		$(this).parent().hide();
 	});	 
 // Определение порядка нажатия контрола
 	var i = 0;
-	$('.control').click(function() {
+	$('.control').on('click',function() {
 		$('.control').not($(this)).attr('clicked','false'); // разрешаем накручивание счетчика уже нажатым ранее кнопкам
 		if ($(this).attr('clicked') == 'true') {
 		} else {
@@ -388,137 +518,19 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 		var rotate = step*(1-numOfPositions+2*status);
 		$(this).children('.body').css('transform','rotate('+rotate+'deg)');
 	});
-// Обращение к кнопке, возвращает jquery-конструкцию
-	function ctrl(blockId,typeOfControl,dataNumber) {
-		return $('#block'+blockId+' [type="'+typeOfControl+'"][data="num'+dataNumber+'"]')
-	}
-// Обращение к кнопке, возвращает jquery-конструкцию
-	function ctrlStatus(blockId,typeOfControl,dataNumber,status) {
-		return $('#block'+blockId+' [type="'+typeOfControl+'"][data="num'+dataNumber+'"][status="'+status+'"]')
-	}
-// Работа подсказочек-всплывашек
-	function hint(blockId,typeOfControl,dataNumber,text){
-		$('.hint').hide();
-		$('.hint').parent().css('z-index','1');
-		ctrl(blockId,typeOfControl,dataNumber).css('z-index','10').append('<span class="hint"><span style="display: block">'+text+'</span></span>');
-	}		
-// Условие проверки: находится ли определенный контрол в верной позиции
-	function pass(progressId,passPosition,blockId,typeOfControl,dataNumber,text){
-		if ( 	(ctrl(blockId,typeOfControl,dataNumber).attr('status') == passPosition) 
-			&& 	(ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId)	
-		) 
-		{return true;} 
-		else 
-		{return false;}
-	}
-// Функция подсказки. Базируется на функциях ctrl и hint
-	function hinter(progressId,blockId,typeOfControl,dataNumber,status,destBlockId,destTypeOfControl,destDataNumber,text) {  
-			ctrl(blockId,typeOfControl,dataNumber).click(function() {
-				if (ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId) {// условие на защиту от появления старой подсказки на повторных кликах
-						//$(this).attr('hintered',status); // защита от появления старой подсказки на повторных кликах
-						if (ctrl(blockId,typeOfControl,dataNumber).attr('status') == status) {
-							hint(destBlockId,destTypeOfControl,destDataNumber,text);
-							ctrl(destBlockId,destTypeOfControl,destDataNumber).addClass('highlighted');
-						};
-				}
-			});
 
-	}
-// Функция подсказки2. Базируется на функциях ctrl и hint
-
-	function hinterNextBlock(progressId,blockId,typeOfControl,dataNumber,status,nextBlock,destTypeOfControl,destDataNumber,destText) {  
-			ctrl(blockId,typeOfControl,dataNumber).click(function() {
-				if (ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId) {// условие на защиту от появления старой подсказки на повторных кликах
-						if (ctrl(blockId,typeOfControl,dataNumber).attr('status') == status) {
-							$('.hint').hide();
-							$('.hovered').removeClass('hovered');
-							
-							$('#close').text('Закрыть').addClass('hovered');
-							hint(nextBlock,destTypeOfControl,destDataNumber,destText);
-							ctrl(nextBlock,destTypeOfControl,destDataNumber).addClass('highlighted');
-							$('.zoom .block'+nextBlock).addClass('hovered');
-							
-		if (nextBlock == 200) {
-			$('.zoom .block'+nextBlock).parent().append('<span class="hint"><span style="display: block">Откройте блок ИП2</span></span>');
-		} else if (nextBlock == 999) {
-			$('.zoom .block'+nextBlock).parent().append('<span class="hint"><span style="display: block">Откройте блок ДП</span>');
-		} else {
-			$('.zoom .block'+nextBlock).parent().append('<span class="hint"><span style="display: block">Откройте П'+nextBlock+'</span></span>');
-		}
-						};
-				}
-			});
-	}	
-// Функция подсказки3. Базируется на функциях ctrl и hint
-	function hinterStart(blockId,destTypeOfControl,destDataNumber,destText) { 
-		$('.hint').hide();
-		$('.hovered').removeClass('hovered');
-		hint(blockId,destTypeOfControl,destDataNumber,destText);
-		ctrl(blockId,destTypeOfControl,destDataNumber).addClass('highlighted');
-		$('.zoom .block'+blockId).addClass('hovered');
-		if (blockId == 200) {
-			$('.zoom .block'+blockId).parent().append('<span class="hint"><span style="display: block">Откройте блок ИП2</span></span>');
-		} else if (blockId == 999) {
-			$('.zoom .block'+blockId).parent().append('<span class="hint"><span style="display: block">Откройте блок ДП</span>');
-		} else {
-			$('.zoom .block'+blockId).parent().append('<span class="hint"><span style="display: block">Откройте блок П'+blockId+'</span></span>');
-		}
-		
-	}
-// Функция подсказки4. Конец упражнения
-
-	function hinterEnd(progressId,blockId,typeOfControl,dataNumber,status) {  
-			ctrl(blockId,typeOfControl,dataNumber).click(function() {
-				if (ctrl(blockId,typeOfControl,dataNumber).attr('progress') == progressId) {// условие на защиту от появления старой подсказки на повторных кликах
-					if (ctrl(blockId,typeOfControl,dataNumber).attr('status') == status) {
-						$('.hint').hide();
-						$('.hovered').removeClass('hovered');
-						$('#close').text('Закройте этот блок').addClass('hovered');
-						$('#tester').addClass('hovered');
-					};
-				}
-			});
-	}	
-// Функция является ли работа сдачей или тренировкой
-	function isTrain() {
-		if ($('a[data="coach-activator"]').attr('class') == 'mode current') {
-			return true;
-		} else {
-			return false;
-		}
-	}
-// Возвращаем контролы в положение после выполнения первого упражнение
-	function defaultPositions(nothing,newPosition,blockId,typeOfControl,dataNumber) {
-		ctrl(blockId,typeOfControl,dataNumber).attr('status',newPosition);
-		$('.control[type="knob"]').each(function(){
-			thisCtrl = $(this);
-			status = thisCtrl.attr('status');
-			numOfPositions = thisCtrl.attr('positions');
-
-			var step = 15;
-			var rotate = step*(1-numOfPositions+2*status);
-			$(this).children('.body').css('transform','rotate('+rotate+'deg)');
-		});
-	
-	}
-// Возвращаем лампочки в положение после выполнения первого упражнение
-	function lamp(blockId,dataNumber,status) {
-		var lamp = "lamp";
-		ctrl(blockId,lamp,dataNumber).removeClass();	
-		ctrl(blockId,lamp,dataNumber).addClass(status);	
-	}
 // Зависимость лампочек
 
-	ctrl(501,'toggler',0).click(function() {
+	ctrl(501,'toggler',0).on('click',function() {
 		ctrl(501,'lamp',6).toggleClass('on');
 	});				
-	/* ctrl(205,'knob',0).click(function() {
+	/* ctrl(205,'knob',0).on('click',function() {
 		ctrl(205,'lamp',3).toggleClass('on');
 	}); */				
-	ctrl(203,'toggler',3).click(function() {
+	ctrl(203,'toggler',3).on('click',function() {
 		ctrl(203,'lamp',1).toggleClass('on');
 	});			
-	ctrl(301,'knob',1).click(function() {
+	ctrl(301,'knob',1).on('click',function() {
 		if (ctrl(301,'knob',1).attr('status') == 2) {
 			//ctrl(301,'lamp',12).addClass('on');
 			ctrl(301,'lamp',13).addClass('on');
@@ -534,7 +546,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 	var slow_speed = 3;
 	var fast_speed = 0.5;
 	var k_speed = slow_speed;
-	ctrl(201,'toggler',1).click(function(){
+	ctrl(201,'toggler',1).on('click',function(){
 		k_speed = fast_speed;
 	});
 	$(function(){
@@ -579,7 +591,7 @@ $('body>.log>.exercize').append('<span class="log">if(!pass('+progress+','+endPo
 	        timeData = timeData.toFixed();
 	        ctrl(201,'rotator',3).attr('status',timeData);
 	        ctrl(201,'rotator',3).attr('statusData',time);
-	        ctrl(201,'rotator',3).children('.body').css('transform','rotate('+time+'deg)');
+	        ctrl(201,'rotator',3).children('.body').css('-webkit-transform','rotate('+time+'deg)');
 
 
 	        mA = time/6 - 15;
@@ -610,7 +622,7 @@ ctrl(202,'rotator',7).change(function(){
 	val = val.toFixed();
 	$(this).attr('status',val).children('.status').text(val);
 });
-ctrl(205,'knob',0).click(function(){
+ctrl(205,'knob',0).on('click',function(){
 	//if ($(this).attr('status') == 0) { $('.scale205 .arrow').css('-webkit-transform','rotate(-20deg)')}
 	if ($(this).attr('status') == 1) { $('.scale205 .arrow').css('-webkit-transform','rotate(-23deg)')}
 	if ($(this).attr('status') == 2) { $('.scale205 .arrow').css('-webkit-transform','rotate(-18deg)')}
@@ -623,7 +635,7 @@ ctrl(205,'knob',0).click(function(){
 	if ($(this).attr('status') == 9) { $('.scale205 .arrow').css('-webkit-transform','rotate(20deg)')}
 });
 
-ctrl(203,'knob',1).click(function(){
+ctrl(203,'knob',1).on('click',function(){
 	if ($(this).attr('status') == 2) { 
 		$('.scale203 .arrow').css('-webkit-transform','rotate(25deg)');
 		$('.scale204-1.arrow').css('-webkit-transform','rotate(-28deg)');
@@ -631,7 +643,7 @@ ctrl(203,'knob',1).click(function(){
 		$('.scale201 .arrow').css('-webkit-transform','rotate(-25deg)');
 	}
 });
-ctrl(202,'knob',0).click(function(){
+ctrl(202,'knob',0).on('click',function(){
 	if ($(this).attr('status') == 0) { $('.scale202 .arrow').css('-webkit-transform','rotate(-20deg)')}
 	if ($(this).attr('status') == 1) { $('.scale202 .arrow').css('-webkit-transform','rotate(-23deg)')}
 	if ($(this).attr('status') == 2) { $('.scale202 .arrow').css('-webkit-transform','rotate(10deg)')}
@@ -639,7 +651,7 @@ ctrl(202,'knob',0).click(function(){
 	if ($(this).attr('status') == 4) { $('.scale202 .arrow').css('-webkit-transform','rotate(24deg)')}
 });
 
-ctrl(301,'knob',4).click(function(){
+ctrl(301,'knob',4).on('click',function(){
 	//if ($(this).attr('status') == 0) { $('.scale301 .arrow').css('-webkit-transform','rotate(-20deg)')}
 	if ($(this).attr('status') == 1) { $('.scale301 .arrow').css('-webkit-transform','rotate(-23deg)')}
 	if ($(this).attr('status') == 2) { $('.scale301 .arrow').css('-webkit-transform','rotate(11deg)')}
@@ -647,7 +659,7 @@ ctrl(301,'knob',4).click(function(){
 	if ($(this).attr('status') == 4) { $('.scale301 .arrow').css('-webkit-transform','rotate(5deg)')}
 });
 
-ctrl(301,'knob',0).click(function(){
+ctrl(301,'knob',0).on('click',function(){
 	if ($(this).attr('status') == 0) {
 		$('#block301 a[type="lamp"][data="num7"]').removeClass('on');
 		$('#block301 a[type="lamp"][data="num13"]').removeClass('on');
@@ -657,7 +669,7 @@ ctrl(301,'knob',0).click(function(){
 	}
 });
 
-ctrl(702,'toggler',0).click(function(){
+ctrl(702,'toggler',0).on('click',function(){
 	if ($(this).attr('status') == 0) {
 		$('[type="lamp"]').removeClass('totaloff');
 		$('.scale-holder').removeClass('totaloff');
@@ -668,62 +680,70 @@ ctrl(702,'toggler',0).click(function(){
 	}
 });
 
-ctrl(205,'toggler',0).click(function(){
+ctrl(205,'toggler',0).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block205 a[type="lamp"][data="num3"]').removeClass('on');}
 	if ($(this).attr('status') == 1) {$('#block205 a[type="lamp"][data="num3"]').addClass('on');}
 });
-ctrl(301,'toggler',2).click(function(){
+ctrl(301,'toggler',2).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block301 a[type="lamp"][data="num10"]').removeClass('on');}
 });
-ctrl(501,'toggler',1).click(function(){
+ctrl(501,'toggler',1).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block501 a[type="lamp"][data="num6"]').removeClass('on');}
 });
-ctrl(200,'toggler',1).click(function(){
+ctrl(200,'toggler',1).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num0"]').addClass('on');}
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num0"]').removeClass('on');}
 });
-ctrl(999,'toggler',1).click(function(){
+ctrl(999,'toggler',1).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block999 a[type="lamp"][data="num0"]').addClass('on');}
 	if ($(this).attr('status') == 1) {$('#block999 a[type="lamp"][data="num0"]').removeClass('on');}
 });
-ctrl(200,'knob',12).click(function(){
+ctrl(200,'knob',12).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num2"]').removeClass('on');}
 	if ($(this).attr('status') == 1) {$('#block200 a[type="lamp"][data="num2"]').removeClass('on');}
 	if ($(this).attr('status') == 2) {$('#block200 a[type="lamp"][data="num2"]').addClass('on');}
 });
-ctrl(200,'knob',13).click(function(){
+ctrl(200,'knob',13).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num3"]').removeClass('on');}
 	if ($(this).attr('status') == 1) {$('#block200 a[type="lamp"][data="num3"]').removeClass('on');}
 	if ($(this).attr('status') == 2) {$('#block200 a[type="lamp"][data="num3"]').addClass('on');}
 });
-ctrl(200,'knob',14).click(function(){
+ctrl(200,'knob',14).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num4"]').removeClass('on');}
 	if ($(this).attr('status') == 1) {$('#block200 a[type="lamp"][data="num4"]').removeClass('on');}
 	if ($(this).attr('status') == 2) {$('#block200 a[type="lamp"][data="num4"]').addClass('on');}
 });
-ctrl(200,'knob',15).click(function(){
+ctrl(200,'knob',15).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num5"]').removeClass('on');}
 	if ($(this).attr('status') == 1) {$('#block200 a[type="lamp"][data="num5"]').removeClass('on');}
 	if ($(this).attr('status') == 2) {$('#block200 a[type="lamp"][data="num5"]').addClass('on');}
 });
-ctrl(200,'knob',16).click(function(){
+ctrl(200,'knob',16).on('click',function(){
 	if ($(this).attr('status') == 0) {$('#block200 a[type="lamp"][data="num6"]').removeClass('on');}
 	if ($(this).attr('status') == 1) {$('#block200 a[type="lamp"][data="num6"]').removeClass('on');}
 	if ($(this).attr('status') == 2) {$('#block200 a[type="lamp"][data="num6"]').addClass('on');}
 });
 
-$('#block7020').click(function() {
+$('#block7020').on('click',function() {
 	$(this).fadeOut();
 		$('[type="lamp"]').addClass('totaloff');
 		$('.scale-holder').addClass('totaloff');
 });
+
 // ПОШЛИ УПРАЖНЕНИЯ
-	$('#exercise1').click(function() {
+	$('#exercise1').on('click',function() {
 			$('#block7020').fadeIn();
 			defaultPositions(1,50,203,'rotator',0); // Среднее
 			defaultPositions(2,50,203,'rotator',1);// Среднее
 			defaultPositions(3,50,203,'rotator',2); // Среднее
 			defaultPositions(3,1,702,'toggler',0); // ВЫКЛ
+			defaultPositions(3,1,702,'toggler',0); // ВЫКЛ
+
+			defaultPositions(4,1,205,'knob',2);
+			defaultPositions(4,0,205,'knob',3);
+			defaultPositions(4,6,205,'knob',4);
+			defaultPositions(4,3,205,'knob',5);
+
 			//defaultPositions(4,50,203,'rotator',3); // Среднее
 			ctrl(203,'rotator',0).each(function(){
 				$(this).children('input').attr('value','360');
@@ -738,7 +758,7 @@ $('#block7020').click(function() {
 				$(this).children('input').attr('value','360');
 			});*/
 	 // START EXERCIZE 1 ALGORITHM
-		$('#tester').click(function() {
+		$('#tester').on('click',function() {
 			var f = false;
 			do {
 			/* объяснение значений функции pass 
@@ -783,7 +803,7 @@ $('#block7020').click(function() {
 			}
 			while(false);
 
-			if (f) {
+			if ((f) || (isTrain)) {
 				exercisePassedSuccesfully();
 			} else {
 				exercisePassedUnSuccesfully();
@@ -792,7 +812,7 @@ $('#block7020').click(function() {
 		}); // END EXERCIZE 1 ALGORITHM
 
 		// START EXERCIZE 1 HINTS
-		$('a[data="coach-activator"]').click(function() {if (isTrain) {
+		$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 			/* объяснение значений функции hinter 
 				// Первая цифра — порядковый номер клика по .control
 				// Вторая цифра — номер родительского блока нужной кнопки
@@ -837,16 +857,15 @@ $('#block7020').click(function() {
 			hinterNextBlock(26,2050,"knob",12,1, 205,"toggler",0,"Установите тумблер ВЫХОД ФОС в положение ОТКЛ");
 		}
 
-
-			hinter(27+x,205,"toggler",0,0,	205, "knob", 2, "Установите в положение "+frequency.x1000);
-			hinter(28+x,205,"knob",2,frequency.x1000,	205, "knob", 3, "Установите в положение "+frequency.x100);
-			hinter(29+x,205,"knob",3,frequency.x100,	205, "knob", 4, "Установите в положение "+frequency.x10);
-			hinter(30+x,205,"knob",4,frequency.x10,	205, "knob", 5, "Установите в положение "+frequency.x1);
-			hinterEnd(31+x,205,"knob",5,frequency.x1);
+		hinter(27+x,205,"toggler",0,0,	205, "knob", 2, "Установите в положение "+frequency.x1000);
+		hinter(27+x,205,"knob",2,frequency.x1000,	205, "knob", 3, "Установите в положение "+frequency.x100);
+		hinter(28+x,205,"knob",3,frequency.x100,	205, "knob", 4, "Установите в положение "+frequency.x10);
+		hinter(28+x,205,"knob",4,frequency.x10,	205, "knob", 5, "Установите в положение "+frequency.x1);
+		hinterEnd(28+x,205,"knob",5,frequency.x1);
 
 		}}); // END EXERCIZE 1 HINTS
 	}); // END EXERCIZE 1
-	$('#exercise2').click(function() {
+	$('#exercise2').on('click',function() {
 		// START EXERCIZE 2 ALGORITHM
 		// default pos
 			defaultPositions(1,2,501,'knob',1); // ВЫКЛ
@@ -904,7 +923,7 @@ $('#block7020').click(function() {
 
 			$('#block205 .scale205 .arrow').css('-webkit-transform','rotate(0deg)');
 
-			ctrl(203,'rotator',1).click(function(){
+			ctrl(203,'rotator',1).on('click',function(){
 			  	$('.scale204InBlock203').remove();
 				$('body').append('<div class="scale204InBlock203 blockScale"></div>');
 				$('.scale204-1').clone().appendTo($('.scale204InBlock203'));
@@ -951,7 +970,7 @@ $('#block7020').click(function() {
 				if ($(this).attr('status') == 60) {$('.scale203 .arrow').css('-webkit-transform','rotate(-18deg)');}
 				if ($(this).attr('status') == 70) {$('.scale203 .arrow').css('-webkit-transform','rotate(-12deg)');}
 			});
-			ctrl(202,'rotator',6).click(function(){
+			ctrl(202,'rotator',6).on('click',function(){
 			  	$('.scale203InBlock201').remove();
 				$('body').append('<div class="scale203InBlock201 blockScale"></div>');
 				$('.scale203').clone().appendTo($('.scale203InBlock201'));
@@ -1000,18 +1019,18 @@ $('#block7020').click(function() {
 				} 
 			});
 */
-			$('.uncontrol').click(function(){
+			$('.uncontrol').on('click',function(){
 			  	$('.scale203InBlock201').remove();
 				$('body').append('<div class="scale203InBlock201 blockScale"></div>');
 				$('.scale203').clone().appendTo($('.scale203InBlock201'));
 			 });
-			$('#block201 .control[type="toggler"][data="num3"][progress="18"]').click(function(){
+			$('#block201 .control[type="toggler"][data="num3"][progress="18"]').on('click',function(){
 				$('.scale201 .arrow').css('-webkit-transform','rotate(0deg)'); // Ток антенны
 			});
-			$('#block201 .control[type="toggler"][data="num3"][progress="20"]').click(function(){
+			$('#block201 .control[type="toggler"][data="num3"][progress="20"]').on('click',function(){
 				$('.scale201 .arrow').css('-webkit-transform','rotate(0deg)'); // Ток антенны
 			}); 
-			ctrl(203,"toggler",1).click(function(){
+			ctrl(203,"toggler",1).on('click',function(){
 				$('.scale203 .arrow').css('-webkit-transform','rotate(9deg)'); // Режим усиления мощности
 				$('.scale204-1 .arrow').css('-webkit-transform','rotate(-9deg)'); // Режим усиления мощности
 			  	$('.scale204InBlock203').remove();
@@ -1034,11 +1053,11 @@ $('#block7020').click(function() {
 					$('.scale202 .arrow').css('-webkit-transform','rotate(-20deg)');
 				} 
 			});
-			ctrl(202,'toggler',0).click(function(){
+			ctrl(202,'toggler',0).on('click',function(){
 					ctrl(202,'lamp',1).removeClass('on');
 			});
 
-			ctrl(501,'knob',0).click(function(){
+			ctrl(501,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 3) {
 					$('.scale501 .arrow').css('-webkit-transform','rotate(-48deg)');
 				}
@@ -1052,13 +1071,13 @@ $('#block7020').click(function() {
 					$('.scale501 .arrow').css('-webkit-transform','rotate(-27deg)');
 				}
 			});
-			$('#close').click(function(){
+			$('#close').on('click',function(){
 			  	 $('.scale203InBlock201').remove();
 			  	 $('.scale204InBlock203').remove();
 			});
 
 		// default pos end
-		$('#tester').click(function() {
+		$('#tester').on('click',function() {
 			var f = false;
 			do {
 			/* объяснение значений функции pass 
@@ -1073,43 +1092,43 @@ $('#block7020').click(function() {
 			//if(!pass(2,0,203,"toggler",3)) break;
 			//if(!pass(3,0,702,"toggler",0)) break;
 			if(!pass(4,0,501,"knob",3)) break;
-			if(!pass(4,0,501,"toggler",0)) break;
-			//if(!pass(5,1,205,"toggler",0)) break;
-			if(!pass(6,9,205,"knob",0)) break;
-			//if(!pass(7,70,203,"rotator",1)) break;
-			if(!pass(8,5,202,"rotator",6)) break;
-			//if(!pass(9,5,202,"rotator",7)) break;
-			//if(!pass(10,9,201,"rotator",3)) break;
-			//if(!pass(11,30,203,"rotator",1)) break;
-			//if(!pass(12,9,201,"rotator",3)) break; /// промежуточное 4
-			if(!pass(13,1,202,"toggler",0)) break;
-			//if(!pass(14,12,201,"rotator",3)) break;
-			if(!pass(15,50,202,"rotator",3)) break;
-			if(!pass(16,50,202,"rotator",4)) break;
-			//if(!pass(17,0,202,"knob",0)) break;//
-			//if(!pass(18,1,201,"toggler",3)) break;//
-			//if(!pass(19,11,201,"rotator",3)) break; //
-			//if(!pass(20,1,201,"toggler",3)) break; //
-			if(!pass(21,13,201,"rotator",3)) break;
-			if(!pass(22,1,201,"toggler",3)) break;
-			//if(!pass(23,0,203,"toggler",1)) break; //
-			//if(!pass(24,70,203,"rotator",2)) break; //
-			//if(!pass(25,0,203,"toggler",1)) break; //
-			if(!pass(26,0,501,"toggler",1)) break;
-			if(!pass(27,1,702,"toggler",0)) break;
-			if(!pass(28,4,202,"knob",0)) break;
-			if(!pass(29,9,202,"rotator",7)) break;
-			if(!pass(30,1,203,"toggler",3)) break;
-			if(!pass(31,0,203,"rotator",1)) break;
-			if(!pass(32,0,203,"rotator",2)) break;
-			if(!pass(33,1,203,"toggler",1)) break; //
-			if(!pass(34,1,205,"knob",1)) break;
-			if(!pass(35,0,205,"toggler",0)) break;
+			if(!pass(5,0,501,"toggler",0)) break;
+			//if(!pass(6,1,205,"toggler",0)) break;
+			if(!pass(7,9,205,"knob",0)) break;
+			//if(!pass(8,70,203,"rotator",1)) break;
+			if(!pass(9,5,202,"rotator",6)) break;
+			//if(!pass(10,5,202,"rotator",7)) break;
+			//if(!pass(11,9,201,"rotator",3)) break;
+			//if(!pass(12,30,203,"rotator",1)) break;
+			//if(!pass(13,9,201,"rotator",3)) break; /// промежуточное 4
+			if(!pass(14,1,202,"toggler",0)) break;
+			//if(!pass(15,12,201,"rotator",3)) break;
+			if(!pass(16,50,202,"rotator",3)) break;
+			if(!pass(17,50,202,"rotator",4)) break;
+			//if(!pass(18,0,202,"knob",0)) break;//
+			//if(!pass(19,1,201,"toggler",3)) break;//
+			//if(!pass(20,11,201,"rotator",3)) break; //
+			//if(!pass(21,1,201,"toggler",3)) break; //
+			if(!pass(22,13,201,"rotator",3)) break;
+			if(!pass(23,1,201,"toggler",3)) break;
+			//if(!pass(24,0,203,"toggler",1)) break; //
+			//if(!pass(25,70,203,"rotator",2)) break; //
+			//if(!pass(26,0,203,"toggler",1)) break; //
+			if(!pass(27,0,501,"toggler",1)) break;
+			if(!pass(28,1,702,"toggler",0)) break;
+			if(!pass(29,4,202,"knob",0)) break;
+			if(!pass(30,9,202,"rotator",7)) break;
+			if(!pass(31,1,203,"toggler",3)) break;
+			if(!pass(32,0,203,"rotator",1)) break;
+			if(!pass(33,0,203,"rotator",2)) break;
+			if(!pass(34,1,203,"toggler",1)) break; //
+			if(!pass(35,1,205,"knob",1)) break;
+			if(!pass(36,0,205,"toggler",0)) break;
 
 			f = true;
 			}
 			while(false);
-			if (f) {
+			if ((f) || (isTrain)) {
 				exercisePassedSuccesfully();
 			} else {
 				exercisePassedUnSuccesfully();
@@ -1118,7 +1137,7 @@ $('#block7020').click(function() {
 		}); // END EXERCIZE 2  ALGORITHM
 
 		// START EXERCIZE 2 HINTS
-		$('a[data="coach-activator"]').click(function() {if (isTrain) {
+		$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 			/* объяснение значений функции hinter 
 				// Первая цифра — порядковый номер клика по .control
 				// Вторая цифра — номер родительского блока нужной кнопки
@@ -1132,42 +1151,42 @@ $('#block7020').click(function() {
 			hinterNextBlock(3,702,"toggler",0,0,	501,"knob",0,"Проверьте напряжение в сети, переключая ручку в положения <b>А-В</b>, <b>А-С</b>, <b>В-С</b> <b>[СТАБ]</b>. Напряжение должно быть в районе 220V. Затем необходимо вернуть ручку в положение <b>ВЫКЛ.</b>")
 			hinter(4,501,"knob",0,3, 501,"toggler",0,"Нажмите кнопку ПЕРЕДАТЧИК-I ВКЛ");
 
-			hinterNextBlock(4,501,"toggler",0,0, 205,"toggler",0,"Переключите тумблер ВЫХОД ФОС в положение ВКЛ");
-			hinter(5,205,"toggler",0,1, 205,"knob",0,"Поочередно устанавливайте ручку КОНТРОЛЬ в каждое из положений от -12,6В до КОНТРОЛЬ ОГ, следя за показанием амперметра. Они должны быть в пределах -20-25 и +20+25");
-			hinterNextBlock(6,205,"knob",0,9, 203,"rotator",1,"Медленно вращая потенциометр УРОВЕНЬ ВОЗБУЖДЕНИЯ добейтесь, чтобы ТОК НАГРУЗКИ по прибору на блоке П205 не превысил 2А <span class='what'>70</span>");
-			hinterNextBlock(7,203,"rotator",1,70, 202,"rotator",6,"Медленным вращением ручки вариометра НАСТРОЙКА ПРОМЕЖУТОЧНОГО КОНТУРА добейстесь максимального отклонения стрелки прибора РЕЖИМ УСИЛ. МОЩН на блоке П203 <span class='what'>(5)</span>");
-			hinter(8,202,"rotator",6,5, 202,"rotator",7,"Установите ручку СВЯЗЬ в положение <span class='what'>~5</span>");
-			hinterNextBlock(9,202,"rotator",7,5, 201,"rotator",3,"Настройте антенный контур кнопками НАСТРОЙКА ПОДДИАПАЗОНОВ I-X по максимальному отклонению стрелки прибора РЕЖИМ УСИЛ. МОЩНОСТИ на блоке П203. <span class='what'>9</span> <b>После завершения настройки, пожалуйста, кликните по стрелке Шкалы настройки</b>");
-			hinterNextBlock(10,201,"rotator",3,9, 203,"rotator",1,"Медленно вращая потенциометр УРОВЕНЬ ВОЗБУЖДЕНИЯ добейтесь, чтобы ТОК НАГРУЗКИ по прибору на блоке П205 не превысил 10А <span class='what'>30</span>");
-			hinterNextBlock(11,203,"rotator",1,30, 201,"rotator",3,"Кратковременно нажимая кнопки НАСТРОЙКА ПОДДИАПАЗОНОВ I-X, установите режим усилителя мощности по прибору блока П203 в пределах 180-200 мкА <span class='what'>3</span>, а затем верните в первоначальное состояние <span class='what'>9</span>. <b>По завершении настройки нажмите на стрелку 'Шкалы настройки'");
-			hinterNextBlock(12,201,"rotator",3,9, 202,"toggler",0,"Нажмите кнопку СБРОС");
-			hinterNextBlock(13,202,"toggler",0,1, 201,"rotator",3,"С помощью кнопок НАСТРОЙКА ПОДДИАПАЗОНОВ I-X добейстесь показания 150 мкА на приборе РЕЖИМ УСИЛ. МОЩН. блока П203. Затем проверьте ток в антенне: он должен быть не менее указанного в таблице приложения 13. В данном случае — ~5А. <span class='what'>12</span>. <b>По завершении настройки, нажмите на стрелку 'Шкалы настройки'.");
-			hinterNextBlock(14,201,"rotator",3,12, 202,"rotator",3,"Установите потенциометр УСТ. НУЛЯ в среднее положение <span class='what'>50</span>");
-			hinter(15,202,"rotator",3,50, 202,"rotator",4,"Установите потенциометр БАЛАНС в среднее положение <span class='what'>50</span>");
-			hinter(16,202,"rotator",4,50, 202,"knob",0,"Установите переключатель КОНТРОЛЬ в положение '0' АПК '+'");
-			hinterNextBlock(17,202,"knob",0,0, 201,"toggler",3,"Переключите тумблер АПК в положение ВКЛ, при этом показания прибора ТОК АНТЕННЫ не должны измениться. Затем верните в положение ОТКЛ.");
-			hinter(18,201,"toggler",3,1, 201,"rotator",3,"<b>Левой</b> кнопкой НАСТРОЙКА ПОДДИАПАЗОНОВ I-X расстройте антенный контур в направлении против часовой стрели так, чтобы ток в антенне уменьшился на величину не более 10% от первоначального уровня. <span class='what'>11</span>. <b>После установки в нужное положение, кликните на стрелку Шкалы настройки.</b>");
-			hinter(19,201,"rotator",3,11, 201,"toggler",3,"Установите тумблер АПК в положение ВКЛ, при этом настройка антенного контура и ток в антенне по прибору ТОК АНТЕННЫ в блоке П201 должны установится до первоначального положения. Затем установите в положение ОТКЛ");
-			hinter(20,201,"toggler",3,1, 201,"rotator",3,"<b>Правой</b> кнопкой НАСТРОЙКА ПОДДИАПАЗОНОВ I-X расстройте антенный контур в направлении по часовой стрелке до уменьшения тока в антенне на величину не более 10% от первоначального уровня и увеличения уровня возбуждения не более чем на 30мкА <span class='what'>13</span>. <b>После установки в нужное положение, кликните на стрелку Шкалы настройки.</b>");
-			hinter(21,201,"rotator",3,13, 201,"toggler",3,"Включите тумблер АПК. Уровень возбуждения, настройка антенного контура и величина тока в антенне должны установиться до первоначального значения. Затем выключите тумблер");
-			hinterNextBlock(22,201,"toggler",3,1, 203,"toggler",1,"Переключите тумблер АРУ в положение ВКЛ");
-			hinter(23,203,"toggler",1,0, 203,"rotator",2,"Ручкой потенциометра РЕГ АРУ установите ТОК НАГРУЗКИ по прибору блока П204 и уровнь возбуждения по прибору блока П203 до первоначального значения <span class=what>70</span>");
-			hinter(24,203,"rotator",2,70, 203,"toggler",1,"Выключите и включите тумблер АРУ и убедитесь, что показания приборов ТОК НАГРУЗКИ в блоке П204 и РЕЖИМ. УСИЛ. МОЩН. в блоке П203 не меняются");
-			hinterNextBlock(25,203,"toggler",1,0, 501,"toggler",1,"Выключите П200 нажадием кнопки ПЕРЕДАТЧИК I ОТКЛ");
-			hinterNextBlock(26,501,"toggler",1,0, 702,"toggler",0,"Отключите питание на блоке П702");
-			hinterNextBlock(27,702,"toggler",0,1, 202,"knob",0,"Установите переключатель КОНТРОЛЬ в положение НАЧ. УСТ.");
-			hinter(28,202,"knob",0,4, 202,"rotator",7,"Установите ручку СВЯЗЬ в положение 9");
-			hinterNextBlock(29,202,"rotator",7,9, 203,"toggler",3,"Переключите тумблер ПИТАНИЕ в положение ОТКЛ");
-			hinter(30,203,"toggler",3,1, 203,"rotator",1,"Установите потенциометр УРОВЕНЬ ВОЗБУЖДЕНИЯ в крайнее левое положение");
-			hinter(31,203,"rotator",1,0, 203,"rotator",2,"Установите потенциометр РЕГ АРУ в крайнее левое положение");
-			hinter(32,203,"rotator",2,0, 203,"toggler",1,"Переключите тумблер АРУ в положение ОТКЛ");
-			hinterNextBlock(33,203,"toggler",1,1, 205,"knob",1,"Установите переключатель МЕСТН-ОТКЛ-ДИСТ в положение ОТКЛ");
-			hinter(34,205,"knob",1,1, 205,"toggler",0,"Переключите тумблер ВЫХОД ФОС в положение ОТКЛ");
-			hinterEnd(35,205,"toggler",0,0);
+			hinterNextBlock(5,501,"toggler",0,0, 205,"toggler",0,"Переключите тумблер ВЫХОД ФОС в положение ВКЛ");
+			hinter(6,205,"toggler",0,1, 205,"knob",0,"Поочередно устанавливайте ручку КОНТРОЛЬ в каждое из положений от -12,6В до КОНТРОЛЬ ОГ, следя за показанием амперметра. Они должны быть в пределах -20-25 и +20+25");
+			hinterNextBlock(7,205,"knob",0,9, 203,"rotator",1,"Медленно вращая потенциометр УРОВЕНЬ ВОЗБУЖДЕНИЯ добейтесь, чтобы ТОК НАГРУЗКИ по прибору на блоке П205 не превысил 2А <span class='what'>70</span>");
+			hinterNextBlock(8,203,"rotator",1,70, 202,"rotator",6,"Медленным вращением ручки вариометра НАСТРОЙКА ПРОМЕЖУТОЧНОГО КОНТУРА добейстесь максимального отклонения стрелки прибора РЕЖИМ УСИЛ. МОЩН на блоке П203 <span class='what'>(5)</span>");
+			hinter(9,202,"rotator",6,5, 202,"rotator",7,"Установите ручку СВЯЗЬ в положение <span class='what'>~5</span>");
+			hinterNextBlock(10,202,"rotator",7,5, 201,"rotator",3,"Настройте антенный контур кнопками НАСТРОЙКА ПОДДИАПАЗОНОВ I-X по максимальному отклонению стрелки прибора РЕЖИМ УСИЛ. МОЩНОСТИ на блоке П203. <span class='what'>9</span> <b>После завершения настройки, пожалуйста, кликните по стрелке Шкалы настройки</b>");
+			hinterNextBlock(11,201,"rotator",3,9, 203,"rotator",1,"Медленно вращая потенциометр УРОВЕНЬ ВОЗБУЖДЕНИЯ добейтесь, чтобы ТОК НАГРУЗКИ по прибору на блоке П205 не превысил 10А <span class='what'>30</span>");
+			hinterNextBlock(12,203,"rotator",1,30, 201,"rotator",3,"Кратковременно нажимая кнопки НАСТРОЙКА ПОДДИАПАЗОНОВ I-X, установите режим усилителя мощности по прибору блока П203 в пределах 180-200 мкА <span class='what'>3</span>, а затем верните в первоначальное состояние <span class='what'>9</span>. <b>По завершении настройки нажмите на стрелку 'Шкалы настройки'");
+			hinterNextBlock(13,201,"rotator",3,9, 202,"toggler",0,"Нажмите кнопку СБРОС");
+			hinterNextBlock(14,202,"toggler",0,1, 201,"rotator",3,"С помощью кнопок НАСТРОЙКА ПОДДИАПАЗОНОВ I-X добейстесь показания 150 мкА на приборе РЕЖИМ УСИЛ. МОЩН. блока П203. Затем проверьте ток в антенне: он должен быть не менее указанного в таблице приложения 13. В данном случае — ~5А. <span class='what'>12</span>. <b>По завершении настройки, нажмите на стрелку 'Шкалы настройки'.");
+			hinterNextBlock(15,201,"rotator",3,12, 202,"rotator",3,"Установите потенциометр УСТ. НУЛЯ в среднее положение <span class='what'>50</span>");
+			hinter(16,202,"rotator",3,50, 202,"rotator",4,"Установите потенциометр БАЛАНС в среднее положение <span class='what'>50</span>");
+			hinter(17,202,"rotator",4,50, 202,"knob",0,"Установите переключатель КОНТРОЛЬ в положение '0' АПК '+'");
+			hinterNextBlock(18,202,"knob",0,0, 201,"toggler",3,"Переключите тумблер АПК в положение ВКЛ, при этом показания прибора ТОК АНТЕННЫ не должны измениться. Затем верните в положение ОТКЛ.");
+			hinter(19,201,"toggler",3,1, 201,"rotator",3,"<b>Левой</b> кнопкой НАСТРОЙКА ПОДДИАПАЗОНОВ I-X расстройте антенный контур в направлении против часовой стрели так, чтобы ток в антенне уменьшился на величину не более 10% от первоначального уровня. <span class='what'>11</span>. <b>После установки в нужное положение, кликните на стрелку Шкалы настройки.</b>");
+			hinter(20,201,"rotator",3,11, 201,"toggler",3,"Установите тумблер АПК в положение ВКЛ, при этом настройка антенного контура и ток в антенне по прибору ТОК АНТЕННЫ в блоке П201 должны установится до первоначального положения. Затем установите в положение ОТКЛ");
+			hinter(21,201,"toggler",3,1, 201,"rotator",3,"<b>Правой</b> кнопкой НАСТРОЙКА ПОДДИАПАЗОНОВ I-X расстройте антенный контур в направлении по часовой стрелке до уменьшения тока в антенне на величину не более 10% от первоначального уровня и увеличения уровня возбуждения не более чем на 30мкА <span class='what'>13</span>. <b>После установки в нужное положение, кликните на стрелку Шкалы настройки.</b>");
+			hinter(22,201,"rotator",3,13, 201,"toggler",3,"Включите тумблер АПК. Уровень возбуждения, настройка антенного контура и величина тока в антенне должны установиться до первоначального значения. Затем выключите тумблер");
+			hinterNextBlock(23,201,"toggler",3,1, 203,"toggler",1,"Переключите тумблер АРУ в положение ВКЛ");
+			hinter(24,203,"toggler",1,0, 203,"rotator",2,"Ручкой потенциометра РЕГ АРУ установите ТОК НАГРУЗКИ по прибору блока П204 и уровнь возбуждения по прибору блока П203 до первоначального значения <span class=what>70</span>");
+			hinter(25,203,"rotator",2,70, 203,"toggler",1,"Выключите и включите тумблер АРУ и убедитесь, что показания приборов ТОК НАГРУЗКИ в блоке П204 и РЕЖИМ. УСИЛ. МОЩН. в блоке П203 не меняются");
+			hinterNextBlock(26,203,"toggler",1,0, 501,"toggler",1,"Выключите П200 нажадием кнопки ПЕРЕДАТЧИК I ОТКЛ");
+			hinterNextBlock(27,501,"toggler",1,0, 702,"toggler",0,"Отключите питание на блоке П702");
+			hinterNextBlock(28,702,"toggler",0,1, 202,"knob",0,"Установите переключатель КОНТРОЛЬ в положение НАЧ. УСТ.");
+			hinter(29,202,"knob",0,4, 202,"rotator",7,"Установите ручку СВЯЗЬ в положение 9");
+			hinterNextBlock(30,202,"rotator",7,9, 203,"toggler",3,"Переключите тумблер ПИТАНИЕ в положение ОТКЛ");
+			hinter(31,203,"toggler",3,1, 203,"rotator",1,"Установите потенциометр УРОВЕНЬ ВОЗБУЖДЕНИЯ в крайнее левое положение");
+			hinter(32,203,"rotator",1,0, 203,"rotator",2,"Установите потенциометр РЕГ АРУ в крайнее левое положение");
+			hinter(33,203,"rotator",2,0, 203,"toggler",1,"Переключите тумблер АРУ в положение ОТКЛ");
+			hinterNextBlock(34,203,"toggler",1,1, 205,"knob",1,"Установите переключатель МЕСТН-ОТКЛ-ДИСТ в положение ОТКЛ");
+			hinter(35,205,"knob",1,1, 205,"toggler",0,"Переключите тумблер ВЫХОД ФОС в положение ОТКЛ");
+			hinterEnd(36,205,"toggler",0,0);
 			
 		}}); // END EXERCIZE 2 HINTS
 	}); // END EXERCIZE 2
-	$('#exercise2-1').click(function() {
+	$('#exercise2-1').on('click',function() {
 		// START EXERCIZE 2-1 ALGORITHM
 		// default pos
 			defaultPositions(1,2,501,'knob',1); // ВЫКЛ
@@ -1242,7 +1261,7 @@ $('#block7020').click(function() {
 				$('.scale201 .arrow').css('-webkit-transform','rotate(-48deg)');
 			});
 		// default pos end
-			$('#tester').click(function() {
+			$('#tester').on('click',function() {
 				var f = false;
 				do {
 				/* объяснение значений функции pass 
@@ -1261,7 +1280,7 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				if (f) {
+				if ((f) || (isTrain)) {
 					exercisePassedSuccesfully();
 				} else {
 					exercisePassedUnSuccesfully();
@@ -1270,7 +1289,7 @@ $('#block7020').click(function() {
 			}); // END EXERCIZE 2-1 ALGORITHM
 
 			// START EXERCIZE 2-1 HINTS
-			$('a[data="coach-activator"]').click(function() {if (isTrain) {
+			$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 				/* объяснение значений функции hinter 
 					// Первая цифра — порядковый номер клика по .control
 					// Вторая цифра — номер родительского блока нужной кнопки
@@ -1289,7 +1308,7 @@ $('#block7020').click(function() {
 
 	
 
-	$('#exercise2-2').click(function() {
+	$('#exercise2-2').on('click',function() {
 		// START EXERCIZE 2-2 ALGORITHM
 		// default pos
 			defaultPositions(1,2,501,'knob',1); // ВЫКЛ
@@ -1340,7 +1359,7 @@ $('#block7020').click(function() {
 
 			lamp(203,1,'on');
 
-			ctrl(202,'knob',0).click(function(){
+			ctrl(202,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 0) { $('.scale202 .arrow').css('-webkit-transform','rotate(-20deg)')}
 				if ($(this).attr('status') == 1) { $('.scale202 .arrow').css('-webkit-transform','rotate(-23deg)')}
 				if ($(this).attr('status') == 2) { $('.scale202 .arrow').css('-webkit-transform','rotate(6deg)')}
@@ -1365,7 +1384,7 @@ $('#block7020').click(function() {
 			});
 
 
-			ctrl(203,'toggler',1).click(function(){
+			ctrl(203,'toggler',1).on('click',function(){
 				if ($(this).attr('progress') == 6) {
 					$('.scale203 .arrow').css('-webkit-transform','rotate(-24deg)'); // Ток антенны
 				}
@@ -1375,7 +1394,7 @@ $('#block7020').click(function() {
 				if ($(this).attr('status') == 30) { $('.scale203 .arrow').css('-webkit-transform','rotate(-21deg)')} // Нужное конечное
 			});
 		// default pos end
-			$('#tester').click(function() {
+			$('#tester').on('click',function() {
 				var f = false;
 				do {
 				/* объяснение значений функции pass 
@@ -1401,7 +1420,7 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				if (f) {
+				if ((f) || (isTrain)) {
 					exercisePassedSuccesfully();
 				} else {
 					exercisePassedUnSuccesfully();
@@ -1410,7 +1429,7 @@ $('#block7020').click(function() {
 			}); // END EXERCIZE 2-2 ALGORITHM
 
 			// START EXERCIZE 2-2 HINTS
-			$('a[data="coach-activator"]').click(function() {if (isTrain) {
+			$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 				/* объяснение значений функции hinter 
 					// Первая цифра — порядковый номер клика по .control
 					// Вторая цифра — номер родительского блока нужной кнопки
@@ -1433,7 +1452,7 @@ $('#block7020').click(function() {
 			}}); // END EXERCIZE 2-2 HINTS
 	}); // END EXERCIZE 2-2 
 
-	$('#exercise2-3').click(function() {
+	$('#exercise2-3').on('click',function() {
 		// START EXERCIZE 2-3 ALGORITHM
 		// default pos
 			defaultPositions(1,2,501,'knob',1); // ВЫКЛ
@@ -1484,7 +1503,7 @@ $('#block7020').click(function() {
 
 			lamp(203,1,'on');
 
-			ctrl(202,'knob',0).click(function(){
+			ctrl(202,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 0) { $('.scale202 .arrow').css('-webkit-transform','rotate(-20deg)')}
 				if ($(this).attr('status') == 1) { $('.scale202 .arrow').css('-webkit-transform','rotate(-23deg)')}
 				if ($(this).attr('status') == 2) { $('.scale202 .arrow').css('-webkit-transform','rotate(10deg)')}
@@ -1507,7 +1526,7 @@ $('#block7020').click(function() {
 				if ($(this).attr('status') == 55) { $('#block203 .arrow').css('-webkit-transform','rotate(41deg)')} // Нужное конечное
 			});
 		// default pos end
-			$('#tester').click(function() {
+			$('#tester').on('click',function() {
 				var f = false;
 				do {
 				/* объяснение значений функции pass 
@@ -1531,7 +1550,7 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				if (f) {
+				if ((f) || (isTrain)) {
 					exercisePassedSuccesfully();
 				} else {
 					exercisePassedUnSuccesfully();
@@ -1540,7 +1559,7 @@ $('#block7020').click(function() {
 			}); // END EXERCIZE 2-3 ALGORITHM
 
 			// START EXERCIZE 2-3 HINTS
-			$('a[data="coach-activator"]').click(function() {if (isTrain) {
+			$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 				/* объяснение значений функции hinter 
 					// Первая цифра — порядковый номер клика по .control
 					// Вторая цифра — номер родительского блока нужной кнопки
@@ -1559,7 +1578,7 @@ $('#block7020').click(function() {
 				hinterEnd(8,205,"toggler",0,1);
 			}}); // END EXERCIZE 2-3 HINTS
 	}); // END EXERCIZE 2-3
-	$('#exercise3').click(function() {
+	$('#exercise3').on('click',function() {
 		// START EXERCIZE 3 ALGORITHM
 		// default pos
 			defaultPositions(1,2,501,'knob',1); // ВЫКЛ
@@ -1613,7 +1632,7 @@ $('#block7020').click(function() {
 
 			lamp(203,1,'on');
 
-			$('#close').click(function(){
+			$('#close').on('click',function(){
 			  	$('.scale4342InBlock201').remove();
 			});
 
@@ -1722,12 +1741,12 @@ $('#block7020').click(function() {
 				}
 			}); 
 
-			ctrl(201,'toggler',2).click(function(){
+			ctrl(201,'toggler',2).on('click',function(){
 				$('#block301 a[type="lamp"][data="num10"]').removeClass('on'); // Ток ниже нормы
 				$('#block301 a[type="lamp"][data="num11"]').removeClass('on'); // Модуляция ниже нормы
 			});
 
-			ctrl(201,'knob',0).click(function(){
+			ctrl(201,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 0) { 
 					$('#block301 a[type="lamp"][data="num7"]').removeClass('on'); // Ток ниже нормы
 					$('#block301 a[type="lamp"][data="num13"]').removeClass('on'); // Готовность
@@ -1738,7 +1757,7 @@ $('#block7020').click(function() {
 			});
 			$('#block203 .arrow').css('-webkit-transform','rotate(24deg)');
 		// default pos end
-			$('#tester').click(function() {
+			$('#tester').on('click',function() {
 				var f = false;
 				do {
 				/* объяснение значений функции pass 
@@ -1794,7 +1813,7 @@ $('#block7020').click(function() {
 				f = true;
 				}
 				while(false);
-				if (f) {
+				if ((f) || (isTrain)) {
 					exercisePassedSuccesfully();
 				} else {
 					exercisePassedUnSuccesfully();
@@ -1803,7 +1822,7 @@ $('#block7020').click(function() {
 			}); // END EXERCIZE 3 ALGORITHM
 
 			// START EXERCIZE 3 HINTS
-			$('a[data="coach-activator"]').click(function() {if (isTrain) {
+			$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 				/* объяснение значений функции hinter 
 					// Первая цифра — порядковый номер клика по .control
 					// Вторая цифра — номер родительского блока нужной кнопки
@@ -1857,11 +1876,11 @@ $('#block7020').click(function() {
 			}}); // END EXERCIZE 3 HINTS
 	}); // END EXERCIZE 3
 
-$('[rel="telegraph"]').click(function() {
+$('[rel="telegraph"]').on('click',function() {
 
 });
 
-	$('#exercise4').click(function() {
+	$('#exercise4').on('click',function() {
 	 // START EXERCIZE TEST ALGORITHM
 		// default pos Start
 			defaultPositions(1,2,501,'knob',1); // ВЫКЛ
@@ -1916,7 +1935,7 @@ $('[rel="telegraph"]').click(function() {
 			lamp(203,1,'on');
 		// default pos end
 			
-			$('#close').click(function(){
+			$('#close').on('click',function(){
 			  	$('.scale4342InBlock201').remove();
 			});
 
@@ -1996,7 +2015,7 @@ $('[rel="telegraph"]').click(function() {
 				}
 			}); 
 
-			$('a.control[type="toggler"][data="num2"]').click(function(){
+			$('a.control[type="toggler"][data="num2"]').on('click',function(){
 				$('#block301 a[type="lamp"][data="num10"]').removeClass('on'); // Ток ниже нормы
 				$('#block301 a[type="lamp"][data="num11"]').removeClass('on'); // Модуляция ниже нормы
 				if ($(this).attr('status') == 0) { 
@@ -2009,7 +2028,7 @@ $('[rel="telegraph"]').click(function() {
 				}
 			});
 
-			ctrl(201,'knob',0).click(function(){
+			ctrl(201,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 0) { 
 					$('#block301 a[type="lamp"][data="num7"]').removeClass('on'); // Ток ниже нормы
 					$('#block301 a[type="lamp"][data="num13"]').removeClass('on'); // Готовность
@@ -2023,7 +2042,7 @@ $('[rel="telegraph"]').click(function() {
 			$('#block201 .arrow').css('-webkit-transform','rotate(15deg)');
 			$('#block203 .arrow').css('-webkit-transform','rotate(24deg)');
 			$('.scale4243 .arrow').css('-webkit-transform','rotate(-17deg)');
-		$('#tester').click(function() {
+		$('#tester').on('click',function() {
 			var f = false;
 			do {
 			/* объяснение значений функции pass 
@@ -2066,7 +2085,7 @@ $('[rel="telegraph"]').click(function() {
 			f = true;
 			}
 			while(false);
-			if (f) {
+			if ((f) || (isTrain)) {
 				exercisePassedSuccesfully();
 			} else {
 				exercisePassedUnSuccesfully();
@@ -2075,7 +2094,7 @@ $('[rel="telegraph"]').click(function() {
 		}); // END EXERCIZE TEST  ALGORITHM
 
 		// START EXERCIZE TEST HINTS
-		$('a[data="coach-activator"]').click(function() {if (isTrain) {
+		$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 			/* объяснение значений функции hinter 
 				// Первая цифра — порядковый номер клика по .control
 				// Вторая цифра — номер родительского блока нужной кнопки
@@ -2114,7 +2133,7 @@ $('[rel="telegraph"]').click(function() {
 				hinterEnd(28,301,"knob",0,1);
 		}}); // END EXERCIZE TEST HINTS
 	}); // END EXERCIZE TEST
-	$('#exercise5').click(function() {
+	$('#exercise5').on('click',function() {
 	 // START EXERCIZE TEST ALGORITHM
 		// default pos
 			defaultPositions(000,1,203,'toggler',1);
@@ -2143,12 +2162,12 @@ $('[rel="telegraph"]').click(function() {
 			defaultPositions(000,1,301,"knob",3);
 			defaultPositions(000,0,301,"toggler",0);
 			defaultPositions(000,7,201,"knob",0);
-			ctrl(501,"toggler",1).click(function(){
+			ctrl(501,"toggler",1).on('click',function(){
 			ctrl(501,'lamp',6).removeClass('on');
 
 			});
 
-			ctrl(301,'knob',1).click(function(){
+			ctrl(301,'knob',1).on('click',function(){
 				if ($(this).attr('status') == 0) { 
 					$('#block301 a[type="lamp"][data="num12"]').removeClass('on'); // Работа
 				}
@@ -2159,7 +2178,7 @@ $('[rel="telegraph"]').click(function() {
 					$('#block301 a[type="lamp"][data="num12"]').addClass('on'); // Работа
 				}
 			});
-			$('#close').click(function(){
+			$('#close').on('click',function(){
 			  	$('.scale4342InBlock201').remove();
 			});
 
@@ -2190,7 +2209,7 @@ $('[rel="telegraph"]').click(function() {
 
 				
 			});
-			ctrl(301,'knob',0).click(function(){
+			ctrl(301,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 1) { 
 					$('#block301 a[type="lamp"][data="num10"]').removeClass('on'); // Ток ниже нормы
 					$('#block301 a[type="lamp"][data="num11"]').removeClass('on'); // Модуляция ниже нормы
@@ -2200,7 +2219,7 @@ $('[rel="telegraph"]').click(function() {
 
 
 		// default pos end
-		$('#tester').click(function() {
+		$('#tester').on('click',function() {
 			var f = false;
 			do {
 			/* объяснение значений функции pass 
@@ -2226,7 +2245,7 @@ $('[rel="telegraph"]').click(function() {
 			f = true;
 			}
 			while(false);
-			if (f) {
+			if ((f) || (isTrain)) {
 				exercisePassedSuccesfully();
 			} else {
 				exercisePassedUnSuccesfully();
@@ -2235,7 +2254,7 @@ $('[rel="telegraph"]').click(function() {
 		}); // END EXERCIZE TEST  ALGORITHM
 
 		// START EXERCIZE TEST HINTS
-		$('a[data="coach-activator"]').click(function() {if (isTrain) {
+		$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 			/* объяснение значений функции hinter 
 				// Первая цифра — порядковый номер клика по .control
 				// Вторая цифра — номер родительского блока нужной кнопки
@@ -2259,7 +2278,7 @@ $('[rel="telegraph"]').click(function() {
 	}); // END EXERCIZE TEST
 
 
-	$('#exercise6').click(function() {
+	$('#exercise6').on('click',function() {
 	 // START EXERCIZE 6 TEST ALGORITHM
 		// default pos
 			defaultPositions(000,1,203,'toggler',1);
@@ -2300,14 +2319,14 @@ $('[rel="telegraph"]').click(function() {
 			defaultPositions(000,3,200,"knob",10);
 			defaultPositions(000,3,200,"knob",11);
 
-			ctrl(501,'toggler',1).click(function(){
+			ctrl(501,'toggler',1).on('click',function(){
 				ctrl(501,'lamp',6).removeClass('on');
 			});
-			ctrl(501,'toggler',3).click(function(){
+			ctrl(501,'toggler',3).on('click',function(){
 				ctrl(501,'lamp',10).removeClass('on');
 			});
 
-			ctrl(200,'knob',0).click(function(){
+			ctrl(200,'knob',0).on('click',function(){
 				if ($(this).attr('status') == 0) {
 					$('.scale200 .arrow').css('-webkit-transform','rotate(0deg)');
 				} 
@@ -2325,51 +2344,51 @@ $('[rel="telegraph"]').click(function() {
 				} 
 			});
 
-			ctrl(200,'knob',15).click(function(){
+			ctrl(200,'knob',15).on('click',function(){
 				if (($(this).attr('status') == 1) && ($(this).attr('progress') == 24)) {
 					$('#block200 a[type="lamp"][data="num5"]').removeClass('on'); // РМ
 				}
 			});
-			ctrl(200,'knob',15).click(function(){
+			ctrl(200,'knob',15).on('click',function(){
 				if (($(this).attr('status') == 1) && ($(this).attr('progress') == 28)) {
 					$('#block200 a[type="lamp"][data="num5"]').removeClass('on'); // РМ
 				}
 			});
-			ctrl(200,'knob',16).click(function(){
+			ctrl(200,'knob',16).on('click',function(){
 				if (($(this).attr('status') == 1) && ($(this).attr('progress') == 34)) {
 					$('#block200 a[type="lamp"][data="num6"]').removeClass('on'); // РМ
 				}
 			});
-			ctrl(200,'knob',16).click(function(){
+			ctrl(200,'knob',16).on('click',function(){
 				if (($(this).attr('status') == 0) && ($(this).attr('progress') == 34)) {
 					$('#block200 a[type="lamp"][data="num6"]').removeClass('on'); // П200
 				}
 			});
-			ctrl(200,'knob',13).click(function(){
+			ctrl(200,'knob',13).on('click',function(){
 				if (($(this).attr('status') == 0) && ($(this).attr('progress') == 35)) {
 					$('#block200 a[type="lamp"][data="num3"]').removeClass('on'); // Основной 1
 				}
 			});
 
 
-			ctrl(200,'knob',13).click(function(){
+			ctrl(200,'knob',13).on('click',function(){
 				if (($(this).attr('status') == 1) && ($(this).attr('progress') == 37)) {
 					$('#block200 a[type="lamp"][data="num3"]').removeClass('on'); //  Основной 1
 				}
 			});
-			ctrl(200,'knob',14).click(function(){
+			ctrl(200,'knob',14).on('click',function(){
 				if (($(this).attr('status') == 1) && ($(this).attr('progress') == 38)) {
 					$('#block200 a[type="lamp"][data="num4"]').removeClass('on'); // ЗОГ
 				}
 			});
-			ctrl(200,'knob',16).click(function(){
+			ctrl(200,'knob',16).on('click',function(){
 				if (($(this).attr('status') == 1) && ($(this).attr('progress') == 40)) {
 					$('#block200 a[type="lamp"][data="num6"]').removeClass('on'); // П200
 				}
 			});
 
 		// default pos end
-		$('#tester').click(function() {
+		$('#tester').on('click',function() {
 			var f = false;
 			do {
 			/* объяснение значений функции pass 
@@ -2429,7 +2448,7 @@ $('[rel="telegraph"]').click(function() {
 			f = true;
 			}
 			while(false);
-			if (f) {
+			if ((f) || (isTrain)) {
 				exercisePassedSuccesfully();
 			} else {
 				exercisePassedUnSuccesfully();
@@ -2438,7 +2457,7 @@ $('[rel="telegraph"]').click(function() {
 		}); // END EXERCIZE TEST  ALGORITHM
 
 		// START EXERCIZE TEST HINTS
-		$('a[data="coach-activator"]').click(function() {if (isTrain) {
+		$('a[data="coach-activator"]').on('click',function() {if (isTrain) {
 			/* объяснение значений функции hinter 
 				// Первая цифра — порядковый номер клика по .control
 				// Вторая цифра — номер родительского блока нужной кнопки

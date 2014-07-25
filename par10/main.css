@@ -302,6 +302,16 @@ background-repeat: no-repeat;
 }
 
 /* Стили для кнопочек-контролов */
+.control.disabled::after {
+	position: absolute;
+	left: 0;
+	content: '';
+	width: 100%;
+	top: 0;
+	height: 100%;
+	
+	z-index: 10;
+}
 .control, .uncontrol {
 	position: absolute;
 	display: block;
