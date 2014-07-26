@@ -183,7 +183,7 @@ $('#go').one('click',function(){
 
 	};
 
-
+/*
 	setTimeout(function(){
 		$('#stack0_block1_front .element[type="toggler"][num="21"]').each(function(){
 			stack0_block1_front__toggler__21($(this));
@@ -198,9 +198,36 @@ $('#go').one('click',function(){
 	$('#stack0_block1_front .element[type="toggler"][num="5"]').on('click', function(){
 		stack0_block1_front__toggler__5($(this));
 	});
+*/
 
+	setLampRelation('stack0_block1_front','toggler','5','0','16','on');
+	setLampRelation('stack0_block1_front','toggler','5','0','23','off');
+	setLampRelation('stack0_block1_front','toggler','5','1','16','off');
+	setLampRelation('stack0_block1_front','toggler','5','1','23','on');
+	
+	setLampRelation('stack0_block1_front','toggler','21','0','100','on');
+	setLampRelation('stack0_block1_front','toggler','21','0','115','off');
+	setLampRelation('stack0_block1_front','toggler','21','1','100','off');
+	setLampRelation('stack0_block1_front','toggler','21','1','115','on');
 });
+	function setLampRelation(blockId,controlType,controlNum,controlStatus,lampNum,lampStatus) {
+		setTimeout(function(){
 
+			$('#'+blockId+' .element[type="'+controlType+'"][num="'+controlNum+'"]').each(function(){
+				if ($(this).attr('status') == controlStatus) {
+					$('#'+blockId+' .element[type="lamp"][num="'+lampNum+'"]').attr('status',lampStatus);
+					$('#'+blockId+' .element[type="lamp"][num="'+lampNum+'"]').attr('status',lampStatus);
+				}
+			});
+		}, 1000);
+
+		$('#'+blockId+' .element[type="'+controlType+'"][num="'+controlNum+'"]').on('click',function(){
+			if ($(this).attr('status') == controlStatus) {
+				$('#'+blockId+' .element[type="lamp"][num="'+lampNum+'"]').attr('status',lampStatus);
+				$('#'+blockId+' .element[type="lamp"][num="'+lampNum+'"]').attr('status',lampStatus);
+			}
+		});
+	}
 	// Зависимости между тумблерами и лампочками
 	function stack0_block1_front__toggler__21(element) {
 		if (element.attr('status') == '0') {
@@ -287,7 +314,7 @@ function showText(thisExId,eN,pN) {
 				}
 			
 		}
-	},200)
+	},350)
 	
 }
 function focusOnElement(parameter){

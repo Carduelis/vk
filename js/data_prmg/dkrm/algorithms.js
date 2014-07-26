@@ -1562,7 +1562,7 @@ ex4 : {
 			},
 		},
 	},
-el10 : {
+	el10 : {
 		click : '10',
 		current : {
 			inStack : 'stack1',
