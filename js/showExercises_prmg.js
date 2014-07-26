@@ -199,16 +199,29 @@ $('#go').one('click',function(){
 		stack0_block1_front__toggler__5($(this));
 	});
 */
-
+	//переключатель ДУ-МУ
 	setLampRelation('stack0_block1_front','toggler','5','0','16','on');
 	setLampRelation('stack0_block1_front','toggler','5','0','23','off');
 	setLampRelation('stack0_block1_front','toggler','5','1','16','off');
 	setLampRelation('stack0_block1_front','toggler','5','1','23','on');
-	
+	//переключатель РАБОТА-НАСТРОЙКА
 	setLampRelation('stack0_block1_front','toggler','21','0','100','on');
 	setLampRelation('stack0_block1_front','toggler','21','0','115','off');
 	setLampRelation('stack0_block1_front','toggler','21','1','100','off');
 	setLampRelation('stack0_block1_front','toggler','21','1','115','on');
+	//переключатель на ИПС-ПРД
+	setLampRelation('stack0_block6_front','toggler','16','0','3','on');
+	setLampRelation('stack0_block6_front','toggler','16','0','13','on');
+	setLampRelation('stack0_block6_front','toggler','16','0','22','on');
+	setLampRelation('stack0_block6_front','toggler','16','0','34','on');
+	setLampRelation('stack0_block6_front','toggler','16','0','48','on');
+
+	setLampRelation('stack0_block6_front','toggler','16','1','3','off');
+	setLampRelation('stack0_block6_front','toggler','16','1','13','off');
+	setLampRelation('stack0_block6_front','toggler','16','1','22','off');
+	setLampRelation('stack0_block6_front','toggler','16','1','34','off');
+	setLampRelation('stack0_block6_front','toggler','16','1','48','off');
+
 });
 	function setLampRelation(blockId,controlType,controlNum,controlStatus,lampNum,lampStatus) {
 		setTimeout(function(){
