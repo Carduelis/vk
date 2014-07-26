@@ -123,6 +123,7 @@ var trainingMode = false;
 					$('.hovered').removeClass('hovered');
 					$('#close').text('Закройте этот блок').addClass('hovered');
 					$('#tester').addClass('hovered');
+					$('.userlog').fadeIn();
 				};
 			}
 		});
@@ -194,14 +195,14 @@ $('#exercise1').on('click',function(){
 });
 var letters = 2;
 $('#choosePrivod a').on('click',function(){
-	$('#choosePrivod').fadeOut();
+	$('#choosePrivod').hide();
 	if ($(this).attr('rel') == 'near') {
 		letters = 1;
 	}
 	$('#chooseFrequency').fadeIn();
 });
 $('#chooseFrequency a[rel="openTable"]').on('click',function(){
-	$('#chooseFrequency').fadeOut();
+	$('#chooseFrequency').hide();
 	$('#table').fadeIn();
 });
 $('#chooseFrequency a[rel="next"]').on('click',function(){
@@ -666,11 +667,10 @@ ctrl(202,'knob',0).on('click',function(){
 	if ($(this).attr('status') == 3) { $('.scale202 .arrow').css('-webkit-transform','rotate(-10deg)')}
 	if ($(this).attr('status') == 4) { $('.scale202 .arrow').css('-webkit-transform','rotate(24deg)')}
 });
-
 ctrl(301,'knob',4).on('click',function(){
-	//if ($(this).attr('status') == 0) { $('.scale301 .arrow').css('-webkit-transform','rotate(-20deg)')}
+	if ($(this).attr('status') == 0) { $('.scale301 .arrow').css('-webkit-transform','rotate(4deg)')}
 	if ($(this).attr('status') == 1) { $('.scale301 .arrow').css('-webkit-transform','rotate(-23deg)')}
-	if ($(this).attr('status') == 2) { $('.scale301 .arrow').css('-webkit-transform','rotate(11deg)')}
+	if ($(this).attr('status') == 2) { $('.scale301 .arrow').css('-webkit-transform','rotate(5deg)')}
 	if ($(this).attr('status') == 3) { $('.scale301 .arrow').css('-webkit-transform','rotate(-22deg)')}
 	if ($(this).attr('status') == 4) { $('.scale301 .arrow').css('-webkit-transform','rotate(5deg)')}
 });
@@ -1956,6 +1956,7 @@ $('[rel="telegraph"]').on('click',function() {
 			  	$('.scale4342InBlock201').remove();
 			});
 
+			$('.scale301 .arrow').css('-webkit-transform','rotate(4deg)');
 			ctrl(201,'rotator',0).change(function(){
 				if (($(this).attr('progress') == 8) || ($(this).attr('progress') == 10) || ($(this).attr('progress') == 15)) {
 					$('.scale4342InBlock201').remove();
@@ -1963,7 +1964,16 @@ $('[rel="telegraph"]').on('click',function() {
 				}
 			  });
 
-			
+			ctrl(203,'rotator',0).change(function() {
+				if ($(this).attr('status') == 80)) {
+					$('.scale202 .arrow').css('-webkit-transform','rotate(-4deg)');
+				}
+			}
+			ctrl(202,'rotator',1).change(function() {
+				if ($(this).attr('status') == 55)) {
+					$('.scale202 .arrow').css('-webkit-transform','rotate(-41deg)');
+				}
+			}
 			ctrl(201,'rotator',0).change(function(){
 				
 				if (($(this).attr('progress') == 8) || ($(this).attr('progress') == 10) || ($(this).attr('progress') == 15)) { 
