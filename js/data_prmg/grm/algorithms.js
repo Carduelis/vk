@@ -1133,7 +1133,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '002',
+					status : '013',
 				},
 			},
 			position_2 : {
@@ -1161,7 +1161,7 @@ ex3 : {
 					onSide : 'stack0_block5_front',
 					type : 'indicator',
 					num : '9',
-					status : '001',
+					status : '033',
 				},
 			},
 			position_3 : {
