@@ -3,6 +3,12 @@ var helloText = {
 	ex11 : 'Подогрейте паяльником или мощной осветительной лампой реле температурное, расположенное на потолке аппаратной, над шкафом с аппаратурой. В момент срабатывания реле должна отключаться аппаратура радиомаяка и загораться индикатор ПЕРЕГРЕВ на ПИУ КД; При искусственном задымлении в аппаратной должен сработать датчик дыма, расположенный рядом с реле температурным. При этом должно произойти отключение основной и резервной сети.',
 }
 var exerciseText = {
+	ex4 : {
+		message1 : {
+			eN : '11',
+			text : 'При работе с реальным оборудованием после включения БМК необходимо проверить соответствие показаний ИКР установленным на БМК фиксированным значениям КРС%. При несоответствии значений следует провести калибровку нажатием кнопок 0 или S на ИКР',
+		},
+	},
 	ex9 : {
 		message1 : {
 			eN : '2',
@@ -1459,6 +1465,62 @@ ex4 : {
 					status : '033',
 				},
 			},
+			position_3 : {
+				state : 'on',
+				description : 'Кнопкой ПАРАМЕТР установите ЦСЧ в режим КСВ. На цифровом индикаторе должен высветиться коэффициент стоячей волны.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '10',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '15',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '010',
+				},
+			},
+			position_4 : {
+				state : 'on',
+				description : 'Кнопкой ПАРАМЕТР установите ЦСЧ в режим C. На цифровом индикаторе должна высветиться температура.',
+				action_1 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '15',
+					status : 'off',
+				},
+				action_2 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'lamp',
+					num : '21',
+					status : 'on',
+				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block5',
+					onSide : 'stack0_block5_front',
+					type : 'indicator',
+					num : '9',
+					status : '048',
+				},
+			},
 		},
 	},
 	el4 : {
@@ -1614,7 +1676,7 @@ ex4 : {
 			},
 		},
 	},	
-	el11 : {
+/*	el11 : {
 		click : '11',
 		current : {
 			inStack : 'stack1',
@@ -1685,9 +1747,9 @@ ex4 : {
 				},
 			},
 		},
-	},
-	el12 : {
-		click : '12',
+	}, */
+	el11 : {
+		click : '11',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block14',
@@ -1703,8 +1765,8 @@ ex4 : {
 		},
 		defaultPosition : '1'
 	},
-	el13 : {
-		click : '13',
+	el12 : {
+		click : '12',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -1719,8 +1781,8 @@ ex4 : {
 			},
 		},
 	},
-	el14 : {
-		click : '14',
+	el13 : {
+		click : '13',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block14',
@@ -1744,8 +1806,8 @@ ex4 : {
 		},
 		defaultPosition : '0',
 	},
-	el15 : {
-		click : '15',
+	el14 : {
+		click : '14',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block14',
@@ -2775,7 +2837,7 @@ ex10 : {
 		positions : {
 			position_1 : {
 				state : '7',
-				description : 'Вращая ручку КРУТИЗНА устройства фидерного тракта, увеличьте КРС по индикатору на ИКР до включения индикатора АВАРИЯ КРУТ на ПИУ Г',
+				description : 'Вращая ручку КРУТИЗНА устройства фидерного тракта, увеличьте КРС по индикатору на ИКР до включения индикатора АВАРИЯ КРУТ на ПИУ КД (70)',
 				action_1 : {
 					inStack : 'stack0',
 					inBlock : 'stack0_block1',
@@ -2839,7 +2901,7 @@ ex10 : {
 		positions : {
 			position_1 : {
 				state : '2',
-				description : 'На ПИУ КД должны загореться индикаторы АВАРИЯ КРУТ отключив¬шегося комплекта, НЕТ РЕЗЕРВА ГРМ, КАТЕГОРИЯ I ГРМ и включиться звуковой сигнал. Верните ручку крутизны в исходное положение.',
+				description : 'На ПИУ КД должны загореться индикаторы АВАРИЯ КРУТ отключив¬шегося комплекта, НЕТ РЕЗЕРВА ГРМ, КАТЕГОРИЯ I ГРМ и включиться звуковой сигнал. Верните ручку крутизны в исходное положение. (20)',
 			},
 		},
 	},
