@@ -126,6 +126,9 @@ var trainingMode = false;
 				};
 			}
 		});
+		ctrl(blockId,typeOfControl,dataNumber).on('mouseover', function(){
+			$(this).removeClass('disabled');
+		});
 	}	
 // Функция является ли работа сдачей или тренировкой
 	function isTrain() {
@@ -395,6 +398,19 @@ $('#table td:nth-of-type(5)').on('click',function(){
 					$(this).parent().attr('status',degree2)
 				} 
 */
+		});
+		$("input[type='range']").on('mouseover', function(){
+			$(this).next("output").text($(this).val());
+			var degree = $(this).val();
+			if 	($(this).attr('max') == 720) {
+				var range = degree/36;
+				range = range.toFixed();
+				range = range*5;
+			}
+			var degree2 = degree/10;
+			$(this).parent().children('.status').text(range);
+			$(this).parent().children('.body').css('transform','rotate('+degree+'deg)');
+			$(this).parent().attr('status',range);
 		})
 
 
@@ -844,24 +860,25 @@ $('#block7020').on('click',function() {
 			hinter(21,203,"toggler",4,1, 203,"rotator",3,"Установите потенциометр КОМПЕНСАЦИЯ в среднее положение <span class=what>50</span>");
 			hinterNextBlock(22,203,"rotator",3,50, 205,"knob",1,"Установите переключатель МЕСТН-ОТКЛ-ДИСТ в положение ОТКЛ");
 			hinter(23,205,"knob",1,1, 205,"eject",0,"Извлеките блок П205 из стоек П200");
-			hinterNextBlock(24,205,"eject",0,0, 2050,"knob",0,"Установите I переключатель ПЕРВОЙ БУКВЫ в положение Д");
 		var x = 0;
 		if (letters == 2) {
+			hinterNextBlock(24,205,"eject",0,0, 2050,"knob",0,"Установите I переключатель ПЕРВОЙ БУКВЫ в положение Д");
 			hinter(25,2050,"knob",0,5, 2050,"knob",5,"Установите II переключатель ВТОРОЙ БУКВЫ в положение О");
 			hinter(26,2050,"knob",5,6, 2050,"knob",12,"Установите переключатель ЦИКЛ СЕК в положение 30 ");
 			hinter(27,2050,"knob",12,1, 2050,"knob",13,"Установите переключатель КОЛ-ВО БУКВ в положение 2");
 			hinterNextBlock(28,2050,"knob",13,1, 205,"toggler",0,"Установите тумблер ВЫХОД ФОС в положение ОТКЛ");
 			x=2;
 		} else {
-			hinter(25,2050,"knob",5,6, 2050,"knob",12,"Установите переключатель ЦИКЛ СЕК в положение 30 ");
+			hinterNextBlock(24,205,"eject",0,0, 2050,"knob",0,"Установите I переключатель ПЕРВОЙ БУКВЫ в положение Д");
+			hinter(25,2050,"knob",0,5, 2050,"knob",12,"Установите переключатель ЦИКЛ СЕК в положение 30 ");
 			hinterNextBlock(26,2050,"knob",12,1, 205,"toggler",0,"Установите тумблер ВЫХОД ФОС в положение ОТКЛ");
 		}
 
 		hinter(27+x,205,"toggler",0,0,	205, "knob", 2, "Установите в положение "+frequency.x1000);
-		hinter(27+x,205,"knob",2,frequency.x1000,	205, "knob", 3, "Установите в положение "+frequency.x100);
-		hinter(28+x,205,"knob",3,frequency.x100,	205, "knob", 4, "Установите в положение "+frequency.x10);
-		hinter(28+x,205,"knob",4,frequency.x10,	205, "knob", 5, "Установите в положение "+frequency.x1);
-		hinterEnd(28+x,205,"knob",5,frequency.x1);
+		hinter(28+x,205,"knob",2,frequency.x1000,	205, "knob", 3, "Установите в положение "+frequency.x100);
+		hinter(29+x,205,"knob",3,frequency.x100,	205, "knob", 4, "Установите в положение "+frequency.x10);
+		hinter(30+x,205,"knob",4,frequency.x10,	205, "knob", 5, "Установите в положение "+frequency.x1);
+		hinterEnd(31+x,205,"knob",5,frequency.x1);
 
 		}}); // END EXERCIZE 1 HINTS
 	}); // END EXERCIZE 1
