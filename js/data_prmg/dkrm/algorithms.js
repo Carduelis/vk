@@ -2934,6 +2934,23 @@ ex10 : {
 		click : '1',
 		current : {
 			inStack : 'stack0',
+			inBlock : 'stack0_block14',
+			onSide : 'stack0_block14_front',
+			num : '9',
+			type : 'toggler',
+		},
+		positions : {
+			position_1 : {
+				state : '0',
+				description : 'Переключатель КРС/УРОВЕНЬ ВХОДА на ИКР установите в положение КРС',
+			},
+		},
+		defaultPosition : '1',
+	},
+	el2 : {
+		click : '2',
+		current : {
+			inStack : 'stack0',
 			inBlock : 'stack0_block1',
 			onSide : 'stack0_block1_front',
 			num : '21',
@@ -2987,8 +3004,8 @@ ex10 : {
 		},
 		defaultPosition : '1',
 	},
-	el2 : {
-		click : '2',
+	el3 : {
+		click : '3',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block14',
@@ -3019,8 +3036,8 @@ ex10 : {
 			},
 		},
 	},
-	el3 : {
-		click : '3',
+	el4 : {
+		click : '4',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block2',
@@ -3083,8 +3100,8 @@ ex10 : {
 			},
 		},
 	},
-	el4 : {
-		click : '4',
+	el5 : {
+		click : '5',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block2',
