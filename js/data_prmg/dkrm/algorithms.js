@@ -2711,19 +2711,7 @@ ex9 :  {
 					status : 'off',
 				},
 			},
-		},
-	},
-	el3 : {
-		click : '3',
-		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
-			num : '60',
-			type : 'next',
-		},
-		positions : {
-			position_1 : {
+			position_2 : {
 				state : 'on',
 				description : 'Через 2 с после переключения на резерв должно произойти отключение радиомаяка.',
 				action_1 : {
@@ -2769,8 +2757,8 @@ ex9 :  {
 			},
 		},
 	},
-	el4 : {
-		click : '4',
+	el3 : {
+		click : '3',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -2793,8 +2781,8 @@ ex9 :  {
 			},
 		},
 	},
-	el5 : {
-		click : '5',
+	el4 : {
+		click : '4',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -2825,8 +2813,8 @@ ex9 :  {
 			},
 		},
 	},
-	el6 : {
-		click : '6',
+	el5 : {
+		click : '5',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
@@ -2889,8 +2877,8 @@ ex9 :  {
 			},
 		},
 	},
-	el7 : {
-		click : '7',
+	el6 : {
+		click : '6',
 		current : {
 			inStack : 'stack0',
 			inBlock : 'stack0_block1',
