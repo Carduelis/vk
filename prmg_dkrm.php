@@ -182,8 +182,10 @@
       </li>
       <li id="min_stack1">
         <div>
+           <section class="size120" id="min_stack1_block4"><header>Антенна</header><div side="front" id="min_stack1_block4_front"></div></section>    
+         
           <section class="size120" id="min_stack1_block3"><header>БМК</header><div side="front" id="min_stack1_block3_front"></div></section>    
-          <section class="size240" id="min_stack1_block1"><div side="front" id="min_stack1_block1_front"></div></section>  
+          <section class="size240" id="min_stack1_block1"><header>ЩР</header><div side="front" id="min_stack1_block1_front"></div></section>  
           <section class="size64" id="min_stack1_block2"><div side="front" id="min_stack1_block2_front"></div></section>      
         </div>
       </li>
@@ -255,6 +257,9 @@
         </div>
       </li>
       <li id="stack1">
+        <div class="block-holder">
+          <section class="size120" id="stack1_block4"><div side="front" id="stack1_block4_front"></div></section>    
+        </div>
         <div class="block-holder">
           <section class="size120" id="stack1_block3"><div side="front" id="stack1_block3_front"></div></section>    
         </div>
