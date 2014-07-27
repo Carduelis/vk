@@ -2724,7 +2724,7 @@ ex9 :  {
 		},
 		positions : {
 			position_1 : {
-				state : 'off',
+				state : 'on',
 				description : 'Через 2 с после переключения на резерв должно произойти отключение радиомаяка.',
 				action_1 : {
 					inStack : 'stack0',
