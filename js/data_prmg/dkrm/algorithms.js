@@ -21,6 +21,16 @@ var exerciseText = {
 			text : 'Сообщение выводится в 1 упражнении после 4 элемента после третьего Шага',
 		},
 	},
+	ex9 : {
+		message1 : {
+			eN : '2',
+			text : 'Ослабьте стопорящий винт с воротком на передающей антенне и с помощью регулировочного винта со штурвалом поверните антенну до появления сигнала «Авария» на ИКР.',
+		},
+		message2 : {
+			eN : '5',
+			text : 'Через 2 с после переключения на резерв должно произойти отключение радиомаяка.',
+		},
+	},
 	ex12 : {
 		message1 : {
 			eN : '3',
@@ -1676,78 +1686,6 @@ ex4 : {
 			},
 		},
 	},	
-/*	el11 : {
-		click : '11',
-		current : {
-			inStack : 'stack1',
-			inBlock : 'stack1_block3',
-			onSide : 'stack1_block3_front',
-			num : '4',
-			type : 'knob',
-		},
-		positions : {
-			position_1 : {
-				state : '1',
-				description : 'Проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %.',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'indicator',
-					num : '15',
-					status : '005.0',
-				},
-			},
-			position_2 : {
-				state : '2',
-				description : 'Проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %.',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'indicator',
-					num : '15',
-					status : '016.5',
-				},
-			},
-			position_3 : {
-				state : '3',
-				description : 'Проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %.',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'indicator',
-					num : '15',
-					status : '033.3',
-				},
-			},
-			position_4 : {
-				state : '4',
-				description : 'Проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %.',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'indicator',
-					num : '15',
-					status : '050.0',
-				},
-			},
-			position_5 : {
-				state : '5',
-				description : 'Проверьте соответствие показаний ИКР установленным на БМК фиксированным значениям КРС %.',
-				action_1 : {
-					inStack : 'stack0',
-					inBlock : 'stack0_block14',
-					onSide : 'stack0_block14_front',
-					type : 'indicator',
-					num : '15',
-					status : '100',
-				},
-			},
-		},
-	}, */
 	el11 : {
 		click : '11',
 		current : {
@@ -2525,6 +2463,30 @@ ex8 : {
 					num : '40',
 					status : 'on',
 				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '31',
+					status : 'on',
+				},
+				action_5 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '636',
+					status : 'on',
+				},
+				action_6 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '676',
+					status : 'on',
+				},
 			},
 		},
 	},
@@ -2593,12 +2555,26 @@ ex8 : {
 					num : '115',
 					status : 'off',
 				},
+				action_3 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '264',
+					status : 'on',
+				},
+				action_4 : {
+					inStack : 'stack0',
+					inBlock : 'stack0_block1',
+					onSide : 'stack0_block1_front',
+					type : 'lamp',
+					num : '291',
+					status : 'on',
+				}
 			},
 		},
 	},
 },
-
-
 
 ex9 : {
 	nameOfExercise : 'Проверка выдачи сигнала «Авария» от ухода нуля зоны и переключения с задержкой времени на резервный комплект',
