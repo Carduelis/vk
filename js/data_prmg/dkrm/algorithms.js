@@ -1301,7 +1301,7 @@ ex3 : {
 					inBlock : 'stack0_block1',
 					onSide : 'stack0_block1_front',
 					type : 'lamp',
-					num : '213',
+					num : '238',
 					status : 'on',
 				},
 			},
