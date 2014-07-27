@@ -2644,9 +2644,9 @@ ex9 :  {
 	el2 : {
 		click : '2',
 		current : {
-			inStack : 'stack0',
-			inBlock : 'stack0_block1',
-			onSide : 'stack0_block1_front',
+			inStack : 'stack1',
+			inBlock : 'stack1_block4',
+			onSide : 'stack1_block4_front',
 			num : '60',
 			type : 'next',
 		},
