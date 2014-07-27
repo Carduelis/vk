@@ -222,6 +222,18 @@ $('#go').one('click',function(){
 	setLampRelation('stack0_block6_front','toggler','16','1','34','off');
 	setLampRelation('stack0_block6_front','toggler','16','1','48','off');
 
+	setLampRelation('stack0_block22_front','toggler','16','0','3','on');
+	setLampRelation('stack0_block22_front','toggler','16','0','13','on');
+	setLampRelation('stack0_block22_front','toggler','16','0','22','on');
+	setLampRelation('stack0_block22_front','toggler','16','0','34','on');
+	setLampRelation('stack0_block22_front','toggler','16','0','48','on');
+
+	setLampRelation('stack0_block22_front','toggler','16','1','3','off');
+	setLampRelation('stack0_block22_front','toggler','16','1','13','off');
+	setLampRelation('stack0_block22_front','toggler','16','1','22','off');
+	setLampRelation('stack0_block22_front','toggler','16','1','34','off');
+	setLampRelation('stack0_block22_front','toggler','16','1','48','off');
+
 });
 	function setLampRelation(blockId,controlType,controlNum,controlStatus,lampNum,lampStatus) {
 		setTimeout(function(){
