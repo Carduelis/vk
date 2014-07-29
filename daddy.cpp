@@ -52,6 +52,7 @@ void Daddy::initializeGL()
     glShadeModel(GL_SMOOTH);//GL_FLAT
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_POINT_SMOOTH);
+    glEnable(GL_POLYGON_SMOOTH);
     glEnable(GL_BLEND);
     glHint(GL_POINT_SMOOTH_HINT,GL_NICEST);
     //glEnable(GL_DEPTH_TEST);

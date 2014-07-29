@@ -20,6 +20,7 @@ class Menu : public QMainWindow
     public:
         explicit Menu(QWidget *parent=0);
         ~Menu();
+        void ExternalLaunch(void);
 
     private slots:
         void on_ButtonIndicatorDRL_clicked();

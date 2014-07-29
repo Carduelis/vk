@@ -13,6 +13,11 @@ Menu::~Menu()
     delete PRL;
 }
 
+void Menu::ExternalLaunch(void)
+{
+
+}
+
 void Menu::on_ButtonIndicatorDRL_clicked()
 {
     DRL=new IndicatorDRL;

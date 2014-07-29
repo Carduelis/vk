@@ -13,6 +13,9 @@ MainLocator::~MainLocator()
 
 }
 
+/**
+ * Переводим градусы в радианы
+ */
 void MainLocator::GenerationRadians(void)
 {
     for(quint16 i=0u;i<ROUND_DEGREE;i++)
@@ -34,6 +37,9 @@ void MainLocator::GenerationRadians(bool)
     }
 }
 
+/**
+ * Рисуем ВПП
+ */
 void MainLocator::DrawStation(void)const
 {
     glRotatef(LOCATOR_ROTATE_ANGLE,.0f,.0f,1.0f);
@@ -62,14 +68,21 @@ void MainLocator::DrawStation(void)const
     glRotatef(-LOCATOR_ROTATE_ANGLE,.0f,.0f,1.0f);
 }
 
+/**
+ * Привязываем азимутальное исчисление
+ */
 void MainLocator::InitLocatorGrid(void)const
 {
     glRotatef(90.0f,.0f,.0f,1.0f);
 }
 
+/**
+ * Обновление остаточного изображения
+ */
 void MainLocator::ContinueSearch(void)
 {
     updateGL();
+    quint8 count_targets=TargetsSettings::GetTargetsGount();
     if(ray_position==ray.end()-1u)
     {
         ray_position=ray.begin();
@@ -84,7 +97,7 @@ void MainLocator::ContinueSearch(void)
             S.active_insync_trash[scale][2].pop_front();
         if(!S.active_insync_trash[scale][3].isEmpty())
             S.active_insync_trash[scale][3].pop_front();
-        for(quint8 i=0u;i<TargetsSettings::GetTargetsGount();i++)
+        for(quint8 i=0u;i<count_targets;i++)
         {
             if(!S.targets[scale].isEmpty())
                 if(!S.targets[scale][i].isEmpty())
@@ -95,6 +108,9 @@ void MainLocator::ContinueSearch(void)
     ray_position++;
 }
 
+/**
+ * Конвертация значения относительно масштаба
+ */
 template<typename T>T MainLocator::CalcScaleValue(const T value,MainLocator::Scale scale) const
 {
     return static_cast<T>(value)/scale;
@@ -105,6 +121,9 @@ template<typename T>T MainLocator::CalcScaleValue(const T value)const
     return CalcScaleValue(value,scale);
 }
 
+/**
+ * Режим вывода отметок азимута
+ */
 MainLocator::Azimuth MainLocator::GetCurrentAzimuthMode(void)const
 {
     return azimuth;
@@ -116,6 +135,9 @@ void MainLocator::SetCurrentAzimuthMode(const MainLocator::Azimuth a)
     GenerationAzimuth();
 }
 
+/**
+ * Режим вывода отметок дальности
+ */
 MainLocator::Range MainLocator::GetCurrentRangeMode(void)const
 {
     return range;
@@ -127,7 +149,9 @@ void MainLocator::SetCurrentRangeMode(const MainLocator::Range r)
     GenerationRange();
 }
 
-
+/**
+ * Масштаб
+ */
 MainLocator::Scale MainLocator::GetCurrentScaleMode(void)const
 {
     return scale;
@@ -142,6 +166,9 @@ void MainLocator::SetCurrentScaleMode(const MainLocator::Scale s)
     GenerationMeteo();
 }
 
+/**
+ * Режим работы ДРЛ
+ */
 MainLocator::WorkMode MainLocator::GetCurrentWorkMode(void)const
 {
     return work_mode;
@@ -152,6 +179,9 @@ void MainLocator::SetCurrentWorkMode(const MainLocator::WorkMode wm)
     work_mode=wm;
 }
 
+/**
+ * Генерация координат отметок дальности
+ */
 void MainLocator::GenerationRange(void)
 {
     S.range[scale].clear();
@@ -188,6 +218,9 @@ void MainLocator::GenerationRange(void)
     Current.range=&S.range[scale];
 }
 
+/**
+ * Отрисовка отметок дальности
+ */
 void MainLocator::DrawRange(void)const
 {
     if(Current.range->isEmpty())
@@ -226,6 +259,9 @@ void MainLocator::DrawRange(void)const
     */
 }
 
+/**
+ * Генерация координат отметок азимута
+ */
 void MainLocator::GenerationAzimuth(void)
 {
     S.azimuth.clear();
@@ -244,6 +280,9 @@ void MainLocator::GenerationAzimuth(void)
     Current.azimuth=&S.azimuth;
 }
 
+/**
+ * Отрисовка координат отметок азимута
+ */
 void MainLocator::DrawAzimuth(void)const
 {
     if(Current.azimuth->isEmpty())
