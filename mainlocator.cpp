@@ -330,7 +330,7 @@ void MainLocator::DrawTrash(void)const
 
 void MainLocator::GenerationLocalItems(void)
 {
-    CreateEllipseTrashArea(S.local_items[scale],.0f,15.0f,.0f,.0f);
+    CreateEllipseTrashArea(S.local_items[scale],.0f,15.0f,.0f,.0f,15.0f);
 }
 
 void MainLocator::DrawLocalItems(void)const

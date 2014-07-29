@@ -51,6 +51,7 @@ void Daddy::initializeGL()
     glMatrixMode(GL_PROJECTION); //Устанавливаем матрицу
     glShadeModel(GL_SMOOTH);//GL_FLAT
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_POINT_SPRITE);
     glEnable(GL_POINT_SMOOTH);
     glEnable(GL_POLYGON_SMOOTH);
     glEnable(GL_BLEND);
